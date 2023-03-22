@@ -1,0 +1,32 @@
+- name: Arbor
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: arbor-sim.org
+  - biological-level:
+    - detailed neurons
+    - single cells
+    - large networks
+  - network-level: null
+  - tags: multicompartment, hpc, gpu, python, c++, large-scale, neuroml, neurolucida,
+      swc, nmodl
+  - floss license: BSD
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - Point of contact:
+    - '[Gitter](https://gitter.im/arbor-sim/community)'
+    - '[Github](https://github.com/arbor-sim/arbor/)'
+    - '[Email](mailto:contact@arbor-sim.org)'
+  - user docs: docs.arbor-sim.org
+  - status: maintained
+  - inclusion: true
+  - contributors: Brent

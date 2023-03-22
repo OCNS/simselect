@@ -1,0 +1,24 @@
+- name: Geppeto
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://alleninstitute.github.io/dipde/index.html
+  - tags: web-based platform, visualization, simulation, cell, whole-brain
+  - license: MIT
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: true
+  - PoC: github, email
+  - user docs: http://docs.geppetto.org/en/latest/#contact-us
+  - status: inactive (last update 2018)
+  - inclusion: null
+  - comment: installability-  none, ran on website
+  - contributors: null

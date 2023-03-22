@@ -1,0 +1,29 @@
+- name: Brian
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: '[https://briansimulator.org/](https://briansimulator.org/)'
+  - tags: python, single-compartment models, channel-based models, integrate-and-fire
+      models, basic multi-compartmental models, custom models, differential equations,
+      spiking networks, networks, physical units, code generation, OpenMP, multi-threading,
+      single machine, simulation
+  - interface language: python
+  - license: CeCILL 2.1 license
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - Point of contact:
+    - '[discourse](https://brian.discourse.group/)'
+    - github issues
+  - user docs: '[https://brian2.readthedocs.io/en/stable/](https://brian2.readthedocs.io/en/stable/)'
+  - status: maintained and actively developed
+  - inclusion: true
+  - contributors: Marcel

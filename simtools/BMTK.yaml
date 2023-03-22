@@ -1,0 +1,26 @@
+- name: BMTK
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://alleninstitute.github.io/bmtk/ , https://alleninstitute.github.io/bmtk/index.html#base-installation
+  - level: multi-compartment biophysically detailed networks, to point-neuron models,
+      to filter-based models, and even population-level firing rate models.
+  - tags: detailed neurons, single cells, networks, sonata
+  - floss license: BSD
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - PoC: issues/PRs
+  - user docs: https://alleninstitute.github.io/bmtk/
+  - comment: 'Python, but may require other tools: NEST/dipde etc. so may depend on
+      individual tools in the stack'
+  - inclusion: true
+  - contributors: Brent

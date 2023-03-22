@@ -1,0 +1,26 @@
+- name: Arbor GUI
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://github.com/arbor-sim/gui/
+  - level: detailed neurons, single cells
+  - tags: multicompartment, hpc, gpu, python, c++, large-scale, gui
+  - floss license: BSD
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - Point of contact:
+    - '[Gitter](https://gitter.im/arbor-sim/gui)'
+    - '[Github](https://github.com/arbor-sim/gui/issues)'
+  - user docs: https://github.com/arbor-sim/gui/
+  - status: maintained
+  - inclusion: true
+  - contributors: Brent

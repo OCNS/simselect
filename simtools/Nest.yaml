@@ -1,0 +1,31 @@
+- name: Nest
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://nest-simulator.org
+  - tags: python, c++, gui, large-scale
+  - license: GPLv2
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - PoC: GitHub, mailing list, e-mail
+  - user docs: https://nest-simulator.org
+  - status: maintained
+  - inclusion: true
+  - biological scale: point neurons, HH type with one compartment, "neurons with few
+      compartments"
+  - network scale: single cell, small scale, meso scale networks, large scale networks
+  - large scale implemented by: MPI
+  - interface languages: Python, SLI, C++(?)
+  - model coverage: built-in models, extensible
+  - file formats in: null
+  - file formats out: null
+  - contributors: Ankur

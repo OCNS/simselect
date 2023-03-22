@@ -1,0 +1,23 @@
+- name: TheVirtualBrain (TVB)
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://www.thevirtualbrain.org/
+  - tags: python, large-scale, whole-brain
+  - license: Baycrest
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - point of contact: GitHub, email
+  - user docs: https://docs.thevirtualbrain.org/
+  - status: actively developed
+  - inclusion: hopefully yes!
+  - contributors: null

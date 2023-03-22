@@ -1,0 +1,34 @@
+- name: Neuron (and CoreNEURON)
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://neuron.yale.edu/neuron/
+  - tags: python, gpu, c/c++, gui, compartment,
+  - license: BSD
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - point of contact: GitHub, forum
+  - user docs:
+    - '[CoreNeuron](https://nrn.readthedocs.io/en/latest/coreneuron/index.html)'
+    - '[Neuron](https://nrn.readthedocs.io/en/8.2.1/)'
+  - status: maintained
+  - inclusion: true
+  - biological scale: sub-cellular, reaction-diffusion, point neurons, HH type with
+      single, HH type with multiple compartments
+  - network scale: single cell, small scale networks, meso scale networks, large scale
+      networks
+  - large scale implemented by: 'MPI (user friendly term: supercomputing/cluster/multi-node
+      support? )'
+  - interface languages: Python, HOC, NMODL
+  - model coverage: built-in models, extensible
+  - file formats in: null
+  - contributors: Ankur

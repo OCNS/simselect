@@ -1,0 +1,24 @@
+- name: LFPy
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://lfpy.readthedocs.io/en/latest/
+  - tags: python, local field potentials, multicompartment neurons
+  - license: GNU General Public License (GPL)
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: true
+  - point of contact: (maybe github issues)
+  - user docs: https://lfpy.readthedocs.io/en/latest/
+  - status: maintained
+  - inclusion: null
+  - other: based on NEURON simulator
+  - contributors: Brent

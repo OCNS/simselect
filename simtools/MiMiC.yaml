@@ -1,0 +1,23 @@
+- name: MiMiC
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://mimic-project.org/en/latest/
+  - status: active development
+  - tags: multi-scale, python
+  - installable:
+    - Linux: true
+    - Windows: null
+    - MacOS: true
+    - OS Independent: null
+  - PoC: not specified
+  - user docs: https://mimic-project.org/en/latest/
+  - note: introduced in the Simulate with EBRAINS event
+  - inclusion: null
+  - contributors: null

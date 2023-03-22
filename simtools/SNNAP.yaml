@@ -1,0 +1,27 @@
+- name: SNNAP
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://med.uth.edu/nba/snnap/ (this link is broken on Jim's website)
+  - tags: Java, standalone app, single neuron/neural networks simulation, multi-compartment,
+      GUI
+  - license: none
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - PoC: none
+  - user docs: https://med.uth.edu/nba/snnap/snnap-tutorials/ videos; https://med.uth.edu/nba/snnap/snnap-models-and-examples/
+      models & examples; https://med.uth.edu/nba/wp-content/uploads/sites/29/2021/11/snnap_8_tutorial_v2019.pdf
+      manual
+  - status: inactive (last update 2003, revised 2019)
+  - comment: installability- essentially everywhere
+  - inclusion: null
+  - contributors: null

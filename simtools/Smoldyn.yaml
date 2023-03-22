@@ -1,0 +1,23 @@
+- name: Smoldyn
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: https://www.smoldyn.org/
+  - status: maintained
+  - license: LGPL + GPLv3 + public domain
+  - tags: reaction-diffusion, biochemistry, Python
+  - installable:
+    - Linux: true
+    - Windows: true
+    - MacOS: true
+    - OS Independent: null
+  - PoC: e-mail
+  - user docs: on website
+  - inclusion: true
+  - contributors: null

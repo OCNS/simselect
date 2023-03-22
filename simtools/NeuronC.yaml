@@ -1,0 +1,26 @@
+- name: NeuronC
+- website_url: ''
+- operating_system:
+  - windows: ''
+  - macOS: ''
+  - linux: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model__description_language: ''
+- - website: '[http://retina.anatomy.upenn.edu/~rob/neuronc.html](http://retina.anatomy.upenn.edu/~rob/neuronc.html)'
+  - tags: neural circuits, simulations, cable equation, channel-based models, compartments,
+      c++
+  - interface language: neuronC or C++
+  - license: not specified
+  - installable:
+    - Linux: true
+    - Windows: null
+    - MacOS: true
+    - OS Independent: null
+  - PoC: email
+  - user docs: '[http://retina.anatomy.upenn.edu/~rob/ncmanindex.html](http://retina.anatomy.upenn.edu/~rob/ncmanindex.html)'
+  - status: maintained (last update 2020)
+  - comment: installability- lin/macos (win via lin env>)
+  - inclusion: rather no
+  - contributors: Marcel
