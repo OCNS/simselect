@@ -426,7 +426,7 @@
     - MacOS: yes
     - OS Independent:
   - PoC: https://github.com/helveg/patch/issues
-  - user docs: -
+  - user docs:
   - status: 
   - inclusion: 
   - contributors: Brent
