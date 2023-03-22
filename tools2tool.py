@@ -9,6 +9,7 @@ def yaml_to_yamls():
                 val = [
                     {"name": tool_name},
                     {"website_url": ""},
+                    {"operating_system" : [{'windows': ''}, {'macOS': ''}, {'linux': ''}]},
                     {"biological_level": ""},
                     {"computing_scale": ""},
                     {"interface_language": ""},
