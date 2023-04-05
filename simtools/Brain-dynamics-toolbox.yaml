@@ -1,13 +1,13 @@
 - name: Brain dynamics toolbox
-- website_url: ''
+- website_url: http://bdtoolbox.org/
 - operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
+  - windows: True
+  - macOS: True
+  - linux: True
+- biological_level: #TODO
+- computing_scale: single machine
+- interface_language: MATLAB
+- model__description_language: None
 - - website: http://bdtoolbox.org/about/
   - status: maintained
   - license: BSD

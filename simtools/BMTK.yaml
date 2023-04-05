@@ -1,13 +1,13 @@
 - name: BMTK
-- website_url: ''
+- website_url: https://alleninstitute.github.io/bmtk/
 - operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
+  - windows: True
+  - macOS: True
+  - linux: True
+- biological_level: population model, single-compartment (simple), single-compartment (complex), multi-compartment model
+- computing_scale: #TODO
+- interface_language: Python
+- model__description_language: SONATA
 - - website: https://alleninstitute.github.io/bmtk/ , https://alleninstitute.github.io/bmtk/index.html#base-installation
   - level: multi-compartment biophysically detailed networks, to point-neuron models,
       to filter-based models, and even population-level firing rate models.

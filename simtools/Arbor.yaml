@@ -1,13 +1,13 @@
 - name: Arbor
-- website_url: ''
+- website_url: https://arbor-sim.org/
 - operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
+  - windows: True
+  - macOS: True
+  - linux: True
+- biological_level: population model, single-compartment (simple), single-compartment (complex), multi-compartment model
+- computing_scale: single machine, cluster, supercomputer, GPU
+- interface_language: Python, C++ 
+- model__description_language: NMODL, NeuroML/LEMS
 - - website: arbor-sim.org
   - biological-level:
     - detailed neurons
