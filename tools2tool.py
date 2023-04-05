@@ -9,13 +9,12 @@ def yaml_to_yamls():
                 val = [
                     {"name": tool_name},
                     {"website_url": ""},
-                    {"operating_system" : [{'windows': ''}, {'macOS': ''}, {'linux': ''}]},
+                    {"operating_system" : ""},
                     {"biological_level": ""},
                     {"computing_scale": ""},
                     {"interface_language": ""},
-                    {"model__description_language": ""},
+                    {"model_description_language": ""},
                 ]
-                val.append(list(simtool.values())[0])
                 yaml.dump(val, outfile)
 
                 
