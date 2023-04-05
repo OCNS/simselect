@@ -1,24 +1,7 @@
 - name: ReMoto
 - website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
+- operating_system: ''
 - biological_level: ''
 - computing_scale: ''
 - interface_language: ''
-- model__description_language: ''
-- - website: http://remoto.leb.usp.br
-  - tags: realistic network modeling, gui, multi-scale, single neuron/neural networks,
-      neuromuscle simulation, java
-  - license: website
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: e-mail
-  - user docs: on website
-  - status: active development
-  - inclusion: null
-  - contributors: Eliane
+- model_description_language: ''

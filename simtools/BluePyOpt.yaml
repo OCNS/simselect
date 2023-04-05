@@ -1,23 +1,7 @@
 - name: BluePyOpt
-- website_url: https://bluepyopt.readthedocs.io
-- operating_system:
-  - windows: True
-  - macOS: True
-  - linux: True
-- biological_level: single-compartment (simple) #TODO
-- computing_scale: #TODO
-- interface_language: Python
-- model__description_language: NeuroML/LEMS
-- - website: https://bluepyopt.readthedocs.io
-  - tags: multiparadigm neural modelling, code-free configuration , parallelized workflow
-  - license: Mixed GPL, LGPL, BSD
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: https://github.com/BlueBrain/BluePyOpt/issues
-  - user docs: https://bluepyopt.readthedocs.io
-  - status: active
-  - inclusion: null
-  - contributors: null
+- website_url: ''
+- operating_system: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model_description_language: ''

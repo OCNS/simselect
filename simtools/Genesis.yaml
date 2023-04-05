@@ -1,23 +1,7 @@
 - name: Genesis
 - website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
+- operating_system: ''
 - biological_level: ''
 - computing_scale: ''
 - interface_language: ''
-- model__description_language: ''
-- - wesite: http://www.genesis-sim.org/
-  - tags: single neuron, large network, Python, GUI
-  - license: GPLv2
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: null
-    - OS Independent: null
-  - user docs: http://www.genesis-sim.org/GENESIS/Hyperdoc/Manual.html
-  - POC: none
-  - status: unmaintained (last update 2019)
-  - inclusion: null
-  - contributors: null
+- model_description_language: ''

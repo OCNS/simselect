@@ -1,26 +1,7 @@
 - name: Arbor GUI
-- website_url: https://github.com/arbor-sim/gui/
-- operating_system:
-  - windows: True
-  - macOS: True
-  - linux: True
-- biological_level: population model, single-compartment (simple), single-compartment (complex), multi-compartment model
-- computing_scale: single machine, cluster, supercomputer, GPU
-- interface_language: GUI, Python, C++ 
-- model__description_language: NMODL, NeuroML/LEMS
-- - website: https://github.com/arbor-sim/gui/
-  - level: detailed neurons, single cells
-  - tags: multicompartment, hpc, gpu, python, c++, large-scale, gui
-  - floss license: BSD
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - Point of contact:
-    - '[Gitter](https://gitter.im/arbor-sim/gui)'
-    - '[Github](https://github.com/arbor-sim/gui/issues)'
-  - user docs: https://github.com/arbor-sim/gui/
-  - status: maintained
-  - inclusion: true
-  - contributors: Brent
+- website_url: ''
+- operating_system: ''
+- biological_level: ''
+- computing_scale: ''
+- interface_language: ''
+- model_description_language: ''

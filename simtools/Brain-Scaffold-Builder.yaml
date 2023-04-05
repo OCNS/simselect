@@ -1,23 +1,7 @@
 - name: Brain Scaffold Builder
 - website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
+- operating_system: ''
 - biological_level: ''
 - computing_scale: ''
 - interface_language: ''
-- model__description_language: ''
-- - website: https://bsb.readthedocs.io
-  - tags: multiparadigm neural modelling, code-free configuration , parallelized workflow
-  - license: GPL3
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: https://github.com/dbbs-lab/bsb/issues/
-  - user docs: https://bsb.readthedocs.io
-  - status: active
-  - inclusion: null
-  - contributors: null
+- model_description_language: ''

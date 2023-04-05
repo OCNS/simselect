@@ -1,23 +1,7 @@
 - name: NeuroRD
 - website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
+- operating_system: ''
 - biological_level: ''
 - computing_scale: ''
 - interface_language: ''
-- model__description_language: ''
-- - website: https://krasnow1.gmu.edu/CENlab/software.html
-  - status: maintained
-  - license: GPLv2
-  - tags: reaction-diffusion, java
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: true
-  - PoC: GitHub
-  - user docs: tutorials, publications and published models (also on ModelDB)
-  - inclusion: true
-  - contributors: null
+- model_description_language: ''
