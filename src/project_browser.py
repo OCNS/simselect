@@ -27,7 +27,7 @@ def filtered_data(criteria):
 # Create selection widgets
 os_select = pn.widgets.MultiChoice(name='Operating systems', options=VALUES["operating_system"])
 lang_select = pn.widgets.MultiChoice(name='Interface languages', options=VALUES["interface_language"])
-power_select = pn.widgets.MultiChoice(name='Computing power', options=VALUES["interface_language"])
+power_select = pn.widgets.MultiChoice(name='Computing power', options=VALUES["computing_scale"])
 model_select = pn.widgets.MultiChoice(name='Model type', options=VALUES["biological_level"])
 description_select = pn.widgets.MultiChoice(name='Model description language', options=VALUES["model__description_language"])
 
