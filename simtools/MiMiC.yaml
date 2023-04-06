@@ -1,7 +1,7 @@
 - name: MiMiC
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: https://mimic-project.org/en/latest/
+- operating_system: Linux, MacOS, Windows
+- biological_level: #TODO
+- computing_scale: Single Machine #TODO
+- interface_language: Python
+- model_description_language: #TODO

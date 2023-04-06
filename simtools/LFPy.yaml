@@ -1,7 +1,7 @@
 - name: LFPy
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: https://lfpy.readthedocs.io/en/latest/
+- operating_system: Linux, MacOS, Windows
+- biological_level: Multi-Compartment Model #TODO
+- computing_scale: Single Machine
+- interface_language: Python
+- model_description_language: NMODL

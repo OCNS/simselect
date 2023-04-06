@@ -1,7 +1,7 @@
-- name: BMTK
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- name: Brain Modelling Toolkit (BMTK)
+- website_url: https://alleninstitute.github.io/bmtk/
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine, Cluster
+- interface_language: Python
+- model_description_language: SONATA

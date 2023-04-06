@@ -1,7 +1,7 @@
 - name: BluePyOpt
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: https://bluepyopt.readthedocs.io
+- operating_system: Linux, MacOS, Windows
+- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine
+- interface_language: Python
+- model_description_language: NeuroML/LEMS

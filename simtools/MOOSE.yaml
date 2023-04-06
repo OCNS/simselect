@@ -1,7 +1,8 @@
 - name: MOOSE
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: https://moose.ncbs.res.in/
+- operating_system: Linux, MacOS
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine, Cluster, Supercomputer, GPU
+- computing_scale: Single Machine
+- interface_language: Python, GUI, C++
+- model_description_language: NMODL, NeuroML/LEMS, SBML

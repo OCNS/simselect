@@ -1,7 +1,7 @@
-- name: Genesis
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- name: GEneral NEural SImulation System (GENESIS)
+- website_url: http://www.genesis-sim.org/
+- operating_system: Linux, MacOS, Windows
+- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine
+- interface_language: GUI, C
+- model_description_language: 

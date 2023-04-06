@@ -1,7 +1,7 @@
 - name: Brain dynamics toolbox
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: http://bdtoolbox.org/
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model
+- computing_scale: Single Machine
+- interface_language: MATLAB
+- model_description_language:

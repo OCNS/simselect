@@ -1,7 +1,7 @@
 - name: MUSIC (MUlti-SImulation Coordinator)
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: https://github.com/INCF/MUSIC
+- operating_system: Linux, MacOS
+- biological_level: #TODO
+- computing_scale: Cluster
+- interface_language: C++
+- model_description_language: 
