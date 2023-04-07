@@ -34,6 +34,21 @@ class SimSelect:
         for simulator in self.simulators:
             simulator.visible = simulator.name in filter_results
 
+    def simulator_details(self, event):
+        simulator = event.obj.name
+        data = SimSelect.DATA[simulator]
+        description = f"""
+        # {data['name']}
+        
+        TODO
+        
+        Website: [{data['website_url']}]({data['website_url']})
+        """
+        print(description)
+        self.template.modal[0].clear()
+        self.template.modal[0].append(pn.pane.Markdown(description))
+        self.template.open_modal()
+
     def __init__(self):
         # This is needed to make the app work in a notebook
         pn.extension()
@@ -60,6 +75,8 @@ class SimSelect:
         # Create "buttons" for all simulators
         self.simulators = [pn.widgets.Button(name=name)
                            for name in SimSelect.DATA.keys()]
+        for simulator in self.simulators:
+            simulator.on_click(self.simulator_details)
         layout = pn.FlexBox(*self.simulators)
         self.template.main.append(layout)
         self.os_select.param.watch(self.update_cards, 'value')
@@ -67,6 +84,8 @@ class SimSelect:
         self.power_select.param.watch(self.update_cards, 'value')
         self.model_select.param.watch(self.update_cards, 'value')
         self.description_select.param.watch(self.update_cards, 'value')
+
+        self.template.modal.append(pn.Column())  # Placeholder
 
 
 if __name__.startswith("bokeh"):
