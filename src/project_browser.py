@@ -8,6 +8,12 @@ import data
 class SimSelect:
     DATA = data.parse_files()
     VALUES = data.unique_entries(DATA)
+    # Criteria with their "translation" for humans
+    CRITERIA = {"operating_system": "Operating systems",
+                "interface_language": "Interface languages",
+                "biological_level": "Model type",
+                "computing_scale": "Computing power",
+                "model__description_language": "Model description language"}
 
     def filtered_data(self, criteria):
         '''
@@ -35,11 +41,8 @@ class SimSelect:
         return filtered, total_criteria
 
     def update_cards(self, event):
-        filter_results, total_critera = self.filtered_data({'operating_system': self.os_select.value,
-                                             'interface_language': self.lang_select.value,
-                                             'biological_level': self.model_select.value,
-                                             'computing_scale': self.power_select.value,
-                                             'model__description_language': self.description_select.value})
+        filter_results, total_critera = self.filtered_data({key: self.select_widgets[key].value
+                                                            for key in self.select_widgets})
 
         for simulator in self.simulators:
             simulator.css_classes.clear()
@@ -57,16 +60,39 @@ class SimSelect:
             self.simulators.sort(key=lambda x: filter_results[x.name], reverse=True)
             self.layout.objects = self.simulators
 
+    def formatted_criteria(self, data):
+        """
+        Return a multi-line string with markdown formatted information
+        about the support operating systems, interface languages, model types,
+        and computing power.
+        Args:
+            data: dict
+                The data for a single simulator
+        Returns:
+            description: str
+        """
+        description = []
+        for key, value in SimSelect.CRITERIA.items():
+            support = ", ".join(f"**{v}**" if v in self.select_widgets[key].value else v
+                                for v in data[key])
+            description.append(f"*{value}*: {support}")
+        return "\n\n".join(description)
+
     def simulator_details(self, event):
         simulator = event.obj.name
         data = SimSelect.DATA[simulator]
+
+        criteria = self.formatted_criteria(data)
         description = f"""
-        # {data['name']} <span class="material-symbols-outlined">star</span>
-        
-        TODO
-        
-        Website: [{data['website_url']}]({data['website_url']})
-        """
+# {data['name']}
+
+TODO
+
+{criteria}
+
+Website: [{data['website_url']}]({data['website_url']})
+"""
+        print(description)
         self.template.modal[0].clear()
         self.template.modal[0].append(pn.pane.Markdown(description, sizing_mode="stretch_both"))
         self.template.open_modal()
@@ -78,21 +104,16 @@ class SimSelect:
         self.template = pn.template.MaterialTemplate(title='SimSelect')
 
         # Create selection widgets
-        self.os_select = pn.widgets.MultiChoice(name='Operating systems', options=SimSelect.VALUES["operating_system"])
-        self.lang_select = pn.widgets.MultiChoice(name='Interface languages', options=SimSelect.VALUES["interface_language"])
-        self.power_select = pn.widgets.MultiChoice(name='Computing power', options=SimSelect.VALUES["computing_scale"])
-        self.model_select = pn.widgets.MultiChoice(name='Model type', options=SimSelect.VALUES["biological_level"])
-        self.description_select = pn.widgets.MultiChoice(name='Model description language', options=SimSelect.VALUES["model__description_language"])
+        self.select_widgets = {}
+        for key, translation in SimSelect.CRITERIA.items():
+            self.select_widgets[key] = pn.widgets.MultiChoice(name=translation, options=SimSelect.VALUES[key])
 
         # Basic layout
         self.template.header.append(pn.pane.Markdown("""
         **Note: this is an early prototype and far from ready for general use**
         """))
-        self.template.sidebar.append(self.os_select)
-        self.template.sidebar.append(self.lang_select)
-        self.template.sidebar.append(self.power_select)
-        self.template.sidebar.append(self.model_select)
-        self.template.sidebar.append(self.description_select)
+        for key in self.select_widgets:
+            self.template.sidebar.append(self.select_widgets[key])
 
         # Create "buttons" for all simulators
         self.simulators = [pn.widgets.Button(name=name, margin=10, css_classes=['ranking-neutral'])
@@ -102,11 +123,8 @@ class SimSelect:
             simulator.on_click(self.simulator_details)
         self.layout = pn.FlexBox(*self.simulators)
         self.template.main.append(self.layout)
-        self.os_select.param.watch(self.update_cards, 'value')
-        self.lang_select.param.watch(self.update_cards, 'value')
-        self.power_select.param.watch(self.update_cards, 'value')
-        self.model_select.param.watch(self.update_cards, 'value')
-        self.description_select.param.watch(self.update_cards, 'value')
+        for key in self.select_widgets:
+            self.select_widgets[key].param.watch(self.update_cards, 'value')
 
         self.template.modal.append(pn.Column(width=800))  # Placeholder
 
