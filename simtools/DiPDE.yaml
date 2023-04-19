@@ -1,26 +1,7 @@
 - name: DiPDE
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: '[https://alleninstitute.github.io/dipde/index.html](https://alleninstitute.github.io/dipde/index.html)'
-  - tags: python, population models, population density equations, firing-rate model,
-      non-spiking model, simulation, single machine
-  - interface language: python
-  - license: GPL-3.0
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: true
-  - PoC: github issues
-  - user docs: https://alleninstitute.github.io/dipde/
-  - status: maintained, but no active development
-  - inclusion: yes (I guess)
-  - comment: python package
-  - contributors: Marcel
+- website_url: https://alleninstitute.github.io/dipde/index.html
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model
+- computing_scale: Single Machine
+- interface_language: Python
+- model_description_language: 

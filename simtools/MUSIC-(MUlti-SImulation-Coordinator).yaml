@@ -1,23 +1,7 @@
 - name: MUSIC (MUlti-SImulation Coordinator)
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: https://github.com/INCF/MUSIC
-  - tags: large-scale, c++, python, multi-simulation
-  - license: GPL-3.0
-  - installabel:
-    - Linux: true
-    - Windows: null
-    - MacOS: null
-    - OS Independent: null
-  - point of contact: GitHub
-  - user docs: '[PDF file](https://raw.githubusercontent.com/wiki/INCF/MUSIC/files/music-manual.pdf)'
-  - status: last update 11 months ago
-  - inclusion: null
-  - contributors: null
+- website_url: https://github.com/INCF/MUSIC
+- operating_system: Linux, MacOS
+- biological_level: #TODO
+- computing_scale: Cluster
+- interface_language: C++
+- model_description_language: 

@@ -1,24 +1,7 @@
 - name: Brain dynamics toolbox
 - website_url: http://bdtoolbox.org/
-- operating_system:
-  - windows: True
-  - macOS: True
-  - linux: True
-- biological_level: #TODO
-- computing_scale: single machine
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model
+- computing_scale: Single Machine
 - interface_language: MATLAB
-- model__description_language: None
-- - website: http://bdtoolbox.org/about/
-  - status: maintained
-  - license: BSD
-  - tags: MATLAB, non-linear dynamical systems, gui, large-scale, theoretical
-  - installable:
-    - Linux: null
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: not specified
-  - user docs: need to purchase the handbook, the first chapter is free [here](https://github.com/bdtoolbox-org/bdtoolbox/releases/download/2022b/HandbookSample2022.pdf)
-  - note: requires MATLAB + purchasing the handbook, not sure if needed to be excluded
-  - inclusion: null
-  - contributors: null
+- model_description_language:

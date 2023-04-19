@@ -1,26 +1,7 @@
-- name: BMTK
+- name: Brain Modelling Toolkit (BMTK)
 - website_url: https://alleninstitute.github.io/bmtk/
-- operating_system:
-  - windows: True
-  - macOS: True
-  - linux: True
-- biological_level: population model, single-compartment (simple), single-compartment (complex), multi-compartment model
-- computing_scale: #TODO
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine, Cluster
 - interface_language: Python
-- model__description_language: SONATA
-- - website: https://alleninstitute.github.io/bmtk/ , https://alleninstitute.github.io/bmtk/index.html#base-installation
-  - level: multi-compartment biophysically detailed networks, to point-neuron models,
-      to filter-based models, and even population-level firing rate models.
-  - tags: detailed neurons, single cells, networks, sonata
-  - floss license: BSD
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: issues/PRs
-  - user docs: https://alleninstitute.github.io/bmtk/
-  - comment: 'Python, but may require other tools: NEST/dipde etc. so may depend on
-      individual tools in the stack'
-  - inclusion: true
-  - contributors: Brent
+- model_description_language: SONATA

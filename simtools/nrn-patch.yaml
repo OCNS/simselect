@@ -1,23 +1,7 @@
 - name: nrn-patch
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: https://github.com/helveg/patch
-  - tags: user friendly, python, compartment, neuron-wrapper
-  - license: MIT
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: https://github.com/helveg/patch/issues
-  - user docs: null
-  - status: null
-  - inclusion: null
-  - contributors: Brent
+- website_url: https://github.com/dbbs-lab/patch
+- operating_system: #TODO
+- biological_level: #TODO
+- computing_scale: #TODO
+- interface_language: #TODO
+- model_description_language: #TODO

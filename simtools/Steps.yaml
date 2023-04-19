@@ -1,24 +1,7 @@
 - name: Steps
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: https://steps.sourceforge.net/STEPS/default.php
-  - status: maintained
-  - license: GPLv2
-  - tags: reaction-diffusion, Python
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: GitHub discussions, e-mail
-  - user docs: '[on website](https://steps.sourceforge.net/manual/manual_index.html)'
-  - comment: installability not explicitly mentioned
-  - inclusion: true
-  - contributors: null
+- website_url: https://steps.sourceforge.net/STEPS/default.php
+- operating_system: Linux, MacOS, Windows
+- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model #TODO
+- computing_scale: Single Machine, GPU
+- interface_language: Python, C, C++
+- model_description_language: #TODO

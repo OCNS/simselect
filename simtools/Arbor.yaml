@@ -1,32 +1,7 @@
 - name: Arbor
 - website_url: https://arbor-sim.org/
-- operating_system:
-  - windows: True
-  - macOS: True
-  - linux: True
-- biological_level: population model, single-compartment (simple), single-compartment (complex), multi-compartment model
-- computing_scale: single machine, cluster, supercomputer, GPU
-- interface_language: Python, C++ 
-- model__description_language: NMODL, NeuroML/LEMS
-- - website: arbor-sim.org
-  - biological-level:
-    - detailed neurons
-    - single cells
-    - large networks
-  - network-level: null
-  - tags: multicompartment, hpc, gpu, python, c++, large-scale, neuroml, neurolucida,
-      swc, nmodl
-  - floss license: BSD
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - Point of contact:
-    - '[Gitter](https://gitter.im/arbor-sim/community)'
-    - '[Github](https://github.com/arbor-sim/arbor/)'
-    - '[Email](mailto:contact@arbor-sim.org)'
-  - user docs: docs.arbor-sim.org
-  - status: maintained
-  - inclusion: true
-  - contributors: Brent
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine, Cluster, Supercomputer, GPU
+- interface_language: Python, C++
+- model_description_language: NMODL, NeuroML/LEMS

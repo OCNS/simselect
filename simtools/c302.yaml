@@ -1,24 +1,7 @@
 - name: c302
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: https://www.opensourcebrain.org/projects/c302
-  - status: maintained (last commit 8 months ago)
-  - tags: multi-scale, single & multi-compartment, python, docker
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: null
-  - PoC: not specified
-  - user docs: 'no docs, just the link to the website: https://www.opensourcebrain.org/projects/c302'
-  - note: uses libNeuroML, jNeuroML & pyNeuroML
-  - comment: installability not explicitly mentioned
-  - inclusion: null
-  - contributors: null
+- website_url: https://www.opensourcebrain.org/projects/c302
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine
+- interface_language: Python
+- model_description_language: NeuroML/LEMS

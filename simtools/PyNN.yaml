@@ -1,33 +1,7 @@
 - name: PyNN
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: http://neuralensemble.org/PyNN/
-  - tags: python,
-  - license: CeCILL
-  - installable:
-    - Linux: true
-    - Windows: null
-    - MacOS: true
-    - OS Independent: null
-  - point of contact: GitHub, [NeuralEnsemble group](groups.google.com/group/neuralensemble)
-  - user docs: http://neuralensemble.org/docs/PyNN/
-  - inclusion: true
-  - status: stable, maintained, actively developed
-  - biological scale: point neurons, HH type with single and multiple compartments,
-      (not sure if it supports NEURON's RxD)
-  - network scale: single scale, small scale networks, meso scale networks
-  - large scale implemented by: MPI? (not sure if it supports Brian/NEST/NEURON etc
-      through MPI), Neuromorphic hardware
-  - interface language: Python
-  - model coverage: built-in models, extensible
-  - file formats: null
-  - comment: sits on top of multiple simulator backends, but one does not have to
-      explicitly interact with the backends, so this should be included
-  - contributors: Ankur
+- website_url: http://neuralensemble.org/PyNN/
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model
+- computing_scale: #TODO
+- interface_language: Python
+- model_description_language: PyNN

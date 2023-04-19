@@ -1,33 +1,7 @@
 - name: NetPyNE
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: http://www.netpyne.org/
-  - tags: python,
-  - license: MIT License
-  - installable:
-    - Linux: true
-    - Windows: true
-    - MacOS: true
-    - OS Independent: true
-  - point of contact: null
-  - user docs: http://www.netpyne.org/about.html
-  - status: stable, maintained, actively developed
-  - inclusion: true
-  - biological scale: reaction-diffusion, point neurons, HH type with single and multiple
-      compartments
-  - network scale: single cell, small scale networks, meso scale networks, large scale
-      networks
-  - large scale implemented by: MPI, batch processing, NSG support (I think)
-  - interface languages: Python, GUI
-  - model coverage: built-in models, extensible
-  - file formats: null
-  - comment: sits on top of based on NEURON simulator, but does lots of other handy
-      things (like the UI and EEG calculation etc.)
-  - contributors: Ankur
+- website_url: http://www.netpyne.org/
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine, Cluster
+- interface_language: Python, GUI
+- model_description_language: #TODO

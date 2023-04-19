@@ -1,25 +1,8 @@
 - name: MOOSE
-- website_url: ''
-- operating_system:
-  - windows: ''
-  - macOS: ''
-  - linux: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model__description_language: ''
-- - website: https://moose.ncbs.res.in/
-  - tags: Python, GUI, C++
-  - license: GPLv3
-  - installable:
-    - Linux: true
-    - Windows: null
-    - MacOS: true
-    - OS Independent: null
-  - point of contact: mailing list,
-  - user docs: https://moose.ncbs.res.in/readthedocs/index.html
-  - tutorials and examples: https://github.com/BhallaLab/moose-examples
-  - status: maintaned (last commit 2020)
-  - inclusion: null
-  - other: NeuroML reader available
-  - contributors: null
+- website_url: https://moose.ncbs.res.in/
+- operating_system: Linux, MacOS
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine, Cluster, Supercomputer, GPU
+- computing_scale: Single Machine
+- interface_language: Python, GUI, C++
+- model_description_language: NMODL, NeuroML/LEMS, SBML
