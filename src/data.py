@@ -46,12 +46,14 @@ def parse_file(filename):
 
     # Operating System
     assert "operating_system" in content_dict, "no operating_system entry"
-    assert isinstance(content_dict["operating_system"], list), "operating_system is not a list"
-    if len(content_dict["operating_system"]) and not isinstance(content_dict["operating_system"][0], str):
-        os_support = content_dict["operating_system"]
-        content_dict["operating_system"] = sorted(os for os_support_dict in os_support
-                                                  for os, supported in os_support_dict.items()
-                                                  if supported)
+    if isinstance(content_dict["operating_system"], list):
+        if len(content_dict["operating_system"]) and not isinstance(content_dict["operating_system"][0], str):
+            os_support = content_dict["operating_system"]
+            content_dict["operating_system"] = sorted(os for os_support_dict in os_support
+                                                      for os, supported in os_support_dict.items()
+                                                      if supported)
+    else:
+        content_dict["operating_system"] = string_to_list(content_dict["operating_system"])
 
     # Biological level
     assert "biological_level" in content_dict, "no biological level"
@@ -66,8 +68,11 @@ def parse_file(filename):
     content_dict["interface_language"] = string_to_list(content_dict["interface_language"])
 
     # Model description language
-    assert "model__description_language" in content_dict, "no model description language"
-    content_dict["model__description_language"] = string_to_list(content_dict["model__description_language"])
+    if "model__description_language" in content_dict:
+        description_language_key = "model__description_language"
+    else:
+        description_language_key = "model_description_language"
+    content_dict["model_description_language"] = string_to_list(content_dict[description_language_key])
     return content_dict
 
 
@@ -87,7 +92,7 @@ def unique_entries(simulators, fields=("operating_system",
                                        "biological_level",
                                        "computing_scale",
                                        "interface_language",
-                                       "model__description_language")):
+                                       "model_description_language")):
     unique = {f: set() for f in fields}
     for sim in simulators.values():
         for f in fields:

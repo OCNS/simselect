@@ -13,7 +13,7 @@ class SimSelect:
                 "interface_language": "Interface languages",
                 "biological_level": "Model type",
                 "computing_scale": "Computing power",
-                "model__description_language": "Model description language"}
+                "model_description_language": "Model description language"}
 
     def filtered_data(self, criteria):
         '''
