@@ -1,7 +1,7 @@
 - name: nrn-patch
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: https://github.com/dbbs-lab/patch
+- operating_system: #TODO
+- biological_level: #TODO
+- computing_scale: #TODO
+- interface_language: #TODO
+- model_description_language: #TODO

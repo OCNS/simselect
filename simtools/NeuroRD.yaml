@@ -1,7 +1,7 @@
 - name: NeuroRD
-- website_url: ''
-- operating_system: ''
-- biological_level: ''
-- computing_scale: ''
-- interface_language: ''
-- model_description_language: ''
+- website_url: https://krasnow1.gmu.edu/CENlab/software.html
+- operating_system: Linux, MacOS, Windows
+- biological_level: Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine
+- interface_language: Java, CLI
+- model_description_language: XML
