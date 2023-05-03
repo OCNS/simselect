@@ -4,3 +4,4 @@
 - biological_level: Population Model, Single-Compartment (Simple) Model #TODO
 - interface_language: Python, GUI
 - model_description_language: 
+- computing_scale: Single Machine, Cluster, Supercomputer
