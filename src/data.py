@@ -79,11 +79,7 @@ def parse_file(filename):
 def parse_files(dirname=Path(__file__).parent / '..' / 'simtools'):
     simulators = {}
     for f in get_files(dirname):
-        try:
-            content = parse_file(f)
-        except Exception as ex:
-            print(f"Error: {ex}")
-            continue
+        content = parse_file(f)
         simulators[content["name"]] = content
     return simulators
 
