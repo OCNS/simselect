@@ -1,0 +1,8 @@
+- name: Arbor Playground
+- website_url: https://arbor-sim.org/playground
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine
+- interface_language: GUI, Python
+- model_description_language:
+- summary: Arbor Playground is an Emscripten + Pyodide port of Arbor and is meant to be a simple showcase of neural modelling in Arbor.

@@ -2,6 +2,7 @@
 - website_url: https://github.com/arbor-sim/gui/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine, Cluster, Supercomputer, GPU
-- interface_language: GUI, Python, C++ 
-- model_description_language: NMODL, NeuroML/LEMS
+- computing_scale: Single Machine, GPU
+- interface_language: GUI
+- model_description_language: NMODL, NeuroML2, SWC, Neurolucida, ACC
+- summary: Arbor GUI is a comprehensive tool for building single cell models using Arbor. It strives to be self-contained, fast, and easy to use.
