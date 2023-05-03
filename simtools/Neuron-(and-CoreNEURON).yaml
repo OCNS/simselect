@@ -1,7 +1,0 @@
-- name: Neuron (and CoreNEURON)
-- website_url: https://neuron.yale.edu/neuron/
-- operating_system: Linux, MacOS, Windows
-- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine, Cluster, Supercomputer, GPU
-- interface_language: Python, HOC, C, C++
-- model_description_language: NMODL
