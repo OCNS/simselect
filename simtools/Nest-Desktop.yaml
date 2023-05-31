@@ -1,0 +1,8 @@
+- name: NEST Desktop
+- website_url: https://nest-desktop.readthedocs.io
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model
+- computing_scale: Single Machine, Cluster, Supercomputer
+- interface_language: GUI
+- model_description_language: #TODO
+- summary: NEST Desktop is a web-based GUI application for NEST Simulator, an advanced simulation tool for computational neuroscience. NEST Desktop enables to construct a neuronal network model graphically and to perform a simulation experiment. Thus, no programming skills are required.

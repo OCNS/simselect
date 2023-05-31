@@ -1,0 +1,8 @@
+- name: EDEN
+- website_url: https://gitlab.com/neurocomputing-lab/Inferior_OliveEMC/eden
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Single Machine, Cluster
+- interface_language: CLI, Python
+- model_description_language: NeuroML2 (subset)
+- summary: EDEN is a high-performance NeuroML-based neural simulator written in C++. This wheel package contains Python bindings to use the simulator.
