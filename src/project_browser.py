@@ -86,7 +86,7 @@ class SimSelect:
         description = f"""
 # {data['name']}
 
-TODO
+{data.get('summary', '')}
 
 {criteria}
 
