@@ -4,6 +4,13 @@ import panel as pn
 
 import data
 
+REPO_URL = "https://github.com/OCNS/simselect"
+DATA_FOLDER = "simtools"
+
+
+def github_url(filename):
+    return f"'{REPO_URL}/edit/main/{DATA_FOLDER}/{filename}'"
+
 
 class SimSelect:
     DATA = data.parse_files()
@@ -89,20 +96,23 @@ class SimSelect:
 {data.get('summary', '')}
 
 {criteria}
-
-Website: [{data['website_url']}]({data['website_url']})
 """
-        if len(self.template.modal[0]):
-            self.template.modal[0][0] = pn.pane.Markdown(description, sizing_mode="stretch_both")
-        else:
-            self.template.modal[0].append(pn.pane.Markdown(description, sizing_mode="stretch_both"))
+        self.template.modal[0].clear()
+        md_pane = pn.pane.Markdown(description, sizing_mode="stretch_both")
+        website_button = pn.widgets.Button(icon="external-link", name="Website", button_type="primary")
+        website_button.js_on_click(code=f"window.open('{data['website_url']}')")
+        edit_button = pn.widgets.Button(icon="database-edit", name="Propose changes", button_type="primary")
+        edit_button.js_on_click(code=f"window.open({github_url(data['filename'])})")
+        buttons = pn.Row(website_button, edit_button)
+        layout = pn.Column(description, buttons)
+        self.template.modal[0].append(layout)
         self.template.open_modal()
 
     def __init__(self):
         # This is needed to make the app work in a notebook
         pn.extension(raw_css=['.bk-btn-light {color: #888!important;}'])
 
-        self.template = pn.template.BootstrapTemplate(title='SimSelect')
+        self.template = pn.template.FastListTemplate(title='SimSelect')
 
         # Create selection widgets
         self.select_widgets = {}
