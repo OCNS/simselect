@@ -92,16 +92,17 @@ class SimSelect:
 
 Website: [{data['website_url']}]({data['website_url']})
 """
-        print(description)
-        self.template.modal[0].clear()
-        self.template.modal[0].append(pn.pane.Markdown(description, sizing_mode="stretch_both"))
+        if len(self.template.modal[0]):
+            self.template.modal[0][0] = pn.pane.Markdown(description, sizing_mode="stretch_both")
+        else:
+            self.template.modal[0].append(pn.pane.Markdown(description, sizing_mode="stretch_both"))
         self.template.open_modal()
 
     def __init__(self):
         # This is needed to make the app work in a notebook
         pn.extension(raw_css=['.bk-btn-light {color: #888!important;}'])
 
-        self.template = pn.template.MaterialTemplate(title='SimSelect')
+        self.template = pn.template.BootstrapTemplate(title='SimSelect')
 
         # Create selection widgets
         self.select_widgets = {}
@@ -116,7 +117,7 @@ Website: [{data['website_url']}]({data['website_url']})
             self.template.sidebar.append(self.select_widgets[key])
 
         # Create "buttons" for all simulators
-        self.simulators = [pn.widgets.Button(name=name, margin=10, css_classes=['ranking-neutral'])
+        self.simulators = [pn.widgets.Button(name=name, css_classes=['ranking-neutral'])
                            for name in SimSelect.DATA.keys()]
         self.update_cards(None)
         for simulator in self.simulators:
