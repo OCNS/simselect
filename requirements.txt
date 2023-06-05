@@ -1,2 +1,2 @@
-panel==0.14.4
+panel==1.0.4
 PyYAML==6.0
