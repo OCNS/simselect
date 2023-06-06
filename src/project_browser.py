@@ -28,6 +28,8 @@ class SimSelect:
         Args:
             criteria: dict
                 The criteria to filter on
+            search_text: str
+                A lower-case string to search for in the name and summary
 
         Returns:
             dict, int
