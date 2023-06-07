@@ -4,6 +4,13 @@ import panel as pn
 
 import data
 
+REPO_URL = "https://github.com/OCNS/simselect"
+DATA_FOLDER = "simtools"
+
+
+def github_url(filename):
+    return f"'{REPO_URL}/edit/main/{DATA_FOLDER}/{filename}'"
+
 
 class SimSelect:
     DATA = data.parse_files()
@@ -15,12 +22,14 @@ class SimSelect:
                 "computing_scale": "Computing power",
                 "model_description_language": "Model description language"}
 
-    def filtered_data(self, criteria):
+    def filtered_data(self, criteria, search_text):
         '''
         Filter the data based on the criteria, returning the number of matched criteria.
         Args:
             criteria: dict
                 The criteria to filter on
+            search_text: str
+                A lower-case string to search for in the name and summary
 
         Returns:
             dict, int
@@ -38,22 +47,40 @@ class SimSelect:
                     if set(value).issubset(values[key]):
                         filtered[name] += 1
 
+        # Filter by search text
+        if search_text:
+            total_criteria += 1
+            for name, values in SimSelect.DATA.items():
+                if (search_text not in values.get("summary", "").lower() and
+                        search_text not in values["name"].lower()):
+                    filtered[name] = -1  # Hide completely
+                else:
+                    filtered[name] += 1
+
         return filtered, total_criteria
 
     def update_cards(self, event):
         filter_results, total_critera = self.filtered_data({key: self.select_widgets[key].value
-                                                            for key in self.select_widgets})
+                                                            for key in self.select_widgets},
+                                                           self.search_box.value_input.lower())
 
         for simulator in self.simulators:
             simulator.css_classes.clear()
             if total_critera == 0:
                 simulator.button_type = 'default'
+                simulator.button_style = 'solid'
             elif filter_results[simulator.name] == total_critera:
                 simulator.button_type = 'success'
+                simulator.button_style = 'solid'
             elif filter_results[simulator.name] > 0:
                 simulator.button_type = 'warning'
-            else:
+                simulator.button_style = 'solid'
+            elif filter_results[simulator.name] == 0:
+                simulator.button_type = 'default'
+                simulator.button_style = 'outline'
+            elif filter_results[simulator.name] == -1:
                 simulator.button_type = 'light'
+                simulator.button_style = 'solid'
         if total_critera == 0:
             random.shuffle(self.simulators)
         else:
@@ -89,19 +116,25 @@ class SimSelect:
 {data.get('summary', '')}
 
 {criteria}
-
-Website: [{data['website_url']}]({data['website_url']})
 """
-        print(description)
         self.template.modal[0].clear()
-        self.template.modal[0].append(pn.pane.Markdown(description, sizing_mode="stretch_both"))
+        website_button = pn.widgets.Button(icon="external-link", name="Website", button_type="primary")
+        website_button.js_on_click(code=f"window.open('{data['website_url']}')")
+        edit_button = pn.widgets.Button(icon="database-edit", name="Propose changes", button_type="primary")
+        edit_button.js_on_click(code=f"window.open({github_url(data['filename'])})")
+        buttons = pn.Row(website_button, edit_button)
+        layout = pn.Column(description, buttons)
+        self.template.modal[0].append(layout)
         self.template.open_modal()
 
     def __init__(self):
         # This is needed to make the app work in a notebook
         pn.extension(raw_css=['.bk-btn-light {color: #888!important;}'])
 
-        self.template = pn.template.MaterialTemplate(title='SimSelect')
+        self.template = pn.template.FastListTemplate(title='SimSelect')
+
+        # Search box
+        self.search_box = pn.widgets.TextInput(placeholder="Search")
 
         # Create selection widgets
         self.select_widgets = {}
@@ -112,11 +145,13 @@ Website: [{data['website_url']}]({data['website_url']})
         self.template.header.append(pn.pane.Markdown("""
         **Note: this is an early prototype and far from ready for general use**
         """))
+        self.template.sidebar.append(self.search_box)
+        self.template.sidebar.append("## Filter by")
         for key in self.select_widgets:
             self.template.sidebar.append(self.select_widgets[key])
 
         # Create "buttons" for all simulators
-        self.simulators = [pn.widgets.Button(name=name, margin=10, css_classes=['ranking-neutral'])
+        self.simulators = [pn.widgets.Button(name=name, css_classes=['ranking-neutral'])
                            for name in SimSelect.DATA.keys()]
         self.update_cards(None)
         for simulator in self.simulators:
@@ -125,7 +160,8 @@ Website: [{data['website_url']}]({data['website_url']})
         self.template.main.append(self.layout)
         for key in self.select_widgets:
             self.select_widgets[key].param.watch(self.update_cards, 'value')
-
+        # Watch the search box
+        self.search_box.param.watch(self.update_cards, 'value_input')
         self.template.modal.append(pn.Column(width=800))  # Placeholder
 
 if __name__.startswith("bokeh"):
