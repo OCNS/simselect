@@ -10,3 +10,6 @@
     documentation: https://docs.arbor-sim.org/
     source: https://github.com/arbor-sim/arbor
     email: contact@arbor-sim.org
+- relations:
+      - name: Arbor GUI
+      - name: Arbor Playground

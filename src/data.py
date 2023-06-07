@@ -94,6 +94,12 @@ def parse_files(dirname=Path(__file__).parent / '..' / 'simtools'):
         # Store the filename itself
         content["filename"] = f.name
         simulators[content["name"]] = content
+
+    # Verify that relations point to valid names
+    for sim in simulators.values():
+        for relation in sim.get('relations', []):
+            if relation['name'] not in simulators:
+                raise ValueError(f"Unknown simulator '{relation['name']}' in relations of '{sim['name']}'")
     return simulators
 
 

@@ -162,19 +162,33 @@ class SimSelect:
 {criteria}
 """
         self.template.modal[0].clear()
+        rows = [description]
         url_buttons = []
         for url_type, url in data.get("urls", {}).items():
             icon = get_icon(url_type, url)
             url_button = pn.widgets.Button(icon=icon, name=url_type.capitalize(),
-                                           button_type="primary")
-            if url_type.lower == 'email':
+                                           button_type="default")
+            if url_type.lower() == 'email':
                 url_button.js_on_click(code=f"window.open('mailto:{url}')")
             else:
                 url_button.js_on_click(code=f"window.open('{url}')")
             url_buttons.append(url_button)
-        buttons = pn.Row(*url_buttons)
 
-        layout = pn.Column(description, buttons)
+        if url_buttons:
+            buttons = pn.Row(*url_buttons)
+            rows.append(buttons)
+
+        if data.get('relations', []):
+            rows.append("## Related simulators")
+            relation_buttons = []
+            for relation in data['relations']:
+                relation_button = pn.widgets.Button(name=relation['name'],
+                                                    button_type="primary")
+                relation_button.on_click(self.simulator_details)
+                relation_buttons.append(relation_button)
+            rows.append(pn.Row(*relation_buttons))
+
+        layout = pn.Column(*rows)
         self.template.modal[0].append(layout)
         self.template.open_modal()
 
