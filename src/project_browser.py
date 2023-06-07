@@ -45,7 +45,7 @@ def get_icon(url_type, url):
             return 'package'
         else:
             return 'download'
-    elif url_type.lower() == 'release_notes':
+    elif url_type.lower() == 'release notes':
         return 'notes'
     elif url_type.lower() == 'email':
         return 'mail'
