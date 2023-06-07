@@ -167,7 +167,10 @@ class SimSelect:
             icon = get_icon(url_type, url)
             url_button = pn.widgets.Button(icon=icon, name=url_type.capitalize(),
                                            button_type="primary")
-            url_button.js_on_click(code=f"window.open('{url}')")
+            if url_type.lower == 'email':
+                url_button.js_on_click(code=f"window.open('mailto:{url}')")
+            else:
+                url_button.js_on_click(code=f"window.open('{url}')")
             url_buttons.append(url_button)
         buttons = pn.Row(*url_buttons)
 
