@@ -9,7 +9,7 @@ DATA_FOLDER = "simtools"
 
 
 def github_url(filename):
-    return f"'{REPO_URL}/edit/main/{DATA_FOLDER}/{filename}'"
+    return f"{REPO_URL}/edit/main/{DATA_FOLDER}/{filename}"
 
 
 class SimSelect:
@@ -111,7 +111,7 @@ class SimSelect:
 
         criteria = self.formatted_criteria(data)
         description = f"""
-# {data['name']}
+# {data['name']} [\u270e]({github_url(data['filename'])} "Propose changes to this entry")
 
 {data.get('summary', '')}
 
@@ -120,9 +120,7 @@ class SimSelect:
         self.template.modal[0].clear()
         website_button = pn.widgets.Button(icon="external-link", name="Website", button_type="primary")
         website_button.js_on_click(code=f"window.open('{data['website_url']}')")
-        edit_button = pn.widgets.Button(icon="database-edit", name="Propose changes", button_type="primary")
-        edit_button.js_on_click(code=f"window.open({github_url(data['filename'])})")
-        buttons = pn.Row(website_button, edit_button)
+        buttons = pn.Row(website_button)
         layout = pn.Column(description, buttons)
         self.template.modal[0].append(layout)
         self.template.open_modal()
