@@ -73,6 +73,14 @@ def parse_file(filename):
     else:
         description_language_key = "model_description_language"
     content_dict["model_description_language"] = string_to_list(content_dict[description_language_key])
+
+    if 'website_url' in content_dict:
+        if 'urls' in content_dict:
+            raise ValueError(f"Both 'website_url' and 'urls' are defined in,"
+                             f" {filename}. Use homepage in urls instead.")
+        content_dict['urls'] = {'homepage': content_dict['website_url']}
+        del content_dict['website_url']
+
     return content_dict
 
 

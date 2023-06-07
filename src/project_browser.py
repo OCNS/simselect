@@ -12,6 +12,50 @@ def github_url(filename):
     return f"{REPO_URL}/edit/main/{DATA_FOLDER}/{filename}"
 
 
+def get_icon(url_type, url):
+    """
+    Returns an appropriate icon from https://tabler-icons.io based on the url
+    type and url.
+
+    Args:
+        url_type: str
+        url: str
+
+    Returns:
+        icon: str or None
+            The name of the icon to use or None
+    """
+    if url_type.lower() == 'homepage':
+        return 'home'
+    elif url_type.lower() == 'source':
+        if 'github.com' in url.lower():
+            return 'brand-github'
+        elif 'gitlab.com' in url.lower():
+            return 'brand-gitlab'
+        elif 'bitbucket.org' in url.lower():
+            return 'brand-bitbucket'
+        else:
+            return 'code'
+    elif url_type.lower() == 'documentation':
+        return 'book'
+    elif url_type.lower() == 'issue tracker':
+        return 'bug'
+    elif url_type.lower() == 'download':
+        if 'pypi.org' in url.lower():
+            return 'package'
+        else:
+            return 'download'
+    elif url_type.lower() == 'release_notes':
+        return 'notes'
+    elif url_type.lower() == 'email':
+        return 'mail'
+    elif url_type.lower() == 'chat':
+        return 'message-circle-2'
+    elif url_type.lower() == 'forum':
+        return 'messages'
+    else:
+        return None
+
 class SimSelect:
     DATA = data.parse_files()
     VALUES = data.unique_entries(DATA)
@@ -118,9 +162,15 @@ class SimSelect:
 {criteria}
 """
         self.template.modal[0].clear()
-        website_button = pn.widgets.Button(icon="external-link", name="Website", button_type="primary")
-        website_button.js_on_click(code=f"window.open('{data['website_url']}')")
-        buttons = pn.Row(website_button)
+        url_buttons = []
+        for url_type, url in data.get("urls", {}).items():
+            icon = get_icon(url_type, url)
+            url_button = pn.widgets.Button(icon=icon, name=url_type.capitalize(),
+                                           button_type="primary")
+            url_button.js_on_click(code=f"window.open('{url}')")
+            url_buttons.append(url_button)
+        buttons = pn.Row(*url_buttons)
+
         layout = pn.Column(description, buttons)
         self.template.modal[0].append(layout)
         self.template.open_modal()
