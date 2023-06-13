@@ -3,7 +3,7 @@
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine
 - interface_language: Python, XML, GUI
-- model_description_language: NeuroML
+- model_description_language: NeuroML/LEMS
 - summary: |
     NeuroML is an international, collaborative initiative to develop a language for describing detailed models of neural systems, which will serve as a standard data format for defining and exchanging descriptions of neuronal cell and network models. NeuroML is:
 

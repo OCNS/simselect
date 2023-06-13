@@ -14,7 +14,7 @@ shown below are obviously example values):
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, Cluster, Supercomputer, GPU
 - interface_language: Python
-- model_description_language: NeuroML2
+- model_description_language: NeuroML/LEMS
 - summary: This simulator is very good.
 - urls:
     homepage: https://example.com

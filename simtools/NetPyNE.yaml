@@ -3,7 +3,7 @@
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, Cluster
 - interface_language: Python, GUI
-- model_description_language: #TODO
+- model_description_language: NeuroML/LEMS
 - summary: |
     NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.
 - urls:
