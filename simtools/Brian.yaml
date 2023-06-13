@@ -4,7 +4,11 @@
 - computing_scale: Single Machine, Cluster
 - interface_language: Python
 - model_description_language: #TODO
-- summary: Brian is a clock driven simulator for spiking neural networks. The simulator is written almost entirely in Python. The idea is that it can be used at various levels of abstraction without the steep learning curve of software like Neuron, where you have to learn their own programming language to extend their models.
+- summary: |
+    Brian is a clock driven simulator for spiking neural networks.
+    The simulator is written almost entirely in Python.
+    The idea is that it can be used at various levels of abstraction without the steep learning curve of software like Neuron, where you have to learn their own programming language to extend their models.
+
 - urls:
     homepage: https://briansimulator.org/
     documentation: https://brian2.readthedocs.io/
@@ -13,3 +17,5 @@
     download: https://pypi.org/project/Brian2/
     forum: https://brian.discourse.group
     chat: https://gitter.im/brian-team/brian2
+- relations:
+    - name: Brian GPU
