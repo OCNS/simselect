@@ -1,7 +1,15 @@
 - name: NetPyNE
-- website_url: http://www.netpyne.org/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, Cluster
 - interface_language: Python, GUI
 - model_description_language: #TODO
+- summary: |
+    NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.
+- urls:
+    homepage: http://www.netpyne.org/
+    source: https://github.com/suny-downstate-medical-center/netpyne
+    documentation: http://www.netpyne.org/
+- relations:
+    - name: Neuron
+    - name: NeuroML
