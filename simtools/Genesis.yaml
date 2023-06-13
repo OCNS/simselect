@@ -5,3 +5,5 @@
 - computing_scale: Single Machine
 - interface_language: GUI, C
 - model_description_language:
+- summary: >
+    GENESIS (the GEneral NEural SImulation System) is a general purpose simululation platform that was developed to support the simulation of neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, simulations of large networks, and system-level models.

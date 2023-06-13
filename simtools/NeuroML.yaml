@@ -1,7 +1,38 @@
 - name: NeuroML
-- website_url: https://neuroml.org/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine
 - interface_language: Python, XML, GUI
-- model_description_language: NeuroML
+- model_description_language: NeuroML/LEMS
+- summary: >
+    NeuroML is an international, collaborative initiative to develop a language for describing detailed models of neural systems, which will serve as a standard data format for defining and exchanging descriptions of neuronal cell and network models. NeuroML is:
+
+
+      - modular
+      - standardised
+      - structured
+
+
+    and this allows you to:
+
+
+      - easily build and optimise detailed models of neural systems
+      - easily validate your models
+      - easily visualise your models
+      - easily simulate your models using a variety of simulators
+      - easily analyse your simulations
+
+
+    all using a well supported set of tools in the powerful Python programming language.
+- urls:
+    homepage: https://neuroml.org
+    documentation: https://docs.neuroml.org
+    source: https://github.com/NeuroML
+    download: https://docs.neuroml.org/Userdocs/Software/Software.html
+- relations:
+    - name: Neuron
+    - name: NetPyNE
+    - name: c302
+    - name: EDEN
+    - name: Brian
+    - name: PyNN

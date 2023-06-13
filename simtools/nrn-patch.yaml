@@ -3,5 +3,9 @@
 - operating_system: #TODO
 - biological_level: #TODO
 - computing_scale: #TODO
-- interface_language: #TODO
+- interface_language: Python
 - model_description_language: #TODO
+- summary:
+    A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.
+- relations:
+    - name: Neuron

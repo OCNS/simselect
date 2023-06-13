@@ -1,8 +1,19 @@
 - name: Neuron
-- website_url: https://neuron.yale.edu/neuron/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, Cluster, Supercomputer
 - interface_language: Python, HOC, C, C++
 - model_description_language: NMODL, HOC
-- summary: NEURON is a simulator for neurons and networks of neurons that runs efficiently on your local machine, in the cloud, or on an HPC. Build and simulate models using Python, HOC, and/or NEURON's graphical interface.
+- summary: >
+    NEURON is a simulator for neurons and networks of neurons that runs efficiently on your local machine, in the cloud, or on an HPC.
+    Build and simulate models using Python, HOC, and/or NEURON's graphical interface.
+- urls:
+    homepage: https://neuron.yale.edu/neuron/
+    source: https://github.com/neuronsimulator/nrn
+    documentation: http://nrn.readthedocs.io/
+    download: https://nrn.readthedocs.io/en/8.2.2/#installation
+    forum: https://www.neuron.yale.edu/phpBB/
+- relations:
+    - name: NeuroML
+    - name: NetPyNE
+    - name: LFPy

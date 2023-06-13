@@ -4,7 +4,19 @@
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, GPU
 - interface_language: GUI
-- model_description_language: NMODL, NeuroML2, SWC, Neurolucida, ACC
-- summary: Arbor GUI is a comprehensive tool for building single cell models using Arbor. It strives to be self-contained, fast, and easy to use.
+- model_description_language: NMODL, NeuroML/LEMS, SWC, Neurolucida, ACC
+- summary: >
+    Arbor GUI is a comprehensive tool for building single cell models using Arbor.
+    It strives to be self-contained, fast, and easy to use.
+
+
+     - Design morphologically detailled cells for simulation in Arbor.
+     - Load morphologies from SWC .swc, NeuroML .nml, NeuroLucida .asc.
+     - Define and highlight Arbor regions and locsets.
+     - Paint ion dynamics and bio-physical properties onto morphologies.
+     - Place spike detectors and probes.
+     - Export cable cells to Arbor’s internal format (ACC) for direct simulation.
+     - Import cable cells in ACC format
+
 - relations:
   - name: Arbor

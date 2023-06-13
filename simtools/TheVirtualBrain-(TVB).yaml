@@ -1,7 +1,18 @@
 - name: TheVirtualBrain (TVB)
-- website_url: https://www.thevirtualbrain.org/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model #TODO
 - interface_language: Python, GUI
 - model_description_language:
 - computing_scale: Single Machine, Cluster, Supercomputer
+- summary: >
+    Simulating the human brain is the holy grail of neuroscience - offering a pioneering tool for understanding how our brain works and how to deal with its disorders like stroke, epilepsy or neurodegenerative diseases like Alzheimer's or Parkinson's.
+
+
+    While large-scale research initiatives simulate neurons and small brain regions at the cellular level on massively parallel hardware, they are still years away from clinical applications.
+
+
+    The Virtual Brain (TVB) takes a different approach and reduces complexity on the micro level to attain the macro organization: a TVB model of a patient's brain generates sufficiently accurate EEG, MEG, BOLD and SEEG signals by reducing the complexity millionfold through methods from statistical physics.
+    The key is TVB’s hybrid approach of merging individual anatomy from brain imaging data with state-of-the-art mathematical modeling.
+- urls:
+    homepage: https://www.thevirtualbrain.org/
+    source: https://github.com/the-virtual-brain/
