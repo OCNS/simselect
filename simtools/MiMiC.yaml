@@ -5,9 +5,10 @@
 - computing_scale: Single Machine #TODO
 - interface_language: Python
 - model_description_language: #TODO
-- summary: |
+- summary: >
     MiMiC is a framework for multiscale modeling in computational chemistry.
     The aim is to enable flexible and efficient implementations of multiscale simulation methods with support for multiple subsystems through coupling external programs.
+
 
     The MiMiC framework consists of the MiMiC library and the MiMiC communication library.
     Additionally, the MiMiCPy package can be used to assist in input preparation.

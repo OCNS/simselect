@@ -4,7 +4,7 @@
 - computing_scale: Cluster
 - interface_language: C++
 - model_description_language:
-- summary: |
+- summary: >
     MUSIC is an API allowing large scale neuron simulators using MPI internally to exchange data during runtime.
     MUSIC provides mechanisms to transfer massive amounts of event information and continuous values from one parallel application to another.
     Special care has been taken to ensure that existing simulators can be adapted to MUSIC.

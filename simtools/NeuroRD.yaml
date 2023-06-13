@@ -5,7 +5,7 @@
 - computing_scale: Single Machine
 - interface_language: Java, CLI
 - model_description_language: XML
-- summary: |
+- summary: >
     NeuroRD is a computationally efficient, stochastic reaction-diffusion simulator (pronounced NeurRDS) used mostly for simulating neuronal signaling pathways.
     This is a Java program which runs on any platform.
     The algorithm is based on Gillespie's tau-leap reaction algorithm, and the stochastic diffusion algorithm of Blackwell.

@@ -5,7 +5,7 @@
 - computing_scale: Single Machine, Cluster
 - interface_language: CLI, Python
 - model_description_language: NeuroML/LEMS
-- summary: |
+- summary: >
     Extensible Dynamics Engine for Networks (EDEN) is a high-performance NeuroML-based neural simulator.
 - relations:
     - name: NeuroML

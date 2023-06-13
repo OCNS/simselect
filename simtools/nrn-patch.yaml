@@ -7,6 +7,5 @@
 - model_description_language: #TODO
 - summary:
     A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.
-
 - relations:
     - name: Neuron

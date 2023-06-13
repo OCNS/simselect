@@ -4,7 +4,7 @@
 - computing_scale: Single Machine, Cluster, Supercomputer
 - interface_language: Python, HOC, C, C++
 - model_description_language: NMODL, HOC
-- summary: |
+- summary: >
     NEURON is a simulator for neurons and networks of neurons that runs efficiently on your local machine, in the cloud, or on an HPC.
     Build and simulate models using Python, HOC, and/or NEURON's graphical interface.
 - urls:

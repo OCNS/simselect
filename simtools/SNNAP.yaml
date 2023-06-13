@@ -5,14 +5,17 @@
 - computing_scale: Single Machine
 - interface_language: Java, GUI
 - model_description_language: ''
-- summary: |
+- summary: >
     Simulator for Neural Networks and Action Potentials (SNNAP) is a tool for rapid development and simulation of realistic models of single neurons and neural networks.
     It includes mathematical descriptions of ion currents and intracellular second messengers and ions.
     In addition, you can simulate current flow in multicompartment models of neurons by using the equations describing electric coupling.
 
+
     SNNAP also includes mathematical descriptions of intracellular second messengers and ions, and simulate the modulation of membrane currents and synaptic transmission, either enhancement or inhibition.
 
+
     Other advantages of SNNAP include:
+
 
       - Written in JAVA and can run on virtually any type of computer system.
       - Graphical user interface

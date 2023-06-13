@@ -4,7 +4,7 @@
 - computing_scale: Single Machine, Cluster, Supercomputer
 - interface_language: Python, CLI, C++
 - model_description_language: NestML
-- summary: |
+- summary: >
     NEST is a simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.
 - urls:
     homepage: https://nest-simulator.org
