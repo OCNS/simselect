@@ -1,18 +1,18 @@
 - Arbor:
   - website: arbor-sim.org
-  - biological-level: 
+  - biological-level:
     - detailed neurons
     - single cells
     - large networks
-  - network-level: 
+  - network-level:
   - tags: multicompartment, hpc, gpu, python, c++, large-scale, neuroml, neurolucida, swc, nmodl
   - floss license: BSD
-  - installable: 
+  - installable:
     - Linux: yes
     - Windows: yes
     - MacOS: yes
     - OS Independent:
-  - Point of contact: 
+  - Point of contact:
     - "[Gitter](https://gitter.im/arbor-sim/community)"
     - "[Github](https://github.com/arbor-sim/arbor/)"
     - "[Email](mailto:contact@arbor-sim.org)"
@@ -24,14 +24,14 @@
 - Arbor GUI:
   - website: https://github.com/arbor-sim/gui/
   - level: detailed neurons, single cells
-  - tags: multicompartment, hpc, gpu, python, c++, large-scale, gui 
+  - tags: multicompartment, hpc, gpu, python, c++, large-scale, gui
   - floss license: BSD
-  - installable: 
+  - installable:
     - Linux: yes
     - Windows: yes
     - MacOS: yes
     - OS Independent:
-  - Point of contact: 
+  - Point of contact:
     - "[Gitter](https://gitter.im/arbor-sim/gui)"
     - "[Github](https://github.com/arbor-sim/gui/issues)"
   - user docs: https://github.com/arbor-sim/gui/
@@ -44,12 +44,12 @@
   - tags: python, single-compartment models, channel-based models, integrate-and-fire models, basic multi-compartmental models, custom models, differential equations, spiking networks, networks, physical units, code generation, OpenMP, multi-threading, single machine, simulation
   - interface language: python
   - license: CeCILL 2.1 license
-  - installable: 
+  - installable:
     - Linux: yes
     - Windows: yes
     - MacOS: yes
     - OS Independent:
-  - Point of contact: 
+  - Point of contact:
     - "[discourse](https://brian.discourse.group/)"
     - github issues
   - user docs: "[https://brian2.readthedocs.io/en/stable/](https://brian2.readthedocs.io/en/stable/)"
@@ -61,7 +61,7 @@
   - website: https://bdtoolbox.teachable.com/
   - tags: dynamical systems, matlab, ode
   - floss license: BSD but requires Matlab (Octave explicitly noted to not be supported)
-  - installable: 
+  - installable:
     - Linux: yes
     - Windows: yes
     - MacOS: yes
@@ -70,7 +70,7 @@
   - user docs: a free beginner level course, and chapter 1 of handbook is free; paid course and full handbook needs to be purchased
   - comment: Requires MATLAB
   - inclusion: yes
-  - contributors: 
+  - contributors:
 
 
 - BMTK:
@@ -107,13 +107,13 @@
   - large scale implemented by: MPI
   - interface languages: Python, SLI, C++(?)
   - model coverage: built-in models, extensible
-  - file formats in: 
-  - file formats out: 
+  - file formats in:
+  - file formats out:
   - contributors: Ankur
 
 - Neuron (and CoreNEURON):
   - website: https://neuron.yale.edu/neuron/
-  - tags: python, gpu, c/c++, gui, compartment, 
+  - tags: python, gpu, c/c++, gui, compartment,
   - license: BSD
   - installable:
     - Linux: yes
@@ -121,7 +121,7 @@
     - MacOS: yes
     - OS Independent:
   - point of contact: GitHub, forum
-  - user docs: 
+  - user docs:
     - "[CoreNeuron](https://nrn.readthedocs.io/en/latest/coreneuron/index.html)"
     - "[Neuron](https://nrn.readthedocs.io/en/8.2.1/)"
   - status: maintained
@@ -131,13 +131,13 @@
   - large scale implemented by: "MPI (user friendly term: supercomputing/cluster/multi-node support? )"
   - interface languages: Python, HOC, NMODL
   - model coverage: built-in models, extensible
-  - file formats in: 
+  - file formats in:
   - contributors: Ankur
 
 - LFPy:
   - website: https://lfpy.readthedocs.io/en/latest/
   - tags: python, local field potentials, multicompartment neurons
-  - license: GNU General Public License (GPL) 
+  - license: GNU General Public License (GPL)
   - installable:
     - Linux: yes
     - Windows: yes
@@ -146,20 +146,20 @@
   - point of contact: (maybe github issues)
   - user docs: https://lfpy.readthedocs.io/en/latest/
   - status: maintained
-  - inclusion: 
+  - inclusion:
   - other: based on NEURON simulator
   - contributors: Brent
 
 - NetPyNE:
   - website: http://www.netpyne.org/
-  - tags: python, 
+  - tags: python,
   - license: MIT License
   - installable:
     - Linux: yes
     - Windows: yes
     - MacOS: yes
     - OS Independent: yes
-  - point of contact: 
+  - point of contact:
   - user docs: http://www.netpyne.org/about.html
   - status: stable, maintained, actively developed
   - inclusion: yes
@@ -168,17 +168,17 @@
   - large scale implemented by: MPI, batch processing, NSG support (I think)
   - interface languages: Python, GUI
   - model coverage: built-in models, extensible
-  - file formats: 
+  - file formats:
   - comment: sits on top of based on NEURON simulator, but does lots of other handy things (like the UI and EEG calculation etc.)
   - contributors: Ankur
 
 - PyNN:
   - website: http://neuralensemble.org/PyNN/
-  - tags: python, 
+  - tags: python,
   - license: CeCILL
   - installable:
     - Linux: yes
-    - Windows: 
+    - Windows:
     - MacOS: yes
     - OS Independent:
   - point of contact: GitHub, [NeuralEnsemble group](groups.google.com/group/neuralensemble)
@@ -190,7 +190,7 @@
   - large scale implemented by: MPI? (not sure if it supports Brian/NEST/NEURON etc through MPI), Neuromorphic hardware
   - interface language: Python
   - model coverage: built-in models, extensible
-  - file formats: 
+  - file formats:
   - comment: sits on top of multiple simulator backends, but one does not have to explicitly interact with the backends, so this should be included
   - contributors: Ankur
 
@@ -198,31 +198,31 @@
   - wesite: http://www.genesis-sim.org/
   - tags: single neuron, large network, Python, GUI
   - license: GPLv2
-  - installable: 
+  - installable:
     - Linux: yes
     - Windows: yes
-    - MacOS: 
-    - OS Independent: 
+    - MacOS:
+    - OS Independent:
   - user docs: http://www.genesis-sim.org/GENESIS/Hyperdoc/Manual.html
   - POC: none
   - status: unmaintained (last update 2019)
-  - inclusion: 
+  - inclusion:
   - contributors:
 
-- MOOSE: 
+- MOOSE:
   - website: https://moose.ncbs.res.in/
   - tags: Python, GUI, C++
   - license: GPLv3
   - installable:
     - Linux: yes
-    - Windows: 
+    - Windows:
     - MacOS: yes
-    - OS Independent: 
-  - point of contact: mailing list, 
+    - OS Independent:
+  - point of contact: mailing list,
   - user docs: https://moose.ncbs.res.in/readthedocs/index.html
   - tutorials and examples: https://github.com/BhallaLab/moose-examples
   - status: maintaned (last commit 2020)
-  - inclusion: 
+  - inclusion:
   - other: NeuroML reader available
   - contributors:
 
@@ -234,7 +234,7 @@
     - Linux: yes
     - Windows: yes
     - MacOS: yes
-    - OS Independent: 
+    - OS Independent:
   - point of contact: GitHub, email
   - user docs: https://docs.thevirtualbrain.org/
   - status: actively developed
@@ -280,12 +280,12 @@
     - Linux: yes
     - Windows: yes
     - MacOS: yes
-    - OS Independent: 
+    - OS Independent:
   - PoC: GitHub discussions, e-mail
   - user docs: "[on website](https://steps.sourceforge.net/manual/manual_index.html)"
   - comment: installability not explicitly mentioned
   - inclusion: yes
-  - contributors:    
+  - contributors:
 
 - MUSIC (MUlti-SImulation Coordinator):
   - website: https://github.com/INCF/MUSIC
@@ -299,7 +299,7 @@
   - point of contact: GitHub
   - user docs: "[PDF file](https://raw.githubusercontent.com/wiki/INCF/MUSIC/files/music-manual.pdf)"
   - status: last update 11 months ago
-  - inclusion: 
+  - inclusion:
   - contributors:
 
 - NeuroML:
@@ -320,7 +320,7 @@
   - large scale implemented by: MPI (NetPyNE)
   - interface language: Python, XML(!), GUI (neuroConstruct, exports from NEURON/NetPyNE etc.), Java API, C++ API, MatLab (via Java API)
   - model coverage: built-in models, extensible
-  - file formats: 
+  - file formats:
   - comment: (java + python, with C++ and matlab bindings also available)
   - contributors: Ankur
 
@@ -328,16 +328,16 @@
   - website: http://bdtoolbox.org/about/
   - status: maintained
   - license: BSD
-  - tags: MATLAB, non-linear dynamical systems, gui, large-scale, theoretical 
+  - tags: MATLAB, non-linear dynamical systems, gui, large-scale, theoretical
   - installable:
-    - Linux: 
+    - Linux:
     - Windows: yes
     - MacOS: yes
     - OS Independent:
   - PoC: not specified
-  - user docs: need to purchase the handbook, the first chapter is free [here](https://github.com/bdtoolbox-org/bdtoolbox/releases/download/2022b/HandbookSample2022.pdf) 
+  - user docs: need to purchase the handbook, the first chapter is free [here](https://github.com/bdtoolbox-org/bdtoolbox/releases/download/2022b/HandbookSample2022.pdf)
   - note: requires MATLAB + purchasing the handbook, not sure if needed to be excluded
-  - inclusion: 
+  - inclusion:
   - contributors:
 
 - c302:
@@ -348,12 +348,12 @@
     - Linux: yes
     - Windows: yes
     - MacOS: yes
-    - OS Independent: 
+    - OS Independent:
   - PoC: not specified
   - user docs: "no docs, just the link to the website: https://www.opensourcebrain.org/projects/c302"
   - note: uses libNeuroML, jNeuroML & pyNeuroML
   - comment: installability not explicitly mentioned
-  - inclusion: 
+  - inclusion:
   - contributors:
 
 - MiMiC:
@@ -368,7 +368,7 @@
   - PoC: not specified
   - user docs: https://mimic-project.org/en/latest/
   - note: introduced in the Simulate with EBRAINS event
-  - inclusion: 
+  - inclusion:
   - contributors:
 
 - ReMoto:
@@ -383,7 +383,7 @@
   - PoC: e-mail
   - user docs: on website
   - status: active development
-  - inclusion: 
+  - inclusion:
   - contributors: Eliane
 
 - Brain Scaffold Builder:
@@ -398,7 +398,7 @@
   - PoC: https://github.com/dbbs-lab/bsb/issues/
   - user docs: https://bsb.readthedocs.io
   - status: active
-  - inclusion: 
+  - inclusion:
   - contributors:
 
 - BluePyOpt:
@@ -413,7 +413,7 @@
   - PoC: https://github.com/BlueBrain/BluePyOpt/issues
   - user docs: https://bluepyopt.readthedocs.io
   - status: active
-  - inclusion: 
+  - inclusion:
   - contributors:
 
 - nrn-patch:
@@ -427,8 +427,8 @@
     - OS Independent:
   - PoC: https://github.com/helveg/patch/issues
   - user docs:
-  - status: 
-  - inclusion: 
+  - status:
+  - inclusion:
   - contributors: Brent
 
 - DiPDE:
@@ -456,7 +456,7 @@
     - Linux: yes
     - Windows: yes
     - MacOS: yes
-    - OS Independent: yes   
+    - OS Independent: yes
   - PoC: github, email
   - user docs: http://docs.geppetto.org/en/latest/#contact-us
   - status: inactive (last update 2018)
@@ -493,12 +493,12 @@
   - PoC: github, email
   - user docs: http://nodus.uclouvain.be/
   - status: active
-  - comment: 
+  - comment:
   - inclusion: installability - lin/macos/win/no pip
   - contributors:
 
 - SNNAP:
-  - website: https://med.uth.edu/nba/snnap/ (this link is broken on Jim's website) 
+  - website: https://med.uth.edu/nba/snnap/ (this link is broken on Jim's website)
   - tags: Java, standalone app, single neuron/neural networks simulation, multi-compartment, GUI
   - license: none
   - installable:
