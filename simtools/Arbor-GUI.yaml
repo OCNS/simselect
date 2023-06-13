@@ -6,3 +6,5 @@
 - interface_language: GUI
 - model_description_language: NMODL, NeuroML2, SWC, Neurolucida, ACC
 - summary: Arbor GUI is a comprehensive tool for building single cell models using Arbor. It strives to be self-contained, fast, and easy to use.
+- relations:
+  - name: Arbor

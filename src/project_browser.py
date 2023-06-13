@@ -9,8 +9,52 @@ DATA_FOLDER = "simtools"
 
 
 def github_url(filename):
-    return f"'{REPO_URL}/edit/main/{DATA_FOLDER}/{filename}'"
+    return f"{REPO_URL}/edit/main/{DATA_FOLDER}/{filename}"
 
+
+def get_icon(url_type, url):
+    """
+    Returns an appropriate icon from https://tabler-icons.io based on the url
+    type and url.
+
+    Args:
+        url_type: str
+        url: str
+
+    Returns:
+        icon: str or None
+            The name of the icon to use or None
+    """
+    if url_type.lower() == 'homepage':
+        return 'home'
+    elif url_type.lower() == 'source':
+        if 'github.com' in url.lower():
+            return 'brand-github'
+        elif 'gitlab.com' in url.lower():
+            return 'brand-gitlab'
+        elif 'bitbucket.org' in url.lower():
+            return 'brand-bitbucket'
+        else:
+            return 'code'
+    elif url_type.lower() == 'documentation':
+        return 'book'
+    elif url_type.lower() == 'issue tracker':
+        return 'bug'
+    elif url_type.lower() == 'download':
+        if 'pypi.org' in url.lower():
+            return 'package'
+        else:
+            return 'download'
+    elif url_type.lower() == 'release notes':
+        return 'notes'
+    elif url_type.lower() == 'email':
+        return 'mail'
+    elif url_type.lower() == 'chat':
+        return 'message-circle-2'
+    elif url_type.lower() == 'forum':
+        return 'messages'
+    else:
+        return None
 
 class SimSelect:
     DATA = data.parse_files()
@@ -111,19 +155,40 @@ class SimSelect:
 
         criteria = self.formatted_criteria(data)
         description = f"""
-# {data['name']}
+# {data['name']} [\u270e]({github_url(data['filename'])} "Propose changes to this entry")
 
 {data.get('summary', '')}
 
 {criteria}
 """
         self.template.modal[0].clear()
-        website_button = pn.widgets.Button(icon="external-link", name="Website", button_type="primary")
-        website_button.js_on_click(code=f"window.open('{data['website_url']}')")
-        edit_button = pn.widgets.Button(icon="database-edit", name="Propose changes", button_type="primary")
-        edit_button.js_on_click(code=f"window.open({github_url(data['filename'])})")
-        buttons = pn.Row(website_button, edit_button)
-        layout = pn.Column(description, buttons)
+        rows = [description]
+        url_buttons = []
+        for url_type, url in data.get("urls", {}).items():
+            icon = get_icon(url_type, url)
+            url_button = pn.widgets.Button(icon=icon, name=url_type.capitalize(),
+                                           button_type="default")
+            if url_type.lower() == 'email':
+                url_button.js_on_click(code=f"window.open('mailto:{url}')")
+            else:
+                url_button.js_on_click(code=f"window.open('{url}')")
+            url_buttons.append(url_button)
+
+        if url_buttons:
+            buttons = pn.Row(*url_buttons)
+            rows.append(buttons)
+
+        if data.get('relations', []):
+            rows.append("## Related simulators")
+            relation_buttons = []
+            for relation in data['relations']:
+                relation_button = pn.widgets.Button(name=relation['name'],
+                                                    button_type="primary")
+                relation_button.on_click(self.simulator_details)
+                relation_buttons.append(relation_button)
+            rows.append(pn.Row(*relation_buttons))
+
+        layout = pn.Column(*rows)
         self.template.modal[0].append(layout)
         self.template.open_modal()
 
