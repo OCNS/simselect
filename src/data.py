@@ -86,7 +86,7 @@ def parse_file(filename):
     else:
         description_language_key = "model_description_language"
     content_dict["model_description_language"] = string_to_list(
-        content_dict[description_language_key]
+        content_dict.get(description_language_key, "")
     )
 
     if "website_url" in content_dict:
