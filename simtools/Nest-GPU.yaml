@@ -1,8 +1,13 @@
 - name: NEST GPU
-- website_url: https://nest-gpu.readthedocs.io
 - operating_system: Linux
 - biological_level: Population Model, Single-Compartment (Simple) Model
 - computing_scale: GPU
 - interface_language: Python, C++, C
 - model_description_language: #TODO
-- summary: NEST GPU is a GPU-MPI library for simulation of large-scale networks of spiking neurons. Can be used in Python, in C++ and in C.
+- summary: |
+    NEST GPU is a GPU-MPI library for simulation of large-scale networks of spiking neurons.
+- urls:
+    homepage: https://nest-gpu.readthedocs.io
+    documentation: https://nest-gpu.readthedocs.io
+- relations:
+    - name: NEST
