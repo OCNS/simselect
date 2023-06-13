@@ -5,3 +5,6 @@
 - computing_scale: Single Machine
 - interface_language: Python
 - model_description_language: NeuroML/LEMS
+- summary: |
+    c302 is a framework for generating network models in NeuroML 2 based on C. elegans connectivity data.
+    It is primarily intended as a way to generate neuronal networks at multiple levels of detail for the [OpenWorm](http://www.openworm.org/) project.
