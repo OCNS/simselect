@@ -1,0 +1,17 @@
+- name: Brian2CUDA
+- operating_system: Linux, MacOS
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: GPU
+- interface_language: Python
+- summary: |
+    Brian2CUDA is a Python package for simulating spiking neural networks on graphics processing units (GPUs).
+    It is an extension of the spiking neural network simulator Brian2, which allows flexible model definitions in
+    Python. Brian2CUDA uses the code generation system from Brian2 to generate simulation code in C++/CUDA, which is
+    then executed on NVIDIA GPUs.
+- relations:
+    - name: Brian
+- urls:
+    documentation: https://brian2cuda.readthedocs.io
+    source: https://github.com/brian-team/brian2cuda
+    issue tracker: https://github.com/brian-team/brian2cuda/issues
+    download: https://pypi.org/project/Brian2CUDA/
