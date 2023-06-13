@@ -159,6 +159,7 @@ class SimSelect:
 
     def simulator_details(self, event):
         simulator = event.obj.name
+
         data = SimSelect.DATA[simulator]
 
         criteria = self.formatted_criteria(data)
@@ -169,7 +170,6 @@ class SimSelect:
 
 {criteria}
 """
-        self.template.modal[0].clear()
         rows = [description]
         url_buttons = []
         for url_type, url in data.get("urls", {}).items():
@@ -199,8 +199,8 @@ class SimSelect:
             rows.append(pn.Row(*relation_buttons))
 
         layout = pn.Column(*rows)
-        self.template.modal[0].append(layout)
-        self.template.open_modal()
+        self.detail_view.clear()
+        self.detail_view.append(layout)
 
     def __init__(self):
         # This is needed to make the app work in a notebook
@@ -239,13 +239,16 @@ class SimSelect:
         self.update_cards(None)
         for simulator in self.simulators:
             simulator.on_click(self.simulator_details)
+        self.detail_view = pn.Row(
+            "Click on a simulator above to get more details ☝️"
+        )  # placeholder, will be filled when clicking on a simulator
         self.layout = pn.FlexBox(*self.simulators)
         self.template.main.append(self.layout)
+        self.template.main.append(self.detail_view)
         for key in self.select_widgets:
             self.select_widgets[key].param.watch(self.update_cards, "value")
         # Watch the search box
         self.search_box.param.watch(self.update_cards, "value_input")
-        self.template.modal.append(pn.Column(width=800))  # Placeholder
 
 
 if __name__.startswith("bokeh"):
