@@ -1,5 +1,6 @@
 import yaml
 
+
 def yaml_to_yamls():
     with open("simtools/simtools.yaml", "r") as stream:
         data = yaml.load(stream, Loader=yaml.FullLoader)
@@ -9,7 +10,7 @@ def yaml_to_yamls():
                 val = [
                     {"name": tool_name},
                     {"website_url": ""},
-                    {"operating_system" : ""},
+                    {"operating_system": ""},
                     {"biological_level": ""},
                     {"computing_scale": ""},
                     {"interface_language": ""},
@@ -17,6 +18,6 @@ def yaml_to_yamls():
                 ]
                 yaml.dump(val, outfile)
 
-                
+
 if __name__ == "__main__":
     yaml_to_yamls()

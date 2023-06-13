@@ -8,11 +8,40 @@ simulator. See OCNS/SoftwareWG#117 For more details, and announcements of the re
 meetings.
 
 ## Development notes
-This project is an app built using [Holoviz Panel](https://panel.holoviz.org/). You can
-install it using `python -n pip install -r requirements.txt`.
+A fresh virtual environment is suggested for development:
+```
+python -m venv .venv
+source .venv/bin/activate
+```
+One can also use `conda` and other tools to set up virtual environments.
 
-To run the app, use `panel serve --show src/project_browser`. This will open a
-browser window with the app.
+This project is an app built using [Holoviz Panel](https://panel.holoviz.org/).
+You can install it using
+```
+python -m pip install -r requirements.txt
+```
+To run the app, use:
+```
+panel serve --show src/project_browser.py`
+```
+This will open a browser window with the app.
+Firefox/Chrome based browsers are supported.
+Please file an issue if the app does not work with your browser.
+
+### Contribution notes
+Please install the necessary linters/pre-commit hooks using the `requirements-dev.txt` file:
+
+```
+python -m pip install -r requirements-dev.txt
+```
+
+To set up pre-commit, please run (only needed once):
+
+```
+pre-commit install
+```
+
+Now, the pre-commit checks will be run before each commit.
 
 ## Deployment
 The web app is hosted on [fly.io](https://fly.io/). See https://simselect.fly.dev/ for the latest version.
