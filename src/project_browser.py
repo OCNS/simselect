@@ -6,6 +6,7 @@ import data
 
 REPO_URL = "https://github.com/OCNS/simselect"
 DATA_FOLDER = "simtools"
+FOOTER_HTML = "static/html/footer.html"
 
 
 def github_url(filename):
@@ -206,7 +207,16 @@ class SimSelect:
         # This is needed to make the app work in a notebook
         pn.extension(raw_css=[".bk-btn-light {color: #888!important;}"])
 
-        self.template = pn.template.FastListTemplate(title="SimSelect")
+        self.template = pn.template.BootstrapTemplate(title="SimSelect")
+
+        # Read the HTML from a file
+        with open(FOOTER_HTML, "r") as f:
+            footer_html = f.read()
+
+        # Use the footer HTML in a pane
+        footer_pane = pn.pane.HTML(footer_html, sizing_mode="stretch_width")
+
+        self.template.main.append(footer_pane)
 
         # Search box
         self.search_box = pn.widgets.TextInput(placeholder="Search")
