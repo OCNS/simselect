@@ -3,11 +3,48 @@ from pathlib import Path
 import random
 
 import panel as pn
+from panel.reactive import ReactiveHTML
+import param
 
 import data
 
 REPO_URL = "https://github.com/OCNS/simselect"
 DATA_FOLDER = "simtools"
+
+
+class SimButton(ReactiveHTML):
+    sim_name = param.String()
+    button_type = param.String()
+    button_style = param.String()
+    categories = param.List()
+
+    def __init__(self, **params):
+        super().__init__(**params)
+        self._onclick = None
+
+    _template = """
+    <button id="simbutton-{{sim_name}}" class="bk-btn bk-btn-{{button_type}} bk-btn-{{button_style}}" onclick="${_btn_click}" type="button">
+    {{sim_name}}
+    {%for category in categories %}
+    {% if category == "frontend" %}
+    <span style="font-family: tabler-icons !important;">\uf7cc</span>
+    {% endif %}
+    {% if category == "backend" %}
+    <span style="font-family: tabler-icons !important;">\uef8e</span>
+    {% endif %}
+    {% if category == "standard" %}
+    <span style="font-family: tabler-icons !important;">\uf567</span>
+    {% endif %}
+    {% endfor %}
+    </button>
+    """
+
+    def _btn_click(self, event):
+        if self._onclick:
+            self._onclick(self.sim_name)
+
+    def on_click(self, callback):
+        self._onclick = callback
 
 
 def github_url(filename):
@@ -117,7 +154,7 @@ class SimSelect:
         )
 
         for simulator in self.simulators:
-            simulator.css_classes.clear()
+            # simulator.css_classes.clear()
             if total_critera == 0:
                 simulator.button_type = "default"
                 simulator.button_style = "solid"
@@ -159,10 +196,8 @@ class SimSelect:
             description.append(f"*{value}*: {support}")
         return "\n\n".join(description)
 
-    def simulator_details(self, event):
-        simulator = event.obj.name
-
-        data = SimSelect.DATA[simulator]
+    def simulator_details(self, sim_name):
+        data = SimSelect.DATA[sim_name]
 
         criteria = self.formatted_criteria(data)
         description = f"""
@@ -206,7 +241,7 @@ class SimSelect:
 
     def __init__(self):
         # This is needed to make the app work in a notebook
-        pn.extension(raw_css=[".bk-btn-light {color: #888!important;}"])
+        pn.extension()
 
         self.template = pn.template.FastListTemplate(title="SimSelect")
 
@@ -230,21 +265,28 @@ class SimSelect:
         )
         self.template.sidebar.append(self.search_box)
         self.template.sidebar.append(pn.layout.Divider())
-        filter_help = pn.widgets.Button(name="Help",
-                                        icon="help-circle",
-                                        button_type="light",
-                                        button_style="outline",
-                                        icon_size="1.5em")
+        filter_help = pn.widgets.Button(
+            name="Help",
+            icon="help-circle",
+            button_type="light",
+            button_style="outline",
+            icon_size="1.5em",
+        )
         filter_help.on_click(lambda event: self.template.open_modal())
-        self.template.sidebar.append(pn.Row("## Filter by",
-                                            filter_help))
+        self.template.sidebar.append(pn.Row("## Filter by", filter_help))
         for key in self.select_widgets:
             self.template.sidebar.append(self.select_widgets[key])
 
         # Create "buttons" for all simulators
         self.simulators = [
-            pn.widgets.Button(name=name, css_classes=["ranking-neutral"])
-            for name in SimSelect.DATA.keys()
+            SimButton(
+                sim_name=name,
+                button_type="default",
+                button_style="solid",
+                categories=SimSelect.DATA[name].get("categories", []),
+                stylesheets=["/assets/categories.css"],
+            )
+            for name in SimSelect.DATA
         ]
         self.update_cards(None)
         for simulator in self.simulators:
@@ -262,8 +304,9 @@ class SimSelect:
 
         # Fill the help modal
         with open(Path(__file__).parent / ".." / "static" / "filter_criteria.md") as f:
-            filter_help_text = pn.pane.Markdown(f.read(), renderer="markdown",
-                                                extensions=["def_list"])
+            filter_help_text = pn.pane.Markdown(
+                f.read(), renderer="markdown", extensions=["def_list"]
+            )
         self.template.modal.append(filter_help_text)
 
 

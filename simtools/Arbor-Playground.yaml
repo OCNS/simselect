@@ -1,4 +1,5 @@
 - name: Arbor Playground
+- categories: frontend, backend
 - website_url: https://arbor-sim.org/playground
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model

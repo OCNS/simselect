@@ -1,4 +1,5 @@
 - name: Brain dynamics toolbox
+- categories: frontend, backend
 - website_url: http://bdtoolbox.org/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model

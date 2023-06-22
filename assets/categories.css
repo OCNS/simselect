@@ -1,0 +1,23 @@
+button.sim-frontend::after {
+    font-weight: bold;
+    color: darkgreen;
+    content: " (F)";
+}
+
+button.sim-backend::after {
+    font-weight: bold;
+    color: darkgreen;
+    content: " (B)";
+}
+
+button.sim-frontend.sim-backend::after {
+    font-weight: bold;
+    color: darkgreen;
+    content: " (FB)";
+}
+
+button.sim-tool::after {
+    font-weight: bold;
+    color: darkgray;
+    content: " (T)";
+}
