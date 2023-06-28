@@ -8,6 +8,9 @@ import panel as pn
 
 import data
 
+
+__version__ = "0.1.0"
+
 REPO_URL = "https://github.com/OCNS/simselect"
 DATA_FOLDER = "simtools"
 
@@ -266,6 +269,7 @@ class SimSelect:
         self.footer.append(
             textwrap.dedent(
                 f"""
+Simselect v{__version__} |
 Copyright {year} [Simselect
 contributors](https://github.com/OCNS/simselect/graphs/contributors) |
 [Source](https://github.com/OCNS/simselect/) |
