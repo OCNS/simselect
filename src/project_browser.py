@@ -205,8 +205,19 @@ class SimSelect:
         data = SimSelect.DATA[sim_name]
 
         criteria = self.formatted_criteria(data)
+        category_html = ""
+        if categories := data.get("categories", []):
+            if "frontend" in categories:
+                category_html += '<span style="font-family: tabler-icons !important">\uf7cc</span> interface/frontend&nbsp;'
+            if "backend" in categories:
+                category_html += '<span style="font-family: tabler-icons !important">\uef8e</span> backend/engine&nbsp;'
+            if "standard" in categories:
+                category_html += '<span style="font-family: tabler-icons !important">\uf567</span> interoperability standard&nbsp;'
+        else:
+            category_html += '<span style="font-family: tabler-icons !important;">\ueb40</span> general tool'
         description = f"""
 # {data['name']} [\u270e]({github_url(data['filename'])} "Propose changes to this entry")
+## {category_html}
 
 {data.get('summary', '')}
 
