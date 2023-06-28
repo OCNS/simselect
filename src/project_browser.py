@@ -23,19 +23,24 @@ class SimButton(ReactiveHTML):
         self._onclick = None
 
     _template = """
-    <button id="simbutton-{{sim_name}}" class="bk-btn bk-btn-{{button_type}} bk-btn-{{button_style}}" onclick="${_btn_click}" type="button">
+    <button id="simbutton" class="bk-btn bk-btn-${button_type} bk-btn-${button_style}" onclick="${_btn_click}"
+     type="button" style="padding: var(--padding-vertical) var(--padding-horizontal); font-size: var(--font-size); font-family: var(--base-font); margin: var(--padding-vertical) var(--padding-horizontal); cursor: pointer">
     {{sim_name}}
-    {%for category in categories %}
-    {% if category == "frontend" %}
+    {% if categories %}
+    <span style="border: 1px dashed lightgray; margin-left: 1em">
+    {% endif %}
+    {% if "frontend" in categories%}
     <span style="font-family: tabler-icons !important;">\uf7cc</span>
     {% endif %}
-    {% if category == "backend" %}
+    {% if "backend" in categories %}
     <span style="font-family: tabler-icons !important;">\uef8e</span>
     {% endif %}
-    {% if category == "standard" %}
+    {% if "standard" in categories %}
     <span style="font-family: tabler-icons !important;">\uf567</span>
     {% endif %}
-    {% endfor %}
+    {% if categories %}
+    </span>
+    {% endif %}
     </button>
     """
 
@@ -158,22 +163,22 @@ class SimSelect:
             if total_critera == 0:
                 simulator.button_type = "default"
                 simulator.button_style = "solid"
-            elif filter_results[simulator.name] == total_critera:
+            elif filter_results[simulator.sim_name] == total_critera:
                 simulator.button_type = "success"
                 simulator.button_style = "solid"
-            elif filter_results[simulator.name] > 0:
+            elif filter_results[simulator.sim_name] > 0:
                 simulator.button_type = "warning"
                 simulator.button_style = "solid"
-            elif filter_results[simulator.name] == 0:
+            elif filter_results[simulator.sim_name] == 0:
                 simulator.button_type = "default"
                 simulator.button_style = "outline"
-            elif filter_results[simulator.name] == -1:
+            elif filter_results[simulator.sim_name] == -1:
                 simulator.button_type = "light"
                 simulator.button_style = "solid"
         if total_critera == 0:
             random.shuffle(self.simulators)
         else:
-            self.simulators.sort(key=lambda x: filter_results[x.name], reverse=True)
+            self.simulators.sort(key=lambda x: filter_results[x.sim_name], reverse=True)
             self.layout.objects = self.simulators
 
     def formatted_criteria(self, data):
