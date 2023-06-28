@@ -12,3 +12,9 @@ pre-commit install
 ```
 
 Now, the pre-commit checks will be run before each commit.
+
+
+### Updating software tool metadata
+
+Data on each tool is included in individual files in the `simselect` directory.
+To make changes, please fork the repository, make any necessary changes, and open pull requests for community review.
