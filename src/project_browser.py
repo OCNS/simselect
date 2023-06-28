@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 import random
 
 import panel as pn
@@ -227,7 +229,15 @@ class SimSelect:
             )
         )
         self.template.sidebar.append(self.search_box)
-        self.template.sidebar.append("## Filter by")
+        self.template.sidebar.append(pn.layout.Divider())
+        filter_help = pn.widgets.Button(name="Help",
+                                        icon="help-circle",
+                                        button_type="light",
+                                        button_style="outline",
+                                        icon_size="1.5em")
+        filter_help.on_click(lambda event: self.template.open_modal())
+        self.template.sidebar.append(pn.Row("## Filter by",
+                                            filter_help))
         for key in self.select_widgets:
             self.template.sidebar.append(self.select_widgets[key])
 
@@ -249,6 +259,12 @@ class SimSelect:
             self.select_widgets[key].param.watch(self.update_cards, "value")
         # Watch the search box
         self.search_box.param.watch(self.update_cards, "value_input")
+
+        # Fill the help modal
+        with open(Path(__file__).parent / ".." / "static" / "filter_criteria.md") as f:
+            filter_help_text = pn.pane.Markdown(f.read(), renderer="markdown",
+                                                extensions=["def_list"])
+        self.template.modal.append(filter_help_text)
 
 
 if __name__.startswith("bokeh"):
