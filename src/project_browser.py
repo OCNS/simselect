@@ -1,10 +1,15 @@
 import os
 from pathlib import Path
 import random
+import textwrap
+import datetime
 
 import panel as pn
 
 import data
+
+
+__version__ = "0.1.0"
 
 REPO_URL = "https://github.com/OCNS/simselect"
 DATA_FOLDER = "simtools"
@@ -230,14 +235,15 @@ class SimSelect:
         )
         self.template.sidebar.append(self.search_box)
         self.template.sidebar.append(pn.layout.Divider())
-        filter_help = pn.widgets.Button(name="Help",
-                                        icon="help-circle",
-                                        button_type="light",
-                                        button_style="outline",
-                                        icon_size="1.5em")
+        filter_help = pn.widgets.Button(
+            name="Help",
+            icon="help-circle",
+            button_type="light",
+            button_style="outline",
+            icon_size="1.5em",
+        )
         filter_help.on_click(lambda event: self.template.open_modal())
-        self.template.sidebar.append(pn.Row("## Filter by",
-                                            filter_help))
+        self.template.sidebar.append(pn.Row("## Filter by", filter_help))
         for key in self.select_widgets:
             self.template.sidebar.append(self.select_widgets[key])
 
@@ -255,6 +261,31 @@ class SimSelect:
         self.layout = pn.FlexBox(*self.simulators)
         self.template.main.append(self.layout)
         self.template.main.append(self.detail_view)
+
+        # footer
+        self.template.sidebar.append(pn.layout.Divider())
+        self.footer = pn.Row(scroll=False)
+        year = datetime.datetime.now().date().strftime("%Y")
+        self.footer.append(
+            textwrap.dedent(
+                f"""
+Simselect v{__version__} |
+Copyright {year} [Simselect
+contributors](https://github.com/OCNS/simselect/graphs/contributors) |
+[Source](https://github.com/OCNS/simselect/) |
+[License](#) |
+[Contribution guidelines](https://github.com/OCNS/simselect/blob/main/CONTRIBUTING.md)
+
+*Disclaimer*: the information included here is taken from the
+websites/documentation of the different tools. Please [file an
+issue](https://github.com/OCNS/simselect/issues/new/choose) or suggest a change
+via [pull requests](https://github.com/OCNS/simselect/pulls) if you find any
+errors.
+            """
+            )
+        )
+        self.template.sidebar.append(self.footer)
+
         for key in self.select_widgets:
             self.select_widgets[key].param.watch(self.update_cards, "value")
         # Watch the search box
@@ -262,8 +293,9 @@ class SimSelect:
 
         # Fill the help modal
         with open(Path(__file__).parent / ".." / "static" / "filter_criteria.md") as f:
-            filter_help_text = pn.pane.Markdown(f.read(), renderer="markdown",
-                                                extensions=["def_list"])
+            filter_help_text = pn.pane.Markdown(
+                f.read(), renderer="markdown", extensions=["def_list"]
+            )
         self.template.modal.append(filter_help_text)
 
 
