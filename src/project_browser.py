@@ -38,6 +38,9 @@ class SimButton(ReactiveHTML):
     {% if "standard" in categories %}
     <span style="font-family: tabler-icons !important;">\uf567</span>
     {% endif %}
+    {% if "tool" in categories %}
+    <span style="font-family: tabler-icons !important;">\ueb40</span>
+    {% endif %}
     {% if categories %}
     </span>
     {% endif %}
@@ -132,7 +135,22 @@ class SimSelect:
             filtered[name] = 0
 
         for key, value in criteria.items():
-            if value:
+            if key == "categories":
+                # Translate long display names to short category names
+                value = [
+                    {
+                        "interface/frontend": "frontend",
+                        "backend/engine": "backend",
+                        "interoperability standard": "standard",
+                        "general tool": "tool",
+                    }[v]
+                    for v in value
+                ]
+                for name, values in SimSelect.DATA.items():
+                    if not set(value).intersection(values[key]):  # no overlap
+                        # Hide completely
+                        filtered[name] = -1
+            elif value:  # other filters
                 total_criteria += 1
                 for name, values in SimSelect.DATA.items():
                     if set(value).issubset(values[key]):
@@ -154,13 +172,15 @@ class SimSelect:
 
     def update_cards(self, event):
         filter_results, total_critera = self.filtered_data(
-            {key: self.select_widgets[key].value for key in self.select_widgets},
+            {key: self.select_widgets[key].value for key in self.select_widgets}
+            | {"categories": self.category_checkboxes.value},
             self.search_box.value_input.lower(),
         )
-
+        unsorted = all(
+            v == 0 for v in filter_results.values()
+        )  # categories matches, but nothing else checked
         for simulator in self.simulators:
-            # simulator.css_classes.clear()
-            if total_critera == 0:
+            if filter_results[simulator.sim_name] == 0 and total_critera == 0:
                 simulator.button_type = "default"
                 simulator.button_style = "solid"
             elif filter_results[simulator.sim_name] == total_critera:
@@ -175,9 +195,10 @@ class SimSelect:
             elif filter_results[simulator.sim_name] == -1:
                 simulator.button_type = "light"
                 simulator.button_style = "solid"
-        if total_critera == 0:
+        if unsorted:
             random.shuffle(self.simulators)
         else:
+            print(filter_results)
             self.simulators.sort(key=lambda x: filter_results[x.sim_name], reverse=True)
             self.layout.objects = self.simulators
 
@@ -206,14 +227,14 @@ class SimSelect:
 
         criteria = self.formatted_criteria(data)
         category_html = ""
-        if categories := data.get("categories", []):
-            if "frontend" in categories:
-                category_html += '<span style="font-family: tabler-icons !important">\uf7cc</span> interface/frontend&nbsp;'
-            if "backend" in categories:
-                category_html += '<span style="font-family: tabler-icons !important">\uef8e</span> backend/engine&nbsp;'
-            if "standard" in categories:
-                category_html += '<span style="font-family: tabler-icons !important">\uf567</span> interoperability standard&nbsp;'
-        else:
+        categories = data["categories"]
+        if "frontend" in categories:
+            category_html += '<span style="font-family: tabler-icons !important">\uf7cc</span> interface/frontend&nbsp;'
+        if "backend" in categories:
+            category_html += '<span style="font-family: tabler-icons !important">\uef8e</span> backend/engine&nbsp;'
+        if "standard" in categories:
+            category_html += '<span style="font-family: tabler-icons !important">\uf567</span> interoperability standard&nbsp;'
+        if "tool" in categories:
             category_html += '<span style="font-family: tabler-icons !important;">\ueb40</span> general tool'
         description = f"""
 # {data['name']} [\u270e]({github_url(data['filename'])} "Propose changes to this entry")
@@ -290,6 +311,16 @@ class SimSelect:
         )
         filter_help.on_click(lambda event: self.template.open_modal())
         self.template.sidebar.append(pn.Row("## Filter by", filter_help))
+        categories = [
+            "interface/frontend",
+            "backend/engine",
+            "interoperability standard",
+            "general tool",
+        ]
+        self.category_checkboxes = pn.widgets.CheckBoxGroup(
+            name="Category", value=categories, options=categories
+        )
+        self.template.sidebar.append(self.category_checkboxes)
         for key in self.select_widgets:
             self.template.sidebar.append(self.select_widgets[key])
 
@@ -313,6 +344,9 @@ class SimSelect:
         self.layout = pn.FlexBox(*self.simulators)
         self.template.main.append(self.layout)
         self.template.main.append(self.detail_view)
+        # Watch the category checkboxes
+        self.category_checkboxes.param.watch(self.update_cards, "value")
+        # Watch the select widgets
         for key in self.select_widgets:
             self.select_widgets[key].param.watch(self.update_cards, "value")
         # Watch the search box

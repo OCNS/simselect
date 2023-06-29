@@ -19,6 +19,18 @@
   background-color: var(--neutral-fill-hover);
 }
 
+.bk-btn-light {
+  background-color: var(--neutral-fill-rest);
+  border-color: #ccc;
+  color: var(--neutral-foreground-rest);
+  opacity: var(--disabled-opacity);
+}
+
+.bk-btn-light:hover {
+  background-color: var(--neutral-fill-hover);
+  opacity: 1.0;
+}
+
 .bk-btn-success {
   background-color: #5cb85c;
   border-color: #4cae4c;

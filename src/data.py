@@ -48,8 +48,12 @@ def parse_file(filename):
             content_dict[key] = value
     # Normalize the standard fields
 
-    # Categories (frontend, etc.)
-    content_dict["categories"] = string_to_list(content_dict.get("categories", ""))
+    # Categories (frontend, etc.) – if no category is given, assume "tool"
+    categories = content_dict.get("categories", "")
+    if not categories:
+        content_dict["categories"] = ["tool"]
+    else:
+        content_dict["categories"] = string_to_list(categories)
 
     # Operating System
     assert "operating_system" in content_dict, "no operating_system entry"

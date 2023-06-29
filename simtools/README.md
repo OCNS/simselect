@@ -10,6 +10,7 @@ shown below are obviously example values):
 
 ```yaml
 - name: Simulator Name
+- categories: frontend, backend
 - operating_system: Linux, MacOS
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, Cluster, Supercomputer, GPU
@@ -23,9 +24,14 @@ shown below are obviously example values):
       - name: Another simulator
       - name: Yet another simulator
 ```
-The fields `operating_system`, `biological_level`, `computing_scale`,
+The fields `categories`, `operating_system`, `biological_level`, `computing_scale`,
 `interface_language`, and `model_description_language` are comma-separated
 strings (i.e. not yaml lists).
+
+The `categories` fields should only contain the following values: `frontend` (for
+interfaces to simulation engines), `backend` (for simulation engines), `standard`
+(for interoperability standards, APIs, etc.), or `tool` (for a general tool). If no
+categories are given, `tool` is assumed.
 
 The `urls` field can contain arbitrary keys that will be displayed as button
 labels. A  number of names will be recognized and will be displayed with a
