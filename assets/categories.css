@@ -7,19 +7,16 @@
 .bk-btn-warning:hover {
   background-color: #ec971f;
   border-color: #d58512;
-  color: #fff;
 }
 
 .bk-btn-default {
   background-color: var(--neutral-fill-rest);
   border-color: #ccc;
-  color: #333;
+  color: var(--neutral-foreground-rest);
 }
 
 .bk-btn-default:hover {
   background-color: var(--neutral-fill-hover);
-  border-color: #adadad;
-  color: #333;
 }
 
 .bk-btn-success {
@@ -31,7 +28,6 @@
 .bk-btn-success:hover {
   background-color: #449d44;
   border-color: #398439;
-  color: #fff;
 }
 
 .bk-btn-danger {
@@ -43,5 +39,4 @@
 .bk-btn-danger:hover {
   background-color: #c9302c;
   border-color: #ac2925;
-  color: #fff;
 }
