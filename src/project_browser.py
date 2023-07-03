@@ -144,8 +144,8 @@ class SimSelect:
                 # Translate long display names to short category names
                 value = [
                     {
-                        "interface/frontend": "frontend",
-                        "backend/engine": "backend",
+                        "user interface": "frontend",
+                        "compute engine": "backend",
                         "interoperability standard": "standard",
                         "general tool": "tool",
                     }[v]
@@ -230,19 +230,19 @@ class SimSelect:
         data = SimSelect.DATA[sim_name]
 
         criteria = self.formatted_criteria(data)
-        category_html = ""
-        categories = data["categories"]
-        if "frontend" in categories:
-            category_html += '<span style="font-family: tabler-icons !important">\uf7cc</span> interface/frontend&nbsp;'
-        if "backend" in categories:
-            category_html += '<span style="font-family: tabler-icons !important">\uef8e</span> backend/engine&nbsp;'
-        if "standard" in categories:
-            category_html += '<span style="font-family: tabler-icons !important">\uf567</span> interoperability standard&nbsp;'
-        if "tool" in categories:
-            category_html += '<span style="font-family: tabler-icons !important;">\ueb40</span> general tool'
+        feature_html = ""
+        features = data["features"]
+        if "frontend" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\uf7cc</span>user interface&nbsp;'
+        if "backend" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\uef8e</span>compute engine&nbsp;'
+        if "standard" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\uf567</span>interoperability standard&nbsp;'
+        if "tool" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\ueb40</span>general tool'
         description = f"""
 # {data['name']} [\u270e]({github_url(data['filename'])} "Propose changes to this entry")
-## {category_html}
+## {feature_html}
 
 {data.get('summary', '')}
 
@@ -316,8 +316,8 @@ class SimSelect:
         filter_help.on_click(lambda event: self.template.open_modal())
         self.template.sidebar.append(pn.Row("## Filter by", filter_help))
         features = [
-            "interface/frontend",
-            "backend/engine",
+            "user interface",
+            "compute engine",
             "interoperability standard",
             "general tool",
         ]
