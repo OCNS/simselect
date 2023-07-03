@@ -1,4 +1,5 @@
 - name: ReMoto
+- features: frontend, backend
 - website_url: http://remoto.leb.usp.br
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model #TODO

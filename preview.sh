@@ -50,7 +50,7 @@ start_preview (){
         echo "panel command was not found. Please see the README file to set up your environment."
         stop_preview_and_exit
     else
-        panel serve src/project_browser.py &
+        panel serve src/project_browser.py --static-dirs assets=./assets &
         echo "$!" > "${previewpidfile}"
     fi
 }

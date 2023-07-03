@@ -5,6 +5,8 @@ import textwrap
 import datetime
 
 import panel as pn
+from panel.reactive import ReactiveHTML
+import param
 
 import data
 
@@ -13,6 +15,49 @@ __version__ = "0.1.0"
 
 REPO_URL = "https://github.com/OCNS/simselect"
 DATA_FOLDER = "simtools"
+
+
+class SimButton(ReactiveHTML):
+    sim_name = param.String()
+    button_type = param.String()
+    button_style = param.String()
+    features = param.List()
+
+    def __init__(self, **params):
+        super().__init__(**params)
+        self._onclick = None
+
+    _template = """
+    <button id="simbutton" class="bk-btn bk-btn-${button_type} bk-btn-${button_style}" onclick="${_btn_click}"
+     type="button" style="padding: var(--padding-vertical) var(--padding-horizontal); font-size: var(--font-size); font-family: var(--base-font); margin: var(--padding-vertical) var(--padding-horizontal); cursor: pointer">
+    {{sim_name}}
+    {% if features %}
+    <span style="border: 1px dashed lightgray; margin-left: 1em">
+    {% endif %}
+    {% if "frontend" in features%}
+    <span style="font-family: tabler-icons !important;">\uf7cc</span>
+    {% endif %}
+    {% if "backend" in features %}
+    <span style="font-family: tabler-icons !important;">\uef8e</span>
+    {% endif %}
+    {% if "standard" in features %}
+    <span style="font-family: tabler-icons !important;">\uf567</span>
+    {% endif %}
+    {% if "tool" in features %}
+    <span style="font-family: tabler-icons !important;">\ueb40</span>
+    {% endif %}
+    {% if features %}
+    </span>
+    {% endif %}
+    </button>
+    """
+
+    def _btn_click(self, event):
+        if self._onclick:
+            self._onclick(self.sim_name)
+
+    def on_click(self, callback):
+        self._onclick = callback
 
 
 def github_url(filename):
@@ -95,7 +140,22 @@ class SimSelect:
             filtered[name] = 0
 
         for key, value in criteria.items():
-            if value:
+            if key == "features":
+                # Translate long display names to short category names
+                value = [
+                    {
+                        "user interface": "frontend",
+                        "compute engine": "backend",
+                        "interoperability standard": "standard",
+                        "general tool": "tool",
+                    }[v]
+                    for v in value
+                ]
+                for name, values in SimSelect.DATA.items():
+                    if not set(value).intersection(values[key]):  # no overlap
+                        # Hide completely
+                        filtered[name] = -1
+            elif value:  # other filters
                 total_criteria += 1
                 for name, values in SimSelect.DATA.items():
                     if set(value).issubset(values[key]):
@@ -117,31 +177,33 @@ class SimSelect:
 
     def update_cards(self, event):
         filter_results, total_critera = self.filtered_data(
-            {key: self.select_widgets[key].value for key in self.select_widgets},
+            {key: self.select_widgets[key].value for key in self.select_widgets}
+            | {"features": self.feature_checkboxes.value},
             self.search_box.value_input.lower(),
         )
-
+        unsorted = all(
+            v == 0 for v in filter_results.values()
+        )  # categories matches, but nothing else checked
         for simulator in self.simulators:
-            simulator.css_classes.clear()
-            if total_critera == 0:
+            if filter_results[simulator.sim_name] == 0 and total_critera == 0:
                 simulator.button_type = "default"
                 simulator.button_style = "solid"
-            elif filter_results[simulator.name] == total_critera:
+            elif filter_results[simulator.sim_name] == total_critera:
                 simulator.button_type = "success"
                 simulator.button_style = "solid"
-            elif filter_results[simulator.name] > 0:
+            elif filter_results[simulator.sim_name] > 0:
                 simulator.button_type = "warning"
                 simulator.button_style = "solid"
-            elif filter_results[simulator.name] == 0:
+            elif filter_results[simulator.sim_name] == 0:
                 simulator.button_type = "default"
                 simulator.button_style = "outline"
-            elif filter_results[simulator.name] == -1:
+            elif filter_results[simulator.sim_name] == -1:
                 simulator.button_type = "light"
                 simulator.button_style = "solid"
-        if total_critera == 0:
+        if unsorted:
             random.shuffle(self.simulators)
         else:
-            self.simulators.sort(key=lambda x: filter_results[x.name], reverse=True)
+            self.simulators.sort(key=lambda x: filter_results[x.sim_name], reverse=True)
             self.layout.objects = self.simulators
 
     def formatted_criteria(self, data):
@@ -164,14 +226,23 @@ class SimSelect:
             description.append(f"*{value}*: {support}")
         return "\n\n".join(description)
 
-    def simulator_details(self, event):
-        simulator = event.obj.name
-
-        data = SimSelect.DATA[simulator]
+    def simulator_details(self, sim_name):
+        data = SimSelect.DATA[sim_name]
 
         criteria = self.formatted_criteria(data)
+        feature_html = ""
+        features = data["features"]
+        if "frontend" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\uf7cc</span>user interface&nbsp;'
+        if "backend" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\uef8e</span>compute engine&nbsp;'
+        if "standard" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\uf567</span>interoperability standard&nbsp;'
+        if "tool" in features:
+            feature_html += '<span style="font-family: tabler-icons !important; margin-right:.2em">\ueb40</span>general tool'
         description = f"""
 # {data['name']} [\u270e]({github_url(data['filename'])} "Propose changes to this entry")
+## {feature_html}
 
 {data.get('summary', '')}
 
@@ -211,7 +282,7 @@ class SimSelect:
 
     def __init__(self):
         # This is needed to make the app work in a notebook
-        pn.extension(raw_css=[".bk-btn-light {color: #888!important;}"])
+        pn.extension()
 
         self.template = pn.template.FastListTemplate(title="SimSelect")
 
@@ -244,13 +315,29 @@ class SimSelect:
         )
         filter_help.on_click(lambda event: self.template.open_modal())
         self.template.sidebar.append(pn.Row("## Filter by", filter_help))
+        features = [
+            "user interface",
+            "compute engine",
+            "interoperability standard",
+            "general tool",
+        ]
+        self.feature_checkboxes = pn.widgets.CheckBoxGroup(
+            name="Category", value=features, options=features
+        )
+        self.template.sidebar.append(self.feature_checkboxes)
         for key in self.select_widgets:
             self.template.sidebar.append(self.select_widgets[key])
 
         # Create "buttons" for all simulators
         self.simulators = [
-            pn.widgets.Button(name=name, css_classes=["ranking-neutral"])
-            for name in SimSelect.DATA.keys()
+            SimButton(
+                sim_name=name,
+                button_type="default",
+                button_style="solid",
+                features=SimSelect.DATA[name].get("features", []),
+                stylesheets=["/assets/buttons.css"],
+            )
+            for name in SimSelect.DATA
         ]
         self.update_cards(None)
         for simulator in self.simulators:
@@ -286,6 +373,9 @@ errors.
         )
         self.template.sidebar.append(self.footer)
 
+        # Watch the category checkboxes
+        self.feature_checkboxes.param.watch(self.update_cards, "value")
+        # Watch the select widgets
         for key in self.select_widgets:
             self.select_widgets[key].param.watch(self.update_cards, "value")
         # Watch the search box

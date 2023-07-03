@@ -17,12 +17,12 @@ def get_files(dirname):
             yield fname.resolve()
 
 
-def string_to_list(s):
+def string_to_list(s, prefix=""):
     """
     Helper function to convert a string to a list, e.g. `'A, B'` to `['A', 'B']`
     """
     if s:
-        return sorted(l.strip() for l in s.split(","))
+        return sorted(prefix + l.strip() for l in s.split(","))
     else:
         return []
 
@@ -47,6 +47,13 @@ def parse_file(filename):
             key, value = list(element.items())[0]
             content_dict[key] = value
     # Normalize the standard fields
+
+    # Features (frontend, etc.) – if no feature is given, assume "tool"
+    categories = content_dict.get("features", "")
+    if not categories:
+        content_dict["features"] = ["tool"]
+    else:
+        content_dict["features"] = string_to_list(categories)
 
     # Operating System
     assert "operating_system" in content_dict, "no operating_system entry"
