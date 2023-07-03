@@ -1,5 +1,5 @@
 - name: nrn-patch
-- categories: frontend
+- features: frontend
 - website_url: https://github.com/dbbs-lab/patch
 - operating_system: #TODO
 - biological_level: #TODO

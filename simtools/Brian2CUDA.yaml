@@ -1,5 +1,5 @@
 - name: Brian2CUDA
-- categories: backend
+- features: backend
 - operating_system: Linux, MacOS
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: GPU

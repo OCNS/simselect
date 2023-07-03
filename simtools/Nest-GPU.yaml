@@ -1,5 +1,5 @@
 - name: NEST GPU
-- categories: frontend, backend
+- features: frontend, backend
 - operating_system: Linux
 - biological_level: Population Model, Single-Compartment (Simple) Model
 - computing_scale: GPU

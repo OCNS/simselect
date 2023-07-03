@@ -1,5 +1,5 @@
 - name: Geppeto
-- categories: frontend
+- features: frontend
 - website_url: https://www.geppetto.org/
 - operating_system: Linux, MacOS, Windows
 - biological_level: #TODO

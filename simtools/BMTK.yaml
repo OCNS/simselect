@@ -1,5 +1,5 @@
 - name: Brain Modelling Toolkit (BMTK)
-- categories: frontend
+- features: frontend
 - website_url: https://alleninstitute.github.io/bmtk/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model

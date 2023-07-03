@@ -1,5 +1,5 @@
 - name: MUSIC (MUlti-SImulation Coordinator)
-- categories: standard
+- features: standard
 - operating_system: Linux, MacOS
 - biological_level: #TODO
 - computing_scale: Cluster

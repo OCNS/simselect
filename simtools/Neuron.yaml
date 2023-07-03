@@ -1,5 +1,5 @@
 - name: Neuron
-- categories: frontend, backend
+- features: frontend, backend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, Cluster, Supercomputer

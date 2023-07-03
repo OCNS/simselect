@@ -21,7 +21,7 @@ class SimButton(ReactiveHTML):
     sim_name = param.String()
     button_type = param.String()
     button_style = param.String()
-    categories = param.List()
+    features = param.List()
 
     def __init__(self, **params):
         super().__init__(**params)
@@ -31,22 +31,22 @@ class SimButton(ReactiveHTML):
     <button id="simbutton" class="bk-btn bk-btn-${button_type} bk-btn-${button_style}" onclick="${_btn_click}"
      type="button" style="padding: var(--padding-vertical) var(--padding-horizontal); font-size: var(--font-size); font-family: var(--base-font); margin: var(--padding-vertical) var(--padding-horizontal); cursor: pointer">
     {{sim_name}}
-    {% if categories %}
+    {% if features %}
     <span style="border: 1px dashed lightgray; margin-left: 1em">
     {% endif %}
-    {% if "frontend" in categories%}
+    {% if "frontend" in features%}
     <span style="font-family: tabler-icons !important;">\uf7cc</span>
     {% endif %}
-    {% if "backend" in categories %}
+    {% if "backend" in features %}
     <span style="font-family: tabler-icons !important;">\uef8e</span>
     {% endif %}
-    {% if "standard" in categories %}
+    {% if "standard" in features %}
     <span style="font-family: tabler-icons !important;">\uf567</span>
     {% endif %}
-    {% if "tool" in categories %}
+    {% if "tool" in features %}
     <span style="font-family: tabler-icons !important;">\ueb40</span>
     {% endif %}
-    {% if categories %}
+    {% if features %}
     </span>
     {% endif %}
     </button>
@@ -140,7 +140,7 @@ class SimSelect:
             filtered[name] = 0
 
         for key, value in criteria.items():
-            if key == "categories":
+            if key == "features":
                 # Translate long display names to short category names
                 value = [
                     {
@@ -178,7 +178,7 @@ class SimSelect:
     def update_cards(self, event):
         filter_results, total_critera = self.filtered_data(
             {key: self.select_widgets[key].value for key in self.select_widgets}
-            | {"categories": self.category_checkboxes.value},
+            | {"features": self.feature_checkboxes.value},
             self.search_box.value_input.lower(),
         )
         unsorted = all(
@@ -315,16 +315,16 @@ class SimSelect:
         )
         filter_help.on_click(lambda event: self.template.open_modal())
         self.template.sidebar.append(pn.Row("## Filter by", filter_help))
-        categories = [
+        features = [
             "interface/frontend",
             "backend/engine",
             "interoperability standard",
             "general tool",
         ]
-        self.category_checkboxes = pn.widgets.CheckBoxGroup(
-            name="Category", value=categories, options=categories
+        self.feature_checkboxes = pn.widgets.CheckBoxGroup(
+            name="Category", value=features, options=features
         )
-        self.template.sidebar.append(self.category_checkboxes)
+        self.template.sidebar.append(self.feature_checkboxes)
         for key in self.select_widgets:
             self.template.sidebar.append(self.select_widgets[key])
 
@@ -334,8 +334,8 @@ class SimSelect:
                 sim_name=name,
                 button_type="default",
                 button_style="solid",
-                categories=SimSelect.DATA[name].get("categories", []),
-                stylesheets=["/assets/categories.css"],
+                features=SimSelect.DATA[name].get("features", []),
+                stylesheets=["/assets/buttons.css"],
             )
             for name in SimSelect.DATA
         ]
@@ -374,7 +374,7 @@ errors.
         self.template.sidebar.append(self.footer)
 
         # Watch the category checkboxes
-        self.category_checkboxes.param.watch(self.update_cards, "value")
+        self.feature_checkboxes.param.watch(self.update_cards, "value")
         # Watch the select widgets
         for key in self.select_widgets:
             self.select_widgets[key].param.watch(self.update_cards, "value")

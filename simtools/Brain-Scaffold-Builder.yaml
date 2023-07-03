@@ -1,5 +1,5 @@
 - name: Brain Scaffold Builder
-- categories: frontend, backend
+- features: frontend, backend
 - website_url: https://bsb.readthedocs.io
 - operating_system: Linux, MacOS, Windows
 - biological_level: #TODO

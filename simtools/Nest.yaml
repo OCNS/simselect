@@ -1,5 +1,5 @@
 - name: NEST
-- categories: frontend, backend
+- features: frontend, backend
 - operating_system: Linux, MacOS, Windows #TODO: Python interface can be used in Windows, not the rest
 - biological_level: Population Model, Single-Compartment (Simple) Model
 - computing_scale: Single Machine, Cluster, Supercomputer

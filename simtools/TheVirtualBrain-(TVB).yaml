@@ -1,5 +1,5 @@
 - name: TheVirtualBrain (TVB)
-- categories: frontend, backend
+- features: frontend, backend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model #TODO
 - interface_language: Python, GUI

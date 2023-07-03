@@ -1,5 +1,5 @@
 - name: c302
-- categories: frontend
+- features: frontend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine

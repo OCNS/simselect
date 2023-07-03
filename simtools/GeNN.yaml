@@ -1,5 +1,5 @@
 - name: GeNN
-- categories: frontend, backend
+- features: frontend, backend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model
 - computing_scale: Single Machine, GPU

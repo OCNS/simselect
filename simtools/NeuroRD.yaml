@@ -1,5 +1,5 @@
 - name: NeuroRD
-- categories: frontend, backend
+- features: frontend, backend
 - website_url: https://krasnow1.gmu.edu/CENlab/software.html
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Complex) Model, Multi-Compartment Model

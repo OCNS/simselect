@@ -1,5 +1,5 @@
 - name: DiPDE
-- categories: frontend, backend
+- features: frontend, backend
 - website_url: https://alleninstitute.github.io/dipde/index.html
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model
