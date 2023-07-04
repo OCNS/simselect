@@ -41,37 +41,18 @@ def parse_file(filename):
         content = yaml.safe_load(f)
         content_dict = {}
         for element in content:
-            if not isinstance(element, dict):
-                print(f"Ignoring top-level element of type {type(element)}")
-                continue
             key, value = list(element.items())[0]
             content_dict[key] = value
+
     # Normalize the standard fields
 
-    # Features (frontend, etc.) – if no feature is given, assume "tool"
-    categories = content_dict.get("features", "")
-    if not categories:
-        content_dict["features"] = ["tool"]
-    else:
-        content_dict["features"] = string_to_list(categories)
+    # Features (frontend, etc.)
+    assert "features" in content_dict, "no features entry"
+    content_dict["features"] = string_to_list(content_dict["features"])
 
     # Operating System
     assert "operating_system" in content_dict, "no operating_system entry"
-    if isinstance(content_dict["operating_system"], list):
-        if len(content_dict["operating_system"]) and not isinstance(
-            content_dict["operating_system"][0], str
-        ):
-            os_support = content_dict["operating_system"]
-            content_dict["operating_system"] = sorted(
-                os
-                for os_support_dict in os_support
-                for os, supported in os_support_dict.items()
-                if supported
-            )
-    else:
-        content_dict["operating_system"] = string_to_list(
-            content_dict["operating_system"]
-        )
+    content_dict["operating_system"] = string_to_list(content_dict["operating_system"])
 
     # Biological level
     assert "biological_level" in content_dict, "no biological level"
@@ -88,22 +69,9 @@ def parse_file(filename):
     )
 
     # Model description language
-    if "model__description_language" in content_dict:
-        description_language_key = "model__description_language"
-    else:
-        description_language_key = "model_description_language"
     content_dict["model_description_language"] = string_to_list(
-        content_dict.get(description_language_key, "")
+        content_dict.get("model_description_language", "")
     )
-
-    if "website_url" in content_dict:
-        if "urls" in content_dict:
-            raise ValueError(
-                f"Both 'website_url' and 'urls' are defined in,"
-                f" {filename}. Use homepage in urls instead."
-            )
-        content_dict["urls"] = {"homepage": content_dict["website_url"]}
-        del content_dict["website_url"]
 
     return content_dict
 

@@ -28,10 +28,9 @@ The fields `features`, `operating_system`, `biological_level`, `computing_scale`
 `interface_language`, and `model_description_language` are comma-separated
 strings (i.e. not yaml lists).
 
-The `features` fields should only contain the following values: `frontend` (for
+The `features` fields should contain one or more of the following values: `frontend` (for
 interfaces to simulation engines), `backend` (for simulation engines), `standard`
-(for interoperability standards, APIs, etc.), or `tool` (for a general tool). If no
-features are given, `tool` is assumed.
+(for interoperability standards, APIs, etc.), or `tool` (for a general tool).
 
 The `urls` field can contain arbitrary keys that will be displayed as button
 labels. A  number of names will be recognized and will be displayed with a
