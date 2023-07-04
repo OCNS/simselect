@@ -7,9 +7,10 @@ File: validate_data.py
 Copyright 2023 Simselect contributors
 """
 
-
 from pathlib import Path
-from schema import Schema, SchemaError, Optional, Or
+import sys
+
+from schema import Schema, SchemaError, Optional, Or, And
 import yaml
 
 
@@ -19,16 +20,24 @@ data_schema = Schema(
             "name": str,
         },
         {
-            "operating_system": str,
+            "features": And(
+                str,
+                lambda s: all(
+                    ss.strip() in ["frontend", "backend", "standard", "tool"]
+                    for ss in s.split(",")
+                ),
+                error="features must be a comma-separated list of 'frontend', 'backend', 'standard', 'tool'",
+            ),
+        },
+        {"operating_system": Or(str, None)},
+        {
+            "biological_level": Or(str, None),
         },
         {
-            "biological_level": str,
+            "computing_scale": Or(str, None),
         },
         {
-            "computing_scale": str,
-        },
-        {
-            "interface_language": str,
+            "interface_language": Or(str, None),
         },
         {
             "summary": str,
@@ -46,11 +55,14 @@ data_schema = Schema(
     ]
 )
 
-data_files = Path("../simtools")
+data_files = Path(Path(__file__).parent / ".." / "simtools")
 file_list = list(data_files.glob("**/*.yaml"))
 print(file_list)
 
+errors = []
 for datafile in file_list:
+    if datafile.name == "simtools.yaml":
+        continue
     print(f"\n>> Validating {datafile}")
     with open(datafile, "r") as f:
         text = yaml.safe_load(f)
@@ -58,4 +70,13 @@ for datafile in file_list:
             data_schema.validate(text)
             print(f">> {datafile} is valid.")
         except SchemaError as e:
-            print(e)
+            errors.append(datafile.name)
+            print(f"!! {e}")
+            print(f"!! {datafile} is invalid.")
+
+if errors:
+    print(f"\n!! Some files did not validate: {errors}")
+    sys.exit(1)
+else:
+    print("\n>> All files validated successfully.")
+    sys.exit(0)
