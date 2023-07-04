@@ -22,7 +22,7 @@ python -m pip install -r requirements.txt
 ```
 To run the app, use:
 ```
-panel serve --show src/project_browser.py`
+panel serve --show src/project_browser.py --static-files assets=./assets
 ```
 This will open a browser window with the app.
 Firefox/Chrome based browsers are supported.

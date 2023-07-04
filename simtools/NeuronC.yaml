@@ -1,4 +1,5 @@
 - name: NeuronC
+- features: frontend, backend
 - website_url: http://retina.anatomy.upenn.edu/~rob/neuronc.html
 - operating_system: Linux, MacOS
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model

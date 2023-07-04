@@ -1,4 +1,5 @@
 - name: Steps
+- features: frontend, backend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model #TODO
 - computing_scale: Single Machine, GPU

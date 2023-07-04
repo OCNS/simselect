@@ -1,4 +1,5 @@
 - name: LFPy
+- features:
 - operating_system: Linux, MacOS, Windows
 - biological_level: Multi-Compartment Model #TODO
 - computing_scale: Single Machine
