@@ -272,7 +272,9 @@ class SimSelect:
                 relation_button = pn.widgets.Button(
                     name=relation["name"], button_type="primary"
                 )
-                relation_button.on_click(self.simulator_details)
+                relation_button.on_click(
+                    lambda event: self.simulator_details(event.obj.name)
+                )
                 relation_buttons.append(relation_button)
             rows.append(pn.Row(*relation_buttons))
 
