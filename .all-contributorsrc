@@ -47,6 +47,24 @@
         "projectManagement",
         "research"
       ]
+    },
+    {
+      "login": "ree-gupta",
+      "name": "Reema Gupta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/59512969?v=4",
+      "profile": "https://github.com/ree-gupta",
+      "contributions": [
+        "code",
+        "content",
+        "data",
+        "maintenance",
+        "design",
+        "ideas",
+        "projectManagement",
+        "research",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
