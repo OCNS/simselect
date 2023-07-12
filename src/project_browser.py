@@ -302,7 +302,7 @@ class SimSelect:
         self.template.header.append(
             pn.pane.Markdown(
                 """
-        **Note: this is an early prototype and far from ready for general use**
+        **Note: this is an early prototype; please provide feedback <a href="https://github.com/OCNS/simselect/issues/37" target="_blank" style="color: var(--neutral-foreground-rest);">here</a>.**
         """
             )
         )
