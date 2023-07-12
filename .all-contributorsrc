@@ -27,7 +27,12 @@
         "content",
         "data",
         "maintenance",
-        "design"
+        "design",
+        "ideas",
+        "projectManagement",
+        "research",
+        "review",
+        "test"
       ]
     }
   ],
