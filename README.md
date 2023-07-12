@@ -3,9 +3,6 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![All Contributors](https://img.shields.io/github/all-contributors/OCNS/simselect?color=ee8449&style=flat-square)](#contributors)
-
-
 **This is a work-in-progress and in pre-alpha state at the moment**
 
 This is a project by the [OCNS/INCF software working group](https://ocns.github.io/SoftwareWG/index.html),
