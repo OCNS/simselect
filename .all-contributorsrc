@@ -47,6 +47,20 @@
         "projectManagement",
         "research"
       ]
+    },
+    {
+      "login": "elianecr",
+      "name": "Eliane Crepaldi Rodrigues",
+      "avatar_url": "https://avatars.githubusercontent.com/u/80128318?v=4",
+      "profile": "https://github.com/elianecr",
+      "contributions": [
+        "design",
+        "content",
+        "data",
+        "ideas",
+        "projectManagement",
+        "research"
+      ]
     }
   ],
   "contributorsPerLine": 7,
