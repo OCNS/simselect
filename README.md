@@ -1,6 +1,6 @@
 # SimSelect
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **This is a work-in-progress and in pre-alpha state at the moment**
@@ -60,6 +60,7 @@ The web app is hosted on [fly.io](https://fly.io/). See https://simselect.fly.de
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://www.shailesh-appukuttan.com/"><img src="https://avatars.githubusercontent.com/u/24866517?v=4?s=100" width="100px;" alt="appukuttan-shailesh"/><br /><sub><b>appukuttan-shailesh</b></sub></a><br /><a href="#maintenance-appukuttan-shailesh" title="Maintenance">🚧</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://marcel.stimberg.info"><img src="https://avatars.githubusercontent.com/u/1381982?v=4?s=100" width="100px;" alt="Marcel Stimberg"/><br /><sub><b>Marcel Stimberg</b></sub></a><br /><a href="https://github.com/OCNS/simselect/commits?author=mstimberg" title="Code">💻</a> <a href="#infra-mstimberg" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#content-mstimberg" title="Content">🖋</a> <a href="#data-mstimberg" title="Data">🔣</a> <a href="#maintenance-mstimberg" title="Maintenance">🚧</a> <a href="#design-mstimberg" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ree-gupta"><img src="https://avatars.githubusercontent.com/u/59512969?v=4?s=100" width="100px;" alt="Reema Gupta"/><br /><sub><b>Reema Gupta</b></sub></a><br /><a href="https://github.com/OCNS/simselect/commits?author=ree-gupta" title="Code">💻</a> <a href="#content-ree-gupta" title="Content">🖋</a> <a href="#data-ree-gupta" title="Data">🔣</a> <a href="#maintenance-ree-gupta" title="Maintenance">🚧</a> <a href="#design-ree-gupta" title="Design">🎨</a> <a href="#ideas-ree-gupta" title="Ideas, Planning, & Feedback">🤔</a> <a href="#projectManagement-ree-gupta" title="Project Management">📆</a> <a href="#research-ree-gupta" title="Research">🔬</a> <a href="https://github.com/OCNS/simselect/pulls?q=is%3Apr+reviewed-by%3Aree-gupta" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/OCNS/simselect/commits?author=ree-gupta" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
