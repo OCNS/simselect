@@ -61,6 +61,42 @@
         "projectManagement",
         "research"
       ]
+    },
+    {
+      "login": "brenthuisman",
+      "name": "Brent Huisman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2943652?v=4",
+      "profile": "http://brent.huisman.pl",
+      "contributions": [
+        "code",
+        "content",
+        "data",
+        "maintenance",
+        "design",
+        "ideas",
+        "projectManagement",
+        "research",
+        "review",
+        "test"
+      ]
+    },
+    {
+      "login": "ree-gupta",
+      "name": "Reema Gupta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/59512969?v=4",
+      "profile": "https://github.com/ree-gupta",
+      "contributions": [
+        "code",
+        "content",
+        "data",
+        "maintenance",
+        "design",
+        "ideas",
+        "projectManagement",
+        "research",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
