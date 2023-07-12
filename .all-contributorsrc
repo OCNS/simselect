@@ -15,6 +15,20 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "mstimberg",
+      "name": "Marcel Stimberg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1381982?v=4",
+      "profile": "https://marcel.stimberg.info",
+      "contributions": [
+        "code",
+        "infra",
+        "content",
+        "data",
+        "maintenance",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
