@@ -1,6 +1,5 @@
 - name: Arbor GUI
 - features: frontend
-- website_url: https://github.com/arbor-sim/gui/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, GPU
@@ -18,6 +17,14 @@
      - Place spike detectors and probes.
      - Export cable cells to Arbor’s internal format (ACC) for direct simulation.
      - Import cable cells in ACC format
-
+- urls:
+    homepage: https://github.com/arbor-sim/gui
+    tutorial: https://docs.arbor-sim.org/en/latest/tutorial/single_cell_gui.html
+    source: https://github.com/arbor-sim/gui
+    email: contact@arbor-sim.org
+    issue tracker: https://github.com/arbor-sim/gui/issues
+    download: https://docs.arbor-sim.org/en/latest/install/gui.html
+    forum: https://github.com/arbor-sim/arbor/discussions
+    chat: https://gitter.im/arbor-sim/gui
 - relations:
   - name: Arbor

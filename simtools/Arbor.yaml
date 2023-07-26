@@ -16,10 +16,15 @@
 
     Arbor is open source and openly developed, and we use development practices such as unit testing, continuous integration, and validation.
 - urls:
-    homepage: https://arbor-sim.org/
-    documentation: https://docs.arbor-sim.org/
+    homepage: https://arbor-sim.org
+    documentation: https://docs.arbor-sim.org
+    tutorial: https://docs.arbor-sim.org/en/latest/tutorial
     source: https://github.com/arbor-sim/arbor
     email: contact@arbor-sim.org
+    issue tracker: https://github.com/arbor-sim/arbor/issues
+    download: https://docs.arbor-sim.org/en/latest/install
+    forum: https://github.com/arbor-sim/arbor/discussions
+    chat: https://gitter.im/arbor-sim/community
 - relations:
       - name: Arbor GUI
       - name: Arbor Playground
