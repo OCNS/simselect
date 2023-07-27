@@ -115,6 +115,16 @@
         "review",
         "test"
       ]
+    },
+    {
+      "login": "clinssen",
+      "name": "clinssen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/41159823?v=4",
+      "profile": "https://github.com/clinssen",
+      "contributions": [
+        "content",
+        "data"
+      ]
     }
   ],
   "contributorsPerLine": 7,
