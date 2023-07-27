@@ -19,3 +19,4 @@
 - relations:
     - name: NEST GPU
     - name: NEST Desktop
+    - name: NESTML
