@@ -90,6 +90,12 @@ def get_icon(url_type, url):
             return "code"
     elif url_type.lower() == "documentation":
         return "book"
+    elif url_type.lower() == "tutorial":
+        return "school"
+    elif url_type.lower() == "installation":
+        return "device-laptop"
+    elif url_type.lower() == "examples":
+        return "script"
     elif url_type.lower() == "issue tracker":
         return "bug"
     elif url_type.lower() == "download":
