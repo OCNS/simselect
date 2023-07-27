@@ -13,6 +13,7 @@
     - name: Brian
 - urls:
     documentation: https://brian2cuda.readthedocs.io
+    installation: https://brian2cuda.readthedocs.io/en/latest/introduction/install.html
     source: https://github.com/brian-team/brian2cuda
     issue tracker: https://github.com/brian-team/brian2cuda/issues
     download: https://pypi.org/project/Brian2CUDA/

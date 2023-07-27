@@ -32,12 +32,11 @@ The `features` fields should contain one or more of the following values: `front
 interfaces to simulation engines), `backend` (for simulation engines), `standard`
 (for interoperability standards, APIs, etc.), or `tool` (for a general tool).
 
-The `urls` field can contain arbitrary keys that will be displayed as button
-labels. A  number of names will be recognized and will be displayed with a
-special icon: `homepage`, `source`, `documentation`, `issue tracker`,
-`download`, `release notes`, `email`, `chat`, and `forum`. The `email` field
-should refer to  an email address (which will be converted into a `mailto:`
-link), all other  fields should give a full URL.
+The `urls` field contains entries that will be displayed as button
+labels. The following names are recognized: `documentation`, `installation`, `tutorial`,
+`examples`, `email`, `chat`, `forum`, `issue tracker`, `source`, `download`.
+The `email` field  should refer to  an email address (which will be converted into a
+`mailto:` link), all other  fields should give a full URL.
 
 Relations are a list of other simulators that are related to the current
 simulator. The mentioned `name` needs to match the `name` of another simulator

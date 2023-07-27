@@ -12,6 +12,7 @@
     - name: GeNN
 - urls:
     documentation: https://brian2genn.readthedocs.io
+    installation: https://brian2genn.readthedocs.io/en/stable/introduction/index.html#installing-the-brian2genn-interface
     source: https://github.com/brian-team/brian2genn
     issue tracker: https://github.com/brian-team/brian2genn/issues
     download: https://pypi.org/project/Brian2GeNN/

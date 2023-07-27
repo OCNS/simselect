@@ -23,7 +23,10 @@
     homepage: http://neuralensemble.org/PyNN/
     source: https://github.com/NeuralEnsemble/PyNN/
     documentation: http://neuralensemble.org/docs/PyNN/
-
+    installation: http://neuralensemble.org/docs/PyNN/installation.html
+    examples: http://neuralensemble.org/docs/PyNN/examples.html
+    forum: https://groups.google.com/forum/#!forum/neuralensemble
+    issue tracker: https://github.com/NeuralEnsemble/PyNN/issues
 - relations:
     - name: Neuron
     - name: NEST

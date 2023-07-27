@@ -1,6 +1,5 @@
 - name: CoreNEURON
 - features: backend
-- website_url: https://github.com/neuronsimulator/nrn/tree/master/src/coreneuron
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine, Cluster, Supercomputer, GPU
@@ -11,3 +10,5 @@
     In order to run a NEURON model with CoreNEURON, MOD files should be THREADSAFE; If random number generator is used then Random123 should be used instead of MCellRan4; POINTER variables need to be converted to BBCOREPOINTER.
 - relations:
     - name: Neuron
+- urls:
+    homepage: https://github.com/neuronsimulator/nrn/tree/master/src/coreneuron

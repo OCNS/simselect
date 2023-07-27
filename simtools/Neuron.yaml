@@ -10,6 +10,7 @@
     Build and simulate models using Python, HOC, and/or NEURON's graphical interface.
 - urls:
     homepage: https://neuron.yale.edu/neuron/
+    installation: https://nrn.readthedocs.io/en/latest/install/install.html
     source: https://github.com/neuronsimulator/nrn
     documentation: http://nrn.readthedocs.io/
     download: https://nrn.readthedocs.io/en/8.2.2/#installation

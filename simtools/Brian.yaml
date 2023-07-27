@@ -12,6 +12,9 @@
 - urls:
     homepage: https://briansimulator.org/
     documentation: https://brian2.readthedocs.io/
+    installation: https://brian2.readthedocs.io/en/stable/introduction/install.html
+    tutorial: https://brian2.readthedocs.io/en/stable/resources/tutorials/index.html
+    examples: https://brian2.readthedocs.io/en/stable/examples/index.html
     source: https://github.com/brian-team/brian2
     issue tracker: https://github.com/brian-team/brian2/issues
     download: https://pypi.org/project/Brian2/

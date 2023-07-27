@@ -1,6 +1,5 @@
 - name: BluePyOpt
 - features: tool
-- website_url: https://bluepyopt.readthedocs.io
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine
@@ -15,3 +14,6 @@
 
 
     Further, BluePyOpt provides methods for setting up both small- and large-scale optimisations on a variety of platforms, ranging from laptops to Linux clusters and cloud-based compute infrastructures.
+
+- urls:
+    homepage: https://bluepyopt.readthedocs.io

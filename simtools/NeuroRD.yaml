@@ -1,6 +1,5 @@
 - name: NeuroRD
 - features: frontend, backend
-- website_url: https://krasnow1.gmu.edu/CENlab/software.html
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine
@@ -11,3 +10,5 @@
     This is a Java program which runs on any platform.
     The algorithm is based on Gillespie's tau-leap reaction algorithm, and the stochastic diffusion algorithm of Blackwell.
     It uses XML-based model specifications.
+- urls:
+      homepage: https://krasnow1.gmu.edu/CENlab/software.html
