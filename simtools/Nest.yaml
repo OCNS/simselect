@@ -10,7 +10,12 @@
 - urls:
     homepage: https://nest-simulator.org
     source: https://github.com/nest/nest-simulator
+    installation: https://nest-simulator.readthedocs.io/en/stable/installation/index.html
     documentation: https://nest-simulator.org/documentation
+    tutorial: https://nest-simulator.readthedocs.io/en/stable/tutorials/index.html#tutorials
+    examples: https://nest-simulator.readthedocs.io/en/stable/examples/index.html#pynest-examples
+    issue tracker: https://nest-simulator.readthedocs.io/en/stable/developer_space/index.html#contribute
+    forum: https://nest-simulator.readthedocs.io/en/stable/developer_space/guidelines/mailing_list_guidelines.html#mail-guidelines
 - relations:
     - name: NEST GPU
     - name: NEST Desktop

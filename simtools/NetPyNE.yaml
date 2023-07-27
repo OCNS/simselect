@@ -9,8 +9,11 @@
     NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.
 - urls:
     homepage: http://www.netpyne.org/
+    installation: http://www.netpyne.org/install.html
+    tutorial: http://www.netpyne.org/tutorial.html
     source: https://github.com/suny-downstate-medical-center/netpyne
-    documentation: http://www.netpyne.org/
+    issue tracker: https://github.com/suny-downstate-medical-center/netpyne/issues
+    documentation: http://www.netpyne.org/user_documentation.html
 - relations:
     - name: Neuron
     - name: NeuroML

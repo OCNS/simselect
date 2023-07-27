@@ -17,3 +17,8 @@
 - urls:
     homepage: https://www.thevirtualbrain.org/
     source: https://github.com/the-virtual-brain/
+    documentation: http://docs.thevirtualbrain.org/
+    examples: https://github.com/the-virtual-brain/tvb-documentation/tree/master/demos
+    forum: https://groups.google.com/group/tvb-users/
+    issue tracker: http://req.thevirtualbrain.org/
+    download: https://www.thevirtualbrain.org/tvb/zwei/brainsimulator-software

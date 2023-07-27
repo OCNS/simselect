@@ -23,7 +23,8 @@
     source: https://github.com/arbor-sim/gui
     email: contact@arbor-sim.org
     issue tracker: https://github.com/arbor-sim/gui/issues
-    download: https://docs.arbor-sim.org/en/latest/install/gui.html
+    installation: https://docs.arbor-sim.org/en/latest/install/gui.html
+    download: https://github.com/arbor-sim/gui/releases/
     forum: https://github.com/arbor-sim/arbor/discussions
     chat: https://gitter.im/arbor-sim/gui
 - relations:

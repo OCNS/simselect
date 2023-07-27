@@ -10,3 +10,9 @@
     Extensible Dynamics Engine for Networks (EDEN) is a high-performance NeuroML-based neural simulator.
 - relations:
     - name: NeuroML
+- urls:
+      source: https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden
+      installation: https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden/-/tree/main#installing
+      examples: https://github.com/spanag/eden-sim-jupyter-demo
+      issue tracker: https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden/-/issues
+      download: https://pypi.org/project/eden-simulator/

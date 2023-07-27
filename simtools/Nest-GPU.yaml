@@ -10,5 +10,9 @@
 - urls:
     homepage: https://nest-gpu.readthedocs.io
     documentation: https://nest-gpu.readthedocs.io
+    installation: https://nest-gpu.readthedocs.io/en/latest/installation/index.html
+    examples: https://nest-gpu.readthedocs.io/en/latest/examples/index.html
+    source: https://github.com/nest/nest-gpu
+    issue tracker: https://github.com/nest/nest-gpu/issues
 - relations:
     - name: NEST

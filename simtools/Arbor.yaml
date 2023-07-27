@@ -18,11 +18,13 @@
 - urls:
     homepage: https://arbor-sim.org
     documentation: https://docs.arbor-sim.org
-    tutorial: https://docs.arbor-sim.org/en/latest/tutorial
+    tutorial: https://docs.arbor-sim.org/en/stable/tutorial
+    examples: https://github.com/arbor-sim/arbor/tree/master/python/example
     source: https://github.com/arbor-sim/arbor
     email: contact@arbor-sim.org
     issue tracker: https://github.com/arbor-sim/arbor/issues
-    download: https://docs.arbor-sim.org/en/latest/install
+    installation: https://docs.arbor-sim.org/en/stable/install
+    download: https://pypi.org/project/arbor/
     forum: https://github.com/arbor-sim/arbor/discussions
     chat: https://gitter.im/arbor-sim/community
 - relations:

@@ -10,6 +10,8 @@
     interface in Python for the definition of the networks.
 - urls:
     documentation: https://annarchy.readthedocs.io
+    installation: https://annarchy.readthedocs.io/en/latest/Installation.html
+    examples: https://annarchy.readthedocs.io/en/latest/example/List.html
     source: https://github.com/ANNarchy/ANNarchy
     issue tracker: https://github.com/ANNarchy/ANNarchy/issues
     download: https://pypi.org/project/ANNarchy/
