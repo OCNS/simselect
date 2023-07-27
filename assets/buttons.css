@@ -1,5 +1,6 @@
-button:disabled {
+.bk-btn[disabled] {
     text-decoration: line-through;
+    opacity: var(--disabled-opacity);
 }
 
 .bk-btn-warning {
