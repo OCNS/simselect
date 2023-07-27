@@ -3,6 +3,10 @@
     opacity: var(--disabled-opacity);
 }
 
+.bk-btn.sim-detail-selected {
+    border: 3px black solid
+ }
+
 .bk-btn-warning {
   background-color: #f0ad4e;
   border-color: #eea236;

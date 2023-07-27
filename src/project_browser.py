@@ -50,14 +50,16 @@ class SimButton(ReactiveHTML):
     sim_name = param.String()
     button_type = param.String()
     button_style = param.String()
+    selected_for_details = param.String()
     features = param.List()
 
-    def __init__(self, **params):
+    def __init__(self, button_list, **params):
+        self.button_list = button_list
         super().__init__(**params)
         self._onclick = None
 
     _template = """
-    <button id="simbutton" class="bk-btn bk-btn-${button_type} bk-btn-${button_style}" onclick="${_btn_click}"
+    <button id="simbutton" class="bk-btn ${selected_for_details} bk-btn-${button_type} bk-btn-${button_style}" onclick="${_btn_click}"
      type="button" style="padding: var(--padding-vertical) var(--padding-horizontal); font-size: var(--font-size); font-family: var(--base-font); margin: var(--padding-vertical) var(--padding-horizontal); cursor: pointer">
     {{sim_name}}
     {% if features %}
@@ -83,6 +85,9 @@ class SimButton(ReactiveHTML):
 
     def _btn_click(self, event):
         if self._onclick:
+            for button in self.button_list:
+                button.selected_for_details = ""
+            self.selected_for_details = "sim-detail-selected"
             self._onclick(self.sim_name)
 
     def on_click(self, callback):
@@ -364,16 +369,20 @@ class SimSelect:
             self.template.sidebar.append(self.select_widgets[key])
 
         # Create "buttons" for all simulators
-        self.simulators = [
-            SimButton(
-                sim_name=name,
-                button_type="default",
-                button_style="solid",
-                features=SimSelect.DATA[name].get("features", []),
-                stylesheets=["/assets/buttons.css"],
+        self.simulators = []
+        for name in SimSelect.DATA:
+            self.simulators.append(
+                # Each button stores a reference to the full list so that it
+                # can unselect other buttons when it is clicked
+                SimButton(
+                    self.simulators,
+                    sim_name=name,
+                    button_type="default",
+                    button_style="solid",
+                    features=SimSelect.DATA[name].get("features", []),
+                    stylesheets=["/assets/buttons.css"],
+                )
             )
-            for name in SimSelect.DATA
-        ]
         self.update_cards(None)
         for simulator in self.simulators:
             simulator.on_click(self.simulator_details)
