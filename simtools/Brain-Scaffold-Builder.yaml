@@ -1,6 +1,5 @@
 - name: Brain Scaffold Builder
 - features: frontend, backend
-- website_url: https://bsb.readthedocs.io
 - operating_system: Linux, MacOS, Windows
 - biological_level: #TODO
 - computing_scale: Single Machine
@@ -16,3 +15,6 @@
 
 
     This way, by implementing our component interfaces and declaring them in a configuration file, most models end up being code-free, well-parametrized, self-contained, human-readable, multi-scale models!
+
+- urls:
+    homepage: https://bsb.readthedocs.io

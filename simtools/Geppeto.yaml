@@ -1,6 +1,5 @@
 - name: Geppeto
 - features: frontend
-- website_url: https://www.geppetto.org/
 - operating_system: Linux, MacOS, Windows
 - biological_level: #TODO
 - computing_scale: #TODO
@@ -10,3 +9,5 @@
     Geppetto is a web-based visualisation and simulation platform to build neuroscience software applications.
     Reuse best practices, best compomnents, best design.
     Don't reinvent the wheel.
+- urls:
+      homepage: https://www.geppetto.org/

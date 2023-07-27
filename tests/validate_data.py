@@ -47,11 +47,26 @@ data_schema = Schema(
         },
         {
             Optional("urls"): {
-                str: str,
+                Or(
+                    "homepage",
+                    "documentation",
+                    "installation",
+                    "tutorial",
+                    "examples",
+                    "email",
+                    "chat",
+                    "forum",
+                    "issue tracker",
+                    "source",
+                    "download",
+                ): (
+                    lambda url: isinstance(url, str)
+                    and url.startswith("http")
+                    or "@" in url
+                )
             }
         },
         {Optional("relations"): [{"name": str}]},
-        {Optional("website_url"): str},
     ]
 )
 

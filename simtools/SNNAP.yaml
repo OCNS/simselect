@@ -1,6 +1,5 @@
 - name: SNNAP
 - features: frontend, backend
-- website_url: https://med.uth.edu/nba/snnap/
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - computing_scale: Single Machine
@@ -22,3 +21,5 @@
       - Graphical user interface
       - Ability to simulate common experimental manipulations.
       - Modular organizations of input files.
+- urls:
+      homepage: https://med.uth.edu/nba/snnap/

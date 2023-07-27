@@ -1,6 +1,5 @@
 - name: nrn-patch
 - features: frontend
-- website_url: https://github.com/dbbs-lab/patch
 - operating_system: #TODO
 - biological_level: #TODO
 - computing_scale: #TODO
@@ -10,3 +9,5 @@
     A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.
 - relations:
     - name: Neuron
+- urls:
+      homepage: https://github.com/dbbs-lab/patch
