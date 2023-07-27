@@ -53,8 +53,7 @@ class SimButton(ReactiveHTML):
     selected_for_details = param.String()
     features = param.List()
 
-    def __init__(self, button_list, **params):
-        self.button_list = button_list
+    def __init__(self, **params):
         super().__init__(**params)
         self._onclick = None
 
@@ -85,9 +84,7 @@ class SimButton(ReactiveHTML):
 
     def _btn_click(self, event):
         if self._onclick:
-            for button in self.button_list:
-                button.selected_for_details = ""
-            self.selected_for_details = "sim-detail-selected"
+            # Note that SimSelect.simulator_details will set the button class to highlight the selected button
             self._onclick(self.sim_name)
 
     def on_click(self, callback):
@@ -267,6 +264,13 @@ class SimSelect:
         return "\n\n".join(description)
 
     def simulator_details(self, sim_name):
+        # Highlight buttons correctly
+        for button in self.simulators:
+            if button.sim_name == sim_name:
+                button.selected_for_details = "sim-detail-selected"
+            else:
+                button.selected_for_details = ""
+
         data = SimSelect.DATA[sim_name]
 
         criteria = self.formatted_criteria(data)
@@ -372,10 +376,7 @@ class SimSelect:
         self.simulators = []
         for name in SimSelect.DATA:
             self.simulators.append(
-                # Each button stores a reference to the full list so that it
-                # can unselect other buttons when it is clicked
                 SimButton(
-                    self.simulators,
                     sim_name=name,
                     button_type="default",
                     button_style="solid",
