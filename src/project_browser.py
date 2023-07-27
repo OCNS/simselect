@@ -16,6 +16,35 @@ __version__ = "0.1.0"
 REPO_URL = "https://github.com/OCNS/simselect"
 DATA_FOLDER = "simtools"
 
+DOC_URLS = ["documentation", "installation", "tutorial", "examples"]
+DEV_URLS = ["email", "chat", "forum", "issue tracker", "source", "download"]
+
+
+def create_url_button(url_type, url, button_type="default"):
+    icon = get_icon(url_type, url)
+    url_button = pn.widgets.Button(
+        icon=icon,
+        name=url_type.capitalize(),
+        button_type=button_type,
+        stylesheets=["/assets/buttons.css"],
+    )
+    url_button.disabled = True if not url else False
+    if url_type.lower() == "email":
+        url_button.js_on_click(code=f"window.open('mailto:{url}')")
+    else:
+        url_button.js_on_click(code=f"window.open('{url}')")
+    return url_button
+
+
+def create_url_buttons(show_urls, simulator_urls, button_type):
+    url_buttons = []
+    for url_type in show_urls:
+        url_button = create_url_button(
+            url_type, simulator_urls.get(url_type, ""), button_type=button_type
+        )
+        url_buttons.append(url_button)
+    return url_buttons
+
 
 class SimButton(ReactiveHTML):
     sim_name = param.String()
@@ -255,21 +284,19 @@ class SimSelect:
 {criteria}
 """
         rows = [description]
-        url_buttons = []
-        for url_type, url in data.get("urls", {}).items():
-            icon = get_icon(url_type, url)
-            url_button = pn.widgets.Button(
-                icon=icon, name=url_type.capitalize(), button_type="default"
+        urls = data.get("urls", {})
+        if "homepage" in urls:
+            url_button = create_url_button(
+                "homepage", urls["homepage"], button_type="success"
             )
-            if url_type.lower() == "email":
-                url_button.js_on_click(code=f"window.open('mailto:{url}')")
-            else:
-                url_button.js_on_click(code=f"window.open('{url}')")
-            url_buttons.append(url_button)
+            # Display homepage prominently on its own (if it exists)
+            rows.append(pn.Row(url_button))
 
-        if url_buttons:
-            buttons = pn.Row(*url_buttons)
-            rows.append(buttons)
+        url_buttons = create_url_buttons(DOC_URLS, urls, "primary")
+        rows.append(pn.Row(*url_buttons))
+
+        url_buttons = create_url_buttons(DEV_URLS, urls, "default")
+        rows.append(pn.Row(*url_buttons))
 
         if data.get("relations", []):
             rows.append("## Related simulators")
