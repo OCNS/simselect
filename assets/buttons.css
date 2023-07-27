@@ -4,7 +4,7 @@
 }
 
 .bk-btn.sim-detail-selected {
-    border: 3px black solid
+    border: 3px var(--neutral-foreground-rest) solid
  }
 
 .bk-btn-warning {
