@@ -4,8 +4,20 @@ on:
     branches:
       - main
 jobs:
+  deploy_staging:  # Always deploy to staging
+    name: Deploy app to simselect-dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: sed -i 's/simselect/simselect-dev/g' fly.toml
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_STAGING_API_TOKEN }}
+
   deploy:
-    name: Deploy app
+    name: Deploy app  # Deploy to production only when a tag is pushed
+    if: github.repository == 'OCNS/simselect' && startsWith(github.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

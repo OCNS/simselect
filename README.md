@@ -47,7 +47,8 @@ pre-commit install
 Now, the pre-commit checks will be run before each commit.
 
 ## Deployment
-The web app is hosted on [fly.io](https://fly.io/). See https://simselect.fly.dev/ for the latest version.
+The web app is hosted on [fly.io](https://fly.io/). See https://simselect.fly.dev/ for the latest released (tagged) version, and
+https://simselect-dev.fly.dev for the latest version directly built from the ``main`` branch.
 
 
 ## Contributors
