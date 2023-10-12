@@ -11,7 +11,7 @@ import param
 import data
 
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 REPO_URL = "https://github.com/OCNS/simselect"
 DATA_FOLDER = "simtools"
