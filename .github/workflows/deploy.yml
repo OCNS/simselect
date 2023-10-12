@@ -1,10 +1,9 @@
 name: Fly Deploy
-on:
-  push:
-    branches:
-      - main
+on: [push]
+
 jobs:
   deploy_staging:  # Always deploy to staging
+    if: github.repository == 'OCNS/simselect' && github.ref == 'refs/heads/main'
     name: Deploy app to simselect-dev
     runs-on: ubuntu-latest
     steps:
