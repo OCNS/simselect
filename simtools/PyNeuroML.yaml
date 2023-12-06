@@ -1,0 +1,24 @@
+- name: NeuroML
+- features: tool
+- operating_system: Linux, MacOS, Windows
+- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+- computing_scale: Cluster
+- interface_language: Python, GUI
+- model_description_language: NeuroML/LEMS
+- summary: >
+    A single package in Python unifying scripts and modules for reading, writing, simulating and analysing NeuroML2/LEMS models.
+
+- urls:
+    homepage: https://neuroml.org
+    documentation: https://docs.neuroml.org
+    tutorial: https://docs.neuroml.org/Userdocs/GettingStarted.html
+    source: https://github.com/NeuroML/pyNeuroML
+    download: https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html
+- relations:
+    - name: Neuron
+    - name: NetPyNE
+    - name: c302
+    - name: EDEN
+    - name: Brian
+    - name: PyNN
+    - name: Arbor
