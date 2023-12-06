@@ -15,6 +15,7 @@
     source: https://github.com/NeuroML/pyNeuroML
     download: https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html
 - relations:
+    - name: NeuroML
     - name: Neuron
     - name: NetPyNE
     - name: c302
