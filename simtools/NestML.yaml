@@ -1,8 +1,6 @@
 - name: NESTML
 - features: standard
 - operating_system: Linux, MacOS, Windows
-- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model
-- processing_support: Single Machine
 - interface_language: Python
 - model_description_language: NESTML
 - summary: >
@@ -18,3 +16,4 @@
     forum: https://nest-simulator.readthedocs.io/en/stable/developer_space/guidelines/mailing_list_guidelines.html#mail-guidelines
 - relations:
     - name: NEST
+      description: simulates with
