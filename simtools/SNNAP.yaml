@@ -1,10 +1,9 @@
 - name: SNNAP
-- features: frontend, backend
+- features: frontend, Simulator
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - processing_support: Single Machine
 - interface_language: Java, GUI
-- model_description_language: ''
 - summary: >
     Simulator for Neural Networks and Action Potentials (SNNAP) is a tool for rapid development and simulation of realistic models of single neurons and neural networks.
     It includes mathematical descriptions of ion currents and intracellular second messengers and ions.
@@ -23,3 +22,4 @@
       - Modular organizations of input files.
 - urls:
       homepage: https://med.uth.edu/nba/snnap/
+      tutorial: https://med.uth.edu/nba/snnap/snnap-tutorials/
