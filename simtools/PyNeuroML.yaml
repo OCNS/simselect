@@ -1,8 +1,6 @@
-- name: NeuroML
-- features: tool
+- name: PyNeuroML
+- features: tool, plotting, analysis
 - operating_system: Linux, MacOS, Windows
-- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- processing_support: Cluster
 - interface_language: Python, GUI
 - model_description_language: NeuroML/LEMS
 - summary: >
@@ -16,10 +14,14 @@
     download: https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html
 - relations:
     - name: NeuroML
+      description: is Python package for
+    - name: libNeuroML
+      description: uses
     - name: Neuron
+      description: simulates with
     - name: NetPyNE
-    - name: c302
+      description: simulates with
     - name: EDEN
+      description: simulates with
     - name: Brian
-    - name: PyNN
-    - name: Arbor
+      description: simulates with
