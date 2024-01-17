@@ -1,8 +1,6 @@
 - name: NeuroML
 - features: standard
 - operating_system: Linux, MacOS, Windows
-- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- processing_support: Single Machine
 - interface_language: Python, XML, GUI
 - model_description_language: NeuroML/LEMS
 - summary: >
@@ -33,9 +31,16 @@
     download: https://docs.neuroml.org/Userdocs/Software/Software.html
 - relations:
     - name: Neuron
+      description: exports to, imports from, can be imported by
     - name: NetPyNE
+      description: exports to, can be imported by
     - name: c302
+      description: is used by
     - name: EDEN
+      description: can be simulated by
     - name: Brian
+      description: exports to
     - name: PyNN
+      description: interoperates with
     - name: Arbor
+      description: exports to, imports from, can be imported by
