@@ -23,10 +23,10 @@ data_schema = Schema(
             "features": And(
                 str,
                 lambda s: all(
-                    ss.strip() in ["frontend", "backend", "standard", "tool"]
+                    ss.strip() in ["frontend", "simulator", "standard", "tool"]
                     for ss in s.split(",")
                 ),
-                error="features must be a comma-separated list of 'frontend', 'backend', 'standard', 'tool'",
+                error="features must be a comma-separated list of 'frontend', 'simulator', 'standard', 'tool'",
             ),
         },
         {"operating_system": Or(str, None)},
@@ -34,7 +34,7 @@ data_schema = Schema(
             "biological_level": Or(str, None),
         },
         {
-            "computing_scale": Or(str, None),
+            "processing_support": Or(str, None),
         },
         {
             "interface_language": Or(str, None),
@@ -66,7 +66,7 @@ data_schema = Schema(
                 )
             }
         },
-        {Optional("relations"): [{"name": str}]},
+        {Optional("relations"): [{"name": str, "description": str}]},
     ]
 )
 
