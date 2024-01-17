@@ -1,8 +1,6 @@
 - name: PyNN
 - features: frontend, standard
 - operating_system: Linux, MacOS, Windows
-- biological_level: Population Model, Single-Compartment (Simple) Model
-- processing_support: #TODO
 - interface_language: Python
 - model_description_language: PyNN
 - summary: >
@@ -29,6 +27,10 @@
     issue tracker: https://github.com/NeuralEnsemble/PyNN/issues
 - relations:
     - name: Neuron
+      description: simulates with
     - name: NEST
+      description: simulates with
     - name: Brian
+      description: simulates with
     - name: NeuroML
+      description: interoperates with
