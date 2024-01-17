@@ -2,7 +2,7 @@
 - features: frontend, standard
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model
-- computing_scale: #TODO
+- processing_support: #TODO
 - interface_language: Python
 - model_description_language: PyNN
 - summary: >

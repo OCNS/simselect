@@ -2,7 +2,7 @@
 - features: frontend, backend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine
+- processing_support: Single Machine
 - interface_language: Java, CLI
 - model_description_language: XML
 - summary: >

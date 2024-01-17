@@ -2,7 +2,7 @@
 - features: frontend
 - operating_system: Linux, MacOS, Windows
 - biological_level: #TODO
-- computing_scale: #TODO
+- processing_support: #TODO
 - interface_language: Python, Javascript
 - model_description_language: #TODO
 - summary: >

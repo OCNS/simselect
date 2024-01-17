@@ -2,8 +2,8 @@
 - features: frontend, backend
 - operating_system: Linux, MacOS
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine, Cluster, Supercomputer, GPU
-- computing_scale: Single Machine
+- processing_support: Single Machine, Cluster, Supercomputer, GPU
+- processing_support: Single Machine
 - interface_language: Python, GUI, C++
 - model_description_language: NMODL, NeuroML/LEMS, SBML
 - summary: >

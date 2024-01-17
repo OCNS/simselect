@@ -2,7 +2,7 @@
 - features: frontend, backend
 - operating_system: Linux
 - biological_level: Population Model, Single-Compartment (Simple) Model
-- computing_scale: GPU
+- processing_support: GPU
 - interface_language: Python, C++, C
 - model_description_language: #TODO
 - summary: >

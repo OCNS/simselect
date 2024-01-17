@@ -2,7 +2,7 @@
 - features: backend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine, Cluster
+- processing_support: Single Machine, Cluster
 - interface_language: CLI, Python
 - model_description_language: NeuroML/LEMS
 - summary: >

@@ -2,7 +2,7 @@
 - features: frontend, backend
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model #TODO
-- computing_scale: Single Machine
+- processing_support: Single Machine
 - interface_language: Java, CLI, Fortran
 - model_description_language:
 - summary: >

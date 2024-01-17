@@ -2,7 +2,7 @@
 - features: standard
 - operating_system: Linux, MacOS
 - biological_level: #TODO
-- computing_scale: Cluster
+- processing_support: Cluster
 - interface_language: C++
 - model_description_language:
 - summary: >

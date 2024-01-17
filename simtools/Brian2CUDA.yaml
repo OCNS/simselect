@@ -2,7 +2,7 @@
 - features: backend
 - operating_system: Linux, MacOS
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: GPU
+- processing_support: GPU
 - interface_language: Python
 - summary: >
     Brian2CUDA is a Python package for simulating spiking neural networks on graphics processing units (GPUs).

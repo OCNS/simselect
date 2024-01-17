@@ -2,7 +2,7 @@
 - features: standard
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine
+- processing_support: Single Machine
 - interface_language: Python, XML, GUI
 - model_description_language: NeuroML/LEMS
 - summary: >

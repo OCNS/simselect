@@ -2,7 +2,7 @@
 - features: standard
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model
-- computing_scale: Single Machine
+- processing_support: Single Machine
 - interface_language: Python
 - model_description_language: NESTML
 - summary: >
