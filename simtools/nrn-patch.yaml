@@ -1,13 +1,11 @@
 - name: nrn-patch
 - features: frontend
-- operating_system: #TODO
-- biological_level: #TODO
-- processing_support: #TODO
+- operating_system: Windows, MacOS, Linux
 - interface_language: Python
-- model_description_language: #TODO
 - summary:
     A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.
 - relations:
     - name: Neuron
+      description: is Python API for
 - urls:
       homepage: https://github.com/dbbs-lab/patch
