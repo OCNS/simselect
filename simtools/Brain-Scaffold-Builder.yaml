@@ -1,10 +1,7 @@
 - name: Brain Scaffold Builder
-- features: frontend, backend
+- features: frontend
 - operating_system: Linux, MacOS, Windows
-- biological_level: #TODO
-- processing_support: Single Machine
 - interface_language: Python
-- model_description_language:
 - summary: >
     The Brain Scaffold Builder (BSB) is a black box component framework for multiparadigm neural modelling: we provide structure, architecture and organization, and you provide the use-case specific parts of your model.
     In our framework, your model is described in a code-free configuration of components with parameters.
@@ -18,3 +15,10 @@
 
 - urls:
     homepage: https://bsb.readthedocs.io
+- relations:
+    - name: NEURON
+      description: simulates with
+    - name: Nest
+      description: simulates with
+    - name: Arbor
+      description: simulates with
