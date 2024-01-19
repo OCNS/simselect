@@ -1,10 +1,7 @@
 - name: Geppeto
 - features: frontend
 - operating_system: Linux, MacOS, Windows
-- biological_level: #TODO
-- processing_support: #TODO
 - interface_language: Python, Javascript
-- model_description_language: #TODO
 - summary: >
     Geppetto is a web-based visualisation and simulation platform to build neuroscience software applications.
     Reuse best practices, best compomnents, best design.
