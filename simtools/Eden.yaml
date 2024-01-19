@@ -4,11 +4,8 @@
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
 - processing_support: Single Machine, Cluster
 - interface_language: CLI, Python
-- model_description_language: NeuroML/LEMS
 - summary: >
     Extensible Dynamics Engine for Networks (EDEN) is a high-performance NeuroML-based neural simulator.
-- relations:
-    - name: NeuroML
 - urls:
       source: https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden
       installation: https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden/-/tree/main#installing
