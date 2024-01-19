@@ -1,5 +1,5 @@
 - name: PyNeuroML
-- features: tool, plotting, analysis
+- features: tool
 - operating_system: Linux, MacOS, Windows
 - interface_language: Python, GUI
 - model_description_language: NeuroML/LEMS

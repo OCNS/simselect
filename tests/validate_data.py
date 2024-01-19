@@ -23,10 +23,11 @@ data_schema = Schema(
             "features": And(
                 str,
                 lambda s: all(
-                    ss.strip() in ["frontend", "simulator", "standard", "tool"]
+                    ss.strip()
+                    in ["frontend", "simulator", "standard", "tool", "library", "API"]
                     for ss in s.split(",")
                 ),
-                error="features must be a comma-separated list of 'frontend', 'simulator', 'standard', 'tool'",
+                error="features must be a comma-separated list of 'frontend', 'simulator', 'standard', 'tool', 'library', 'API'",
             ),
         },
         {"operating_system": Or(str, None)},

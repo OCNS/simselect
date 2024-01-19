@@ -1,5 +1,5 @@
 - name: Arbor Playground
-- features: frontend, backend
+- features: frontend, simulator
 - operating_system: Linux, MacOS, Windows
 - interface_language: GUI, Python
 - model_description_language:

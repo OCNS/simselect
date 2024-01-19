@@ -12,8 +12,8 @@
     - A systematic schema for describing simulation output/reports making it easy for users to exchange their simulation output data, and moreover the underlying hdf5 based format permits efficient storage of variables such as spike times, membrane potential, and Ca2+ concentration.
 
 - urls:
-  homepage: https://github.com/BlueBrain/sonata
-  source: https://github.com/BlueBrain/sonata
+    homepage: https://github.com/BlueBrain/sonata
+    source: https://github.com/BlueBrain/sonata
 - relations:
   - name: NeuroML
     description: interoperates with

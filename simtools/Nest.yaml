@@ -1,7 +1,7 @@
 - name: NEST
 - features: frontend, simulator
 - operating_system: Linux, MacOS, Windows #TODO: Python interface can be used in Windows, not the rest
-- biological_level: Population Model, Single-Compartment (Simple) Model, 
+- biological_level: Population Model, Single-Compartment (Simple) Model,
 - processing_support: Single Machine, Cluster, Supercomputer
 - interface_language: Python, CLI, C++
 - summary: >
@@ -15,6 +15,6 @@
     examples: https://nest-simulator.readthedocs.io/en/stable/examples/index.html#pynest-examples
     issue tracker: https://nest-simulator.readthedocs.io/en/stable/developer_space/index.html#contribute
     forum: https://nest-simulator.readthedocs.io/en/stable/developer_space/guidelines/mailing_list_guidelines.html#mail-guidelines
-- relation:
+- relations:
     - name: SONATA
       description: can import
