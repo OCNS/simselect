@@ -1,10 +1,7 @@
 - name: Brain Modelling Toolkit (BMTK)
 - features: frontend
 - operating_system: Linux, MacOS, Windows
-- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- processing_support: Single Machine, Cluster
 - interface_language: Python
-- model_description_language: SONATA
 - summary: >
     The Brain Modeling Toolkit (BMTK) is a python-based software package for building, simulating and analyzing large-scale neural network models.
     It supports the building and simulation of models of varying levels-of-resolution; from multi-compartment biophysically detailed networks, to point-neuron models, to filter-based models, and even population-level firing rate models.
@@ -24,3 +21,6 @@
     We encourage others to use the BMTK for their own research, and suggestions and contributions to the BMTK are welcome.
 - urls:
       homepage: https://alleninstitute.github.io/bmtk/
+- relations:
+  - name: SONATA
+    description: exports to
