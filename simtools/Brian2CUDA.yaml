@@ -11,6 +11,7 @@
     then executed on NVIDIA GPUs.
 - relations:
     - name: Brian
+      description: converts from
 - urls:
     documentation: https://brian2cuda.readthedocs.io
     installation: https://brian2cuda.readthedocs.io/en/latest/introduction/install.html
