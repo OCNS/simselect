@@ -154,7 +154,7 @@ class SimSelect:
         "operating_system": "Operating systems",
         "interface_language": "Interface languages",
         "biological_level": "Model type",
-        "computing_scale": "Computing power",
+        "processing_support": "Processing support",
         "model_description_language": "Model description language",
     }
 

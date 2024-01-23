@@ -59,8 +59,8 @@ def parse_file(filename):
     content_dict["biological_level"] = string_to_list(content_dict["biological_level"])
 
     # Computing scale
-    assert "computing_scale" in content_dict, "no computing scale"
-    content_dict["computing_scale"] = string_to_list(content_dict["computing_scale"])
+    assert "processing_support" in content_dict, "no processing support"
+    content_dict["processing_support"] = string_to_list(content_dict["processing_support"])
 
     # interface language
     assert "interface_language" in content_dict, "no interface language"
