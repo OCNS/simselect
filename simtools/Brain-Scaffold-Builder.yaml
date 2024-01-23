@@ -16,9 +16,9 @@
 - urls:
     homepage: https://bsb.readthedocs.io
 - relations:
-    - name: NEURON
+    - name: Neuron
       description: simulates with
-    - name: Nest
+    - name: NEST
       description: simulates with
     - name: Arbor
       description: simulates with
