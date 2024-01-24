@@ -1,8 +1,8 @@
 - name: Neuron
-- features: frontend, backend
+- features: frontend, simulator
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine, Cluster, Supercomputer
+- processing_support: Single Machine, Cluster, Supercomputer
 - interface_language: Python, HOC, C, C++
 - model_description_language: NMODL, HOC
 - summary: >
@@ -17,5 +17,8 @@
     forum: https://www.neuron.yale.edu/phpBB/
 - relations:
     - name: NeuroML
+      description: is used by, exports to
     - name: NetPyNE
+      description: is used by
     - name: LFPy
+      description: is used by

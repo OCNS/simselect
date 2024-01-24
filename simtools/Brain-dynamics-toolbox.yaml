@@ -1,10 +1,9 @@
 - name: Brain dynamics toolbox
-- features: frontend, backend
+- features: frontend, simulator
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model
-- computing_scale: Single Machine
+- processing_support: Single Machine
 - interface_language: MATLAB
-- model_description_language:
 - summary: >
     The Brain Dynamics Toolbox is open-source Matlab software for simulating bespoke dynamical systems in neuroscience and beyond.
     Users define their system of equations as a custom matlab function.

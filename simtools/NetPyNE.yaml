@@ -1,8 +1,6 @@
 - name: NetPyNE
 - features: frontend
 - operating_system: Linux, MacOS, Windows
-- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine, Cluster
 - interface_language: Python, GUI
 - model_description_language: NeuroML/LEMS
 - summary: >
@@ -16,4 +14,6 @@
     documentation: http://www.netpyne.org/user_documentation.html
 - relations:
     - name: Neuron
+      description: simulates with
     - name: NeuroML
+      description: imports from

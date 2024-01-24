@@ -1,10 +1,9 @@
 - name: Steps
-- features: frontend, backend
+- features: frontend, simulator
 - operating_system: Linux, MacOS, Windows
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model #TODO
-- computing_scale: Single Machine, GPU
+- processing_support: Single Machine, GPU
 - interface_language: Python, C, C++
-- model_description_language: #TODO
 - summary: >
     STEPS is a package for exact stochastic simulation of reaction-diffusion systems in arbitrarily complex 3D geometries.
     Our core simulation algorithm is an implementation of Gillespie's SSA, extended to deal with diffusion of molecules over the elements of a 3D tetrahedral mesh.

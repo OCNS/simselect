@@ -1,10 +1,7 @@
 - name: NESTML
 - features: standard
 - operating_system: Linux, MacOS, Windows
-- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model
-- computing_scale: Single Machine
 - interface_language: Python
-- model_description_language: NESTML
 - summary: >
     NESTML is a domain-specific language for neuron and synapse models. These dynamical models can be used in simulations of brain activity on several platforms, in particular the NEST Simulator. NESTML combines an easy to understand, yet powerful syntax; a flexible processing toolchain, written in Python; and good simulation performance by means of code generation (C++ for NEST Simulator).
 - urls:
@@ -18,3 +15,4 @@
     forum: https://nest-simulator.readthedocs.io/en/stable/developer_space/guidelines/mailing_list_guidelines.html#mail-guidelines
 - relations:
     - name: NEST
+      description: simulates with

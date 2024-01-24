@@ -154,7 +154,7 @@ class SimSelect:
         "operating_system": "Operating systems",
         "interface_language": "Interface languages",
         "biological_level": "Model type",
-        "computing_scale": "Computing power",
+        "processing_support": "Processing support",
         "model_description_language": "Model description language",
     }
 
@@ -384,7 +384,7 @@ class SimSelect:
                     stylesheets=["/assets/buttons.css"],
                 )
             )
-        self.update_cards(None)
+
         for simulator in self.simulators:
             simulator.on_click(self.simulator_details)
         self.detail_view = pn.Row(
@@ -393,6 +393,8 @@ class SimSelect:
         self.layout = pn.FlexBox(*self.simulators)
         self.template.main.append(self.layout)
         self.template.main.append(self.detail_view)
+
+        self.update_cards(None)
 
         # footer
         self.template.sidebar.append(pn.layout.Divider())

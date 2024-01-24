@@ -1,11 +1,9 @@
 - name: MOOSE
-- features: frontend, backend
+- features: frontend, simulator
 - operating_system: Linux, MacOS
 - biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine, Cluster, Supercomputer, GPU
-- computing_scale: Single Machine
+- processing_support: Single Machine, Cluster, Supercomputer, GPU
 - interface_language: Python, GUI, C++
-- model_description_language: NMODL, NeuroML/LEMS, SBML
 - summary: >
     MOOSE is the Multiscale Object-Oriented Simulation Environment.
     It is designed to simulate neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, circuits, and large networks.
@@ -21,3 +19,4 @@
     documentation: https://moose.ncbs.res.in/readthedocs/index.html
 - relations:
     - name: NeuroML
+      description: can import, can export to

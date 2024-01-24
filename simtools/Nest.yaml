@@ -1,10 +1,9 @@
 - name: NEST
-- features: frontend, backend
+- features: frontend, simulator
 - operating_system: Linux, MacOS, Windows #TODO: Python interface can be used in Windows, not the rest
-- biological_level: Population Model, Single-Compartment (Simple) Model
-- computing_scale: Single Machine, Cluster, Supercomputer
+- biological_level: Population Model, Single-Compartment (Simple) Model,
+- processing_support: Single Machine, Cluster, Supercomputer
 - interface_language: Python, CLI, C++
-- model_description_language: NestML
 - summary: >
     NEST is a simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.
 - urls:
@@ -17,6 +16,5 @@
     issue tracker: https://nest-simulator.readthedocs.io/en/stable/developer_space/index.html#contribute
     forum: https://nest-simulator.readthedocs.io/en/stable/developer_space/guidelines/mailing_list_guidelines.html#mail-guidelines
 - relations:
-    - name: NEST GPU
-    - name: NEST Desktop
-    - name: NESTML
+    - name: SONATA
+      description: can import

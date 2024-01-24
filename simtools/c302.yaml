@@ -1,10 +1,7 @@
 - name: c302
-- features: frontend
+- features: API, library
 - operating_system: Linux, MacOS, Windows
-- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine
 - interface_language: Python
-- model_description_language: NeuroML/LEMS
 - summary: >
     c302 is a framework for generating network models in NeuroML 2 based on C. elegans connectivity data.
     It is primarily intended as a way to generate neuronal networks at multiple levels of detail for the [OpenWorm](http://www.openworm.org/) project.
@@ -13,3 +10,4 @@
     source: https://github.com/openworm/c302
 - relations:
     - name: NeuroML
+      description: exports to

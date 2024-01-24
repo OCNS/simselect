@@ -1,8 +1,8 @@
 - name: NeuronC
-- features: frontend, backend
+- features: frontend, simulator
 - operating_system: Linux, MacOS
 - biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- computing_scale: Single Machine
+- processing_support: Single Machine
 - interface_language: C
 - model_description_language: NeuronC Language
 - summary: >
