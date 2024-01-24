@@ -384,7 +384,7 @@ class SimSelect:
                     stylesheets=["/assets/buttons.css"],
                 )
             )
-        self.update_cards(None)
+        
         for simulator in self.simulators:
             simulator.on_click(self.simulator_details)
         self.detail_view = pn.Row(
@@ -393,7 +393,9 @@ class SimSelect:
         self.layout = pn.FlexBox(*self.simulators)
         self.template.main.append(self.layout)
         self.template.main.append(self.detail_view)
-
+        
+        self.update_cards(None)
+        
         # footer
         self.template.sidebar.append(pn.layout.Divider())
         self.footer = pn.Row(scroll=False)
