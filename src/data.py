@@ -49,31 +49,39 @@ def parse_file(filename):
     # Features (frontend, etc.)
     assert "features" in content_dict, "no features entry"
     content_dict["features"] = string_to_list(content_dict["features"])
-    
+
     # Operating System
     if "simulator" in content_dict["features"]:
         assert "operating_system" in content_dict, "no operating_system entry"
-    content_dict["operating_system"] = string_to_list(content_dict.get("operating_system", ""))
+    content_dict["operating_system"] = string_to_list(
+        content_dict.get("operating_system", "")
+    )
 
     # Biological level
     if "simulator" in content_dict["features"]:
         assert "biological_level" in content_dict, "no biological level"
-    content_dict["biological_level"] = string_to_list(content_dict.get("biological_level", ""))
+    content_dict["biological_level"] = string_to_list(
+        content_dict.get("biological_level", "")
+    )
 
     # Computing scale
     if "simulator" in content_dict["features"]:
         assert "processing_support" in content_dict, "no processing support"
-    content_dict["processing_support"] = string_to_list(content_dict.get("processing_support", ""))
+    content_dict["processing_support"] = string_to_list(
+        content_dict.get("processing_support", "")
+    )
 
     # interface language
     if "simulator" in content_dict["features"]:
         assert "interface_language" in content_dict, "no interface language"
     content_dict["interface_language"] = string_to_list(
-        content_dict.get("interface_language", ""))
+        content_dict.get("interface_language", "")
+    )
 
     # model description language
     content_dict["model_description_language"] = string_to_list(
-        content_dict.get("model_description_language", ""))
+        content_dict.get("model_description_language", "")
+    )
     return content_dict
 
 
