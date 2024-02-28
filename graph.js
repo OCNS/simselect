@@ -37,15 +37,17 @@ function layoutNodes() {
     for (let node of simulator_nodes) {
         if (removed.indexOf(node) === -1) {
             alignments.push({node: node, offset: 0});
-            // node.position({x: 100*counter, y: 300}).lock();
             counter++;
         }
     }
     cy_layout = cy.layout({
         name: "cola",
         animate: "end",
-        alignment: {vertical: [alignments]},
-
+        padding: 50,
+        avoidOverlap: true,
+        nodeDimensionsIncludeLabels: true,
+        centerGraph: false,
+        alignment: {horizontal: [alignments]}
     });
     cy_layout.run();
 }
