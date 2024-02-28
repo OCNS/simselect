@@ -1,0 +1,13 @@
+#cy {
+    width: 800px;
+    height: 600px;
+    border: 1px solid darkgrey;
+    display: block;
+    }
+button {
+    margin: 0.5em;
+}
+.icon {
+    color: var(--color-bg);
+    height: 1em;
+}
