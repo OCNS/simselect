@@ -11,25 +11,30 @@ simulator. See OCNS/SoftwareWG#117 For more details, and announcements of the re
 meetings.
 
 ## Development notes
-A fresh virtual environment is suggested for development:
+The website is built with ["vanilla JS"](http://vanilla-js.com/) and uses the [cytoscape.js](https://js.cytoscape.org/)
+library for graph visualisation. The full code runs in the browser, but in order to make it able to access the data, it
+needs to run in a local webserver. You can either use such a webserver as provided by your IDE (e.g. the
+[Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for VS Code,
+or use Python's built-in webserver:
+```
+python -m http.server
+```
+
+Python is also used to pre-process and validate the data when simulator descriptions are changed in one of the YAML files.
+
+If you want to work on that part, we suggest a virtual environment for development:
 ```
 python -m venv .venv
 source .venv/bin/activate
 ```
 One can also use `conda` and other tools to set up virtual environments.
 
-This project is an app built using [Holoviz Panel](https://panel.holoviz.org/).
-You can install it using
+To install the dependencies (only [`PyYAML`](https://pyyaml.org/), at the moment), you can use:
 ```
 python -m pip install -r requirements.txt
 ```
-To run the app, use:
-```
-panel serve --show src/project_browser.py --static-dirs assets=./assets
-```
-This will open a browser window with the app.
-Firefox/Chrome based browsers are supported.
-Please file an issue if the app does not work with your browser.
+
+
 
 ### Contribution notes
 Please install the necessary linters/pre-commit hooks using the `requirements-dev.txt` file:
@@ -47,9 +52,7 @@ pre-commit install
 Now, the pre-commit checks will be run before each commit.
 
 ## Deployment
-The web app is hosted on [fly.io](https://fly.io/). See https://simselect.fly.dev/ for the latest released (tagged) version, and
-https://simselect-dev.fly.dev for the latest version directly built from the ``main`` branch.
-
+The website is hosted on https://ocns.github.io/simselect
 
 ## Contributors
 
