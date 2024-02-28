@@ -234,7 +234,7 @@ Promise.all([
       .then(function(res) {
         return res.json();
       }),
-    fetch('data/simtools.json')
+    fetch('simtools/simtools.json')
       .then(function(res) {
         return res.json();
       })

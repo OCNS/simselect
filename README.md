@@ -14,7 +14,7 @@ meetings.
 The website is built with ["vanilla JS"](http://vanilla-js.com/) and uses the [cytoscape.js](https://js.cytoscape.org/)
 library for graph visualisation. The full code runs in the browser, but in order to make it able to access the data, it
 needs to run in a local webserver. You can either use such a webserver as provided by your IDE (e.g. the
-[Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for VS Code,
+[Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)) for VS Code,
 or use Python's built-in webserver:
 ```
 python -m http.server
