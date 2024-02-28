@@ -29,7 +29,7 @@ source .venv/bin/activate
 ```
 One can also use `conda` and other tools to set up virtual environments.
 
-To install the dependencies (only [`PyYAML`](https://pyyaml.org/), at the moment), you can use:
+To install the dependencies, you can use:
 ```
 python -m pip install -r requirements.txt
 ```
