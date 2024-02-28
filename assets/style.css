@@ -4,6 +4,9 @@
     border: 1px solid darkgrey;
     display: block;
     }
+#simulators {
+    width: 50%;
+}
 button {
     margin: 0.5em;
 }

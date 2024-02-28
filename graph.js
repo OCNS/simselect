@@ -1,7 +1,8 @@
 var elements = [];
 var cy;
 var removed = [];
-const SIMULATORS = ["Arbor", "Brian", "GeNN", "MOOSE", "NEST", "Neuron"];
+const PRESELECTED = ["Arbor", "Brian", "NEST", "Neuron"];
+var SIMULATORS = [];
 
 function selectionChanged() {
     const selected = [];
@@ -19,9 +20,9 @@ function selectionChanged() {
     removed.push(cy.filter(function(element, i){
         return element.isEdge() && !(element.source().visible() && element.target().visible);
     }).remove());
-    // Hide all nodes that are not connected to a visible edge
+    // Hide all nodes that are not connected to a visible edge, except for simulators
     removed.push(cy.filter(function(element, i){
-        return element.isNode() && !element.connectedEdges().some(edge => edge.visible());
+        return element.isNode() && !element.data("features").includes("simulator") && !element.connectedEdges().some(edge => edge.visible());
     }).remove());
     layoutNodes();
 }
@@ -190,7 +191,7 @@ function create_checkboxes() {
         checkbox.id = name;
         checkbox.name = name;
         checkbox.value = name;
-        checkbox.checked = true;
+        checkbox.checked = false;
         checkbox.onchange = selectionChanged;
         checkbox_container.appendChild(checkbox);
         const label = document.createElement("label");
@@ -242,7 +243,17 @@ Promise.all([
   .then(function(dataArray) {
     const style = dataArray[0];
     const data = dataArray[1];
+    // Fill the list of simulators with all items that have "simulator" in their features
+    for (const [name, description] of Object.entries(data)) {
+        if (description["features"].includes("simulator")) {
+            SIMULATORS.push(name);
+        }
+    }
     create_checkboxes(SIMULATORS);
+    for (const name of PRESELECTED) {
+        const checkbox = document.getElementById(name);
+        checkbox.checked = true;
+    }
     for (const [name, description] of Object.entries(data)) {
 
         elements.push(newNode(name, description));
