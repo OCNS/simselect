@@ -105,7 +105,7 @@ function highlightNode(node) {
     // Show details about the simulator
     const details = document.getElementById("details");
     // Basic description
-    details.innerHTML = "<h2>" + node.id() + "</h2>";
+    details.innerHTML = "<h2>" + node.data("full_name") + "</h2>";
     details.innerHTML += "<p>" + node.data("description") + "</p>";
     // Relations
     const outgoingEdges = node.outgoers("edge");
@@ -208,6 +208,7 @@ function newNode(name, description) {
         group: 'nodes',
         data: {
             id: name,
+            full_name: description["name"],
             description: description["summary"],
             features: description["features"],
             urls: description["urls"]
@@ -255,7 +256,7 @@ Promise.all([
         checkbox.checked = true;
     }
     for (const [name, description] of Object.entries(data)) {
-
+        console.log(description);
         elements.push(newNode(name, description));
         if (description["relations"] !== undefined) {
             for (let relation of description["relations"]){

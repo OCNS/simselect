@@ -1,4 +1,5 @@
 - name: MUSIC (MUlti-SImulation Coordinator)
+- short_name: MUSIC
 - features: API
 - operating_system: Linux, MacOS
 - interface_language: C++

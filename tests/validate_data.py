@@ -20,6 +20,9 @@ data_schema = Schema(
             "name": str,
         },
         {
+            Optional("short_name"): str,
+        },
+        {
             "features": And(
                 str,
                 lambda s: all(

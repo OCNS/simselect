@@ -94,7 +94,7 @@ def parse_files(dirname=Path(__file__).parent / ".." / "simtools"):
             raise ValueError(f"Error parsing {f}") from e
         # Store the filename itself
         content["filename"] = f.name
-        simulators[content["name"]] = content
+        simulators[content.get("short_name", content["name"])] = content
 
     # Verify that relations point to valid names
     for sim in simulators.values():

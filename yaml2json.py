@@ -14,8 +14,12 @@ if __name__ == "__main__":
                 list(item.keys())[0]: list(item.values())[0]
                 for item in yaml.load(f, Loader=yaml.FullLoader)
             }
-            name = tool_data["name"]
-            del tool_data["name"]
+            if "short_name" in tool_data:
+                name = tool_data["short_name"]
+                del tool_data["short_name"]
+            else:
+                name = tool_data["name"]
+
             data[name] = tool_data
     with open("simtools/simtools.json", "w") as f:
         json.dump(data, f, indent=2, sort_keys=True)

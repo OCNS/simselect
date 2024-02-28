@@ -3,6 +3,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model",
     "features": "frontend, simulator",
     "interface_language": "Python, C++",
+    "name": "ANNarchy",
     "operating_system": "Linux, MacOS",
     "processing_support": "Single Machine, GPU",
     "summary": "ANNarchy (Artificial Neural Networks architect) is a neural simulator designed for distributed rate-coded or spiking neural networks. The core of the library is written in C++ and distributed using openMP or CUDA. It provides an interface in Python for the definition of the networks.\n",
@@ -20,6 +21,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
     "interface_language": "Python, C++",
+    "name": "Arbor",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster, Supercomputer, GPU",
     "summary": "Arbor is a high-performance library for computational neuroscience simulations with multi-compartment, morphologically-detailed cells, from single cell models to very large networks. Arbor is written from the ground up with many-cpu and gpu architectures in mind, to help neuroscientists effectively use contemporary and future HPC systems to meet their simulation needs.\n\nArbor supports NVIDIA and AMD GPUs as well as explicit vectorization on CPUs from Intel (AVX, AVX2 and AVX512) and ARM (Neon and SVE). When coupled with low memory overheads, this makes Arbor an order of magnitude faster than the most widely-used comparable simulation software.\n\nArbor is open source and openly developed, and we use development practices such as unit testing, continuous integration, and validation.\n",
@@ -40,6 +42,7 @@
   "Arbor GUI": {
     "features": "frontend",
     "interface_language": "GUI",
+    "name": "Arbor GUI",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -63,6 +66,7 @@
   "Arbor Playground": {
     "features": "frontend",
     "interface_language": "GUI, Python",
+    "name": "Arbor Playground",
     "operating_system": "Linux, MacOS, Windows",
     "summary": "Arbor Playground is an Emscripten + Pyodide port of Arbor and is meant to be a simple showcase of neural modelling in Arbor.",
     "urls": {
@@ -75,24 +79,10 @@
       "source": "https://github.com/arbor-sim/playground"
     }
   },
-  "BluePyOpt": {
-    "features": "tool",
-    "interface_language": "Python",
-    "operating_system": "Linux, MacOS, Windows",
-    "relations": [
-      {
-        "description": "exports to",
-        "name": "NeuroML"
-      }
-    ],
-    "summary": "The Blue Brain Python Optimisation Library (BluePyOpt) is an extensible framework for data-driven model parameter optimisation that wraps and standardises several existing open-source tools.\n\nIt simplifies the task of creating and sharing these optimisations, and the associated techniques and knowledge. This is achieved by abstracting the optimisation and evaluation tasks into various reusable and flexible discrete elements according to established best-practices.\n\nFurther, BluePyOpt provides methods for setting up both small- and large-scale optimisations on a variety of platforms, ranging from laptops to Linux clusters and cloud-based compute infrastructures.\n",
-    "urls": {
-      "homepage": "https://bluepyopt.readthedocs.io"
-    }
-  },
-  "Brain Modelling Toolkit (BMTK)": {
+  "BMTK": {
     "features": "frontend",
     "interface_language": "Python",
+    "name": "Brain Modelling Toolkit (BMTK)",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -105,9 +95,26 @@
       "homepage": "https://alleninstitute.github.io/bmtk/"
     }
   },
+  "BluePyOpt": {
+    "features": "tool",
+    "interface_language": "Python",
+    "name": "BluePyOpt",
+    "operating_system": "Linux, MacOS, Windows",
+    "relations": [
+      {
+        "description": "exports to",
+        "name": "NeuroML"
+      }
+    ],
+    "summary": "The Blue Brain Python Optimisation Library (BluePyOpt) is an extensible framework for data-driven model parameter optimisation that wraps and standardises several existing open-source tools.\n\nIt simplifies the task of creating and sharing these optimisations, and the associated techniques and knowledge. This is achieved by abstracting the optimisation and evaluation tasks into various reusable and flexible discrete elements according to established best-practices.\n\nFurther, BluePyOpt provides methods for setting up both small- and large-scale optimisations on a variety of platforms, ranging from laptops to Linux clusters and cloud-based compute infrastructures.\n",
+    "urls": {
+      "homepage": "https://bluepyopt.readthedocs.io"
+    }
+  },
   "Brain Scaffold Builder": {
     "features": "frontend",
     "interface_language": "Python",
+    "name": "Brain Scaffold Builder",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -132,6 +139,7 @@
     "biological_level": "Population Model",
     "features": "frontend, simulator",
     "interface_language": "MATLAB",
+    "name": "Brain dynamics toolbox",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine",
     "summary": "The Brain Dynamics Toolbox is open-source Matlab software for simulating bespoke dynamical systems in neuroscience and beyond. Users define their system of equations as a custom matlab function. Interchangeable solvers and plotting tools can then be applied to that system with no additional programming effort.\n",
@@ -143,6 +151,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
     "interface_language": "Python",
+    "name": "Brian",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster",
     "summary": "Brian is a free, open source simulator for spiking neural networks. It is written in the Python programming language and is available on almost all platforms. We believe that a simulator should not only save the time of processors, but also the time of scientists. Brian is therefore designed to be easy to learn and use, highly flexible and easily extensible.\n",
@@ -163,6 +172,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "simulator",
     "interface_language": "Python",
+    "name": "Brian2CUDA",
     "operating_system": "Linux, MacOS",
     "processing_support": "GPU",
     "relations": [
@@ -183,6 +193,7 @@
   "Brian2GeNN": {
     "features": "library",
     "interface_language": "Python",
+    "name": "Brian2GeNN",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -207,6 +218,7 @@
     "biological_level": "Population Model",
     "features": "frontend, simulator",
     "interface_language": "Python",
+    "name": "DiPDE",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine",
     "summary": "DiPDE (dipde) is a simulation platform for numerically solving the time evolution of coupled networks of neuronal populations. Instead of solving the subthreshold dynamics of individual model leaky-integrate-and-fire (LIF) neurons, dipde models the voltage distribution of a population of neurons with a single population density equation. In this way, dipde can facilitate the fast exploration of mesoscale (population-level) network topologies, where large populations of neurons are treated as homogeneous with random fine-scale connectivity.\n",
@@ -218,6 +230,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "simulator",
     "interface_language": "CLI, Python",
+    "name": "EDEN",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster",
     "summary": "Extensible Dynamics Engine for Networks (EDEN) is a high-performance NeuroML-based neural simulator.\n",
@@ -229,10 +242,11 @@
       "source": "https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden"
     }
   },
-  "GEneral NEural SImulation System (GENESIS)": {
+  "GENESIS": {
     "biological_level": "Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
     "interface_language": "GUI, C",
+    "name": "GEneral NEural SImulation System (GENESIS)",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine",
     "summary": "GENESIS (the GEneral NEural SImulation System) is a general purpose simululation platform that was developed to support the simulation of neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, simulations of large networks, and system-level models.\n",
@@ -244,6 +258,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model",
     "features": "frontend, simulator",
     "interface_language": "Python, C++",
+    "name": "GeNN",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, GPU",
     "summary": "GeNN is a GPU enhanced Neuronal Network simulation environment based on NVIDIA CUDA technology.\n",
@@ -259,6 +274,7 @@
   "Geppeto": {
     "features": "frontend",
     "interface_language": "Python, Javascript",
+    "name": "Geppeto",
     "operating_system": "Linux, MacOS, Windows",
     "summary": "Geppetto is a web-based visualisation and simulation platform to build neuroscience software applications. Reuse best practices, best compomnents, best design. Don't reinvent the wheel.\n",
     "urls": {
@@ -268,6 +284,7 @@
   "LFPy": {
     "features": "tool",
     "interface_language": "Python",
+    "name": "LFPy",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -287,6 +304,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
     "interface_language": "Python, GUI, C++",
+    "name": "MOOSE",
     "operating_system": "Linux, MacOS",
     "processing_support": "Single Machine, Cluster, Supercomputer, GPU",
     "relations": [
@@ -302,9 +320,10 @@
       "source": "https://github.com/BhallaLab/moose"
     }
   },
-  "MUSIC (MUlti-SImulation Coordinator)": {
+  "MUSIC": {
     "features": "API",
     "interface_language": "C++",
+    "name": "MUSIC (MUlti-SImulation Coordinator)",
     "operating_system": "Linux, MacOS",
     "relations": [
       {
@@ -322,6 +341,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model,",
     "features": "frontend, simulator",
     "interface_language": "Python, CLI, C++",
+    "name": "NEST",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster, Supercomputer",
     "relations": [
@@ -345,6 +365,7 @@
   "NEST Desktop": {
     "features": "frontend",
     "interface_language": "GUI",
+    "name": "NEST Desktop",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -363,6 +384,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model",
     "features": "frontend, simulator",
     "interface_language": "Python, C++, C",
+    "name": "NEST GPU",
     "operating_system": "Linux",
     "processing_support": "GPU",
     "relations": [
@@ -384,6 +406,7 @@
   "NESTML": {
     "features": "standard",
     "interface_language": "Python",
+    "name": "NESTML",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -407,6 +430,7 @@
     "features": "frontend",
     "interface_language": "Python, GUI",
     "model_description_language": "NeuroML/LEMS",
+    "name": "NetPyNE",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -432,6 +456,7 @@
     "features": "standard",
     "interface_language": "Python, XML, GUI",
     "model_description_language": "NeuroML/LEMS",
+    "name": "NeuroML",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -476,6 +501,7 @@
     "biological_level": "Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
     "interface_language": "Java, CLI",
+    "name": "NeuroRD",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine",
     "summary": "NeuroRD is a computationally efficient, stochastic reaction-diffusion simulator (pronounced NeurRDS) used mostly for simulating neuronal signaling pathways. This is a Java program which runs on any platform. The algorithm is based on Gillespie's tau-leap reaction algorithm, and the stochastic diffusion algorithm of Blackwell. It uses XML-based model specifications.\n",
@@ -488,6 +514,7 @@
     "features": "frontend, simulator",
     "interface_language": "Python, HOC, C, C++",
     "model_description_language": "NMODL, HOC",
+    "name": "Neuron",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster, Supercomputer",
     "relations": [
@@ -519,6 +546,7 @@
     "features": "frontend, simulator",
     "interface_language": "C",
     "model_description_language": "NeuronC Language",
+    "name": "NeuronC",
     "operating_system": "Linux, MacOS",
     "processing_support": "Single Machine",
     "summary": "A neural circuit simulation language that allows a user to construct a realistic biophysically-based model of a neural circuit (1 to 10,000 neurons) and simulate a physiology experiment on it.\n",
@@ -530,6 +558,7 @@
     "features": "frontend, standard",
     "interface_language": "Python",
     "model_description_language": "PyNN",
+    "name": "PyNN",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -564,6 +593,7 @@
     "features": "tool",
     "interface_language": "Python, GUI",
     "model_description_language": "NeuroML/LEMS",
+    "name": "PyNeuroML",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -604,6 +634,7 @@
     "biological_level": "Population Model",
     "features": "frontend, simulator",
     "interface_language": "Web",
+    "name": "ReMoto",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine",
     "summary": "ReMoto was originally developed as a web-based neuronal simulation system, intended for studying spinal cord neuronal networks responsible for muscle control. The simulated networks are affected by descending drive, afferent drive, and electrical nerve stimulation. The simulator may be used to investigate phenomena at several levels of organization, e.g., at the neuronal membrane level or at the whole muscle behavior level (e.g., muscle force generation). This versatility arises because each element (neurons, synapses, muscle fibers) has its own specific mathematical model, usually involving the action of voltage- or neurotransmitter-dependent ionic channels. The simulator should be helpful in activities such as interpretation of results obtained from neurophysiological experiments in humans or mammals, proposal of hypothesis or testing models or theories on neuronal dynamics or neuronal network processing, validation of experimental protocols, and teaching neurophysiology.\n",
@@ -616,6 +647,7 @@
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
     "interface_language": "Java, GUI",
+    "name": "SNNAP",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine",
     "summary": "Simulator for Neural Networks and Action Potentials (SNNAP) is a tool for rapid development and simulation of realistic models of single neurons and neural networks. It includes mathematical descriptions of ion currents and intracellular second messengers and ions. In addition, you can simulate current flow in multicompartment models of neurons by using the equations describing electric coupling.\n\nSNNAP also includes mathematical descriptions of intracellular second messengers and ions, and simulate the modulation of membrane currents and synaptic transmission, either enhancement or inhibition.\n\nOther advantages of SNNAP include:\n\n\n  - Written in JAVA and can run on virtually any type of computer system.\n  - Graphical user interface\n  - Ability to simulate common experimental manipulations.\n  - Modular organizations of input files.\n",
@@ -628,6 +660,7 @@
     "features": "standard",
     "interface_language": "Python, C++",
     "model_description_language": "SONATA",
+    "name": "SONATA",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -645,6 +678,7 @@
     "biological_level": "Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
     "interface_language": "Python, C, C++",
+    "name": "Steps",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, GPU",
     "summary": "STEPS is a package for exact stochastic simulation of reaction-diffusion systems in arbitrarily complex 3D geometries. Our core simulation algorithm is an implementation of Gillespie's SSA, extended to deal with diffusion of molecules over the elements of a 3D tetrahedral mesh.\n\nWhile it was mainly developed for simulating detailed models of neuronal signaling pathways in dendrites and around synapses, it is a general tool and can be used for studying any biochemical pathway in which spatial gradients and morphology are thought to play a role.\n\nSTEPS also supports accurate and efficient computational of local membrane potentials on tetrahedral meshes, with the addition of voltage-gated channels and currents. Tight integration between the reaction-diffusion calculations and the tetrahedral mesh potentials allows detailed coupling between molecular activity and local electrical excitability.\n\nWe have implemented STEPS as a set of Python modules, which means STEPS users can use Python scripts to control all aspects of setting up the model, generating a mesh, controlling the simulation and generating and analyzing output. The core computational routines are still implemented as C/C++ extension modules for maximal speed of execution.\n",
@@ -654,10 +688,11 @@
       "source": "https://github.com/CNS-OIST/STEPS"
     }
   },
-  "TheVirtualBrain (TVB)": {
+  "TVB": {
     "biological_level": "Population Model",
     "features": "frontend, simulator",
     "interface_language": "Python, GUI",
+    "name": "TheVirtualBrain (TVB)",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster, Supercomputer",
     "summary": "Simulating the human brain is the holy grail of neuroscience - offering a pioneering tool for understanding how our brain works and how to deal with its disorders like stroke, epilepsy or neurodegenerative diseases like Alzheimer's or Parkinson's.\n\nWhile large-scale research initiatives simulate neurons and small brain regions at the cellular level on massively parallel hardware, they are still years away from clinical applications.\n\nThe Virtual Brain (TVB) takes a different approach and reduces complexity on the micro level to attain the macro organization. A TVB model of a patient's brain generates sufficiently accurate EEG, MEG, BOLD and SEEG signals by reducing the complexity millionfold through methods from statistical physics. The key is TVB\u2019s hybrid approach of merging individual anatomy from brain imaging data with state-of-the-art mathematical modeling.\n",
@@ -674,6 +709,7 @@
   "c302": {
     "features": "API, library",
     "interface_language": "Python",
+    "name": "c302",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -691,6 +727,7 @@
     "features": "API",
     "interface_language": "Python",
     "model_description_language": "NeuroML/LEMS",
+    "name": "libNeuroML",
     "operating_system": "Linux, MacOS, Windows",
     "relations": [
       {
@@ -714,6 +751,7 @@
   "nrn-patch": {
     "features": "frontend",
     "interface_language": "Python",
+    "name": "nrn-patch",
     "operating_system": "Windows, MacOS, Linux",
     "relations": [
       {

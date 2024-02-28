@@ -1,4 +1,5 @@
 - name: Brain Modelling Toolkit (BMTK)
+- short_name: BMTK
 - features: frontend
 - operating_system: Linux, MacOS, Windows
 - interface_language: Python

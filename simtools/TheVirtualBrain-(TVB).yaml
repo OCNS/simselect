@@ -1,4 +1,5 @@
 - name: TheVirtualBrain (TVB)
+- short_name: TVB
 - features: frontend, simulator
 - operating_system: Linux, MacOS, Windows
 - biological_level: Population Model
