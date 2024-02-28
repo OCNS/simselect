@@ -1,5 +1,6 @@
 var elements = [];
 var cy;
+var cy_layout;
 var removed = [];
 const PRESELECTED = ["Arbor", "Brian", "NEST", "Neuron"];
 var SIMULATORS = [];
@@ -40,13 +41,13 @@ function layoutNodes() {
             counter++;
         }
     }
-    layout = cy.layout({
+    cy_layout = cy.layout({
         name: "cola",
-        animate: false,
+        animate: "end",
         alignment: {vertical: [alignments]},
 
     });
-    layout.run();
+    cy_layout.run();
 }
 
 function urlButton(type, url) {
@@ -256,7 +257,6 @@ Promise.all([
         checkbox.checked = true;
     }
     for (const [name, description] of Object.entries(data)) {
-        console.log(description);
         elements.push(newNode(name, description));
         if (description["relations"] !== undefined) {
             for (let relation of description["relations"]){
@@ -276,5 +276,11 @@ Promise.all([
     layoutNodes();
     cy.on("select", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
+    // cy.on("dragfree", "*", function(event) {
+    //     cy_layout.stop();
+    //     event.target.lock();
+    //     cy_layout.run();
+    //     event.target.unlock();
+    // });
     }
 );
