@@ -189,7 +189,7 @@ function unhighlightNode(event) {
 function create_checkboxes() {
     const checkbox_container = document.getElementById("simulators");
     const fieldset_container = document.createElement("fieldset")
-    fieldset_container.className = "simulator_fields"
+    fieldset_container.className = "simulatorfields"
     checkbox_container.appendChild(fieldset_container)
 
     for (const name of SIMULATORS) {

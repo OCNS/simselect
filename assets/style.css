@@ -1,7 +1,9 @@
 #main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 80vh;
+    max-height: 80vh;
 }
 #cy {
     flex: 60%;
@@ -11,13 +13,20 @@
     display: block;
     padding-left: 1em;
     padding-right: 1em;
-    }
+}
 #simulators {
     flex: 15%;
+    overflow-y: auto;
+    height: 100%;
+    max-height: 100%;
     border-width: 0px;
+    border-color: white;
 }
 #details {
     flex: 22%;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
 }
 button {
     margin: 0.5em;
@@ -26,6 +35,7 @@ button {
     color: var(--color-bg);
     height: 1em;
 }
-#simulator_fields {
-    border: 1px;
+#simulatorfields {
+    border-width: 0px;
+    border-color: white;
 }
