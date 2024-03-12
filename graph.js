@@ -188,7 +188,15 @@ function unhighlightNode(event) {
 
 function create_checkboxes() {
     const checkbox_container = document.getElementById("simulators");
+    const fieldset_container = document.createElement("fieldset")
+    fieldset_container.className = "simulator_fields"
+    checkbox_container.appendChild(fieldset_container)
+
     for (const name of SIMULATORS) {
+        const checkbox_div = document.createElement("div");
+        checkbox_div.className = "item"
+        fieldset_container.appendChild(checkbox_div);
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.id = name;
@@ -196,11 +204,12 @@ function create_checkboxes() {
         checkbox.value = name;
         checkbox.checked = false;
         checkbox.onchange = selectionChanged;
-        checkbox_container.appendChild(checkbox);
+        checkbox_div.appendChild(checkbox)
+
         const label = document.createElement("label");
         label.htmlFor = name;
         label.appendChild(document.createTextNode(name));
-        checkbox_container.appendChild(label);
+        checkbox_div.appendChild(label);
     }
 }
 
