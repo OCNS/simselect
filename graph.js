@@ -188,28 +188,25 @@ function unhighlightNode(event) {
 
 function create_checkboxes() {
     const checkbox_container = document.getElementById("simulators");
-    const fieldset_container = document.createElement("fieldset")
-    fieldset_container.className = "simulatorfields"
-    checkbox_container.appendChild(fieldset_container)
 
     for (const name of SIMULATORS) {
-        const checkbox_div = document.createElement("div");
-        checkbox_div.className = "item"
-        fieldset_container.appendChild(checkbox_div);
+        const fieldset_container = document.createElement("div");
+        fieldset_container.className = "form-check";
+        checkbox_container.appendChild(fieldset_container);
 
         const checkbox = document.createElement("input");
+        checkbox.className = "form-check-input";
         checkbox.type = "checkbox";
         checkbox.id = name;
-        checkbox.name = name;
-        checkbox.value = name;
         checkbox.checked = false;
         checkbox.onchange = selectionChanged;
-        checkbox_div.appendChild(checkbox)
+        fieldset_container.appendChild(checkbox);
 
         const label = document.createElement("label");
+        label.className = "form-check-label";
         label.htmlFor = name;
         label.appendChild(document.createTextNode(name));
-        checkbox_div.appendChild(label);
+        fieldset_container.appendChild(label);
     }
 }
 
