@@ -154,6 +154,24 @@ function unhighlightNode(event) {
     document.getElementById("details").innerHTML = "";
 }
 
+function create_checkboxes() {
+    const checkbox_container = document.getElementById("simulators");
+    for (const name of SIMULATORS) {
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = name;
+        checkbox.name = name;
+        checkbox.value = name;
+        checkbox.checked = false;
+        checkbox.onchange = selectionChanged;
+        checkbox_container.appendChild(checkbox);
+        const label = document.createElement("label");
+        label.htmlFor = name;
+        label.appendChild(document.createTextNode(name));
+        checkbox_container.appendChild(label);
+    }
+}
+
 function newNode(name, description) {
     const features = description["features"].split(",").map(x => x.trim());
     let position = undefined;

@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Simselect playground</title>
-        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-        <link rel="stylesheet" href="assets/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
         <script src="https://unpkg.com/webcola@3.3.8/WebCola/cola.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.1/cytoscape-cola.min.js"></script>
@@ -11,22 +11,42 @@
         <script src="table.js"></script>
         <script src="index.js"></script>
     </head>
-<body>
-<h1>Simselect</h1>
-<div id="simulators"></div>
-<form>
-    <input type="radio" id="select_table" name="view" value="table" onclick="document.getElementById('table').style=''; document.getElementById('cy').style='display:none'">
-    <label for="table">Table</label>
-    <input type="radio" id="select_graph" name="view" value="graph" disabled onclick="selectionChanged(); document.getElementById('cy').style=''; document.getElementById('table').style='display:none'">
-    <label for="graph" id="graph_label" style="color:gray">Graph (selected at least one simulator)</label>
-</form>
-<div style="display: flex;">
-    <div id="left_container" style="flex: 50%">
-        <div id="cy" style="display: none"></div>
-        <div id="table"></div>
-    </div>
-    <div id="details" style="flex: 50%; padding: 1em">
-    </div>
-</div>
-</body>
+    <body class="pt-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Simselect</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="https://incf.org">INCF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="https://www.cnsorg.org">OCNS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- main page content -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2" id="simulators"></div>
+                <div class="col-6 align-items-center" id="cy"></div>
+                <div class="col-4 align-items-center h-100" id="details"></div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">&copy; 2024 Simselect contributors</p>
+                <p class="col-md-4 mb-0 text-muted">Built with <a href="https://js.cytoscape.org">cytoscape</a></p>
+                <p class="col-md-4 mb-0 text-muted"><a href="https://github.com/OCNS/Simselect">Sources</a></p>
+            </footer>
+        </div>
+    </body>
 </html>

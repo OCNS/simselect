@@ -71,7 +71,7 @@ function update_table() {
         rows.push({row: row, matches: matches});
     }
     rows.sort((a, b) => b['matches']-a['matches'])
-    let table_div = document.getElementById("table");
+    let table_div = document.getElementById("simulators");
     table_div.innerHTML = "<table>\n" + header + "\n<tbody>" + rows.map(r => r["row"]).join("\n") + "</tbody></table>"
 }
 
@@ -85,15 +85,7 @@ function toggle_selection(simulator) {
             selected.splice(index, 1); // 2nd parameter means remove one item only
         }
     }
-    if (selected.length > 0) {
-        document.getElementById("graph_label").innerText = "Graph";
-        document.getElementById("graph_label").style = "";
-        document.getElementById("select_graph").disabled = false;
-    } else {
-        document.getElementById("graph_label").innerText = "Graph (select at least one simulator)";
-        document.getElementById("select_graph").disabled = true;
-        document.getElementById("graph_label").style = "color: gray;";
-    }
+    selectionChanged();
 }
 
 function get_cell_class(criteria, feature, category_description) {
