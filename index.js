@@ -1,5 +1,6 @@
 var SIMULATORS = [];
 var TOOL_DESCRIPTIONS = {};
+const selected = [];
 
 function showDetails(data, outgoers) {
     // Show details about the simulator
@@ -66,6 +67,15 @@ Promise.all([
         TOOL_DESCRIPTIONS[name] = description;
     }
 
+    // Randomly select three simulators
+    for (let i = 0; i < 3; i++) {
+        let name;
+        do {
+            const index = Math.floor(Math.random() * SIMULATORS.length);
+            name = SIMULATORS[index];
+        } while (selected.includes(name));
+        selected.push(name);
+    }
     create_cy_elements(data, style);
     update_table();
     }
