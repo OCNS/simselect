@@ -28,6 +28,7 @@ td.match:after {
 .header_space {
     height: 150px;
     position: relative;
+    padding-right: 2em ;
 }
 .header {
     bottom: 5px ;

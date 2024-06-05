@@ -27,7 +27,7 @@ function update_table() {
     let header = "<thead class='simulator_table'>\n<th></th><th></th>"
     bio_levels.forEach(bio_level => {
         const is_selected = criteria.indexOf(bio_level) >= 0 ? "checked" : "";
-        header += `<th><div class="header_space"><div class="header"><input type="checkbox" id="select_${bio_level}" name="select_${bio_level}" onclick="toggle('${bio_level}');"/ ${is_selected}><label for="select_${bio_level}">${bio_level}</label></div></div></th>`;
+        header += `<th><div class="header_space"><div class="header"><input type="checkbox" class="form-check-input" id="select_${bio_level}" name="select_${bio_level}" onclick="toggle('${bio_level}');"/ ${is_selected}><label class="form-check-label" for="select_${bio_level}">${bio_level}</label></div></div></th>`;
     });
 
     // Add a separator line
@@ -35,7 +35,7 @@ function update_table() {
 
     comp_levels.forEach(comp_level => {
         const is_selected = criteria.indexOf(comp_level) >= 0 ? "checked" : "";
-        header += `<th><div class="header_space"><div class="header"><input type="checkbox" id="select_${comp_level}" name="select_${comp_level}" onclick="toggle('${comp_level}');" ${is_selected}/><label for="select_${comp_level}">${comp_level}</label></div></div></th>`;;
+        header += `<th><div class="header_space"><div class="header"><input type="checkbox" class="form-check-input" id="select_${comp_level}" name="select_${comp_level}" onclick="toggle('${comp_level}');" ${is_selected}/><label class="form-check-label" for="select_${comp_level}">${comp_level}</label></div></div></th>`;;
     });
     header += "\n</thead>";
     let rows = [];
@@ -65,7 +65,7 @@ function update_table() {
         else
             match_class = "bad_match"
         const is_checked = selected.includes(simulator) ? "checked" : "";
-        const checkbox = `<input type="checkbox" id="select_${simulator}" name="select_${simulator}" onclick="toggle_selection('${simulator}');" ${is_checked}/>`;
+        const checkbox = `<input type="checkbox" class="form-check-input" id="select_${simulator}" name="select_${simulator}" onclick="toggle_selection('${simulator}');" ${is_checked}/>`;
         const row = `<tr class="simulator_row ${match_class}"><td>${checkbox}</td><th scope="row" class='simulator_name'><span onclick="showDetails(TOOL_DESCRIPTIONS['${simulator}'], []);">${simulator}</span></td>` + cells.join(" ") + "</tr>";
         rows.push({row: row, matches: matches});
     }
