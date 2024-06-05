@@ -8,14 +8,25 @@
         <script src="https://unpkg.com/webcola@3.3.8/WebCola/cola.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.1/cytoscape-cola.min.js"></script>
         <script src="graph.js"></script>
+        <script src="table.js"></script>
+        <script src="index.js"></script>
     </head>
 <body>
-<h1>Graph view</h1>
-Using <a href="https://js.cytoscape.org">cytoscape</a>.
+<h1>Simselect</h1>
 <div id="simulators"></div>
+<form>
+    <input type="radio" id="select_table" name="view" value="table" onclick="document.getElementById('table').style=''; document.getElementById('cy').style='display:none'">
+    <label for="table">Table</label>
+    <input type="radio" id="select_graph" name="view" value="graph" disabled onclick="selectionChanged(); document.getElementById('cy').style=''; document.getElementById('table').style='display:none'">
+    <label for="graph" id="graph_label" style="color:gray">Graph (selected at least one simulator)</label>
+</form>
 <div style="display: flex;">
-<div id="cy" style="flex: 50%"></div>
-<div id="details" style="flex: 50%; padding: 1em"></div>
+    <div id="left_container" style="flex: 50%">
+        <div id="cy" style="display: none"></div>
+        <div id="table"></div>
+    </div>
+    <div id="details" style="flex: 50%; padding: 1em">
+    </div>
 </div>
 </body>
 </html>

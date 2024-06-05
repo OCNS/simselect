@@ -14,3 +14,43 @@ button {
     color: var(--color-bg);
     height: 1em;
 }
+
+table {
+    border-collapse: collapse;
+    overflow-x: visible;
+    border: 0;
+}
+thead.simulator_table {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+th {
+    text-align: right ;
+}
+td.has_feature:after {
+    content: "🗹";
+}
+
+td.match:after {
+    content: "🗹";
+    font-weight: bold;
+    color: darkgreen;
+}
+
+.mismatch:after {
+    content: "✗";
+    font-weight: bold;
+    color: darkred;
+}
+.header_space {
+    height: 150px;
+    position: relative;
+}
+.header {
+    bottom: 5px ;
+    left: 50% ;
+    position: absolute ;
+    transform: rotate( -30deg ) ;
+    transform-origin: center left ;
+    white-space: nowrap ;
+}
