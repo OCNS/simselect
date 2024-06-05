@@ -99,11 +99,10 @@ function urlButton(type, url) {
 
 function highlightNode(node) {
     // change opacity if node or edge is not connected to the clicked node
-    const connected_edges = node.connectedEdges()
-    const connected_nodes = connected_edges.connectedNodes();
+    const nhood = node.closedNeighbourhood();
+
     cy.elements().forEach(n => n.style("opacity", 0.2));
-    connected_edges.forEach(n => n.style("opacity", 1));
-    connected_nodes.forEach(n => n.style("opacity", 1));
+    nhood.forEach(n => n.style("opacity", 1));
 
     // Show details about the simulator
     const details = document.getElementById("details");
