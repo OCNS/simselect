@@ -2,16 +2,8 @@ var elements = [];
 var cy;
 var cy_layout;
 var removed = [];
-const PRESELECTED = ["Arbor", "Brian", "NEST", "Neuron"];
-var SIMULATORS = [];
 
 function selectionChanged() {
-    const selected = [];
-    for (const name of SIMULATORS) {
-        const checkbox = document.getElementById(name);
-        if (checkbox.checked)
-            selected.push(name);
-    }
     removed.toReversed().forEach(eles => eles.restore());
     removed = [];
     removed.push(cy.filter(function(element, i){
@@ -25,7 +17,10 @@ function selectionChanged() {
     removed.push(cy.filter(function(element, i){
         return element.isNode() && !element.data("features").includes("simulator") && !element.connectedEdges().some(edge => edge.visible());
     }).remove());
-    layoutNodes();
+    if (selected.length > 0) {
+        console.log(selected);
+        layoutNodes();
+    }
 }
 
 function layoutNodes() {
@@ -127,37 +122,10 @@ function highlightNode(node) {
 
     layout.run();
 
-    // Show details about the simulator
-    const details = document.getElementById("details");
-    // Basic description
-    details.innerHTML = "<h2>" + node.data("full_name") + "</h2>";
-    details.innerHTML += "<p>" + node.data("description") + "</p>";
-    // Relations
-    const outgoingEdges = node.outgoers("edge");
-    if (outgoingEdges.length > 0) {
-        details.innerHTML += "<h3>Relations</h3>";
-        const list = document.createElement("ul");
-        for (let edge of outgoingEdges) {
-            const listItem = document.createElement("li");
-            const targetLink = document.createElement("a");
-            targetLink.href = "#";
-            targetLink.addEventListener("click",function(e) { node.unselect(); edge.target().select(); });
-            targetLink.innerHTML = edge.target().id();
-            const label = document.createElement("i");
-            label.innerHTML = " " + edge.data("label") + " ";
-            listItem.appendChild(label);
-            listItem.appendChild(targetLink);
+    showDetails(node.data(), node.outgoers("edge").map((edge) => {
+        return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
 
-            list.appendChild(listItem);
-        }
-        details.appendChild(list);
-    }
-    // URLs
-    if (node.data("urls") !== undefined) {
-        for (let [text, url] of Object.entries(node.data("urls"))) {
-            details.appendChild(urlButton(text, url));
-        }
-    }
+        }));
 }
 
 function highlightEdge(edge) {
@@ -210,25 +178,19 @@ function unhighlightNode(event) {
 
 function create_checkboxes() {
     const checkbox_container = document.getElementById("simulators");
-
     for (const name of SIMULATORS) {
-        const fieldset_container = document.createElement("div");
-        fieldset_container.className = "form-check";
-        checkbox_container.appendChild(fieldset_container);
-
         const checkbox = document.createElement("input");
-        checkbox.className = "form-check-input";
         checkbox.type = "checkbox";
         checkbox.id = name;
+        checkbox.name = name;
+        checkbox.value = name;
         checkbox.checked = false;
         checkbox.onchange = selectionChanged;
-        fieldset_container.appendChild(checkbox);
-
+        checkbox_container.appendChild(checkbox);
         const label = document.createElement("label");
-        label.className = "form-check-label";
         label.htmlFor = name;
         label.appendChild(document.createTextNode(name));
-        fieldset_container.appendChild(label);
+        checkbox_container.appendChild(label);
     }
 }
 
@@ -239,7 +201,7 @@ function newNode(name, description) {
         group: 'nodes',
         data: {
             id: name,
-            full_name: description["name"],
+            full_name: description["full_name"],
             description: description["summary"],
             features: description["features"],
             urls: description["urls"]
@@ -261,31 +223,7 @@ function newEdge(name, relation) {
     }
 }
 
-// Load style and data from JSON files
-Promise.all([
-    fetch('assets/cy-style.json')
-      .then(function(res) {
-        return res.json();
-      }),
-    fetch('simtools/simtools.json')
-      .then(function(res) {
-        return res.json();
-      })
-  ])
-  .then(function(dataArray) {
-    const style = dataArray[0];
-    const data = dataArray[1];
-    // Fill the list of simulators with all items that have "simulator" in their features
-    for (const [name, description] of Object.entries(data)) {
-        if (description["features"].includes("simulator")) {
-            SIMULATORS.push(name);
-        }
-    }
-    create_checkboxes(SIMULATORS);
-    for (const name of PRESELECTED) {
-        const checkbox = document.getElementById(name);
-        checkbox.checked = true;
-    }
+function create_cy_elements(data, style) {
     for (const [name, description] of Object.entries(data)) {
         elements.push(newNode(name, description));
         if (description["relations"] !== undefined) {
@@ -303,14 +241,6 @@ Promise.all([
         style: style
     });
     selectionChanged();
-    layoutNodes();
     cy.on("select", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
-    // cy.on("dragfree", "*", function(event) {
-    //     cy_layout.stop();
-    //     event.target.lock();
-    //     cy_layout.run();
-    //     event.target.unlock();
-    // });
-    }
-);
+}
