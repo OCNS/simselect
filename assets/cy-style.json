@@ -69,6 +69,7 @@
           "outline-width": 3,
           "color": "darkorange",
           "line-color": "darkorange",
-          "target-arrow-color": "darkorange"      }
+          "target-arrow-color": "darkorange"
+        }
   }
 ]
