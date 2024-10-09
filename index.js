@@ -28,6 +28,9 @@ function showDetails(data, outgoers) {
         details.appendChild(list);
     }
     // URLs
+    link_heading = document.createElement("h3");
+    link_heading.innerHTML = "Links";
+    details.append(link_heading);
     if (data["urls"] !== undefined) {
         for (let [text, url] of Object.entries(data["urls"])) {
             details.appendChild(urlButton(text, url));

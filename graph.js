@@ -84,6 +84,8 @@ function urlButton(type, url) {
         default:
             iconFile = "link.svg";
     }
+    button.type = "button"
+    button.classList.add('btn', 'btn-info', 'm-1');
     icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
     button.innerHTML = icon + " " + type;
     button.onclick = function() {
