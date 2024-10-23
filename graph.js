@@ -42,7 +42,7 @@ function layoutNodes() {
         avoidOverlap: true,
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
-        alignment: {horizontal: [alignments]}
+        // alignment: {horizontal: [alignments]}
     });
     cy_layout.run();
 }

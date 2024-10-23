@@ -70,16 +70,11 @@ Promise.all([
         TOOL_DESCRIPTIONS[name] = description;
     }
 
-    // Randomly select three simulators
-    for (let i = 0; i < 3; i++) {
-        let name;
-        do {
-            const index = Math.floor(Math.random() * SIMULATORS.length);
-            name = SIMULATORS[index];
-        } while (selected.includes(name));
-        selected.push(name);
-    }
+    // Select all simulators initially
+    for (const simulator of SIMULATORS)
+        selected.push(simulator);
     create_cy_elements(data, style);
+    create_filters();
     update_table();
     }
 );
