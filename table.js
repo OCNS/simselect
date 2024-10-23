@@ -54,6 +54,7 @@ function create_filters() {
         checkbox.type = "checkbox";
         checkbox.id = "select_" + comp_level;
         checkbox.classList.add("form-check-input");
+        checkbox.onchange = () => toggle(comp_level);
         const label = document.createElement("label");
         label.htmlFor = "select_" + comp_level;
         label.classList.add("form-check-label");

@@ -3,6 +3,7 @@ var TOOL_DESCRIPTIONS = {};
 const selected = [];
 
 function showDetails(data, outgoers) {
+    console.log("showDetails called")
     // Show details about the simulator
     const details = document.getElementById("details");
     // Basic description
@@ -36,6 +37,15 @@ function showDetails(data, outgoers) {
             details.appendChild(urlButton(text, url));
         }
     }
+    // hide filter pane
+    const filterPane = new bootstrap.Offcanvas('#filter_pane');
+    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
+    if (document.getElementById("filter_pane").classList.contains("show"))
+        filterPane._isShown = true;
+    filterPane.hide();
+    // show details pane
+    const detailsPane = new bootstrap.Offcanvas('#details_pane');
+    detailsPane.show();
 }
 
 // Load style and data from JSON files
