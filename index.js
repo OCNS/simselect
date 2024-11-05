@@ -3,6 +3,7 @@ var TOOL_DESCRIPTIONS = {};
 const selected = [];
 
 function showDetails(data, outgoers) {
+    console.log("showDetails called")
     // Show details about the simulator
     const details = document.getElementById("details");
     // Basic description
@@ -28,11 +29,23 @@ function showDetails(data, outgoers) {
         details.appendChild(list);
     }
     // URLs
+    link_heading = document.createElement("h3");
+    link_heading.innerHTML = "Links";
+    details.append(link_heading);
     if (data["urls"] !== undefined) {
         for (let [text, url] of Object.entries(data["urls"])) {
             details.appendChild(urlButton(text, url));
         }
     }
+    // hide filter pane
+    const filterPane = new bootstrap.Offcanvas('#filter_pane');
+    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
+    if (document.getElementById("filter_pane").classList.contains("show"))
+        filterPane._isShown = true;
+    filterPane.hide();
+    // show details pane
+    const detailsPane = new bootstrap.Offcanvas('#details_pane');
+    detailsPane.show();
 }
 
 // Load style and data from JSON files
@@ -67,16 +80,11 @@ Promise.all([
         TOOL_DESCRIPTIONS[name] = description;
     }
 
-    // Randomly select three simulators
-    for (let i = 0; i < 3; i++) {
-        let name;
-        do {
-            const index = Math.floor(Math.random() * SIMULATORS.length);
-            name = SIMULATORS[index];
-        } while (selected.includes(name));
-        selected.push(name);
-    }
+    // Select all simulators initially
+    for (const simulator of SIMULATORS)
+        selected.push(simulator);
     create_cy_elements(data, style);
+    create_filters();
     update_table();
     }
 );

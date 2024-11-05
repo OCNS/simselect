@@ -23,59 +23,168 @@ function toggle(feature) {
     update_table();
 }
 
-function update_table() {
-    let header = "<thead class='simulator_table'>\n<th></th><th></th>"
-    bio_levels.forEach(bio_level => {
-        const is_selected = criteria.indexOf(bio_level) >= 0 ? "checked" : "";
-        header += `<th><div class="header_space"><div class="header"><input type="checkbox" class="form-check-input" id="select_${bio_level}" name="select_${bio_level}" onclick="toggle('${bio_level}');"/ ${is_selected}><label class="form-check-label" for="select_${bio_level}">${bio_level}</label></div></div></th>`;
-    });
-
-    // Add a separator line
-    header += `<th><div class="header_space"><div class="header"><div class="separator"></div></div></div></th>`;
-
-    comp_levels.forEach(comp_level => {
-        const is_selected = criteria.indexOf(comp_level) >= 0 ? "checked" : "";
-        header += `<th><div class="header_space"><div class="header"><input type="checkbox" class="form-check-input" id="select_${comp_level}" name="select_${comp_level}" onclick="toggle('${comp_level}');" ${is_selected}/><label class="form-check-label" for="select_${comp_level}">${comp_level}</label></div></div></th>`;;
-    });
-    header += "\n</thead>";
-    let rows = [];
-    for (const simulator of SIMULATORS) {
-        const sim_description = TOOL_DESCRIPTIONS[simulator];
-        let matches = 0;
-        let cells = [];
-        bio_levels.forEach(bio_level => {
-            const cell_class = get_cell_class(criteria, bio_level, sim_description["biological_level"]);
-            if (cell_class == "match")
-                matches++;
-            cells.push(`<td class=${cell_class}></td>`);
-        })
-        cells.push(`<td class="separator"></td>`);
-        comp_levels.forEach(comp_level => {
-            const cell_class = get_cell_class(criteria, comp_level, sim_description["computing_scale"]);
-            if (cell_class == "match")
-                matches++;
-            cells.push(`<td class=${cell_class}></td>`);
-        })
-        if (criteria.length == 0)
-            match_class = "";
-        else if (criteria.length == matches)
-            match_class = "good_match";
-        else if (matches > 0)
-            match_class = "medium_match";
-        else
-            match_class = "bad_match"
-        const is_checked = selected.includes(simulator) ? "checked" : "";
-        const checkbox = `<input type="checkbox" class="form-check-input" id="select_${simulator}" name="select_${simulator}" onclick="toggle_selection('${simulator}');" ${is_checked}/>`;
-        const row = `<tr class="simulator_row ${match_class}"><td>${checkbox}</td><th scope="row" class='simulator_name'><span onclick="showDetails(TOOL_DESCRIPTIONS['${simulator}'], []);">${simulator}</span></td>` + cells.join(" ") + "</tr>";
-        rows.push({row: row, matches: matches});
+function create_filters() {
+    const filters = document.getElementById("simulator_filters");
+    const bio_heading = document.createElement("h5");
+    bio_heading.textContent = "Level of biological detail";
+    filters.appendChild(bio_heading);
+    for (const bio_level of bio_levels) {
+        const formCheck = document.createElement("div");
+        formCheck.classList.add("form-check");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = "select_" + bio_level;
+        checkbox.classList.add("form-check-input");
+        checkbox.onchange = () => toggle(bio_level);
+        const label = document.createElement("label");
+        label.htmlFor = "select_" + bio_level;
+        label.classList.add("form-check-label");
+        label.textContent = bio_level;
+        formCheck.appendChild(checkbox);
+        formCheck.appendChild(label);
+        filters.appendChild(formCheck);
     }
-    rows.sort((a, b) => b['matches']-a['matches'])
-    let table_div = document.getElementById("simulators");
-    table_div.innerHTML = "<table>\n" + header + "\n<tbody>" + rows.map(r => r["row"]).join("\n") + "</tbody></table>"
+    const comp_heading = document.createElement("h5");
+    comp_heading.textContent = "Computational resources";
+    filters.appendChild(comp_heading);
+    for (const comp_level of comp_levels) {
+        const formCheck = document.createElement("div");
+        formCheck.classList.add("form-check");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = "select_" + comp_level;
+        checkbox.classList.add("form-check-input");
+        checkbox.onchange = () => toggle(comp_level);
+        const label = document.createElement("label");
+        label.htmlFor = "select_" + comp_level;
+        label.classList.add("form-check-label");
+        label.textContent = comp_level;
+        formCheck.appendChild(checkbox);
+        formCheck.appendChild(label);
+        filters.appendChild(formCheck);
+    }
 }
 
-function toggle_selection(simulator) {
-    const checkbox = document.getElementById("select_" + simulator);
+function update_table() {
+    const table_div = document.getElementById("simulators");
+    if (criteria.length == 0) {
+        table_div.innerHTML = "";
+        for (const simulator of SIMULATORS) {
+            const div_wrapper = document.createElement("div");
+            div_wrapper.classList.add("form-check");
+            const input = document.createElement("input");
+            input.classList.add("form-check-input");
+            if (! selected.includes(simulator))
+                selected.push(simulator);
+            input.checked = true;
+            input.type = "checkbox";
+            input.id = "sim_" + simulator;
+            input.onchange = toggle_selection;
+            const label = document.createElement("label");
+            label.classList.add("form-check-label");
+            label.textContent = TOOL_DESCRIPTIONS[simulator]["full_name"];
+            label.htmlFor = "sim_" + simulator;
+            div_wrapper.appendChild(input);
+            div_wrapper.appendChild(label);
+            table_div.appendChild(div_wrapper);
+        }
+
+    } else {
+        let good = [];
+        let medium = [];
+        let bad = [];
+        for (const simulator of SIMULATORS) {
+            const sim_description = TOOL_DESCRIPTIONS[simulator];
+            let matches = 0;
+            bio_levels.forEach(bio_level => {
+                const cell_class = get_cell_class(criteria, bio_level, sim_description["biological_level"]);
+                if (cell_class == "match")
+                    matches++;
+
+            })
+            comp_levels.forEach(comp_level => {
+                const cell_class = get_cell_class(criteria, comp_level, sim_description["computing_scale"]);
+                if (cell_class == "match")
+                    matches++;
+            })
+            if (criteria.length == matches)
+                good.push({simulator: simulator, matches: matches});
+            else if (matches > 0)
+                medium.push({simulator: simulator, matches: matches});
+            else
+                bad.push({simulator: simulator, matches: matches});
+        }
+        good.sort((a, b) => b['matches']-a['matches']);
+        medium.sort((a, b) => b['matches']-a['matches']);
+        table_div.innerHTML = "";
+        const good_header = document.createElement("h5");
+        good_header.textContent = "Full matches";
+        table_div.appendChild(good_header);
+        for (sim_matches of good) {
+            simulator = sim_matches["simulator"];
+            const div_wrapper = document.createElement("div");
+            div_wrapper.classList.add("form-check");
+            const input = document.createElement("input");
+            input.classList.add("form-check-input");
+            input.id = "sim_" + simulator;
+            if (! selected.includes(simulator)) {
+                selected.push(simulator);
+            }
+            input.checked = true;
+            input.type = "checkbox";
+
+            input.onchange = toggle_selection;
+            const label = document.createElement("label");
+            label.classList.add("form-check-label", "fw-bold");
+            label.textContent = TOOL_DESCRIPTIONS[simulator]["full_name"];
+            label.htmlFor = "sim_" + simulator;
+            div_wrapper.appendChild(input);
+            div_wrapper.appendChild(label);
+            table_div.appendChild(div_wrapper);
+        }
+        const medium_header = document.createElement("h5");
+        medium_header.textContent = "Partial matches";
+        table_div.appendChild(medium_header);
+        for (sim_matches of medium) {
+            simulator = sim_matches["simulator"];
+            const div_wrapper = document.createElement("div");
+            div_wrapper.classList.add("form-check");
+            const input = document.createElement("input");
+            input.classList.add("form-check-input");
+            input.id = "sim_" + simulator;
+            if (selected.includes(simulator)) {
+                selected.splice(selected.indexOf(simulator), 1);
+            }
+            input.checked = false;
+            input.type = "checkbox";
+
+            input.onchange = toggle_selection;
+            const label = document.createElement("label");
+            label.classList.add("form-check-label");
+            label.textContent = TOOL_DESCRIPTIONS[simulator]["full_name"];
+            label.htmlFor = "sim_" + simulator;
+            div_wrapper.appendChild(input);
+            div_wrapper.appendChild(label);
+            table_div.appendChild(div_wrapper);
+        }
+        if (medium.length == 0) {
+            const no_matches = document.createElement("p");
+            no_matches.textContent = "No partial matches";
+            table_div.appendChild(no_matches);
+        }
+        for (const sim_matches of bad) {
+            const simulator = sim_matches["simulator"];
+            if (selected.includes(simulator))
+                selected.splice(selected.indexOf(simulator), 1);
+        }
+    }
+    selectionChanged();
+}
+
+function toggle_selection() {
+    const simulator = this.id.split("_")[1];
+    console.log("toggle selection", simulator);
+    const checkbox = document.getElementById("sim_" + simulator);
     if (checkbox.checked) {
         selected.push(simulator);
     } else {

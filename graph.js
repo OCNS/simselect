@@ -42,7 +42,7 @@ function layoutNodes() {
         avoidOverlap: true,
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
-        alignment: {horizontal: [alignments]}
+        // alignment: {horizontal: [alignments]}
     });
     cy_layout.run();
 }
@@ -84,6 +84,8 @@ function urlButton(type, url) {
         default:
             iconFile = "link.svg";
     }
+    button.type = "button"
+    button.classList.add('btn', 'btn-info', 'm-1');
     icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
     button.innerHTML = icon + " " + type;
     button.onclick = function() {
@@ -157,6 +159,17 @@ function highlightEdge(edge) {
     cy.elements().forEach(n => n.style("opacity", 0.2));
     edge.style("opacity", 1);
     edge.connectedNodes().forEach(n => n.style("opacity", 1));
+    // hide filter pane
+    const filterPane = new bootstrap.Offcanvas('#filter_pane');
+    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
+    if (document.getElementById("filter_pane").classList.contains("show"))
+        filterPane._isShown = true;
+    filterPane.hide();
+    // show details pane
+    const detailsPane = new bootstrap.Offcanvas('#details_pane');
+    detailsPane.show();
+
+
 }
 
 function highlightElement(event) {
@@ -173,25 +186,11 @@ function highlightElement(event) {
 
 function unhighlightNode(event) {
     cy.elements().forEach(n => n.style("opacity", 1));
-    document.getElementById("details").innerHTML = "";
-}
-
-function create_checkboxes() {
-    const checkbox_container = document.getElementById("simulators");
-    for (const name of SIMULATORS) {
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = name;
-        checkbox.name = name;
-        checkbox.value = name;
-        checkbox.checked = false;
-        checkbox.onchange = selectionChanged;
-        checkbox_container.appendChild(checkbox);
-        const label = document.createElement("label");
-        label.htmlFor = name;
-        label.appendChild(document.createTextNode(name));
-        checkbox_container.appendChild(label);
-    }
+    const detailsPane = new bootstrap.Offcanvas('#details_pane');
+    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
+    if (document.getElementById("details_pane").classList.contains("show"))
+        detailsPane._isShown = true;
+    detailsPane.hide();
 }
 
 function newNode(name, description) {
