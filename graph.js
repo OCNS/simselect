@@ -2,16 +2,8 @@ var elements = [];
 var cy;
 var cy_layout;
 var removed = [];
-const PRESELECTED = ["Arbor", "Brian", "NEST", "Neuron"];
-var SIMULATORS = [];
 
 function selectionChanged() {
-    const selected = [];
-    for (const name of SIMULATORS) {
-        const checkbox = document.getElementById(name);
-        if (checkbox.checked)
-            selected.push(name);
-    }
     removed.toReversed().forEach(eles => eles.restore());
     removed = [];
     removed.push(cy.filter(function(element, i){
@@ -25,7 +17,10 @@ function selectionChanged() {
     removed.push(cy.filter(function(element, i){
         return element.isNode() && !element.data("features").includes("simulator") && !element.connectedEdges().some(edge => edge.visible());
     }).remove());
-    layoutNodes();
+    if (selected.length > 0) {
+        console.log(selected);
+        layoutNodes();
+    }
 }
 
 function layoutNodes() {
@@ -47,7 +42,7 @@ function layoutNodes() {
         avoidOverlap: true,
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
-        alignment: {horizontal: [alignments]}
+        // alignment: {horizontal: [alignments]}
     });
     cy_layout.run();
 }
@@ -89,6 +84,8 @@ function urlButton(type, url) {
         default:
             iconFile = "link.svg";
     }
+    button.type = "button"
+    button.classList.add('btn', 'btn-info', 'm-1');
     icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
     button.innerHTML = icon + " " + type;
     button.onclick = function() {
@@ -99,43 +96,38 @@ function urlButton(type, url) {
 
 function highlightNode(node) {
     // change opacity if node or edge is not connected to the clicked node
-    const connected_edges = node.connectedEdges()
-    const connected_nodes = connected_edges.connectedNodes();
-    cy.elements().forEach(n => n.style("opacity", 0.2));
-    connected_edges.forEach(n => n.style("opacity", 1));
-    connected_nodes.forEach(n => n.style("opacity", 1));
+    const nhood = node.closedNeighbourhood();
+    const connectedEdges = node.connectedEdges();
 
-    // Show details about the simulator
-    const details = document.getElementById("details");
-    // Basic description
-    details.innerHTML = "<h2>" + node.data("full_name") + "</h2>";
-    details.innerHTML += "<p>" + node.data("description") + "</p>";
-    // Relations
-    const outgoingEdges = node.outgoers("edge");
-    if (outgoingEdges.length > 0) {
-        details.innerHTML += "<h3>Relations</h3>";
-        const list = document.createElement("ul");
-        for (let edge of outgoingEdges) {
-            const listItem = document.createElement("li");
-            const targetLink = document.createElement("a");
-            targetLink.href = "#";
-            targetLink.addEventListener("click",function(e) { node.unselect(); edge.target().select(); });
-            targetLink.innerHTML = edge.target().id();
-            const label = document.createElement("i");
-            label.innerHTML = " " + edge.data("label") + " ";
-            listItem.appendChild(label);
-            listItem.appendChild(targetLink);
+    cy.elements().forEach(n => n.style("opacity", 0.1));
+    nhood.forEach(n => n.style("opacity", 1));
+    connectedEdges.forEach(n => {n.style("curve-style", "straight"); n.style("min-zoomed-font-size", 12)});
 
-            list.appendChild(listItem);
-        }
-        details.appendChild(list);
-    }
-    // URLs
-    if (node.data("urls") !== undefined) {
-        for (let [text, url] of Object.entries(node.data("urls"))) {
-            details.appendChild(urlButton(text, url));
-        }
-    }
+    const layout = nhood.layout({
+        name: 'concentric',
+        fit: true,
+        concentric: function(ele) {
+            if (ele.same(node)) {
+                return 2;
+
+            } else {
+                return 1;
+            }
+        },
+        minNodeSpacing: 75,
+        avoidOverlap: true,
+        levelWidth: () => {return 1; },
+        animate: true,
+        //animationDuration: 50,
+        animationEasing: 'ease',
+    });
+
+    layout.run();
+
+    showDetails(node.data(), node.outgoers("edge").map((edge) => {
+        return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
+
+        }));
 }
 
 function highlightEdge(edge) {
@@ -167,6 +159,17 @@ function highlightEdge(edge) {
     cy.elements().forEach(n => n.style("opacity", 0.2));
     edge.style("opacity", 1);
     edge.connectedNodes().forEach(n => n.style("opacity", 1));
+    // hide filter pane
+    const filterPane = new bootstrap.Offcanvas('#filter_pane');
+    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
+    if (document.getElementById("filter_pane").classList.contains("show"))
+        filterPane._isShown = true;
+    filterPane.hide();
+    // show details pane
+    const detailsPane = new bootstrap.Offcanvas('#details_pane');
+    detailsPane.show();
+
+
 }
 
 function highlightElement(event) {
@@ -183,31 +186,11 @@ function highlightElement(event) {
 
 function unhighlightNode(event) {
     cy.elements().forEach(n => n.style("opacity", 1));
-    document.getElementById("details").innerHTML = "";
-}
-
-function create_checkboxes() {
-    const checkbox_container = document.getElementById("simulators");
-
-    for (const name of SIMULATORS) {
-        const fieldset_container = document.createElement("div");
-        fieldset_container.className = "form-check";
-        checkbox_container.appendChild(fieldset_container);
-
-        const checkbox = document.createElement("input");
-        checkbox.className = "form-check-input";
-        checkbox.type = "checkbox";
-        checkbox.id = name;
-        checkbox.checked = false;
-        checkbox.onchange = selectionChanged;
-        fieldset_container.appendChild(checkbox);
-
-        const label = document.createElement("label");
-        label.className = "form-check-label";
-        label.htmlFor = name;
-        label.appendChild(document.createTextNode(name));
-        fieldset_container.appendChild(label);
-    }
+    const detailsPane = new bootstrap.Offcanvas('#details_pane');
+    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
+    if (document.getElementById("details_pane").classList.contains("show"))
+        detailsPane._isShown = true;
+    detailsPane.hide();
 }
 
 function newNode(name, description) {
@@ -217,7 +200,7 @@ function newNode(name, description) {
         group: 'nodes',
         data: {
             id: name,
-            full_name: description["name"],
+            full_name: description["full_name"],
             description: description["summary"],
             features: description["features"],
             urls: description["urls"]
@@ -239,31 +222,7 @@ function newEdge(name, relation) {
     }
 }
 
-// Load style and data from JSON files
-Promise.all([
-    fetch('assets/cy-style.json')
-      .then(function(res) {
-        return res.json();
-      }),
-    fetch('simtools/simtools.json')
-      .then(function(res) {
-        return res.json();
-      })
-  ])
-  .then(function(dataArray) {
-    const style = dataArray[0];
-    const data = dataArray[1];
-    // Fill the list of simulators with all items that have "simulator" in their features
-    for (const [name, description] of Object.entries(data)) {
-        if (description["features"].includes("simulator")) {
-            SIMULATORS.push(name);
-        }
-    }
-    create_checkboxes(SIMULATORS);
-    for (const name of PRESELECTED) {
-        const checkbox = document.getElementById(name);
-        checkbox.checked = true;
-    }
+function create_cy_elements(data, style) {
     for (const [name, description] of Object.entries(data)) {
         elements.push(newNode(name, description));
         if (description["relations"] !== undefined) {
@@ -281,14 +240,6 @@ Promise.all([
         style: style
     });
     selectionChanged();
-    layoutNodes();
     cy.on("select", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
-    // cy.on("dragfree", "*", function(event) {
-    //     cy_layout.stop();
-    //     event.target.lock();
-    //     cy_layout.run();
-    //     event.target.unlock();
-    // });
-    }
-);
+}
