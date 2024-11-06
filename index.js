@@ -46,6 +46,12 @@ function showDetails(data, outgoers) {
     // show details pane
     const detailsPane = new bootstrap.Offcanvas('#details_pane');
     detailsPane.show();
+
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    params.set('selected', data["full_name"]);
+    url.search = params.toString();
+    window.history.pushState({}, "", url);
 }
 
 // Load style and data from JSON files
