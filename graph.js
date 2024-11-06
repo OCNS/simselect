@@ -96,11 +96,33 @@ function urlButton(type, url) {
 
 function highlightNode(node) {
     // change opacity if node or edge is not connected to the clicked node
-    const connected_edges = node.connectedEdges()
-    const connected_nodes = connected_edges.connectedNodes();
-    cy.elements().forEach(n => n.style("opacity", 0.2));
-    connected_edges.forEach(n => n.style("opacity", 1));
-    connected_nodes.forEach(n => n.style("opacity", 1));
+    const nhood = node.closedNeighbourhood();
+    const connectedEdges = node.connectedEdges();
+
+    cy.elements().forEach(n => n.style("opacity", 0.1));
+    nhood.forEach(n => n.style("opacity", 1));
+    connectedEdges.forEach(n => {n.style("curve-style", "straight"); n.style("min-zoomed-font-size", 12)});
+
+    const layout = nhood.layout({
+        name: 'concentric',
+        fit: true,
+        concentric: function(ele) {
+            if (ele.same(node)) {
+                return 2;
+
+            } else {
+                return 1;
+            }
+        },
+        minNodeSpacing: 75,
+        avoidOverlap: true,
+        levelWidth: () => {return 1; },
+        animate: true,
+        //animationDuration: 50,
+        animationEasing: 'ease',
+    });
+
+    layout.run();
 
     showDetails(node.data(), node.outgoers("edge").map((edge) => {
         return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
