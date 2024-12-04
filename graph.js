@@ -39,7 +39,7 @@ function layoutNodes() {
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
     });
-    unconnected.forEach((eles, i) => {eles.restore(); eles.position("x", 500); eles.position("y", 200 + i*50);});
+    unconnected.forEach((eles, i) => {eles.restore(); eles.position("x", 250); eles.position("y", 200 + i*50);});
     cy_layout.run();
 }
 
