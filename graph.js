@@ -193,6 +193,7 @@ function highlightElement(event) {
 
 function unhighlightNode(event) {
     cy.elements().forEach(n => n.style("opacity", 1));
+    showDetails(null, null);
 }
 
 function newNode(name, description) {

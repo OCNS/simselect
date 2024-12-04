@@ -2,39 +2,55 @@ var SIMULATORS = [];
 var TOOL_DESCRIPTIONS = {};
 const selected = [];
 
+// If params  are null, show a default message
 function showDetails(data, outgoers) {
     console.log("showDetails called")
     // Show details about the simulator
     const details = document.getElementById("details");
     // Basic description
-    details.innerHTML = "<h2>" + data["full_name"] + "</h2>";
-    details.innerHTML += "<p>" + data["description"] + "</p>";
-    // Relations
-    if (outgoers.length > 0) {
-        details.innerHTML += "<h3>Relations</h3>";
-        const list = document.createElement("ul");
-        for (let edge of outgoers) {
-            const listItem = document.createElement("li");
-            const targetLink = document.createElement("a");
-            // targetLink.href = "#";
-            // targetLink.addEventListener("click",function(e) { node.unselect(); edge.target().select(); });
-            targetLink.innerHTML = edge["target"];
-            const label = document.createElement("i");
-            label.innerHTML = " " + edge["label"] + " ";
-            listItem.appendChild(label);
-            listItem.appendChild(targetLink);
-
-            list.appendChild(listItem);
-        }
-        details.appendChild(list);
+    if (data === null) {
+        details.innerHTML = "<br />"
+        details.innerHTML += "<h2>Using this resource</h2>"
+        details.innerHTML += "<ul>"
+        details.innerHTML += "<li>Use the 'Filter Toggle' button to activate the simulation engine filter.</li>"
+        details.innerHTML += "<li>Select what simulation engines you would like to show in the graph.</li>"
+        details.innerHTML += "<li>Select a node/edge to see its ecosystem in the graph.</li>"
+        details.innerHTML += "<li>Double click/tap on a node/edge to see details of the tool.</li>"
+        details.innerHTML += "<li>Click outside to unselect nodes.</li>"
+        details.innerHTML += "</ul>"
     }
-    // URLs
-    link_heading = document.createElement("h3");
-    link_heading.innerHTML = "Links";
-    details.append(link_heading);
-    if (data["urls"] !== undefined) {
-        for (let [text, url] of Object.entries(data["urls"])) {
-            details.appendChild(urlButton(text, url));
+    else {
+        details.innerHTML = "<h2>" + data["full_name"] + "</h2>";
+        details.innerHTML += "<p>" + data["description"] + "</p>";
+    }
+    // Relations
+    if (outgoers !== null) {
+        if (outgoers.length > 0) {
+            details.innerHTML += "<h3>Relations</h3>";
+            const list = document.createElement("ul");
+            for (let edge of outgoers) {
+                const listItem = document.createElement("li");
+                const targetLink = document.createElement("a");
+                // targetLink.href = "#";
+                // targetLink.addEventListener("click",function(e) { node.unselect(); edge.target().select(); });
+                targetLink.innerHTML = edge["target"];
+                const label = document.createElement("i");
+                label.innerHTML = " " + edge["label"] + " ";
+                listItem.appendChild(label);
+                listItem.appendChild(targetLink);
+
+                list.appendChild(listItem);
+            }
+            details.appendChild(list);
+        }
+        // URLs
+        link_heading = document.createElement("h3");
+        link_heading.innerHTML = "Links";
+        details.append(link_heading);
+        if (data["urls"] !== undefined) {
+            for (let [text, url] of Object.entries(data["urls"])) {
+                details.appendChild(urlButton(text, url));
+            }
         }
     }
     // hide filter pane
@@ -89,5 +105,6 @@ Promise.all([
     create_cy_elements(data, style);
     create_filters();
     update_table();
+    showDetails(null, null);
     }
 );
