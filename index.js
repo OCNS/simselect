@@ -60,11 +60,13 @@ function showDetails(data, outgoers) {
         filterPane._isShown = true;
     filterPane.hide();
 
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-    params.set('selected', data["full_name"]);
-    url.search = params.toString();
-    window.history.pushState({}, "", url);
+    if (data !== null) {
+        const url = new URL(window.location.href);
+        const params = new URLSearchParams(url.search);
+        params.set('selected', data["full_name"]);
+        url.search = params.toString();
+        window.history.pushState({}, "", url);
+    }
 }
 
 // Load style and data from JSON files
