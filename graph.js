@@ -247,6 +247,6 @@ function create_cy_elements(data, style) {
         style: style
     });
     selectionChanged();
-    cy.on("tap dbltap", "*", highlightElement);
+    cy.on("select tap dbltap", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
 }
