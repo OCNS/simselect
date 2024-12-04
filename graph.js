@@ -193,11 +193,6 @@ function highlightElement(event) {
 
 function unhighlightNode(event) {
     cy.elements().forEach(n => n.style("opacity", 1));
-    const detailsPane = new bootstrap.Offcanvas('#details_pane');
-    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
-    if (document.getElementById("details_pane").classList.contains("show"))
-        detailsPane._isShown = true;
-    detailsPane.hide();
 }
 
 function newNode(name, description) {
