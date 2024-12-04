@@ -9,6 +9,10 @@ function selectionChanged() {
     removed.push(cy.filter(function(element, i){
         return element.isNode() && element.data("features").includes("simulator") && !selected.includes(element.data("id"));
     }).remove());
+    // Hide all nodes that do not have any (even indirect) connection to a visible simulator node
+    removed.push(cy.filter(function(element, i){
+        return element.isNode() && !element.data("features").includes("simulator") && !element.connectedEdges().some(edge => edge.source().data("features").includes("simulator") || edge.target().data("features").includes("simulator"));
+    }).remove());
     // Hide all edges that are not connected to a visible node
     removed.push(cy.filter(function(element, i){
         return element.isEdge() && !(element.source().visible() && element.target().visible);
@@ -17,24 +21,16 @@ function selectionChanged() {
     removed.push(cy.filter(function(element, i){
         return element.isNode() && !element.data("features").includes("simulator") && !element.connectedEdges().some(edge => edge.visible());
     }).remove());
+
     if (selected.length > 0) {
-        console.log(selected);
         layoutNodes();
     }
 }
 
 function layoutNodes() {
-    const simulator_nodes = cy.filter(function(element, i){
-        return element.isNode() && element.data("features").includes("simulator");
-    });
-    let counter = 0;
-    alignments = [];
-    for (let node of simulator_nodes) {
-        if (removed.indexOf(node) === -1) {
-            alignments.push({node: node, offset: 0});
-            counter++;
-        }
-    }
+    unconnected = cy.filter(function(element, i) {
+        return element.isNode() && element.connectedEdges().length == 0
+    }).remove();
     cy_layout = cy.layout({
         name: "cola",
         animate: "end",
@@ -42,8 +38,8 @@ function layoutNodes() {
         avoidOverlap: true,
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
-        // alignment: {horizontal: [alignments]}
     });
+    unconnected.forEach((eles, i) => {eles.restore(); eles.position("x", 500); eles.position("y", 200 + i*50);});
     cy_layout.run();
 }
 
@@ -226,6 +222,7 @@ function newEdge(name, relation) {
 }
 
 function create_cy_elements(data, style) {
+    console.log("Creating", data);
     for (const [name, description] of Object.entries(data)) {
         elements.push(newNode(name, description));
         if (description["relations"] !== undefined) {
@@ -242,7 +239,7 @@ function create_cy_elements(data, style) {
         layout: { name: 'random' },
         style: style
     });
-    selectionChanged();
     cy.on("select tap dbltap", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
+    selectionChanged();
 }
