@@ -97,7 +97,7 @@ function highlightNode(node) {
 
     cy.elements().forEach(n => n.style("opacity", 0.1));
     nhood.forEach(n => n.style("opacity", 1));
-    connectedEdges.forEach(n => {n.style("curve-style", "straight"); n.style("min-zoomed-font-size", 12)});
+    connectedEdges.forEach(n => {n.style("curve-style", "bezier"); n.style("min-zoomed-font-size", 12)});
 
     const layout = nhood.layout({
         name: 'concentric',
@@ -120,9 +120,11 @@ function highlightNode(node) {
 
     layout.run();
 
+}
+
+function showNodeDetails(node) {
     showDetails(node.data(), node.outgoers("edge").map((edge) => {
         return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
-
         }));
 }
 
@@ -161,20 +163,25 @@ function highlightEdge(edge) {
     if (document.getElementById("filter_pane").classList.contains("show"))
         filterPane._isShown = true;
     filterPane.hide();
-    // show details pane
-    const detailsPane = new bootstrap.Offcanvas('#details_pane');
-    detailsPane.show();
-
-
 }
 
 function highlightElement(event) {
     if (event.target.group() === "nodes") {
         const node = event.target;
-        highlightNode(node);
+        if (event.type === "tap") {
+            highlightNode(node);
+        }
+        else if (event.type === "dbltap") {
+            showNodeDetails(node);
+        }
     } else if (event.target.group() === "edges") {
         const edge = event.target;
-        highlightEdge(edge);
+        if (event.type === "tap") {
+            // do nothing special
+        }
+        else if (event.type === "dbltap") {
+            highlightEdge(edge);
+        }
     } else if (event.target === cy) {
         unhighlightNode();
     }
@@ -182,11 +189,7 @@ function highlightElement(event) {
 
 function unhighlightNode(event) {
     cy.elements().forEach(n => n.style("opacity", 1));
-    const detailsPane = new bootstrap.Offcanvas('#details_pane');
-    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
-    if (document.getElementById("details_pane").classList.contains("show"))
-        detailsPane._isShown = true;
-    detailsPane.hide();
+    showDetails(null, null);
 }
 
 function newNode(name, description) {
@@ -236,7 +239,7 @@ function create_cy_elements(data, style) {
         layout: { name: 'random' },
         style: style
     });
-    cy.on("select", "*", highlightElement);
+    cy.on("select tap dbltap", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
     selectionChanged();
 }
