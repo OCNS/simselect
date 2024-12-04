@@ -99,9 +99,10 @@ function highlightNode(node) {
     const nhood = node.closedNeighbourhood();
     const connectedEdges = node.connectedEdges();
 
-    cy.elements().forEach(n => n.style("opacity", 0.1));
-    nhood.forEach(n => n.style("opacity", 1));
-    connectedEdges.forEach(n => {n.style("curve-style", "bezier"); n.style("min-zoomed-font-size", 12)});
+    cy.elements().forEach(n => {n.style("opacity", 0.1); n.style("z-index", 0); n.style("z-index-compare", "manual");});
+    cy.edges().forEach(n => {n.style("opacity", 0.1); n.style("z-index", 0); n.style("z-index-compare", "manual");});
+    nhood.forEach(n => {n.style("opacity", 1); n.style("z-index", 100); n.style("z-index-compare", "manual");});
+    connectedEdges.forEach(n => {n.style("curve-style", "bezier"); n.style("min-zoomed-font-size", 12); n.style("z-index", 50); n.style("z-index-compare", "manual");});
 
     const layout = nhood.layout({
         name: 'concentric',
