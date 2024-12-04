@@ -170,7 +170,7 @@
   },
   "Brian2CUDA": {
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
-    "features": "simulator",
+    "features": "library",
     "interface_language": "Python",
     "name": "Brian2CUDA",
     "operating_system": "Linux, MacOS",
