@@ -101,7 +101,7 @@ function highlightNode(node) {
 
     cy.elements().forEach(n => n.style("opacity", 0.1));
     nhood.forEach(n => n.style("opacity", 1));
-    connectedEdges.forEach(n => {n.style("curve-style", "straight"); n.style("min-zoomed-font-size", 12)});
+    connectedEdges.forEach(n => {n.style("curve-style", "bezier"); n.style("min-zoomed-font-size", 12)});
 
     const layout = nhood.layout({
         name: 'concentric',
