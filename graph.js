@@ -124,9 +124,11 @@ function highlightNode(node) {
 
     layout.run();
 
+}
+
+function showNodeDetails(node) {
     showDetails(node.data(), node.outgoers("edge").map((edge) => {
         return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
-
         }));
 }
 
@@ -165,20 +167,25 @@ function highlightEdge(edge) {
     if (document.getElementById("filter_pane").classList.contains("show"))
         filterPane._isShown = true;
     filterPane.hide();
-    // show details pane
-    const detailsPane = new bootstrap.Offcanvas('#details_pane');
-    detailsPane.show();
-
-
 }
 
 function highlightElement(event) {
     if (event.target.group() === "nodes") {
         const node = event.target;
-        highlightNode(node);
+        if (event.type === "tap") {
+            highlightNode(node);
+        }
+        else if (event.type === "dbltap") {
+            showNodeDetails(node);
+        }
     } else if (event.target.group() === "edges") {
         const edge = event.target;
-        highlightEdge(edge);
+        if (event.type === "tap") {
+            // do nothing special
+        }
+        else if (event.type === "dbltap") {
+            highlightEdge(edge);
+        }
     } else if (event.target === cy) {
         unhighlightNode();
     }
@@ -240,6 +247,6 @@ function create_cy_elements(data, style) {
         style: style
     });
     selectionChanged();
-    cy.on("select", "*", highlightElement);
+    cy.on("tap dbltap", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
 }
