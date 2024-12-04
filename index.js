@@ -43,9 +43,6 @@ function showDetails(data, outgoers) {
     if (document.getElementById("filter_pane").classList.contains("show"))
         filterPane._isShown = true;
     filterPane.hide();
-    // show details pane
-    const detailsPane = new bootstrap.Offcanvas('#details_pane');
-    detailsPane.show();
 
     const url = new URL(window.location.href);
     const params = new URLSearchParams(url.search);
