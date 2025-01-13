@@ -2,6 +2,8 @@ var elements = [];
 var cy;
 var cy_layout;
 var removed = [];
+var meta_node;
+var meta_node_edges;
 
 function selectionChanged() {
     removed.toReversed().forEach(eles => eles.restore());
@@ -28,9 +30,6 @@ function selectionChanged() {
 }
 
 function layoutNodes() {
-    unconnected = cy.filter(function(element, i) {
-        return element.isNode() && element.connectedEdges().length == 0
-    }).remove();
     cy_layout = cy.layout({
         name: "cola",
         animate: "end",
@@ -39,7 +38,6 @@ function layoutNodes() {
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
     });
-    unconnected.forEach((eles, i) => {eles.restore(); eles.position("x", 250); eles.position("y", 200 + i*50);});
     cy_layout.run();
 }
 
@@ -91,6 +89,12 @@ function urlButton(type, url) {
 }
 
 function highlightNode(node) {
+    if (node.id() == "simulators") {
+        return;
+    }
+    // Ignore the meta node
+    meta_node.deselect();
+    meta_node.remove();
     // change opacity if node or edge is not connected to the clicked node
     const nhood = node.closedNeighbourhood();
     const connectedEdges = node.connectedEdges();
@@ -123,9 +127,13 @@ function highlightNode(node) {
 }
 
 function showNodeDetails(node) {
-    showDetails(node.data(), node.outgoers("edge").map((edge) => {
-        return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
-        }));
+    if (node.id() == "simulators") {
+        showDetails(null, null);
+    } else {
+        showDetails(node.data(), node.outgoers("edge").map((edge) => {
+            return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
+            }));
+    }
 }
 
 function highlightEdge(edge) {
@@ -188,6 +196,10 @@ function highlightElement(event) {
 }
 
 function unhighlightNode(event) {
+    // Ignore the meta node
+    meta_node.restore();
+    meta_node_edges.restore();
+    // Re-add the edges
     cy.elements().forEach(n => n.style("opacity", 1));
     showDetails(null, null);
 }
@@ -222,9 +234,14 @@ function newEdge(name, relation) {
 }
 
 function create_cy_elements(data, style) {
-    console.log("Creating", data);
+    // Create a "meta-node" for all simulators
+    elements.push(newNode("simulators", {full_name: "Simulators", features: "meta"}));
     for (const [name, description] of Object.entries(data)) {
         elements.push(newNode(name, description));
+        // Connect all simulators to the meta node
+        if (description["features"].includes("simulator")) {
+            elements.push(newEdge("simulators", {name: name, description: "simulator"}));
+        }
         if (description["relations"] !== undefined) {
             for (let relation of description["relations"]){
                 if (relation["description"] === undefined)
@@ -239,7 +256,11 @@ function create_cy_elements(data, style) {
         layout: { name: 'random' },
         style: style
     });
+    // store the meta_node, since we need to remove it when highlighting nodes
+    meta_node = cy.$("#simulators");
+    meta_node_edges = meta_node.connectedEdges();
     cy.on("select tap dbltap", "*", highlightElement);
     cy.on("unselect", "*", unhighlightNode);
+    cy.$("#simulators").select();
     selectionChanged();
 }

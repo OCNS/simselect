@@ -22,6 +22,15 @@
     }
   },
   {
+    "selector": ".meta",
+    "style": {
+      "background-color": "#fff",
+      "font-style": "italic",
+      "shape": "hexagon",
+      "border-width": "3px"
+    }
+},
+  {
       "selector": ".standard",
       "style": {
         "background-image": "assets/notes-circle.svg",

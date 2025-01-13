@@ -4,7 +4,6 @@ const selected = [];
 
 // If params  are null, show a default message
 function showDetails(data, outgoers) {
-    console.log("showDetails called")
     // Show details about the simulator
     const details = document.getElementById("details");
     // Basic description
@@ -62,7 +61,11 @@ function showDetails(data, outgoers) {
 
     const url = new URL(window.location.href);
     const params = new URLSearchParams(url.search);
-    params.set('selected', data["full_name"]);
+    if (data === null)
+        params.delete('selected');
+    else {
+        params.set('selected', data["full_name"]);
+    }
     url.search = params.toString();
     window.history.pushState({}, "", url);
 }
