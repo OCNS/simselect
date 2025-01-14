@@ -204,8 +204,47 @@ function unhighlightNode(event) {
     showDetails(null, null);
 }
 
+function updateHighlights() {
+    const search = document.getElementById("simulator_search_input");
+    const searchValue = search.value.toLowerCase();
+    for (node of cy.nodes()) {
+        node.style("opacity", 1);
+    }
+    if (search) {
+        for (node of cy.nodes()) {
+            const full_name = node.data("full_name");
+            const description = node.data("description");
+            if (full_name && !(full_name.toLowerCase().includes(searchValue) || description && description.toLowerCase().includes(searchValue))) {
+                node.style("opacity", 0.2);
+            }
+        }
+    }
+    if (criteria.length > 0) {
+        for (node of cy.nodes()) {
+            let levels = node.data("levels");
+            if (levels && criteria.every(c => levels.includes(c))) {
+                // do nothing
+            } else if (levels && criteria.some(c => levels.includes(c))) {
+                if (node.style("opacity") > 0.6) {
+                    node.style("opacity", 0.6);
+                }
+            } else {
+                node.style("opacity", 0.2);
+            }
+        }
+    }
+}
+
 function newNode(name, description) {
     const features = description["features"].split(",").map(x => x.trim());
+    let bio_levels = description["biological_level"];
+    if (bio_levels === undefined) {
+        bio_levels = [];
+    }
+    let comp_levels = description["computing_scale"];
+    if (comp_levels === undefined) {
+        comp_levels = [];
+    }
     let position = undefined;
     return {
         group: 'nodes',
@@ -213,6 +252,7 @@ function newNode(name, description) {
             id: name,
             full_name: description["full_name"],
             description: description["summary"],
+            levels: bio_levels.concat(comp_levels),
             features: description["features"],
             urls: description["urls"]
         },

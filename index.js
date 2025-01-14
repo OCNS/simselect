@@ -70,6 +70,17 @@ function showDetails(data, outgoers) {
     window.history.pushState({}, "", url);
 }
 
+function resetSearch() {
+    const search = document.getElementById("simulator_search_input");
+    search.value = "";
+    const filters = document.getElementById("simulator_filters");
+    for (const filter of filters.getElementsByTagName("input")) {
+        filter.checked = false;
+    }
+    criteria.length = 0; // clear the array
+    updateHighlights();
+}
+
 // Load style and data from JSON files
 Promise.all([
     fetch('assets/cy-style.json')
@@ -107,7 +118,6 @@ Promise.all([
         selected.push(simulator);
     create_cy_elements(data, style);
     create_filters();
-    update_table();
     showDetails(null, null);
     }
 );
