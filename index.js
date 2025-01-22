@@ -1,3 +1,7 @@
+const REPO_URL = "https://github.com/ocns/simselect";
+const GIT_BRANCH = "graph";
+const DATA_FOLDER = "simtools";
+
 var SIMULATORS = [];
 var TOOL_DESCRIPTIONS = {};
 const selected = [];
@@ -17,6 +21,10 @@ function showDetails(data, outgoers) {
         details.innerHTML += "<li>Double click/tap on a node/edge to see details of the tool.</li>"
         details.innerHTML += "<li>Click outside to unselect nodes.</li>"
         details.innerHTML += "</ul>"
+        details.innerHTML += "<h2 class='mt-3'>Contributing</h2>"
+        details.innerHTML += `<p>Contributions are welcome! If you have anything to add or correct in the data,
+                              please follow the link at the end of the tool's details view to edit the data on GitHub.
+                              You can also open an <a href='${REPO_URL}/issues'>issue on the GitHub repository</a>.</p>`
     }
     else {
         details.innerHTML = "<h2>" + data["full_name"] + "</h2>";
@@ -51,6 +59,20 @@ function showDetails(data, outgoers) {
                 details.appendChild(urlButton(text, url));
             }
         }
+        // Edit footer
+        edit_p = document.createElement("p");
+        edit_p.classList.add("mt-3", "text-end");
+        edit_link = document.createElement("a");
+        edit_link.classList.add("link-secondary");
+        edit_link.href = `${REPO_URL}/edit/${GIT_BRANCH}/${DATA_FOLDER}/${data["short_name"].replaceAll(" ", "-")}.yaml`;
+        edit_link.innerHTML = "Edit this description on GitHub&nbsp;";
+        edit_link.innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                                </svg>`;
+        edit_link.target = "_blank";
+        edit_p.appendChild(edit_link);
+        details.appendChild(edit_p);
+
     }
     // hide filter pane
     const filterPane = new bootstrap.Offcanvas('#filter_pane');
@@ -109,6 +131,7 @@ Promise.all([
                 description[name] = description[name].split(",").map(x => x.trim());
         }
         description["full_name"] = description["name"];
+        description["short_name"] = description["short_name"] || description["name"];
         description["description"] = description["summary"];
         TOOL_DESCRIPTIONS[name] = description;
     }

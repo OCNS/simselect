@@ -251,6 +251,7 @@ function newNode(name, description) {
         data: {
             id: name,
             full_name: description["full_name"],
+            short_name: description["short_name"],
             description: description["summary"],
             levels: bio_levels.concat(comp_levels),
             features: description["features"],
