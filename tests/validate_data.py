@@ -14,6 +14,13 @@ from schema import Schema, SchemaError, Optional, Or, And
 import yaml
 
 
+def get_field(data, field):
+    for item in data:
+        if field in item:
+            return item[field]
+    return None
+
+
 data_schema = Schema(
     [
         {
@@ -92,6 +99,14 @@ for datafile in file_list:
             errors.append(datafile.name)
             print(f"!! {e}")
             print(f"!! {datafile} is invalid.")
+        expected_name = get_field(text, "short_name") or get_field(text, "name")
+        expected_name = expected_name.replace(" ", "-") + ".yaml"
+        if datafile.name != expected_name:
+            errors.append(datafile.name)
+            print(text[0])
+            print(
+                f"!! File name '{datafile}'does not match name in {datafile} (should be '{expected_name}')"
+            )
 
 if errors:
     print(f"\n!! Some files did not validate: {errors}")
