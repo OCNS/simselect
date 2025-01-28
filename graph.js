@@ -1,3 +1,4 @@
+// vim set sw=4:
 var elements = [];
 var cy;
 var cy_layout;
