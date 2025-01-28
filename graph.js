@@ -175,12 +175,17 @@ function highlightEdge(edge) {
 
 function highlightElement(event) {
     if (event.target === cy) {
-        console.log("On background");
-        unhighlightNode(null);
+        // Only unhilight node if double tapped on background
+        // Single tap is too error prone
+        if (event.type === "dbltap") {
+            unhighlightNode(null);
+        }
+        else {
+            console.log("No-op: single tap on background");
+        }
     }
     else {
         if (event.target.group() === "nodes") {
-            console.log("Something on nodes ");
             const node = event.target;
             if (event.type === "dbltap") {
                 highlightNode(node);
@@ -189,7 +194,6 @@ function highlightElement(event) {
                 showNodeDetails(node);
             }
         } else if (event.target.group() === "edges") {
-            console.log("Something on edges ");
             const edge = event.target;
             if (event.type === "select") {
                 // do nothing special
