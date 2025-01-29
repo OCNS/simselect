@@ -12,22 +12,45 @@ function showDetails(data, outgoers) {
     const details = document.getElementById("details");
     // Basic description
     if (data === null) {
-        details.innerHTML = "<br />"
-        details.innerHTML += "<h2>Using this resource</h2>"
-        details.innerHTML += "<ul>"
-        details.innerHTML += "<li>Use the 'Filter Toggle' button to activate the simulation engine filter.</li>"
-        details.innerHTML += "<li>Select what simulation engines you would like to show in the graph.</li>"
-        details.innerHTML += "<li>Select a node/edge to see its ecosystem in the graph.</li>"
-        details.innerHTML += "<li>Double click/tap on a node/edge to see details of the tool.</li>"
-        details.innerHTML += "<li>Click outside to unselect nodes.</li>"
-        details.innerHTML += "</ul>"
-        details.innerHTML += "<h2 class='mt-3'>Contributing</h2>"
+        details.innerHTML = "<br />";
+        details.innerHTML += "<h2>Using this resource</h2>";
+        details.innerHTML += "<ul>";
+        details.innerHTML += "<li>Use the 'Toggle Filters' button to activate the simulation engine filter.</li>";
+        details.innerHTML += "<li>Select what simulation engines you would like to show in the graph.</li>";
+        details.innerHTML += "<li>Select a node/edge to see its ecosystem in the graph.</li>";
+        details.innerHTML += "<li>Double click/tap on a node/edge to see details of the tool.</li>";
+        details.innerHTML += "<li>Click outside to unselect nodes.</li>";
+        details.innerHTML += "</ul>";
+        details.innerHTML += "<h3 class='mt-3'>Contributing</h2>";
         details.innerHTML += `<p>Contributions are welcome! If you have anything to add or correct in the data,
                               please follow the link at the end of the tool's details view to edit the data on GitHub.
-                              You can also open an <a href='${REPO_URL}/issues'>issue on the GitHub repository</a>.</p>`
+                              You can also open an <a href='${REPO_URL}/issues'>issue on the GitHub repository</a>.</p>`;
+        details.innerHTML += "<h3 class='mt-3'>List of simulators</h2>";
+        details.innerHTML += "<div class='d-flex'>";
+        for (const sim of SIMULATORS) {
+            const quoted_sim = `[id='${sim}']`;
+            details.innerHTML += `<button class='btn btn-secondary m-1' onclick="cy.nodes('#simulators').unselect(); let node = cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'); node.select(); showNodeDetails(node);">${TOOL_DESCRIPTIONS[sim].short_name}</button>`;
+        }
+        details.innerHTML += "</div>";
+
     }
     else {
-        details.innerHTML = "<h2>" + data["full_name"] + "</h2>";
+        if (data["features"].includes("simulator")) {
+            const quoted_sim = `[id='${data.id}']`;
+            details.innerHTML = `<div class='d-flex justify-content-between align-items-center'>
+                                <h2>${data["full_name"]}</h2>
+                                <button class='btn btn-outline-primary align-middle' title='Center ${data["short_name"]} in the graph' onclick="highlightNode(cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'));">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+                                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
+                                <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                </svg>
+                                </button>
+                                </div>`;
+        } else {
+            details.innerHTML = `<h2>${data["full_name"]}</h2>`;
+        }
         details.innerHTML += "<p>" + data["description"] + "</p>";
     }
     // Relations
@@ -59,6 +82,19 @@ function showDetails(data, outgoers) {
                 details.appendChild(urlButton(text, url));
             }
         }
+        // Back to simulators
+        back_p = document.createElement("p");
+        back_p.classList.add("mt-3");
+        back_button = document.createElement("a");
+        back_button.href = "#";
+        back_button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+                                 </svg>&nbsp;Back to simulators`;
+        back_button.classList.add("btn", "btn-secondary");
+        back_button.onclick = function() { cy.nodes(`[id = '${data.id}']`).unselect(); cy.nodes("#simulators").select(); unhighlightNode(); };
+        back_p.appendChild(back_button);
+        details.appendChild(back_p);
         // Edit footer
         edit_p = document.createElement("p");
         edit_p.classList.add("mt-3", "text-end");
@@ -131,7 +167,7 @@ Promise.all([
                 description[name] = description[name].split(",").map(x => x.trim());
         }
         description["full_name"] = description["name"];
-        description["short_name"] = description["short_name"] || description["name"];
+        description["short_name"] = name;
         description["description"] = description["summary"];
         TOOL_DESCRIPTIONS[name] = description;
     }
