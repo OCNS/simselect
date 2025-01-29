@@ -1,3 +1,4 @@
+// vim set sw=4:
 var criteria = [];  // selected criteria
 
 const bio_levels = ["Population Model", "Single-Compartment (Simple) Model",

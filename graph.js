@@ -1,3 +1,4 @@
+// vim set sw=4:
 var elements = [];
 var cy;
 var cy_layout;
@@ -174,24 +175,34 @@ function highlightEdge(edge) {
 }
 
 function highlightElement(event) {
-    if (event.target.group() === "nodes") {
-        const node = event.target;
-        if (event.type === "tap") {
-            highlightNode(node);
+    if (event.target === cy) {
+        // Only unhilight node if double tapped on background
+        // Single tap is too error prone
+        if (event.type === "dbltap") {
+            unhighlightNode(null);
         }
-        else if (event.type === "dbltap") {
-            showNodeDetails(node);
+        else {
+            console.log("No-op: single tap on background");
         }
-    } else if (event.target.group() === "edges") {
-        const edge = event.target;
-        if (event.type === "tap") {
-            // do nothing special
+    }
+    else {
+        if (event.target.group() === "nodes") {
+            const node = event.target;
+            if (event.type === "dbltap") {
+                highlightNode(node);
+            }
+            else if (event.type === "select") {
+                showNodeDetails(node);
+            }
+        } else if (event.target.group() === "edges") {
+            const edge = event.target;
+            if (event.type === "select") {
+                // do nothing special
+            }
+            else if (event.type === "dbltap") {
+                highlightEdge(edge);
+            }
         }
-        else if (event.type === "dbltap") {
-            highlightEdge(edge);
-        }
-    } else if (event.target === cy) {
-        unhighlightNode();
     }
 }
 
@@ -300,8 +311,7 @@ function create_cy_elements(data, style) {
     // store the meta_node, since we need to remove it when highlighting nodes
     meta_node = cy.$("#simulators");
     meta_node_edges = meta_node.connectedEdges();
-    cy.on("select tap dbltap", "*", highlightElement);
-    cy.on("unselect", "*", unhighlightNode);
+    cy.on("select tap dbltap", highlightElement);
     cy.$("#simulators").select();
     selectionChanged();
 }
