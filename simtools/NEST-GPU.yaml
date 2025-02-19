@@ -1,21 +1,19 @@
-- name: NEST GPU
-- features: frontend, simulator
-- operating_system: Linux
-- biological_level: Population Model, Single-Compartment (Simple) Model
-- processing_support: GPU
-- interface_language: Python, C++, C
-- summary: >
-    NEST GPU is a GPU-MPI library for simulation of large-scale networks of spiking neurons.
-
-    With this library it is possible to run relatively fast simulations of large-scale networks of spiking neurons employing GPUs. For instance, on a single NVIDIA GeForce RTX 2080 Ti GPU board it is possible to simulate the activity of 1 million multisynapse AdEx neurons with 1000 synapse per neuron in little more than 70 seconds per second of neural activity using the fifth-order Runge-Kutta method with adaptive stepsize as differential equations solver. The MPI communication is also very efficient. The Python interface is very similar to that of the NEST simulator: the most used commands are practically identical, dictionaries are used to define neurons, connections and synapsis properties in the same way.
-
-- urls:
-    homepage: https://nest-gpu.readthedocs.io
-    documentation: https://nest-gpu.readthedocs.io
-    installation: https://nest-gpu.readthedocs.io/en/latest/installation/index.html
-    examples: https://nest-gpu.readthedocs.io/en/latest/examples/index.html
-    source: https://github.com/nest/nest-gpu
-    issue tracker: https://github.com/nest/nest-gpu/issues
-- relations:
-    - name: NEST
-      description: has similar interface to # https://nest-gpu.readthedocs.io/en/latest/guides/differences_nest-gpu_nest.html
+name: NEST GPU
+features: frontend, simulator
+operating_system: Linux
+biological_level: Population Model, Single-Compartment (Simple) Model
+processing_support: GPU
+interface_language: Python, C++, C
+summary: |
+  NEST GPU is a GPU-MPI library for simulation of large-scale networks of spiking neurons.
+  With this library it is possible to run relatively fast simulations of large-scale networks of spiking neurons employing GPUs. For instance, on a single NVIDIA GeForce RTX 2080 Ti GPU board it is possible to simulate the activity of 1 million multisynapse AdEx neurons with 1000 synapse per neuron in little more than 70 seconds per second of neural activity using the fifth-order Runge-Kutta method with adaptive stepsize as differential equations solver. The MPI communication is also very efficient. The Python interface is very similar to that of the NEST simulator: the most used commands are practically identical, dictionaries are used to define neurons, connections and synapsis properties in the same way.
+urls:
+  homepage: https://nest-gpu.readthedocs.io
+  documentation: https://nest-gpu.readthedocs.io
+  installation: https://nest-gpu.readthedocs.io/en/latest/installation/index.html
+  examples: https://nest-gpu.readthedocs.io/en/latest/examples/index.html
+  source: https://github.com/nest/nest-gpu
+  issue tracker: https://github.com/nest/nest-gpu/issues
+relations:
+  - name: NEST
+    description: has similar interface to # https://nest-gpu.readthedocs.io/en/latest/guides/differences_nest-gpu_nest.html

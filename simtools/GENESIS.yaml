@@ -1,11 +1,11 @@
-- name: GEneral NEural SImulation System (GENESIS)
-- short_name: GENESIS
-- features: frontend, simulator
-- operating_system: Linux, MacOS, Windows
-- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- processing_support: Single Machine
-- interface_language: GUI, C
-- summary: >
-    GENESIS (the GEneral NEural SImulation System) is a general purpose simululation platform that was developed to support the simulation of neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, simulations of large networks, and system-level models.
-- urls:
-      homepage: http://www.genesis-sim.org/
+name: GEneral NEural SImulation System (GENESIS)
+short_name: GENESIS
+features: frontend, simulator
+operating_system: Linux, MacOS, Windows
+biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+processing_support: Single Machine
+interface_language: GUI, C
+summary: |
+  GENESIS (the GEneral NEural SImulation System) is a general purpose simululation platform that was developed to support the simulation of neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, simulations of large networks, and system-level models.
+urls:
+    homepage: http://www.genesis-sim.org/

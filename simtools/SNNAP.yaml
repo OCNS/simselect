@@ -1,25 +1,21 @@
-- name: SNNAP
-- features: frontend, simulator
-- operating_system: Linux, MacOS, Windows
-- biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
-- processing_support: Single Machine
-- interface_language: Java, GUI
-- summary: >
-    Simulator for Neural Networks and Action Potentials (SNNAP) is a tool for rapid development and simulation of realistic models of single neurons and neural networks.
-    It includes mathematical descriptions of ion currents and intracellular second messengers and ions.
-    In addition, you can simulate current flow in multicompartment models of neurons by using the equations describing electric coupling.
+name: SNNAP
+features: frontend, simulator
+operating_system: Linux, MacOS, Windows
+biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+processing_support: Single Machine
+interface_language: Java, GUI
+summary: |
+  Simulator for Neural Networks and Action Potentials (SNNAP) is a tool for rapid development and simulation of realistic models of single neurons and neural networks.
+  It includes mathematical descriptions of ion currents and intracellular second messengers and ions.
+  In addition, you can simulate current flow in multicompartment models of neurons by using the equations describing electric coupling.
 
+  SNNAP also includes mathematical descriptions of intracellular second messengers and ions, and simulate the modulation of membrane currents and synaptic transmission, either enhancement or inhibition.
+  Other advantages of SNNAP include:
 
-    SNNAP also includes mathematical descriptions of intracellular second messengers and ions, and simulate the modulation of membrane currents and synaptic transmission, either enhancement or inhibition.
-
-
-    Other advantages of SNNAP include:
-
-
-      - Written in JAVA and can run on virtually any type of computer system.
-      - Graphical user interface
-      - Ability to simulate common experimental manipulations.
-      - Modular organizations of input files.
-- urls:
-      homepage: https://med.uth.edu/nba/snnap/
-      tutorial: https://med.uth.edu/nba/snnap/snnap-tutorials/
+    - Written in JAVA and can run on virtually any type of computer system.
+    - Graphical user interface
+    - Ability to simulate common experimental manipulations.
+    - Modular organizations of input files.
+urls:
+    homepage: https://med.uth.edu/nba/snnap/
+    tutorial: https://med.uth.edu/nba/snnap/snnap-tutorials/

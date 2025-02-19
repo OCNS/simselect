@@ -1,13 +1,13 @@
-- name: Arbor Playground
-- features: frontend
-- operating_system: Linux, MacOS, Windows
-- interface_language: GUI, Python
-- summary: Arbor Playground is an Emscripten + Pyodide port of Arbor and is meant to be a simple showcase of neural modelling in Arbor.
-- urls:
-    homepage: https://arbor-sim.org/playground
-    documentation: https://docs.arbor-sim.org
-    source: https://github.com/arbor-sim/playground
-    email: contact@arbor-sim.org
-    issue tracker: https://github.com/arbor-sim/playground/issues
-    forum: https://github.com/arbor-sim/arbor/discussions
-    chat: https://gitter.im/arbor-sim/community
+name: Arbor Playground
+features: frontend
+operating_system: Linux, MacOS, Windows
+interface_language: GUI, Python
+summary: Arbor Playground is an Emscripten + Pyodide port of Arbor and is meant to be a simple showcase of neural modelling in Arbor.
+urls:
+  homepage: https://arbor-sim.org/playground
+  documentation: https://docs.arbor-sim.org
+  source: https://github.com/arbor-sim/playground
+  email: contact@arbor-sim.org
+  issue tracker: https://github.com/arbor-sim/playground/issues
+  forum: https://github.com/arbor-sim/arbor/discussions
+  chat: https://gitter.im/arbor-sim/community

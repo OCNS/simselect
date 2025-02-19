@@ -1,16 +1,16 @@
-- name: MUSIC (MUlti-SImulation Coordinator)
-- short_name: MUSIC
-- features: API
-- operating_system: Linux, MacOS
-- interface_language: C++
-- summary: >
-    MUSIC is an API allowing large scale neuron simulators using MPI internally to exchange data during runtime.
-    MUSIC provides mechanisms to transfer massive amounts of event information and continuous values from one parallel application to another.
-    Special care has been taken to ensure that existing simulators can be adapted to MUSIC.
-    In particular, MUSIC handles data transfer between applications that use different time steps and different data allocation strategies.
-- urls:
-    homepage: https://github.com/INCF/MUSIC
-    source: https://github.com/INCF/MUSIC
-- relations:
-    - name: NEST
-      description: is used by
+name: MUSIC (MUlti-SImulation Coordinator)
+short_name: MUSIC
+features: API
+operating_system: Linux, MacOS
+interface_language: C++
+summary: |
+  MUSIC is an API allowing large scale neuron simulators using MPI internally to exchange data during runtime.
+  MUSIC provides mechanisms to transfer massive amounts of event information and continuous values from one parallel application to another.
+  Special care has been taken to ensure that existing simulators can be adapted to MUSIC.
+  In particular, MUSIC handles data transfer between applications that use different time steps and different data allocation strategies.
+urls:
+  homepage: https://github.com/INCF/MUSIC
+  source: https://github.com/INCF/MUSIC
+relations:
+  - name: NEST
+    description: is used by
