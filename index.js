@@ -33,31 +33,36 @@ function showDetails(data, outgoers) {
             details.innerHTML += `<button class='btn btn-secondary m-1' onclick="cy.nodes('#simulators').unselect(); let node = cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'); node.select(); showNodeDetails(node);">${TOOL_DESCRIPTIONS[sim].short_name}</button>`;
         }
         details.innerHTML += "</div>";
-
+        window.history.pushState({}, "", window.location.href.split("?")[0]);
+        return;
     }
-    else {
-        if (data["features"].includes("simulator")) {
-            const quoted_sim = `[id='${data.id}']`;
-            details.innerHTML = `<div class='d-flex justify-content-between align-items-center'>
-                                <h2>${data["full_name"]}</h2>
-                                <button class='btn btn-outline-primary align-middle' title='Center ${data["short_name"]} in the graph' onclick="highlightNode(cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'));">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
-                                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
-                                <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
-                                </svg>
-                                </button>
-                                </div>`;
-        } else {
-            details.innerHTML = `<h2>${data["full_name"]}</h2>`;
-        }
-        details.innerHTML += "<p>" + data["description"] + "</p>";
+    details.innerHTML = "";
+    let flex_container = document.createElement("div");
+    flex_container.classList.add("d-flex", "flex-column", "vh-80");
+    let top_row = document.createElement("div");
+    top_row.classList.add("row");
+    let description = document.createElement("div");
+    if (data["features"].includes("simulator")) {
+        const quoted_sim = `[id='${data.id}']`;
+        description.innerHTML = `<div class='d-flex justify-content-between align-items-center'>
+                            <h2>${data["full_name"]}</h2>
+                            <button class='btn btn-outline-primary align-middle' title='Center ${data["short_name"]} in the graph' onclick="highlightNode(cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'));">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
+                            <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                            </svg>
+                            </button>
+                            </div>`;
+    } else {
+        description.innerHTML = `<h2>${data["full_name"]}</h2>`;
     }
+    description.innerHTML += "<p>" + data["description"] + "</p>";
     // Relations
     if (outgoers !== null) {
         if (outgoers.length > 0) {
-            details.innerHTML += "<h3>Relations</h3>";
+            description.innerHTML += "<h3>Relations</h3>";
             const list = document.createElement("ul");
             for (let edge of outgoers) {
                 const listItem = document.createElement("li");
@@ -72,44 +77,34 @@ function showDetails(data, outgoers) {
 
                 list.appendChild(listItem);
             }
-            details.appendChild(list);
+            description.appendChild(list);
         }
+        top_row.classList.add("flex-grow-1");
+        top_row.appendChild(description);
         // URLs
         link_heading = document.createElement("h3");
         link_heading.innerHTML = "Links";
-        details.append(link_heading);
-        if (data["urls"] !== undefined) {
-            for (let [text, url] of Object.entries(data["urls"])) {
-                details.appendChild(urlButton(text, url));
+        let tool_links = data["urls"];
+        let bottom_row = document.createElement("div");
+        bottom_row.append(link_heading);
+        bottom_row.classList.add("row");
+        for (let row_idx=0; row_idx < BUTTON_ROWS.length; row_idx++) {
+            let row = document.createElement("div");
+            row.classList.add("row");
+            // Go through elements in BUTTON_ROWS
+            for (const button_type of BUTTON_ROWS[row_idx]) {
+                console.log(button_type, tool_links[button_type]);
+                let col = document.createElement("div");
+                col.classList.add("col-auto");
+                let button = urlButton(button_type, tool_links[button_type]);
+                col.appendChild(button);
+                row.appendChild(col);
             }
+            bottom_row.appendChild(row);
         }
-        // Back to simulators
-        back_p = document.createElement("p");
-        back_p.classList.add("mt-3");
-        back_button = document.createElement("a");
-        back_button.href = "#";
-        back_button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
-                                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
-                                 </svg>&nbsp;Back to simulators`;
-        back_button.classList.add("btn", "btn-secondary");
-        back_button.onclick = function() { cy.nodes(`[id = '${data.id}']`).unselect(); cy.nodes("#simulators").select(); unhighlightNode(); };
-        back_p.appendChild(back_button);
-        details.appendChild(back_p);
-        // Edit footer
-        edit_p = document.createElement("p");
-        edit_p.classList.add("mt-3", "text-end");
-        edit_link = document.createElement("a");
-        edit_link.classList.add("link-secondary");
-        edit_link.href = `${REPO_URL}/edit/${GIT_BRANCH}/${DATA_FOLDER}/${data["short_name"].replaceAll(" ", "-")}.yaml`;
-        edit_link.innerHTML = "Edit this description on GitHub&nbsp;";
-        edit_link.innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                                </svg>`;
-        edit_link.target = "_blank";
-        edit_p.appendChild(edit_link);
-        details.appendChild(edit_p);
-
+        flex_container.appendChild(top_row);
+        flex_container.appendChild(bottom_row);
+        details.appendChild(flex_container);
     }
     // hide filter pane
     const filterPane = new bootstrap.Offcanvas('#filter_pane');

@@ -49,49 +49,41 @@ function layoutNodes() {
     cy_layout.run();
 }
 
+const BUTTON_ICONS = {
+    "source": "github.svg",
+    "documentation": "book.svg",
+    "homepage": "home.svg",
+    "download": "download.svg",
+    "chat": "messages.svg",
+    "issue tracker": "check-circle.svg",
+    "forum": "users.svg",
+    "examples": "code.svg",
+    "tutorial": "user.svg",
+    "installation": "package.svg",
+    "email": "mail.svg"
+}
+
+const BUTTON_ROWS = [
+    ["homepage", "download", "source"],
+    ["documentation", "installation", "tutorial", "examples"],
+    ["forum", "issue tracker", "chat", "email"]
+];
+
 function urlButton(type, url) {
     const button = document.createElement("button");
-    let icon = "";
-    switch (type) {
-        case "source":
-            iconFile = "github.svg";
-            break;
-        case "documentation":
-            iconFile = "book.svg";
-            break;
-        case "homepage":
-            iconFile = "home.svg";
-            break;
-        case "download":
-            iconFile = "download.svg";
-            break;
-        case "issue tracker":
-            iconFile = "check-circle.svg";
-            break;
-        case "forum":
-            iconFile = "users.svg";
-            break;
-        case "examples":
-            iconFile = "code.svg";
-            break;
-        case "tutorial":
-            iconFile = "user.svg";
-            break;
-        case "installation":
-            iconFile = "package.svg";
-            break;
-        case "email":
-            iconFile = "mail.svg";
-            break;
-        default:
-            iconFile = "link.svg";
-    }
+    let iconFile = BUTTON_ICONS[type];
     button.type = "button"
-    button.classList.add('btn', 'btn-info', 'm-1');
-    icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
+    button.classList.add('btn', 'btn-sm', 'm-1');
+    let icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
     button.innerHTML = icon + " " + type;
-    button.onclick = function() {
-        window.open(url, "_blank");
+    if (url !== undefined)  {
+        button.classList.add('btn-info');
+        button.onclick = function() {
+            window.open(url, "_blank");
+        }
+    } else {
+        button.classList.add('btn-secondary');
+        button.disabled = true;
     }
     return button;
 }
