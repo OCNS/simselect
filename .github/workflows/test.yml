@@ -20,3 +20,10 @@ jobs:
       run: python tests/validate_data.py
     - name: Parsing YAML files (checking for correct relations)
       run: python src/data.py
+    - name: Verify URLs
+      uses: urlstechie/urlchecker-action@0.0.34
+      with:
+          subfolder: simtools
+          file_types: .yaml
+          retry_count: 3
+          force_pass: false
