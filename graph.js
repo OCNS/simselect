@@ -347,21 +347,39 @@ function create_cy_elements(data, style) {
     meta_node = cy.$("#simulators");
     meta_node_edges = meta_node.connectedEdges();
     cy.on("select tap dbltap", highlightElement);
+    //
+    // if a user drags a node, we want to remember this
+    cy.on("drag", "node", store_positions);
     cy.$("#simulators").select();
     selectionChanged();
 
+    // when the layout stops the first time, we store positions of the nodes
     cy_layout.one('layoutstop', store_positions);
 }
 
-function store_positions() {
-    cy.nodes().forEach(n => {const init_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y}; n.initial_position = init_pos;});
-    cy.nodes().forEach(n => {console.log("Init pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);});
+function store_positions(event) {
+    event_target = event.target;
 
-    // store the initial pan values
-    cy_pan.x = cy.pan().x;
-    cy_pan.y = cy.pan().y;
+    // must be a dragged node
+    if (event.type === "drag")
+    {
+        n = event_target;
+        const new_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y};
+        n.initial_position = new_pos;
 
-    // store the initial zoom values
-    cy_zoom.level = cy.zoom();
-    console.log("Initial pan: " + JSON.stringify(cy_pan) + ", zoom: " + JSON.stringify(cy_zoom));
+        console.log("Node was dragged");
+        console.log("New pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);
+    }
+    else {
+        cy.nodes().forEach(n => {const init_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y}; n.initial_position = init_pos;});
+        cy.nodes().forEach(n => {console.log("Init pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);});
+        //
+        // store the initial pan values
+        cy_pan.x = cy.pan().x;
+        cy_pan.y = cy.pan().y;
+
+        // store the initial zoom values
+        cy_zoom.level = cy.zoom();
+        console.log("Initial pan: " + JSON.stringify(cy_pan) + ", zoom: " + JSON.stringify(cy_zoom));
+    }
 }
