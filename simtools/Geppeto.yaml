@@ -1,10 +1,10 @@
-- name: Geppeto
-- features: frontend
-- operating_system: Linux, MacOS, Windows
-- interface_language: Python, Javascript
-- summary: >
-    Geppetto is a web-based visualisation and simulation platform to build neuroscience software applications.
-    Reuse best practices, best compomnents, best design.
-    Don't reinvent the wheel.
-- urls:
-      homepage: https://www.geppetto.org/
+name: Geppeto
+features: frontend
+operating_system: Linux, MacOS, Windows
+interface_language: Python, Javascript
+summary: |
+  Geppetto is a web-based visualisation and simulation platform to build neuroscience software applications.
+  Reuse best practices, best compomnents, best design.
+  Don't reinvent the wheel.
+urls:
+    homepage: https://www.geppetto.org/

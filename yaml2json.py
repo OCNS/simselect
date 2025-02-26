@@ -1,3 +1,4 @@
+from textwrap import dedent
 import glob
 import os
 
@@ -11,10 +12,7 @@ if __name__ == "__main__":
         if os.path.basename(fname) == "simtools.yaml":
             continue
         with open(fname) as f:
-            tool_data = {
-                list(item.keys())[0]: list(item.values())[0]
-                for item in yaml.load(f, Loader=yaml.FullLoader)
-            }
+            tool_data = yaml.load(f, Loader=yaml.SafeLoader)
             if "short_name" in tool_data:
                 name = tool_data["short_name"]
                 del tool_data["short_name"]

@@ -1,13 +1,13 @@
-- name: NeuroRD
-- features: frontend, simulator
-- operating_system: Linux, MacOS, Windows
-- biological_level: Single-Compartment (Complex) Model, Multi-Compartment Model
-- processing_support: Single Machine
-- interface_language: Java, CLI
-- summary: >
-    NeuroRD is a computationally efficient, stochastic reaction-diffusion simulator (pronounced NeurRDS) used mostly for simulating neuronal signaling pathways.
-    This is a Java program which runs on any platform.
-    The algorithm is based on Gillespie's tau-leap reaction algorithm, and the stochastic diffusion algorithm of Blackwell.
-    It uses XML-based model specifications.
-- urls:
-      homepage: https://krasnow1.gmu.edu/CENlab/software.html
+name: NeuroRD
+features: frontend, simulator
+operating_system: Linux, MacOS, Windows
+biological_level: Single-Compartment (Complex) Model, Multi-Compartment Model
+processing_support: Single Machine
+interface_language: Java, CLI
+summary: |
+  NeuroRD is a computationally efficient, stochastic reaction-diffusion simulator (pronounced NeurRDS) used mostly for simulating neuronal signaling pathways.
+  This is a Java program which runs on any platform.
+  The algorithm is based on Gillespie's tau-leap reaction algorithm, and the stochastic diffusion algorithm of Blackwell.
+  It uses XML-based model specifications.
+urls:
+    homepage: https://krasnow1.gmu.edu/CENlab/software.html

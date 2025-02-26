@@ -1,19 +1,18 @@
-- name: libNeuroML
-- features: API
-- operating_system: Linux, MacOS, Windows
-- interface_language: Python
-- model_description_language: NeuroML/LEMS
-- summary: >
-    Python API for working with NeuroML models
-
-- urls:
-    homepage: https://neuroml.org
-    documentation: https://docs.neuroml.org
-    tutorial: https://docs.neuroml.org/Userdocs/GettingStarted.html
-    source: https://github.com/NeuralEnsemble/libNeuroML
-    download: https://docs.neuroml.org/Userdocs/Software/libNeuroML.html
-- relations:
-    - name: NeuroML
-      description: is Python API for
-    - name: PyNeuroML
-      description: is used by
+name: libNeuroML
+features: API
+operating_system: Linux, MacOS, Windows
+interface_language: Python
+model_description_language: NeuroML/LEMS
+summary: |
+  Python API for working with NeuroML models
+urls:
+  homepage: https://neuroml.org
+  documentation: https://docs.neuroml.org
+  tutorial: https://docs.neuroml.org/Userdocs/GettingStarted.html
+  source: https://github.com/NeuralEnsemble/libNeuroML
+  download: https://docs.neuroml.org/Userdocs/Software/libNeuroML.html
+relations:
+  - name: NeuroML
+    description: is Python API for
+  - name: PyNeuroML
+    description: is used by
