@@ -448,7 +448,7 @@
       "installation": "https://www.netpyne.org/documentation/installation",
       "issue tracker": "https://github.com/suny-downstate-medical-center/netpyne/issues",
       "source": "https://github.com/suny-downstate-medical-center/netpyne",
-      "tutorial": "https://doc.netpyne.org/tutorial.html"
+      "tutorial": "http://doc.netpyne.org/tutorial.html"
     }
   },
   "NeuroML": {
