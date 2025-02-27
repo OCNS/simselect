@@ -10,9 +10,9 @@
     "urls": {
       "documentation": "https://annarchy.readthedocs.io",
       "download": "https://pypi.org/project/ANNarchy/",
-      "examples": "https://annarchy.readthedocs.io/en/latest/example/List.html",
+      "examples": "https://annarchy.readthedocs.io/example/List.html",
       "forum": "https://groups.google.com/forum/#!forum/annarchy",
-      "installation": "https://annarchy.readthedocs.io/en/latest/Installation.html",
+      "installation": "https://annarchy.readthedocs.io/Installation.html",
       "issue tracker": "https://github.com/ANNarchy/ANNarchy/issues",
       "source": "https://github.com/ANNarchy/ANNarchy"
     }
@@ -443,12 +443,12 @@
     ],
     "summary": "<p>NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.</p>",
     "urls": {
-      "documentation": "http://www.netpyne.org/user_documentation.html",
+      "documentation": "http://doc.netpyne.org/user_documentation.html",
       "homepage": "http://www.netpyne.org/",
-      "installation": "http://www.netpyne.org/install.html",
+      "installation": "https://www.netpyne.org/documentation/installation",
       "issue tracker": "https://github.com/suny-downstate-medical-center/netpyne/issues",
       "source": "https://github.com/suny-downstate-medical-center/netpyne",
-      "tutorial": "http://www.netpyne.org/tutorial.html"
+      "tutorial": "http://doc.netpyne.org/tutorial.html"
     }
   },
   "NeuroML": {
@@ -718,7 +718,7 @@
     ],
     "summary": "<p>c302 is a framework for generating network models in NeuroML 2 based on C. elegans connectivity data.\nIt is primarily intended as a way to generate neuronal networks at multiple levels of detail for the <a href=\"http://www.openworm.org/\">OpenWorm</a> project.</p>",
     "urls": {
-      "homepage": "https://www.opensourcebrain.org/projects/c302",
+      "homepage": "https://v1.opensourcebrain.org/projects/c302",
       "source": "https://github.com/openworm/c302"
     }
   },
