@@ -69,15 +69,15 @@ const BUTTON_ROWS = [
     ["forum", "issue tracker", "chat", "email"]
 ];
 
-function urlButton(type, url) {
+function urlButton(type, url, btnClass) {
     const button = document.createElement("button");
     let iconFile = BUTTON_ICONS[type];
     button.type = "button"
-    button.classList.add('btn', 'btn-sm', 'm-1');
+    button.classList.add('btn', 'm-1');
     let icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
     button.innerHTML = icon + " " + type;
     if (url !== undefined)  {
-        button.classList.add('btn-info');
+        button.classList.add(btnClass);
         button.onclick = function() {
             window.open(url, "_blank");
         }

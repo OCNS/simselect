@@ -103,19 +103,17 @@ function showDetails(data, connected) {
         link_heading.innerHTML = "Links";
         let tool_links = data["urls"];
         details_bottom.appendChild(link_heading);
+        const flex_div = document.createElement("div");
+        flex_div.classList.add("d-flex", "flex-wrap");
+        const btnClasses = ["btn-primary", "btn-success", "btn-warning"];
         for (let row_idx=0; row_idx < BUTTON_ROWS.length; row_idx++) {
-            let row = document.createElement("div");
-            row.classList.add("row");
             // Go through elements in BUTTON_ROWS
             for (const button_type of BUTTON_ROWS[row_idx]) {
-                let col = document.createElement("div");
-                col.classList.add("col-auto");
-                let button = urlButton(button_type, tool_links[button_type]);
-                col.appendChild(button);
-                row.appendChild(col);
+                let button = urlButton(button_type, tool_links[button_type], btnClasses[row_idx]);
+                flex_div.appendChild(button);
             }
-            details_bottom.appendChild(row);
         }
+        details_bottom.appendChild(flex_div);
     }
     // hide filter pane
     const filterPane = new bootstrap.Offcanvas('#filter_pane');
