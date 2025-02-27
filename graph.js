@@ -49,49 +49,41 @@ function layoutNodes() {
     cy_layout.run();
 }
 
+const BUTTON_ICONS = {
+    "source": "github.svg",
+    "documentation": "book.svg",
+    "homepage": "home.svg",
+    "download": "download.svg",
+    "chat": "messages.svg",
+    "issue tracker": "check-circle.svg",
+    "forum": "users.svg",
+    "examples": "code.svg",
+    "tutorial": "user.svg",
+    "installation": "package.svg",
+    "email": "mail.svg"
+}
+
+const BUTTON_ROWS = [
+    ["homepage", "download", "source"],
+    ["documentation", "installation", "tutorial", "examples"],
+    ["forum", "issue tracker", "chat", "email"]
+];
+
 function urlButton(type, url) {
     const button = document.createElement("button");
-    let icon = "";
-    switch (type) {
-        case "source":
-            iconFile = "github.svg";
-            break;
-        case "documentation":
-            iconFile = "book.svg";
-            break;
-        case "homepage":
-            iconFile = "home.svg";
-            break;
-        case "download":
-            iconFile = "download.svg";
-            break;
-        case "issue tracker":
-            iconFile = "check-circle.svg";
-            break;
-        case "forum":
-            iconFile = "users.svg";
-            break;
-        case "examples":
-            iconFile = "code.svg";
-            break;
-        case "tutorial":
-            iconFile = "user.svg";
-            break;
-        case "installation":
-            iconFile = "package.svg";
-            break;
-        case "email":
-            iconFile = "mail.svg";
-            break;
-        default:
-            iconFile = "link.svg";
-    }
+    let iconFile = BUTTON_ICONS[type];
     button.type = "button"
-    button.classList.add('btn', 'btn-info', 'm-1');
-    icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
+    button.classList.add('btn', 'btn-sm', 'm-1');
+    let icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
     button.innerHTML = icon + " " + type;
-    button.onclick = function() {
-        window.open(url, "_blank");
+    if (url !== undefined)  {
+        button.classList.add('btn-info');
+        button.onclick = function() {
+            window.open(url, "_blank");
+        }
+    } else {
+        button.classList.add('btn-secondary');
+        button.disabled = true;
     }
     return button;
 }
@@ -139,13 +131,20 @@ function showNodeDetails(node) {
         showDetails(null, null);
     } else {
         showDetails(node.data(), node.outgoers("edge").map((edge) => {
-            return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
-            }));
+            return { type: "outgoing", target: edge.target().id(), label: edge.data("label"), source: edge.source().id() };
+        }).concat(
+            node.incomers("edge").map((edge) => {
+                return { type: "incoming", target: edge.target().id(), label: edge.data("label"), source: edge.source().id() }
+            })
+        )
+        );
     }
 }
 
 function highlightEdge(edge) {
-    const details = document.getElementById("details");
+    const details_top = document.getElementById("details_top");
+    const details_bottom = document.getElementById("details_bottom");
+    details_bottom.innerHTML = "";
     const headerElement = document.createElement("h2");
     headerElement.innerHTML = edge.id();
 
@@ -159,7 +158,7 @@ function highlightEdge(edge) {
     targetLink.addEventListener("click",function(e) { edge.unselect(); edge.target().select(); });
     targetLink.innerHTML = edge.target().id();
 
-    details.innerHTML = "";
+    details_top.innerHTML = "";
 
     const paragraph = document.createElement("p");
     paragraph.appendChild(sourceLink);
@@ -167,8 +166,8 @@ function highlightEdge(edge) {
     label.innerHTML = " " + edge.data("label") + " ";
     paragraph.appendChild(label);
     paragraph.appendChild(targetLink);
-    details.appendChild(headerElement);
-    details.appendChild(paragraph);
+    details_top.appendChild(headerElement);
+    details_top.appendChild(paragraph);
     // Only show the edge and the connected nodes
     cy.elements().forEach(n => n.style("opacity", 0.2));
     edge.style("opacity", 1);
