@@ -42,7 +42,7 @@ function showDetails(data, connected) {
     let description = document.createElement("div");
     if (data["features"].includes("simulator")) {
         const quoted_sim = `[id='${data.id}']`;
-        description.innerHTML = `<div class='d-flex justify-content-between align-items-center'>
+        description.innerHTML = `<div class='d-flex justify-content-between align-items-center sticky-top' style='background-color: white;'>
                             <h2>${data["full_name"]}</h2>
                             <button class='btn btn-outline-primary align-middle' title='Center ${data["short_name"]} in the graph' onclick="highlightNode(cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'));">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
@@ -54,7 +54,7 @@ function showDetails(data, connected) {
                             </button>
                             </div>`;
     } else {
-        description.innerHTML = `<h2>${data["full_name"]}</h2>`;
+        description.innerHTML = `<h2 class="sticky-top" style='background-color: white;'>${data["full_name"]}</h2>`;
     }
     description.innerHTML += "<p>" + data["description"] + "</p>";
     // Relations
