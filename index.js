@@ -10,37 +10,35 @@ const selected = [];
 // If params  are null, show a default message
 function showDetails(data, outgoers) {
     // Show details about the simulator
-    const details = document.getElementById("details");
+    const details_top = document.getElementById("details_top");
+    const details_bottom = document.getElementById("details_bottom");
     // Basic description
     if (data === null) {
-        details.innerHTML = "<br />";
-        details.innerHTML += "<h2>Using this resource</h2>";
-        details.innerHTML += "<ul>";
-        details.innerHTML += "<li>Use the 'Toggle Filters' button to activate the simulation engine filter.</li>";
-        details.innerHTML += "<li>Select what simulation engines you would like to show in the graph.</li>";
-        details.innerHTML += "<li>Select a node/edge to see its ecosystem in the graph.</li>";
-        details.innerHTML += "<li>Double click/tap on a node/edge to see details of the tool.</li>";
-        details.innerHTML += "<li>Click outside to unselect nodes.</li>";
-        details.innerHTML += "</ul>";
-        details.innerHTML += "<h3 class='mt-3'>Contributing</h2>";
-        details.innerHTML += `<p>Contributions are welcome! If you have anything to add or correct in the data,
+        details_top.innerHTML = "<br />";
+        details_top.innerHTML += "<h2>Using this resource</h2>";
+        details_top.innerHTML += "<ul>";
+        details_top.innerHTML += "<li>Use the 'Toggle Filters' button to activate the simulation engine filter.</li>";
+        details_top.innerHTML += "<li>Select what simulation engines you would like to show in the graph.</li>";
+        details_top.innerHTML += "<li>Select a node/edge to see its ecosystem in the graph.</li>";
+        details_top.innerHTML += "<li>Double click/tap on a node/edge to see details of the tool.</li>";
+        details_top.innerHTML += "<li>Click outside to unselect nodes.</li>";
+        details_top.innerHTML += "</ul>";
+        details_top.innerHTML += "<h3 class='mt-3'>Contributing</h2>";
+        details_top.innerHTML += `<p>Contributions are welcome! If you have anything to add or correct in the data,
                               please follow the link at the end of the tool's details view to edit the data on GitHub.
                               You can also open an <a href='${REPO_URL}/issues'>issue on the GitHub repository</a>.</p>`;
-        details.innerHTML += "<h3 class='mt-3'>List of simulators</h2>";
-        details.innerHTML += "<div class='d-flex'>";
+        details_bottom.innerHTML = "<div class='d-flex'>";
+        details_bottom.innerHTML += "<h3 class='mt-3'>List of simulators</h2>";
         for (const sim of SIMULATORS) {
             const quoted_sim = `[id='${sim}']`;
-            details.innerHTML += `<button class='btn btn-secondary m-1' onclick="cy.nodes('#simulators').unselect(); let node = cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'); node.select(); showNodeDetails(node);">${TOOL_DESCRIPTIONS[sim].short_name}</button>`;
+            details_bottom.innerHTML += `<button class='btn btn-secondary m-1' onclick="cy.nodes('#simulators').unselect(); let node = cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'); node.select(); showNodeDetails(node);">${TOOL_DESCRIPTIONS[sim].short_name}</button>`;
         }
-        details.innerHTML += "</div>";
+        details_bottom.innerHTML += "</div>";
         window.history.pushState({}, "", window.location.href.split("?")[0]);
         return;
     }
-    details.innerHTML = "";
-    let flex_container = document.createElement("div");
-    flex_container.classList.add("d-flex", "flex-column", "vh-80");
-    let top_row = document.createElement("div");
-    top_row.classList.add("row");
+    details_top.innerHTML = "";
+    details_bottom.innerHTML = "";
     let description = document.createElement("div");
     if (data["features"].includes("simulator")) {
         const quoted_sim = `[id='${data.id}']`;
@@ -79,15 +77,12 @@ function showDetails(data, outgoers) {
             }
             description.appendChild(list);
         }
-        top_row.classList.add("flex-grow-1");
-        top_row.appendChild(description);
+        details_top.appendChild(description);
         // URLs
         link_heading = document.createElement("h3");
         link_heading.innerHTML = "Links";
         let tool_links = data["urls"];
-        let bottom_row = document.createElement("div");
-        bottom_row.append(link_heading);
-        bottom_row.classList.add("row");
+        details_bottom.appendChild(link_heading);
         for (let row_idx=0; row_idx < BUTTON_ROWS.length; row_idx++) {
             let row = document.createElement("div");
             row.classList.add("row");
@@ -100,11 +95,8 @@ function showDetails(data, outgoers) {
                 col.appendChild(button);
                 row.appendChild(col);
             }
-            bottom_row.appendChild(row);
+            details_bottom.appendChild(row);
         }
-        flex_container.appendChild(top_row);
-        flex_container.appendChild(bottom_row);
-        details.appendChild(flex_container);
     }
     // hide filter pane
     const filterPane = new bootstrap.Offcanvas('#filter_pane');
