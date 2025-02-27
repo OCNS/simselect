@@ -8,7 +8,7 @@ var TOOL_DESCRIPTIONS = {};
 const selected = [];
 
 // If params  are null, show a default message
-function showDetails(data, outgoers) {
+function showDetails(data, connected) {
     // Show details about the simulator
     const details_top = document.getElementById("details_top");
     const details_bottom = document.getElementById("details_bottom");
@@ -58,21 +58,41 @@ function showDetails(data, outgoers) {
     }
     description.innerHTML += "<p>" + data["description"] + "</p>";
     // Relations
-    if (outgoers !== null) {
-        if (outgoers.length > 0) {
+    if (connected !== null) {
+        if (connected.length > 0) {
             description.innerHTML += "<h3>Relations</h3>";
             const list = document.createElement("ul");
-            for (let edge of outgoers) {
+            for (let edge of connected) {
+                if (edge["source"] === "simulators") {
+                    continue;
+                }
                 const listItem = document.createElement("li");
                 const targetLink = document.createElement("a");
-                // targetLink.href = "#";
-                // targetLink.addEventListener("click",function(e) { node.unselect(); edge.target().select(); });
-                targetLink.innerHTML = edge["target"];
-                const label = document.createElement("i");
+                targetLink.href = "#";
+                if (edge["type"] === "outgoing") {
+                    targetId = edge["target"];
+                } else {
+                    targetId = edge["source"];
+                }
+                targetLink.addEventListener("click",function(e) {
+                    console.log("Clicked on " + targetLink.innerHTML);
+                    cy.nodes("[id='" + data.id + "']").unselect();
+                    cy.nodes("[id='" + targetLink.innerHTML + "']").select();
+                });
+                targetLink.innerHTML = targetId;
+                const simName = document.createElement("i");
+                simName.innerHTML = data["short_name"];
+                const label = document.createElement("span");
                 label.innerHTML = " " + edge["label"] + " ";
-                listItem.appendChild(label);
-                listItem.appendChild(targetLink);
-
+                if (edge["type"] === "outgoing") {
+                    listItem.append(simName);
+                    listItem.append(label);
+                    listItem.appendChild(targetLink);
+                } else {
+                    listItem.appendChild(targetLink);
+                    listItem.append(label);
+                    listItem.append(simName);
+                }
                 list.appendChild(listItem);
             }
             description.appendChild(list);
@@ -88,7 +108,6 @@ function showDetails(data, outgoers) {
             row.classList.add("row");
             // Go through elements in BUTTON_ROWS
             for (const button_type of BUTTON_ROWS[row_idx]) {
-                console.log(button_type, tool_links[button_type]);
                 let col = document.createElement("div");
                 col.classList.add("col-auto");
                 let button = urlButton(button_type, tool_links[button_type]);

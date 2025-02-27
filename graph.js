@@ -131,13 +131,20 @@ function showNodeDetails(node) {
         showDetails(null, null);
     } else {
         showDetails(node.data(), node.outgoers("edge").map((edge) => {
-            return {target: edge.target().id(), label: edge.data("label"), source: edge.source().id()};
-            }));
+            return { type: "outgoing", target: edge.target().id(), label: edge.data("label"), source: edge.source().id() };
+        }).concat(
+            node.incomers("edge").map((edge) => {
+                return { type: "incoming", target: edge.target().id(), label: edge.data("label"), source: edge.source().id() }
+            })
+        )
+        );
     }
 }
 
 function highlightEdge(edge) {
-    const details = document.getElementById("details");
+    const details_top = document.getElementById("details_top");
+    const details_bottom = document.getElementById("details_bottom");
+    details_bottom.innerHTML = "";
     const headerElement = document.createElement("h2");
     headerElement.innerHTML = edge.id();
 
@@ -151,7 +158,7 @@ function highlightEdge(edge) {
     targetLink.addEventListener("click",function(e) { edge.unselect(); edge.target().select(); });
     targetLink.innerHTML = edge.target().id();
 
-    details.innerHTML = "";
+    details_top.innerHTML = "";
 
     const paragraph = document.createElement("p");
     paragraph.appendChild(sourceLink);
@@ -159,8 +166,8 @@ function highlightEdge(edge) {
     label.innerHTML = " " + edge.data("label") + " ";
     paragraph.appendChild(label);
     paragraph.appendChild(targetLink);
-    details.appendChild(headerElement);
-    details.appendChild(paragraph);
+    details_top.appendChild(headerElement);
+    details_top.appendChild(paragraph);
     // Only show the edge and the connected nodes
     cy.elements().forEach(n => n.style("opacity", 0.2));
     edge.style("opacity", 1);
