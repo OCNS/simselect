@@ -95,8 +95,10 @@ function highlightNode(node) {
     // Swap out center/uncenter buttons
     const centerButton = document.getElementById("center_button");
     const uncenterButton = document.getElementById("uncenter_button");
-    centerButton.classList.add("d-none");
-    uncenterButton.classList.remove("d-none");
+    if (centerButton) {
+        centerButton.classList.add("d-none");
+        uncenterButton.classList.remove("d-none");
+    }
 
     // Ignore the meta node
     meta_node.deselect();
@@ -222,8 +224,10 @@ function unhighlightNode(event, unselect) {
     // Swap out center/uncenter buttons
     const centerButton = document.getElementById("center_button");
     const uncenterButton = document.getElementById("uncenter_button");
-    centerButton.classList.remove("d-none");
-    uncenterButton.classList.add("d-none");
+    if (centerButton) {
+        centerButton.classList.remove("d-none");
+        uncenterButton.classList.add("d-none");
+    }
 
     // Ignore the meta node
     meta_node.restore();
