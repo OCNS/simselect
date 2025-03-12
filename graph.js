@@ -150,42 +150,7 @@ function showNodeDetails(node) {
 }
 
 function highlightEdge(edge) {
-    const details_top = document.getElementById("details_top");
-    const details_bottom = document.getElementById("details_bottom");
-    details_bottom.innerHTML = "";
-    const headerElement = document.createElement("h2");
-    headerElement.innerHTML = edge.id();
-
-    const sourceLink = document.createElement("a");
-    sourceLink.href = "#";
-    sourceLink.addEventListener("click",function(e) { edge.unselect(); edge.source().select(); });
-    sourceLink.innerHTML = edge.source().id();
-
-    const targetLink = document.createElement("a");
-    targetLink.href = "#";
-    targetLink.addEventListener("click",function(e) { edge.unselect(); edge.target().select(); });
-    targetLink.innerHTML = edge.target().id();
-
-    details_top.innerHTML = "";
-
-    const paragraph = document.createElement("p");
-    paragraph.appendChild(sourceLink);
-    const label = document.createElement("i");
-    label.innerHTML = " " + edge.data("label") + " ";
-    paragraph.appendChild(label);
-    paragraph.appendChild(targetLink);
-    details_top.appendChild(headerElement);
-    details_top.appendChild(paragraph);
-    // Only show the edge and the connected nodes
-    cy.elements().forEach(n => n.style("opacity", 0.2));
-    edge.style("opacity", 1);
-    edge.connectedNodes().forEach(n => n.style("opacity", 1));
-    // hide filter pane
-    const filterPane = new bootstrap.Offcanvas('#filter_pane');
-    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
-    if (document.getElementById("filter_pane").classList.contains("show"))
-        filterPane._isShown = true;
-    filterPane.hide();
+    console.log("Edge double tapped: no op");
 }
 
 function highlightElement(event) {
@@ -237,6 +202,7 @@ function unhighlightNode(event, unselect) {
 
     // return graph to initial state
     const return_graph_to_init = () => {
+        cy.edges().forEach(n => {n.style("curve-style", "unbundled-bezier"); n.style("min-zoomed-font-size", 36)});
         cy.animate(
             {
                 pan: cy_pan,
@@ -258,6 +224,7 @@ function unhighlightNode(event, unselect) {
                 console.log("New pos: " + n.id() + ": " + n.position().x + ", " + n.position().y);
             }
         }).play());
+
     };
 
     return_graph_to_init();
@@ -332,7 +299,12 @@ function newEdge(name, relation) {
             id: name + " → " + relation["name"],
             source: name,
             target: relation["name"],
-            label: relation["description"]
+            label: relation["description"],
+            style: {
+                "event": "no",
+                "selectable": false,
+                "grabbable": false
+            },
         }
     }
 }
@@ -358,7 +330,10 @@ function create_cy_elements(data, style) {
         container: document.getElementById('cy'),
         elements: elements,
         layout: { name: 'random' },
-        style: style
+        style: style,
+        minZoom: 0.75,
+        maxZoom: 4,
+        wheelSensitivity: 0.2,
     });
     // store the meta_node, since we need to remove it when highlighting nodes
     meta_node = cy.$("#simulators");
