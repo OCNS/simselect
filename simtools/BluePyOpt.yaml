@@ -9,6 +9,9 @@ summary: |
   This is achieved by abstracting the optimisation and evaluation tasks into various reusable and flexible discrete elements according to established best-practices.
 
   Further, BluePyOpt provides methods for setting up both small- and large-scale optimisations on a variety of platforms, ranging from laptops to Linux clusters and cloud-based compute infrastructures.
+release:
+  source: pypi
+  package_name: bluepyopt
 urls:
   homepage: https://bluepyopt.readthedocs.io
 relations:

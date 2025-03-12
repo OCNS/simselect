@@ -4,6 +4,9 @@ operating_system: Linux, MacOS, Windows
 interface_language: Python
 summary: |
   NESTML is a domain-specific language for neuron and synapse models. These dynamical models can be used in simulations of brain activity on several platforms, in particular the NEST Simulator. NESTML combines an easy to understand, yet powerful syntax; a flexible processing toolchain, written in Python; and good simulation performance by means of code generation (C++ for NEST Simulator).
+release:
+  source: pypi
+  package_name: nestml
 urls:
   homepage: https://nestml.readthedocs.org/
   source: https://github.com/nest/nestml/

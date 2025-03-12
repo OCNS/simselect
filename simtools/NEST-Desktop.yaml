@@ -10,6 +10,9 @@ urls:
   homepage: https://nest-desktop.readthedocs.io
   documentation: https://nest-desktop.readthedocs.io
   source: https://github.com/nest-desktop/nest-desktop
+release:
+  source: pypi
+  package_name: nest-desktop
 relations:
   - name: NEST
     description: is GUI for

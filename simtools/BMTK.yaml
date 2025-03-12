@@ -17,6 +17,9 @@ summary: |
 
   The BMTK was developed and is supported at the Allen Institute for Brain Science and released under a BSD 3-clause license.
   We encourage others to use the BMTK for their own research, and suggestions and contributions to the BMTK are welcome.
+release:
+  source: pypi
+  package_name: bmtk
 urls:
     homepage: https://alleninstitute.github.io/bmtk/
 relations:

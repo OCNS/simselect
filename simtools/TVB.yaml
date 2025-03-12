@@ -12,6 +12,9 @@ summary: |
 
   The Virtual Brain (TVB) takes a different approach and reduces complexity on the micro level to attain the macro organization. A TVB model of a patient's brain generates sufficiently accurate EEG, MEG, BOLD and SEEG signals by reducing the complexity millionfold through methods from statistical physics.
   The key is TVB’s hybrid approach of merging individual anatomy from brain imaging data with state-of-the-art mathematical modeling.
+release:
+  source: pypi
+  package_name: tvb-library
 urls:
   homepage: https://www.thevirtualbrain.org/
   source: https://github.com/the-virtual-brain/

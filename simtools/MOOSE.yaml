@@ -17,6 +17,9 @@ urls:
   homepage: https://moose.ncbs.res.in/
   source: https://github.com/BhallaLab/moose
   documentation: https://moose.ncbs.res.in/readthedocs/index.html
+release:
+  source: pypi
+  package_name: pymoose
 relations:
   - name: NeuroML
     description: can import, can export to

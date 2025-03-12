@@ -14,6 +14,9 @@ summary: |
 
   Even if you don't wish to run simulations on multiple simulators, you may benefit from writing your simulation code using PyNN's powerful, high-level interface.
   In this case, you can use any neuron or synapse model supported by your simulator, and are not restricted to the standard models.
+release:
+  source: pypi
+  package_name: PyNN
 urls:
   homepage: http://neuralensemble.org/PyNN/
   source: https://github.com/NeuralEnsemble/PyNN/

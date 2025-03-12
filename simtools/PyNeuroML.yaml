@@ -11,6 +11,9 @@ urls:
   tutorial: https://docs.neuroml.org/Userdocs/GettingStarted.html
   source: https://github.com/NeuroML/pyNeuroML
   download: https://docs.neuroml.org/Userdocs/Software/pyNeuroML.html
+release:
+  source: pypi
+  package_name: pyneuroml
 relations:
   - name: NeuroML
     description: is Python package for
