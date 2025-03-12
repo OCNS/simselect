@@ -150,42 +150,7 @@ function showNodeDetails(node) {
 }
 
 function highlightEdge(edge) {
-    const details_top = document.getElementById("details_top");
-    const details_bottom = document.getElementById("details_bottom");
-    details_bottom.innerHTML = "";
-    const headerElement = document.createElement("h2");
-    headerElement.innerHTML = edge.id();
-
-    const sourceLink = document.createElement("a");
-    sourceLink.href = "#";
-    sourceLink.addEventListener("click",function(e) { edge.unselect(); edge.source().select(); });
-    sourceLink.innerHTML = edge.source().id();
-
-    const targetLink = document.createElement("a");
-    targetLink.href = "#";
-    targetLink.addEventListener("click",function(e) { edge.unselect(); edge.target().select(); });
-    targetLink.innerHTML = edge.target().id();
-
-    details_top.innerHTML = "";
-
-    const paragraph = document.createElement("p");
-    paragraph.appendChild(sourceLink);
-    const label = document.createElement("i");
-    label.innerHTML = " " + edge.data("label") + " ";
-    paragraph.appendChild(label);
-    paragraph.appendChild(targetLink);
-    details_top.appendChild(headerElement);
-    details_top.appendChild(paragraph);
-    // Only show the edge and the connected nodes
-    cy.elements().forEach(n => n.style("opacity", 0.2));
-    edge.style("opacity", 1);
-    edge.connectedNodes().forEach(n => n.style("opacity", 1));
-    // hide filter pane
-    const filterPane = new bootstrap.Offcanvas('#filter_pane');
-    // FIXME: not quite sure what is going on here, but sometimes the internal state is incorrect
-    if (document.getElementById("filter_pane").classList.contains("show"))
-        filterPane._isShown = true;
-    filterPane.hide();
+    console.log("Edge double tapped: no op");
 }
 
 function highlightElement(event) {
