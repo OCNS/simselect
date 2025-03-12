@@ -299,7 +299,12 @@ function newEdge(name, relation) {
             id: name + " → " + relation["name"],
             source: name,
             target: relation["name"],
-            label: relation["description"]
+            label: relation["description"],
+            style: {
+                "event": "no",
+                "selectable": false,
+                "grabbable": false
+            },
         }
     }
 }

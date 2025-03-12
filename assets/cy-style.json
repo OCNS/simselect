@@ -18,7 +18,8 @@
         "line-color": "#e2e2e2",
         "target-arrow-color": "#e2e2e2",
         "color": "#1984c5",
-        "edge-text-rotation": "autorotate"
+        "edge-text-rotation": "autorotate",
+        "events": "no"
     }
   },
   {
