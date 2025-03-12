@@ -237,6 +237,7 @@ function unhighlightNode(event, unselect) {
 
     // return graph to initial state
     const return_graph_to_init = () => {
+        cy.edges().forEach(n => {n.style("curve-style", "unbundled-bezier");});
         cy.animate(
             {
                 pan: cy_pan,
@@ -258,6 +259,7 @@ function unhighlightNode(event, unselect) {
                 console.log("New pos: " + n.id() + ": " + n.position().x + ", " + n.position().y);
             }
         }).play());
+
     };
 
     return_graph_to_init();
