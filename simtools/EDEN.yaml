@@ -6,6 +6,9 @@ processing_support: Single Machine, Cluster
 interface_language: CLI, Python
 summary: |
   Extensible Dynamics Engine for Networks (EDEN) is a high-performance NeuroML-based neural simulator.
+release:
+  source: pypi
+  package_name: eden-simulator
 urls:
     source: https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden
     installation: https://gitlab.com/c7859/neurocomputing-lab/Inferior_OliveEMC/eden/-/tree/main#installing

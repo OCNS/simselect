@@ -5,6 +5,8 @@ interface_language: Python
 summary: |
   Brian2GeNN connects Brian 2 to the GeNN simulator, so that users can make use of GeNN GPU acceleration when
   developing their models in Brian, without requiring any technical knowledge about GPUs, C++ or GeNN.
+release:
+  source: pypi
 relations:
   - name: Brian
     description: converts from
