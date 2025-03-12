@@ -2,16 +2,23 @@ name: Brian2GeNN
 features: library
 operating_system: Linux, MacOS, Windows
 interface_language: Python
-summary: |
-  Brian2GeNN connects Brian 2 to the GeNN simulator, so that users can make use of GeNN GPU acceleration when
-  developing their models in Brian, without requiring any technical knowledge about GPUs, C++ or GeNN.
+summary: 'Brian2GeNN connects Brian 2 to the GeNN simulator, so that users can make
+  use of GeNN GPU acceleration when
+
+  developing their models in Brian, without requiring any technical knowledge about
+  GPUs, C++ or GeNN.
+
+  '
 release:
   source: pypi
+  version: 1.7.0
+  published: '2023-07-28'
+  etag: '"w+LfWwRFgsg3qxWBiZtL0g"'
 relations:
-  - name: Brian
-    description: converts from
-  - name: GeNN
-    description: exports to
+- name: Brian
+  description: converts from
+- name: GeNN
+  description: exports to
 urls:
   documentation: https://brian2genn.readthedocs.io
   installation: https://brian2genn.readthedocs.io/en/stable/introduction/index.html#installing-the-brian2genn-interface
