@@ -202,7 +202,7 @@ function unhighlightNode(event, unselect) {
 
     // return graph to initial state
     const return_graph_to_init = () => {
-        cy.edges().forEach(n => {n.style("curve-style", "unbundled-bezier");});
+        cy.edges().forEach(n => {n.style("curve-style", "unbundled-bezier"); n.style("min-zoomed-font-size", 36)});
         cy.animate(
             {
                 pan: cy_pan,
