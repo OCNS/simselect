@@ -69,15 +69,15 @@ const BUTTON_ROWS = [
     ["forum", "issue tracker", "chat", "email"]
 ];
 
-function urlButton(type, url) {
+function urlButton(type, url, btnClass) {
     const button = document.createElement("button");
     let iconFile = BUTTON_ICONS[type];
     button.type = "button"
-    button.classList.add('btn', 'btn-sm', 'm-1');
+    button.classList.add('btn', 'm-1');
     let icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
     button.innerHTML = icon + " " + type;
     if (url !== undefined)  {
-        button.classList.add('btn-info');
+        button.classList.add(btnClass);
         button.onclick = function() {
             window.open(url, "_blank");
         }
@@ -92,6 +92,14 @@ function highlightNode(node) {
     if (node.id() == "simulators") {
         return;
     }
+    // Swap out center/uncenter buttons
+    const centerButton = document.getElementById("center_button");
+    const uncenterButton = document.getElementById("uncenter_button");
+    if (centerButton) {
+        centerButton.classList.add("d-none");
+        uncenterButton.classList.remove("d-none");
+    }
+
     // Ignore the meta node
     meta_node.deselect();
     meta_node.remove();
@@ -185,7 +193,7 @@ function highlightElement(event) {
         // Only unhilight node if double tapped on background
         // Single tap is too error prone
         if (event.type === "dbltap") {
-            unhighlightNode(null);
+            unhighlightNode(null, true);
         }
         else {
             console.log("No-op: single tap on background");
@@ -212,7 +220,15 @@ function highlightElement(event) {
     }
 }
 
-function unhighlightNode(event) {
+function unhighlightNode(event, unselect) {
+    // Swap out center/uncenter buttons
+    const centerButton = document.getElementById("center_button");
+    const uncenterButton = document.getElementById("uncenter_button");
+    if (centerButton) {
+        centerButton.classList.remove("d-none");
+        uncenterButton.classList.add("d-none");
+    }
+
     // Ignore the meta node
     meta_node.restore();
     meta_node_edges.restore();
@@ -245,7 +261,9 @@ function unhighlightNode(event) {
     };
 
     return_graph_to_init();
-    showDetails(null, null);
+    if (unselect) {
+        showDetails(null, null);
+    }
 }
 
 function updateHighlights() {
