@@ -330,7 +330,10 @@ function create_cy_elements(data, style) {
         container: document.getElementById('cy'),
         elements: elements,
         layout: { name: 'random' },
-        style: style
+        style: style,
+        minZoom: 0.75,
+        maxZoom: 4,
+        wheelSensitivity: 0.2,
     });
     // store the meta_node, since we need to remove it when highlighting nodes
     meta_node = cy.$("#simulators");
