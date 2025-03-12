@@ -65,6 +65,7 @@ data_schema = SimselectSchema(
         Optional("release"): {
             Optional("source"): str,
             Optional("version"): str,
+            Optional("published"): str,
             Optional("package_name"): str,
             Optional("etag"): str,
         },
