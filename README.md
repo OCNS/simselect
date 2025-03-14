@@ -54,6 +54,10 @@ Now, the pre-commit checks will be run before each commit.
 ## Deployment
 The website is hosted on https://ocns.github.io/simselect
 
+## Dependencies
+The layout is using the fCoSE algorithm by the [i-Vis Research Lab at Bilkent University](http://www.cs.bilkent.edu.tr/~ivis/).
+The files in the `assets/js` directory are minified versions of the original files, licensed under the [MIT license](LICENSE.MIT).
+
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

@@ -39,12 +39,13 @@ function selectionChanged() {
 
 function layoutNodes() {
     cy_layout = cy.layout({
-        name: "cola",
+        name: "fcose",
         animate: "end",
         padding: 50,
         avoidOverlap: true,
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
+        numIter: 10000,
     });
     cy_layout.run();
 }
