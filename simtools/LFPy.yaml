@@ -1,15 +1,15 @@
-- name: LFPy
-- features: tool
-- operating_system: Linux, MacOS, Windows
-- interface_language: Python
-- summary: >
-    LFPy is a Python module for calculation of extracellular potentials from multicompartment neuron models.
-    It relies on the NEURON simulator and uses the Python interface it provides.
-- urls:
-    homepage: https://lfpy.readthedocs.io/en/latest/
-    documentation: https://lfpy.readthedocs.io/en/latest/
-    source: https://github.com/LFPy/LFPy/
-    download: https://pypi.org/project/LFPy/
-- relations:
-    - name: Neuron
-      description: simulates with
+name: LFPy
+features: tool
+operating_system: Linux, MacOS, Windows
+interface_language: Python
+summary: |
+  LFPy is a Python module for calculation of extracellular potentials from multicompartment neuron models.
+  It relies on the NEURON simulator and uses the Python interface it provides.
+urls:
+  homepage: https://lfpy.readthedocs.io/en/latest/
+  documentation: https://lfpy.readthedocs.io/en/latest/
+  source: https://github.com/LFPy/LFPy/
+  download: https://pypi.org/project/LFPy/
+relations:
+  - name: Neuron
+    description: simulates with

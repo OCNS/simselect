@@ -1,0 +1,85 @@
+[
+  {
+    "selector": "node",
+    "style": {
+        "label": "data(id)",
+        "text-halign": "center",
+        "text-valign": "top"
+    }
+  },
+  {
+    "selector": "edge",
+    "style": {
+        "curve-style": "unbundled-bezier",
+        "label": "data(label)",
+        "target-arrow-shape": "triangle",
+        "font-size": 8,
+        "min-zoomed-font-size": 36,
+        "line-color": "#e2e2e2",
+        "target-arrow-color": "#e2e2e2",
+        "color": "#1984c5",
+        "edge-text-rotation": "autorotate",
+        "events": "no"
+    }
+  },
+  {
+    "selector": ".meta",
+    "style": {
+      "background-color": "#fff",
+      "font-style": "italic",
+      "shape": "hexagon",
+      "border-width": "3px"
+    }
+},
+  {
+      "selector": ".standard",
+      "style": {
+        "background-image": "assets/notes-circle.svg",
+        "background-fit": "cover",
+        "background-color": "#c86558"
+      }
+  },
+  {
+      "selector": ".frontend",
+      "style": {
+        "background-image": "assets/monitor-circle.svg",
+        "background-fit": "cover",
+        "background-color": "#f7d7c4"
+      }
+  },
+  {
+      "selector": ".simulator",
+      "style": {
+        "background-image": "assets/settings-circle.svg",
+        "background-fit": "cover",
+        "background-color": "#cbd6e4"
+      }
+  },
+  {
+      "selector": ".library",
+      "style": {
+          "background-image": "assets/code-circle.svg",
+          "background-fit": "cover",
+          "background-color": "#df8879"
+      }
+  },
+  {
+      "selector": ".API",
+      "style": {
+          "background-image": "assets/api-circle.svg",
+          "background-fit": "cover",
+          "background-color": "#f7d7c4"
+      }
+  },
+  {
+      "selector": ":selected",
+      "style": {
+          "outline-color": "darkorange",
+          "outline-style": "solid",
+          "outline-width": 3,
+          "color": "darkorange",
+          "line-color": "darkorange",
+          "target-arrow-color": "darkorange"
+        }
+  }
+]

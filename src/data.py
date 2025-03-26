@@ -38,11 +38,7 @@ def parse_file(filename):
         A dictionary with the content of the yaml file
     """
     with open(filename) as f:
-        content = yaml.safe_load(f)
-        content_dict = {}
-        for element in content:
-            key, value = list(element.items())[0]
-            content_dict[key] = value
+        content_dict = yaml.safe_load(f)
 
     # Normalize the standard fields
 
@@ -94,7 +90,7 @@ def parse_files(dirname=Path(__file__).parent / ".." / "simtools"):
             raise ValueError(f"Error parsing {f}") from e
         # Store the filename itself
         content["filename"] = f.name
-        simulators[content["name"]] = content
+        simulators[content.get("short_name", content["name"])] = content
 
     # Verify that relations point to valid names
     for sim in simulators.values():

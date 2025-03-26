@@ -1,24 +1,21 @@
-- name: Steps
-- features: frontend, simulator
-- operating_system: Linux, MacOS, Windows
-- biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model #TODO
-- processing_support: Single Machine, GPU
-- interface_language: Python, C, C++
-- summary: >
-    STEPS is a package for exact stochastic simulation of reaction-diffusion systems in arbitrarily complex 3D geometries.
-    Our core simulation algorithm is an implementation of Gillespie's SSA, extended to deal with diffusion of molecules over the elements of a 3D tetrahedral mesh.
+name: Steps
+features: frontend, simulator
+operating_system: Linux, MacOS, Windows
+biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model #TODO
+processing_support: Single Machine, GPU
+interface_language: Python, C, C++
+summary: |
+  STEPS is a package for exact stochastic simulation of reaction-diffusion systems in arbitrarily complex 3D geometries.
+  Our core simulation algorithm is an implementation of Gillespie's SSA, extended to deal with diffusion of molecules over the elements of a 3D tetrahedral mesh.
 
+  While it was mainly developed for simulating detailed models of neuronal signaling pathways in dendrites and around synapses, it is a general tool and can be used for studying any biochemical pathway in which spatial gradients and morphology are thought to play a role.
 
-    While it was mainly developed for simulating detailed models of neuronal signaling pathways in dendrites and around synapses, it is a general tool and can be used for studying any biochemical pathway in which spatial gradients and morphology are thought to play a role.
+  STEPS also supports accurate and efficient computational of local membrane potentials on tetrahedral meshes, with the addition of voltage-gated channels and currents.
+  Tight integration between the reaction-diffusion calculations and the tetrahedral mesh potentials allows detailed coupling between molecular activity and local electrical excitability.
 
-
-    STEPS also supports accurate and efficient computational of local membrane potentials on tetrahedral meshes, with the addition of voltage-gated channels and currents.
-    Tight integration between the reaction-diffusion calculations and the tetrahedral mesh potentials allows detailed coupling between molecular activity and local electrical excitability.
-
-
-    We have implemented STEPS as a set of Python modules, which means STEPS users can use Python scripts to control all aspects of setting up the model, generating a mesh, controlling the simulation and generating and analyzing output.
-    The core computational routines are still implemented as C/C++ extension modules for maximal speed of execution.
-- urls:
-    homepage: https://steps.sourceforge.net/STEPS/default.php
-    source: https://github.com/CNS-OIST/STEPS
-    documentation: https://steps.sourceforge.net/manual/
+  We have implemented STEPS as a set of Python modules, which means STEPS users can use Python scripts to control all aspects of setting up the model, generating a mesh, controlling the simulation and generating and analyzing output.
+  The core computational routines are still implemented as C/C++ extension modules for maximal speed of execution.
+urls:
+  homepage: https://steps.sourceforge.net/STEPS/default.php
+  source: https://github.com/CNS-OIST/STEPS
+  documentation: https://steps.sourceforge.net/manual/

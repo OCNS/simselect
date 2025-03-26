@@ -14,61 +14,55 @@ from schema import Schema, SchemaError, Optional, Or, And
 import yaml
 
 
-data_schema = Schema(
-    [
-        {
-            "name": str,
-        },
-        {
-            "features": And(
-                str,
-                lambda s: all(
-                    ss.strip()
-                    in ["frontend", "simulator", "standard", "tool", "library", "API"]
-                    for ss in s.split(",")
-                ),
-                error="features must be a comma-separated list of 'frontend', 'simulator', 'standard', 'tool', 'library', 'API'",
+class SimselectSchema(Schema):
+    def validate(self, data, _is_simselect_schema=True):
+        data = super().validate(data, _is_simselect_schema=False)
+        if _is_simselect_schema and not "simulator" in data["features"]:
+            if "biological_level" in data:
+                raise SchemaError("biological_level is only valid for simulators")
+        return data
+
+
+data_schema = SimselectSchema(
+    {
+        "name": str,
+        Optional("short_name"): str,
+        "features": And(
+            str,
+            lambda s: all(
+                ss.strip()
+                in ["frontend", "simulator", "standard", "tool", "library", "API"]
+                for ss in s.split(",")
             ),
+            error="features must be a comma-separated list of 'frontend', 'simulator', 'standard', 'tool', 'library', 'API'",
+        ),
+        "operating_system": Or(str, None),
+        Optional("biological_level"): Or(str, None),
+        Optional("processing_support"): Or(str, None),
+        "interface_language": Or(str, None),
+        "summary": str,
+        Optional("model_description_language"): Or(str, None),
+        Optional("urls"): {
+            Or(
+                "homepage",
+                "documentation",
+                "installation",
+                "tutorial",
+                "examples",
+                "email",
+                "chat",
+                "forum",
+                "issue tracker",
+                "source",
+                "download",
+            ): (
+                lambda url: isinstance(url, str)
+                and url.startswith("http")
+                or "@" in url
+            )
         },
-        {"operating_system": Or(str, None)},
-        {
-            "biological_level": Or(str, None),
-        },
-        {
-            "processing_support": Or(str, None),
-        },
-        {
-            "interface_language": Or(str, None),
-        },
-        {
-            "summary": str,
-        },
-        {
-            Optional("model_description_language"): Or(str, None),
-        },
-        {
-            Optional("urls"): {
-                Or(
-                    "homepage",
-                    "documentation",
-                    "installation",
-                    "tutorial",
-                    "examples",
-                    "email",
-                    "chat",
-                    "forum",
-                    "issue tracker",
-                    "source",
-                    "download",
-                ): (
-                    lambda url: isinstance(url, str)
-                    and url.startswith("http")
-                    or "@" in url
-                )
-            }
-        },
-        {Optional("relations"): [{"name": str, "description": str}]},
-    ]
+        Optional("relations"): [{"name": str, "description": str}],
+    }
 )
 
 data_files = Path(Path(__file__).parent / ".." / "simtools")
@@ -89,6 +83,14 @@ for datafile in file_list:
             errors.append(datafile.name)
             print(f"!! {e}")
             print(f"!! {datafile} is invalid.")
+        expected_name = text.get("short_name") or text.get("name")
+        expected_name = expected_name.replace(" ", "-") + ".yaml"
+        if datafile.name != expected_name:
+            errors.append(datafile.name)
+            print(text[0])
+            print(
+                f"!! File name '{datafile}'does not match name in {datafile} (should be '{expected_name}')"
+            )
 
 if errors:
     print(f"\n!! Some files did not validate: {errors}")

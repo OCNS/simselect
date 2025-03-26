@@ -1,26 +1,24 @@
-- name: Brain Modelling Toolkit (BMTK)
-- features: frontend
-- operating_system: Linux, MacOS, Windows
-- interface_language: Python
-- summary: >
-    The Brain Modeling Toolkit (BMTK) is a python-based software package for building, simulating and analyzing large-scale neural network models.
-    It supports the building and simulation of models of varying levels-of-resolution; from multi-compartment biophysically detailed networks, to point-neuron models, to filter-based models, and even population-level firing rate models.
+name: Brain Modelling Toolkit (BMTK)
+short_name: BMTK
+features: frontend
+operating_system: Linux, MacOS, Windows
+interface_language: Python
+summary: |
+  The Brain Modeling Toolkit (BMTK) is a python-based software package for building, simulating and analyzing large-scale neural network models.
+  It supports the building and simulation of models of varying levels-of-resolution; from multi-compartment biophysically detailed networks, to point-neuron models, to filter-based models, and even population-level firing rate models.
 
+  The BMTK is not itself a simulator and will utilize existing simulators, like NEURON and NEST, to run different types of models.
+  What BMTK does provide:
 
-    The BMTK is not itself a simulator and will utilize existing simulators, like NEURON and NEST, to run different types of models.
-    What BMTK does provide:
+    - A unified interface across different simulators, so that modelers can work with and study their own network models across different simulators without having to learn how to use each tool.
+    - An easy way to setup and initialize network simulations with little-to-no programming necessary
+    - Automatic integration of parallelization when running on HPC.
+    - Extra built-in features which the native simulators may not support out-of-the-box.
 
-
-      - A unified interface across different simulators, so that modelers can work with and study their own network models across different simulators without having to learn how to use each tool.
-      - An easy way to setup and initialize network simulations with little-to-no programming necessary
-      - Automatic integration of parallelization when running on HPC.
-      - Extra built-in features which the native simulators may not support out-of-the-box.
-
-
-    The BMTK was developed and is supported at the Allen Institute for Brain Science and released under a BSD 3-clause license.
-    We encourage others to use the BMTK for their own research, and suggestions and contributions to the BMTK are welcome.
-- urls:
-      homepage: https://alleninstitute.github.io/bmtk/
-- relations:
-  - name: SONATA
-    description: exports to
+  The BMTK was developed and is supported at the Allen Institute for Brain Science and released under a BSD 3-clause license.
+  We encourage others to use the BMTK for their own research, and suggestions and contributions to the BMTK are welcome.
+urls:
+    homepage: https://alleninstitute.github.io/bmtk/
+relations:
+- name: SONATA
+  description: exports to
