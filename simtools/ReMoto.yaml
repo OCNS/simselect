@@ -10,6 +10,6 @@ summary: |
   The simulator may be used to investigate phenomena at several levels of organization, e.g., at the neuronal membrane level or at the whole muscle behavior level (e.g., muscle force generation).
   This versatility arises because each element (neurons, synapses, muscle fibers) has its own specific mathematical model, usually involving the action of voltage- or neurotransmitter-dependent ionic channels.
   The simulator should be helpful in activities such as interpretation of results obtained from neurophysiological experiments in humans or mammals, proposal of hypothesis or testing models or theories on neuronal dynamics or neuronal network processing, validation of experimental protocols, and teaching neurophysiology.
-urls:
+# urls:
 #    homepage: httpxxx://remoto.leb.usp.br
 #    tutorial: httpxxx://remoto.leb.usp.br/remoto/Learning/learning.html
