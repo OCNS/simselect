@@ -39,10 +39,13 @@ function layoutNodes() {
         name: "fcose",
         animate: "end",
         padding: 50,
-        avoidOverlap: true,
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
         numIter: 10000,
+        fit: true,
+        stop: store_positions,
+        nodeRepulsion: node => 15000,
+        quality: "proof",
     });
     cy_layout.run();
 }
@@ -342,9 +345,6 @@ function create_cy_elements(data, style) {
     cy.on("drag", "node", store_positions);
     cy.$("#simulators").select();
     selectionChanged();
-
-    // when the layout stops the first time, we store positions of the nodes
-    cy_layout.one('layoutstop', store_positions);
 }
 
 function store_positions(event) {
