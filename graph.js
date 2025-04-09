@@ -9,6 +9,7 @@ const cy_pan = {};
 const cy_zoom = {
     value: 0,
 };
+var highlighted_node;
 
 function selectionChanged() {
     removed.toReversed().forEach(eles => eles.restore());
@@ -93,6 +94,9 @@ function highlightNode(node) {
     if (node.id() == "simulators") {
         return;
     }
+    // track highlighted node
+    highlighted_node = node;
+
     // Swap out center/uncenter buttons
     const centerButton = document.getElementById("center_button");
     const uncenterButton = document.getElementById("uncenter_button");
@@ -203,9 +207,14 @@ function unhighlightNode(event, unselect) {
 
     // return graph to initial state
     const return_graph_to_init = () => {
-        cy.edges().forEach(n => {n.style("curve-style", "unbundled-bezier"); n.style("min-zoomed-font-size", 36)});
 
-        const node_animations = cy.nodes().map(n => n.animation({
+        // reset edges
+        var moved_edges = highlighted_node.closedNeighbourhood((el) => {return el.isEdge()});
+        moved_edges.forEach(n => {n.style("curve-style", "unbundled-bezier"); n.style("min-zoomed-font-size", 36)});
+
+        // reset moved nodes
+        var moved_nodes = highlighted_node.closedNeighbourhood((el) => {return el.isNode()});
+        const node_animations = moved_nodes.map(n => n.animation({
                 position: n.initial_position,
                 duration: 1500,
                 easing: 'ease',
@@ -238,7 +247,7 @@ function unhighlightNode(event, unselect) {
 
         const node_promises = node_animations.map(an => an.play().promise());
         Promise.all([...node_promises, viewport_animation.play().promise]).then(() => {
-            console.log("Apparently all animations completed");
+            console.log("Apparently " + moved_nodes.length + " nodes and viewport animations all have completed");
         });
     };
 
