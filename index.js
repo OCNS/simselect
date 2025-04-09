@@ -26,7 +26,8 @@ function showDetails(data, connected) {
         details_top.innerHTML += "<h3 class='mt-3'>Contributing</h2>";
         details_top.innerHTML += `<p>Contributions are welcome! If you have anything to add or correct in the data,
                               please follow the link at the end of the tool's details view to edit the data on GitHub.
-                              You can also open an <a href='${REPO_URL}/issues'>issue on the GitHub repository</a>.</p>`;
+                              You can also view the <a href='${REPO_URL}'>sources</a> or open an <a href='${REPO_URL}/issues'>issue on the GitHub repository</a>.</p>`;
+        details_top.innerHTML += "<p>&copy; 2024 Simselect contributors. Built with <a href='https://js.cytoscape.org'>cytoscape</a>.</p>"
         details_bottom.innerHTML = "<div class='d-flex'>";
         details_bottom.innerHTML += "<h3 class='mt-3'>List of simulators</h2>";
         for (const sim of SIMULATORS) {
