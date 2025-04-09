@@ -204,28 +204,42 @@ function unhighlightNode(event, unselect) {
     // return graph to initial state
     const return_graph_to_init = () => {
         cy.edges().forEach(n => {n.style("curve-style", "unbundled-bezier"); n.style("min-zoomed-font-size", 36)});
-        cy.animate(
-            {
-                pan: cy_pan,
+
+        const node_animations = cy.nodes().map(n => n.animation({
+                position: n.initial_position,
                 duration: 1500,
                 easing: 'ease',
-                zoom: {
-                    level: cy_zoom.level,
+                queue: false,
+                fit: {
+                    eles: cy.nodes(),
+                    padding: 50,
                 },
-                complete: () => {
-                    console.log("New pan: " + JSON.stringify(cy.pan()) + ", zoom: " + cy.zoom());
-                }
-            });
-        cy.nodes().forEach(n => n.animation({
-            position: n.initial_position,
-            duration: 1500,
-            easing: 'ease',
-            complete: () => {
-                console.log("Init pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);
-                console.log("New pos: " + n.id() + ": " + n.position().x + ", " + n.position().y);
-            }
-        }).play());
+            })
+        );
 
+        const viewport_animation = cy.animation(
+                {
+                    pan: cy_pan,
+                    duration: 1500,
+                    easing: 'ease',
+                    queue: false,
+                    zoom: {
+                        level: cy_zoom.value,
+                    },
+                    fit: {
+                        eles: cy.nodes(),
+                        padding: 50,
+                    },
+                    complete: () => {
+                        console.log("New pan: " + JSON.stringify(cy.pan()) + ", zoom: " + cy.zoom());
+                    }
+                }
+            );
+
+        const node_promises = node_animations.map(an => an.play().promise());
+        Promise.all([...node_promises, viewport_animation.play().promise]).then(() => {
+            console.log("Apparently all animations completed");
+        });
     };
 
     return_graph_to_init();
