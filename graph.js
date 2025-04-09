@@ -5,12 +5,9 @@ var cy_layout;
 var removed = [];
 var meta_node;
 var meta_node_edges;
-const cy_pan = {
-    x: 0,
-    y: 0
-};
+const cy_pan = {};
 const cy_zoom = {
-    level: 0
+    value: 0,
 };
 
 function selectionChanged() {
@@ -366,13 +363,11 @@ function store_positions(event) {
     else {
         cy.nodes().forEach(n => {const init_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y}; n.initial_position = init_pos;});
         cy.nodes().forEach(n => {console.log("Init pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);});
-        //
-        // store the initial pan values
-        cy_pan.x = cy.pan().x;
-        cy_pan.y = cy.pan().y;
 
-        // store the initial zoom values
-        cy_zoom.level = cy.zoom();
+        Object.assign(cy_pan, cy.pan());
+        // cy.zoom does not return an object
+        cy_zoom.value = cy.zoom();
+
         console.log("Initial pan: " + JSON.stringify(cy_pan) + ", zoom: " + JSON.stringify(cy_zoom));
     }
 }
