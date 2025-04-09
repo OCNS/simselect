@@ -354,14 +354,14 @@ function store_positions(event) {
     if (event.type === "drag")
     {
         n = event_target;
-        const new_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y};
+        const new_pos = {x: n.position().x, y: n.position().y};
         n.initial_position = new_pos;
 
         console.log("Node was dragged");
         console.log("New pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);
     }
     else {
-        cy.nodes().forEach(n => {const init_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y}; n.initial_position = init_pos;});
+        cy.nodes().forEach(n => {const init_pos = {x: n.position().x, y: n.position().y}; n.initial_position = init_pos;});
         cy.nodes().forEach(n => {console.log("Init pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);});
 
         Object.assign(cy_pan, cy.pan());
