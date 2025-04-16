@@ -5,13 +5,11 @@ var cy_layout;
 var removed = [];
 var meta_node;
 var meta_node_edges;
-const cy_pan = {
-    x: 0,
-    y: 0
-};
+const cy_pan = {};
 const cy_zoom = {
-    level: 0
+    value: 0,
 };
+var highlighted_node;
 
 function selectionChanged() {
     removed.toReversed().forEach(eles => eles.restore());
@@ -42,10 +40,13 @@ function layoutNodes() {
         name: "fcose",
         animate: "end",
         padding: 50,
-        avoidOverlap: true,
         nodeDimensionsIncludeLabels: true,
         centerGraph: false,
         numIter: 10000,
+        fit: true,
+        stop: store_positions,
+        nodeRepulsion: node => 15000,
+        quality: "proof",
     });
     cy_layout.run();
 }
@@ -93,6 +94,9 @@ function highlightNode(node) {
     if (node.id() == "simulators") {
         return;
     }
+    // track highlighted node
+    highlighted_node = node;
+
     // Swap out center/uncenter buttons
     const centerButton = document.getElementById("center_button");
     const uncenterButton = document.getElementById("uncenter_button");
@@ -203,29 +207,48 @@ function unhighlightNode(event, unselect) {
 
     // return graph to initial state
     const return_graph_to_init = () => {
-        cy.edges().forEach(n => {n.style("curve-style", "unbundled-bezier"); n.style("min-zoomed-font-size", 36)});
-        cy.animate(
-            {
-                pan: cy_pan,
+
+        // reset edges
+        var moved_edges = highlighted_node.closedNeighbourhood((el) => {return el.isEdge()});
+        moved_edges.forEach(n => {n.style("curve-style", "unbundled-bezier"); n.style("min-zoomed-font-size", 36)});
+
+        // reset moved nodes
+        var moved_nodes = highlighted_node.closedNeighbourhood((el) => {return el.isNode()});
+        const node_animations = moved_nodes.map(n => n.animation({
+                position: n.initial_position,
                 duration: 1500,
                 easing: 'ease',
-                zoom: {
-                    level: cy_zoom.level,
+                queue: false,
+                fit: {
+                    eles: cy.nodes(),
+                    padding: 50,
                 },
-                complete: () => {
-                    console.log("New pan: " + JSON.stringify(cy.pan()) + ", zoom: " + cy.zoom());
-                }
-            });
-        cy.nodes().forEach(n => n.animation({
-            position: n.initial_position,
-            duration: 1500,
-            easing: 'ease',
-            complete: () => {
-                console.log("Init pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);
-                console.log("New pos: " + n.id() + ": " + n.position().x + ", " + n.position().y);
-            }
-        }).play());
+            })
+        );
 
+        const viewport_animation = cy.animation(
+                {
+                    pan: cy_pan,
+                    duration: 1500,
+                    easing: 'ease',
+                    queue: false,
+                    zoom: {
+                        level: cy_zoom.value,
+                    },
+                    fit: {
+                        eles: cy.nodes(),
+                        padding: 50,
+                    },
+                    complete: () => {
+                        console.log("New pan: " + JSON.stringify(cy.pan()) + ", zoom: " + cy.zoom());
+                    }
+                }
+            );
+
+        const node_promises = node_animations.map(an => an.play().promise());
+        Promise.all([...node_promises, viewport_animation.play().promise]).then(() => {
+            console.log("Apparently " + moved_nodes.length + " nodes and viewport animations all have completed");
+        });
     };
 
     return_graph_to_init();
@@ -345,9 +368,6 @@ function create_cy_elements(data, style) {
     cy.on("drag", "node", store_positions);
     cy.$("#simulators").select();
     selectionChanged();
-
-    // when the layout stops the first time, we store positions of the nodes
-    cy_layout.one('layoutstop', store_positions);
 }
 
 function store_positions(event) {
@@ -357,22 +377,20 @@ function store_positions(event) {
     if (event.type === "drag")
     {
         n = event_target;
-        const new_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y};
+        const new_pos = {x: n.position().x, y: n.position().y};
         n.initial_position = new_pos;
 
         console.log("Node was dragged");
         console.log("New pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);
     }
     else {
-        cy.nodes().forEach(n => {const init_pos = {x: n.renderedPosition().x, y: n.renderedPosition().y}; n.initial_position = init_pos;});
+        cy.nodes().forEach(n => {const init_pos = {x: n.position().x, y: n.position().y}; n.initial_position = init_pos;});
         cy.nodes().forEach(n => {console.log("Init pos: " + n.id() + ": " + n.initial_position.x + ", " + n.initial_position.y);});
-        //
-        // store the initial pan values
-        cy_pan.x = cy.pan().x;
-        cy_pan.y = cy.pan().y;
 
-        // store the initial zoom values
-        cy_zoom.level = cy.zoom();
+        Object.assign(cy_pan, cy.pan());
+        // cy.zoom does not return an object
+        cy_zoom.value = cy.zoom();
+
         console.log("Initial pan: " + JSON.stringify(cy_pan) + ", zoom: " + JSON.stringify(cy_zoom));
     }
 }
