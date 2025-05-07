@@ -22,7 +22,7 @@ def string_to_list(s, prefix=""):
     Helper function to convert a string to a list, e.g. `'A, B'` to `['A', 'B']`
     """
     if s:
-        return sorted(prefix + l.strip() for l in s.split(","))
+        return sorted(prefix + litem.strip() for litem in s.split(","))
     else:
         return []
 
