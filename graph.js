@@ -164,6 +164,9 @@ function highlightElement(event) {
         // Single tap is too error prone
         if (event.type === "dbltap") {
             unhighlightNode(null, true);
+            cy.nodes().selectify();
+            cy.nodes().filter(":selected").unselect();
+            cy.nodes().unselectify();
         }
         else {
             console.log("No-op: single tap on background");
@@ -175,22 +178,20 @@ function highlightElement(event) {
             if (event.type === "dbltap") {
                 highlightNode(node);
             }
-            else if (event.type === "select") {
+            else if (event.type === "tap") {
                 showNodeDetails(node);
             }
-        } else if (event.target.group() === "edges") {
-            const edge = event.target;
-            if (event.type === "select") {
-                // do nothing special
-            }
-            else if (event.type === "dbltap") {
-                highlightEdge(edge);
-            }
+            cy.nodes().selectify();
+            cy.nodes().filter(":selected").unselect();
+            node.select();
+            cy.nodes().unselectify();
         }
     }
 }
 
 function unhighlightNode(event, unselect) {
+    if (! highlighted_node)
+        return;
     // Swap out center/uncenter buttons
     const centerButton = document.getElementById("center_button");
     const uncenterButton = document.getElementById("uncenter_button");
@@ -379,11 +380,12 @@ function create_cy_elements(data, style) {
     // store the meta_node, since we need to remove it when highlighting nodes
     meta_node = cy.$("#simulators");
     meta_node_edges = meta_node.connectedEdges();
-    cy.on("select tap dbltap", highlightElement);
+    cy.on("tap dbltap", highlightElement);
     //
     // if a user drags a node, we want to remember this
     cy.on("drag", "node", store_positions);
     cy.$("#simulators").select();
+    cy.nodes().unselectify();  // We handle selection manually in highlightNode
     selectionChanged();
 }
 
