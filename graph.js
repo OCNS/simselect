@@ -190,6 +190,9 @@ function highlightElement(event) {
 }
 
 function unhighlightNode(event, unselect) {
+    if (unselect) {
+        showDetails(null, null);
+    }
     if (! highlighted_node)
         return;
     // Swap out center/uncenter buttons
@@ -253,9 +256,6 @@ function unhighlightNode(event, unselect) {
     };
 
     return_graph_to_init();
-    if (unselect) {
-        showDetails(null, null);
-    }
 }
 
 function updateHighlights() {

@@ -32,7 +32,7 @@ function showDetails(data, connected) {
         details_bottom.innerHTML += "<h3 class='mt-3'>List of simulators</h2>";
         for (const sim of SIMULATORS) {
             const quoted_sim = `[id='${sim}']`;
-            details_bottom.innerHTML += `<button class='btn btn-secondary m-1' onclick="cy.nodes('#simulators').unselect(); let node = cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'); node.select(); showNodeDetails(node);">${TOOL_DESCRIPTIONS[sim].short_name}</button>`;
+            details_bottom.innerHTML += `<button class='btn btn-secondary m-1' onclick="cy.nodes().selectify(); cy.nodes('#simulators').unselect(); let node = cy.nodes('${quoted_sim.replace(/'/g, "\\'")}'); node.select(); cy.nodes().unselectify(); showNodeDetails(node);">${TOOL_DESCRIPTIONS[sim].short_name}</button>`;
         }
         details_bottom.innerHTML += "</div>";
         window.history.pushState({}, "", window.location.href.split("?")[0]);
@@ -84,8 +84,11 @@ function showDetails(data, connected) {
                 }
                 targetLink.addEventListener("click",function(e) {
                     console.log("Clicked on " + targetLink.innerHTML);
-                    cy.nodes("[id='" + data.id + "']").unselect();
+                    cy.nodes().selectify();
+                    cy.nodes(":selected").unselect();
                     cy.nodes("[id='" + targetLink.innerHTML + "']").select();
+                    showNodeDetails(cy.nodes("[id='" + targetLink.innerHTML + "']"));
+                    cy.nodes().unselectify();
                 });
                 targetLink.innerHTML = targetId;
                 const simName = document.createElement("i");
@@ -133,7 +136,7 @@ function showDetails(data, connected) {
                                     <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
                                     </svg>&nbsp;Back to simulators`;
         back_button.classList.add("btn", "btn-secondary");
-        back_button.onclick = function() { cy.nodes(`[id = '${data.id}']`).unselect(); cy.nodes("#simulators").select(); unhighlightNode(); };
+        back_button.onclick = function() { cy.nodes().selectify(); cy.nodes(`[id = '${data.id}']`).unselect(); cy.nodes("#simulators").select(); cy.nodes().unselectify(); unhighlightNode(null, true); };
         back_p.appendChild(back_button);
         details_bottom.appendChild(back_p);
         // Edit footer
