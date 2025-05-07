@@ -84,7 +84,7 @@ function urlButton(type, url, btnClass) {
             window.open(url, "_blank");
         }
     } else {
-        button.classList.add('btn-secondary');
+        button.classList.add('btn-outline-secondary');
         button.disabled = true;
     }
     return button;
