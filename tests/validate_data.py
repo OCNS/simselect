@@ -17,7 +17,7 @@ import yaml
 class SimselectSchema(Schema):
     def validate(self, data, _is_simselect_schema=True):
         data = super().validate(data, _is_simselect_schema=False)
-        if _is_simselect_schema and not "simulator" in data["features"]:
+        if _is_simselect_schema and "simulator" not in data["features"]:
             if "biological_level" in data:
                 raise SchemaError("biological_level is only valid for simulators")
         return data
