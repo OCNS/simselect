@@ -51,7 +51,7 @@ function layoutNodes() {
     cy_layout.run();
 }
 
-const BUTTON_ICONS = {
+const BUTTON_ICON_FNAMES = {
     "source": "github.svg",
     "documentation": "book.svg",
     "homepage": "home.svg",
@@ -64,6 +64,7 @@ const BUTTON_ICONS = {
     "installation": "package.svg",
     "email": "mail.svg"
 }
+var BUTTON_ICONS = {};
 
 const BUTTON_ROWS = [
     ["homepage", "download", "source"],
@@ -73,10 +74,9 @@ const BUTTON_ROWS = [
 
 function urlButton(type, url, btnClass) {
     const button = document.createElement("button");
-    let iconFile = BUTTON_ICONS[type];
     button.type = "button"
     button.classList.add('btn', 'm-1');
-    let icon = `<img aria-hidden='true' focusable='false' class='icon' src='assets/${iconFile}'></img>`;
+    let icon = BUTTON_ICONS[type];
     button.innerHTML = icon + " " + type;
     if (url !== undefined)  {
         button.classList.add(btnClass);
@@ -333,7 +333,24 @@ function newEdge(name, relation) {
     }
 }
 
+function load_button_icons() {
+    // Load SVG content for inline inclusion
+    for (const [type, fname] of Object.entries(BUTTON_ICON_FNAMES)) {
+        fetch(`assets/${fname}`)
+            .then(response => response.text())
+            .then(svg => {
+                BUTTON_ICONS[type] = svg;
+            })
+            .catch(err => {
+                console.error(`Failed to load icon for ${type} (${fname}):`, err);
+                BUTTON_ICONS[type] = "";
+            });
+    }
+}
+
 function create_cy_elements(data, style) {
+    // Not quite the right place, but convenient to do htis here
+    load_button_icons();
     // Create a "meta-node" for all simulators
     elements.push(newNode("simulators", {full_name: "Simulators", features: "meta"}));
     for (const [name, description] of Object.entries(data)) {
