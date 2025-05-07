@@ -19,9 +19,9 @@ function showDetails(data, connected) {
         details_top.innerHTML += "<ul>";
         details_top.innerHTML += "<li>Use the 'Toggle Filters' button to activate the simulation engine filter.</li>";
         details_top.innerHTML += "<li>Select what simulation engines you would like to show in the graph.</li>";
-        details_top.innerHTML += "<li>Select a node to see its ecosystem in the graph.</li>";
-        details_top.innerHTML += "<li>Double click/tap on a node to see details of the tool.</li>";
-        details_top.innerHTML += "<li>Click outside to unselect nodes.</li>";
+        details_top.innerHTML += "<li>Single click/tap a node to see details of the tool.</li>";
+        details_top.innerHTML += "<li>Double click/tap a node to see its ecosystem in the graph.</li>";
+        details_top.innerHTML += "<li>Double click outside to unselect nodes and return to the overview.</li>";
         details_top.innerHTML += "</ul>";
         details_top.innerHTML += "<h3 class='mt-3'>Contributing</h2>";
         details_top.innerHTML += `<p>Contributions are welcome! If you have anything to add or correct in the data,
