@@ -7,6 +7,12 @@ var SIMULATORS = [];
 var TOOL_DESCRIPTIONS = {};
 const selected = [];
 
+// process url parameters
+const providedURL = new URL(window.location.href);
+const params = new URLSearchParams(providedURL.search);
+const url_selected_simulator = params.get('selected');
+
+
 // If params  are null, show a default message
 function showDetails(data, connected) {
     // Show details about the simulator
@@ -210,6 +216,7 @@ function resetSearch() {
     updateHighlights();
 }
 
+// INIT
 // Load style and data from JSON files
 Promise.all([
     fetch('assets/cy-style.json')
@@ -242,12 +249,45 @@ Promise.all([
         description["description"] = description["summary"];
         TOOL_DESCRIPTIONS[name] = description;
     }
-
     // Select all simulators initially
     for (const simulator of SIMULATORS)
         selected.push(simulator);
     create_cy_elements(data, style);
     create_filters();
-    showDetails(null, null);
+
+    // showDetails of node selected in URL
+    // Note: do not change layout here to select node, because we need to wait
+    // for the initial layout to finish running in create_cy_elements;
+    if (url_selected_simulator === null)
+    {
+        console.log("No parameters passed, no op");
+        showDetails(null, null);
+    }
+    // We only process the first value of "selected" if there are multiples
+    else
+    {
+        console.log("Simulator selected in url param list: " + url_selected_simulator);
+
+        var url_highlighted_node = cy.nodes("[id='" + url_selected_simulator + "']")
+
+        if (url_highlighted_node.empty()) {
+            console.log("Provided parameter not in simulator list. No op");
+            showDetails(null, null);
+        }
+        else
+        {
+            var node = url_highlighted_node[0];
+            console.log("Selecting provided parameter: " + url_selected_simulator);
+            showDetails(url_highlighted_node.data(), url_highlighted_node.outgoers("edge").map((edge) => {
+                return { type: "outgoing", target: edge.target().id(), label: edge.data("label"), source: edge.source().id() };
+            }).concat(
+                url_highlighted_node.incomers("edge").map((edge) => {
+                    return { type: "incoming", target: edge.target().id(), label: edge.data("label"), source: edge.source().id() }
+                })
+            )
+            );
+        }
+    }
+
     }
 );
