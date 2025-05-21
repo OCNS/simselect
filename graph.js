@@ -69,11 +69,15 @@ function layoutNodes() {
                 var url_highlighted_node = cy.nodes("[id='" + url_selected_simulator + "']");
                 if (url_highlighted_node.empty()) {
                     console.log("Provided parameter not in simulator list. No op");
+                    var simulator_node = cy.nodes("[id='simulators']")
+                    showNodeDetails(simulator_node);
                 }
                 else
                 {
                     var node = url_highlighted_node[0];
+                    showNodeDetails(node);
                     highlightNode(node);
+
                 }
             },
             nodeRepulsion: node => 15000,
