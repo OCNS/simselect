@@ -7,7 +7,10 @@
     "operating_system": "Linux, MacOS",
     "processing_support": "Single Machine, GPU",
     "release": {
-      "source": "pypi"
+      "etag": "\"evu8AMWeCd3JWEqbb3eUIA\"",
+      "published": "2024-12-06",
+      "source": "pypi",
+      "version": "4.8.2.3"
     },
     "summary": "<p>ANNarchy (Artificial Neural Networks architect) is a neural simulator designed for distributed rate-coded or spiking neural networks. The core of the library is written in C++ and distributed using openMP or CUDA. It provides an interface in Python for the definition of the networks.</p>",
     "urls": {
@@ -28,8 +31,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster, Supercomputer, GPU",
     "release": {
+      "etag": "\"Gy8i5xuXY61JUdTBWpJcNg\"",
       "package_name": "arbor",
-      "source": "pypi"
+      "published": "2024-08-09",
+      "source": "pypi",
+      "version": "0.10.0"
     },
     "summary": "<p>Arbor is a high-performance library for computational neuroscience simulations with multi-compartment, morphologically-detailed cells, from single cell models to very large networks.\nArbor is written from the ground up with many-cpu and gpu architectures in mind, to help neuroscientists effectively use contemporary and future HPC systems to meet their simulation needs.</p>\n<p>Arbor supports NVIDIA and AMD GPUs as well as explicit vectorization on CPUs from Intel (AVX, AVX2 and AVX512) and ARM (Neon and SVE).\nWhen coupled with low memory overheads, this makes Arbor an order of magnitude faster than the most widely-used comparable simulation software.</p>\n<p>Arbor is open source and openly developed, and we use development practices such as unit testing, continuous integration, and validation.</p>",
     "urls": {
@@ -162,8 +168,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster",
     "release": {
+      "etag": "\"wRZwN1gOUcFXuJj1iC3mww\"",
       "package_name": "Brian2",
-      "source": "pypi"
+      "published": "2025-01-24",
+      "source": "pypi",
+      "version": "2.8.0.4"
     },
     "summary": "<p>Brian is a free, open source simulator for spiking neural networks. It is written in the Python programming language and is available on almost all platforms. We believe that a simulator should not only save the time of processors, but also the time of scientists. Brian is therefore designed to be easy to learn and use, highly flexible and easily extensible. </p>",
     "urls": {
@@ -219,7 +228,10 @@
       }
     ],
     "release": {
-      "source": "pypi"
+      "etag": "\"w+LfWwRFgsg3qxWBiZtL0g\"",
+      "published": "2023-07-28",
+      "source": "pypi",
+      "version": "1.7.0"
     },
     "summary": "<p>Brian2GeNN connects Brian 2 to the GeNN simulator, so that users can make use of GeNN GPU acceleration when\ndeveloping their models in Brian, without requiring any technical knowledge about GPUs, C++ or GeNN.</p>",
     "urls": {
@@ -250,8 +262,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster",
     "release": {
+      "etag": "\"tduph2t6s3J13/y154WNYg\"",
       "package_name": "eden-simulator",
-      "source": "pypi"
+      "published": "2023-11-28",
+      "source": "pypi",
+      "version": "0.2.3"
     },
     "summary": "<p>Extensible Dynamics Engine for Networks (EDEN) is a high-performance NeuroML-based neural simulator.</p>",
     "urls": {
@@ -313,7 +328,10 @@
       }
     ],
     "release": {
-      "source": "pypi"
+      "etag": "\"9AKr15ykUmxN1JenPbsPEg\"",
+      "published": "2025-01-22",
+      "source": "pypi",
+      "version": "2.3.5"
     },
     "summary": "<p>LFPy is a Python module for calculation of extracellular potentials from multicompartment neuron models.\nIt relies on the NEURON simulator and uses the Python interface it provides.</p>",
     "urls": {
