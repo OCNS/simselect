@@ -1,14 +1,18 @@
 name: Brian
 features: frontend, simulator
 operating_system: Linux, MacOS, Windows
-biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment
+  (Complex) Model, Multi-Compartment Model
 processing_support: Single Machine, Cluster
 interface_language: Python
-summary: |
-  Brian is a free, open source simulator for spiking neural networks. It is written in the Python programming language
-  and is available on almost all platforms. We believe that a simulator should not only save the time of processors,
-  but also the time of scientists. Brian is therefore designed to be easy to learn and use, highly flexible and easily
-  extensible.
+summary: 'Brian is a free, open source simulator for spiking neural networks. It is
+  written in the Python programming language and is available on almost all platforms.
+  We believe that a simulator should not only save the time of processors, but also
+  the time of scientists. Brian is therefore designed to be easy to learn and use,
+  highly flexible and easily extensible. '
+release:
+  source: pypi
+  package_name: Brian2
 urls:
   homepage: https://briansimulator.org/
   documentation: https://brian2.readthedocs.io/

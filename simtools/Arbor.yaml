@@ -14,6 +14,9 @@ summary: |
 
 
   Arbor is open source and openly developed, and we use development practices such as unit testing, continuous integration, and validation.
+release:
+  source: pypi
+  package_name: arbor
 urls:
   homepage: https://arbor-sim.org
   documentation: https://docs.arbor-sim.org
