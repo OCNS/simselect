@@ -111,9 +111,36 @@ function showDetails(data, connected) {
         details_top.appendChild(description);
         // URLs
         link_heading = document.createElement("h3");
-        link_heading.innerHTML = "Links";
+        link_heading.innerHTML = "Infos";
         let tool_links = data["urls"];
         details_bottom.appendChild(link_heading);
+        const release_div = document.createElement("div");
+        release_div.classList.add("mt-1", "mb-2");
+        const version = (data["release"] || {}) ["version"] || "unknown";
+        const release_date = (data["release"] || {})["published"];
+        release_div.innerHTML = `Latest release: <b>${version}</b>`;
+        if (release_date !== undefined) {
+            const date = new Date(release_date);
+            const now = new Date();
+            const diff = (now - date)/(24*60*60*1000);  // in days
+            let time_since = "";
+            if (diff < 30) {
+                time_since = "< 1 month ago";
+            } else if (diff < 60) {
+                time_since = "1 month ago";
+            }
+            else if (diff < 365) {
+                time_since = `${Math.floor(diff/30)} months ago`;
+            }
+            else if (diff < 365*2) {
+                time_since = `1 year ago`;
+            } else {
+                time_since = `${Math.floor(diff/365)} years ago`;
+            }
+
+            release_div.innerHTML += ` (${date.toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})}; ${time_since})`;
+        }
+        details_bottom.appendChild(release_div);
         const flex_div = document.createElement("div");
         flex_div.classList.add("d-flex", "flex-wrap");
         const btnClasses = ["btn-primary", "btn-success", "btn-warning"];

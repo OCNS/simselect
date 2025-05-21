@@ -309,7 +309,8 @@ function newNode(name, description) {
             description: description["summary"],
             levels: bio_levels.concat(comp_levels),
             features: description["features"],
-            urls: description["urls"]
+            urls: description["urls"],
+            release: description["release"],
         },
         position: position,
         initial_position: position,
