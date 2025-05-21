@@ -12,6 +12,9 @@ summary: |
   This way, by implementing our component interfaces and declaring them in a configuration file, most models end up being code-free, well-parametrized, self-contained, human-readable, multi-scale models!
 urls:
   homepage: https://bsb.readthedocs.io
+release:
+  source: pypi
+  package_name: bsb
 relations:
   - name: Neuron
     description: simulates with
