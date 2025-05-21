@@ -1,4 +1,5 @@
-PyYAML==6.0
+PyYAML==6.0.2
 Markdown==3.5.2
 feedparser==6.0.11
 packaging==23.2
+schema==0.7.7
