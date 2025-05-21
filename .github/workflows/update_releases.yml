@@ -2,8 +2,9 @@ name: Update Releases
 
 on:
   schedule:
-    - cron:  '59 13 * * *'
+    - cron:  '15 3 * * *'
   workflow_dispatch:
+  push:
 
 jobs:
   test:
