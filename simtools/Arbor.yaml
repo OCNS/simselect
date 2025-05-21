@@ -30,9 +30,9 @@ summary: 'Arbor is a high-performance library for computational neuroscience sim
 release:
   source: pypi
   package_name: arbor
-  version: 0.10.0
-  published: '2024-08-09'
-  etag: '"Gy8i5xuXY61JUdTBWpJcNg"'
+  version: 0.11.0
+  published: '2025-04-24'
+  etag: '"45wuhIBO2kaIMETHq+NSvA"'
 urls:
   homepage: https://arbor-sim.org
   documentation: https://docs.arbor-sim.org

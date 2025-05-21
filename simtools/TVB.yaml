@@ -5,16 +5,24 @@ operating_system: Linux, MacOS, Windows
 biological_level: Population Model
 interface_language: Python, GUI
 processing_support: Single Machine, Cluster, Supercomputer
-summary: |
-  Simulating the human brain is the holy grail of neuroscience - offering a pioneering tool for understanding how our brain works and how to deal with its disorders like stroke, epilepsy or neurodegenerative diseases like Alzheimer's or Parkinson's.
-
-  While large-scale research initiatives simulate neurons and small brain regions at the cellular level on massively parallel hardware, they are still years away from clinical applications.
-
-  The Virtual Brain (TVB) takes a different approach and reduces complexity on the micro level to attain the macro organization. A TVB model of a patient's brain generates sufficiently accurate EEG, MEG, BOLD and SEEG signals by reducing the complexity millionfold through methods from statistical physics.
-  The key is TVB’s hybrid approach of merging individual anatomy from brain imaging data with state-of-the-art mathematical modeling.
+summary: "Simulating the human brain is the holy grail of neuroscience - offering\
+  \ a pioneering tool for understanding how our brain works and how to deal with its\
+  \ disorders like stroke, epilepsy or neurodegenerative diseases like Alzheimer's\
+  \ or Parkinson's.\n\nWhile large-scale research initiatives simulate neurons and\
+  \ small brain regions at the cellular level on massively parallel hardware, they\
+  \ are still years away from clinical applications.\n\nThe Virtual Brain (TVB) takes\
+  \ a different approach and reduces complexity on the micro level to attain the macro\
+  \ organization. A TVB model of a patient's brain generates sufficiently accurate\
+  \ EEG, MEG, BOLD and SEEG signals by reducing the complexity millionfold through\
+  \ methods from statistical physics.\nThe key is TVB\u2019s hybrid approach of merging\
+  \ individual anatomy from brain imaging data with state-of-the-art mathematical\
+  \ modeling.\n"
 release:
   source: pypi
   package_name: tvb-library
+  version: 2.9.2
+  published: '2025-02-21'
+  etag: '"/lKuVV7zFbP1C6MztBm5EQ"'
 urls:
   homepage: https://www.thevirtualbrain.org/
   source: https://github.com/the-virtual-brain/

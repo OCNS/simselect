@@ -2,10 +2,15 @@ name: NEST Desktop
 features: frontend
 operating_system: Linux, MacOS, Windows
 interface_language: GUI
-summary: |
-  NEST Desktop is a web-based GUI application for NEST Simulator, an advanced simulation tool for computational neuroscience.
-  NEST Desktop enables to construct a neuronal network model graphically and to perform a simulation experiment.
+summary: 'NEST Desktop is a web-based GUI application for NEST Simulator, an advanced
+  simulation tool for computational neuroscience.
+
+  NEST Desktop enables to construct a neuronal network model graphically and to perform
+  a simulation experiment.
+
   Thus, no programming skills are required.
+
+  '
 urls:
   homepage: https://nest-desktop.readthedocs.io
   documentation: https://nest-desktop.readthedocs.io
@@ -13,6 +18,9 @@ urls:
 release:
   source: pypi
   package_name: nest-desktop
+  version: 4.1.0
+  published: '2025-05-09'
+  etag: '"sHgEEBT5wtEIjIG0pqts7A"'
 relations:
-  - name: NEST
-    description: is GUI for
+- name: NEST
+  description: is GUI for

@@ -1,16 +1,23 @@
 name: Neuron
 features: frontend, simulator
 operating_system: Linux, MacOS, Windows
-biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model
+biological_level: Single-Compartment (Simple) Model, Single-Compartment (Complex)
+  Model, Multi-Compartment Model
 processing_support: Single Machine, Cluster, Supercomputer
 interface_language: Python, HOC, C, C++
 model_description_language: NMODL, HOC
-summary: |
-  NEURON is a simulator for neurons and networks of neurons that runs efficiently on your local machine, in the cloud, or on an HPC.
-  Build and simulate models using Python, HOC, and/or NEURON's graphical interface.
+summary: 'NEURON is a simulator for neurons and networks of neurons that runs efficiently
+  on your local machine, in the cloud, or on an HPC.
+
+  Build and simulate models using Python, HOC, and/or NEURON''s graphical interface.
+
+  '
 release:
   source: pypi
   package_name: neuron
+  version: 8.2.6
+  published: '2024-07-25'
+  etag: '"4XvoXFUs7wweEq8yzrb98A"'
 urls:
   homepage: https://neuron.yale.edu/neuron/
   installation: https://nrn.readthedocs.io/en/latest/install/install.html
@@ -19,9 +26,9 @@ urls:
   download: https://nrn.readthedocs.io/en/8.2.2/#installation
   forum: https://www.neuron.yale.edu/phpBB/
 relations:
-  - name: NeuroML
-    description: is used by, exports to
-  - name: NetPyNE
-    description: is used by
-  - name: LFPy
-    description: is used by
+- name: NeuroML
+  description: is used by, exports to
+- name: NetPyNE
+  description: is used by
+- name: LFPy
+  description: is used by

@@ -3,8 +3,10 @@ features: tool
 operating_system: Linux, MacOS, Windows
 interface_language: Python, GUI
 model_description_language: NeuroML/LEMS
-summary: |
-  A single package in Python unifying scripts and modules for reading, writing, simulating and analysing NeuroML2/LEMS models.
+summary: 'A single package in Python unifying scripts and modules for reading, writing,
+  simulating and analysing NeuroML2/LEMS models.
+
+  '
 urls:
   homepage: https://neuroml.org
   documentation: https://docs.neuroml.org
@@ -14,16 +16,19 @@ urls:
 release:
   source: pypi
   package_name: pyneuroml
+  version: 1.3.15
+  published: '2025-02-12'
+  etag: '"6gL5b39TDjJ7zm7zmFY4nQ"'
 relations:
-  - name: NeuroML
-    description: is Python package for
-  - name: libNeuroML
-    description: uses
-  - name: Neuron
-    description: simulates with
-  - name: NetPyNE
-    description: simulates with
-  - name: EDEN
-    description: simulates with
-  - name: Brian
-    description: simulates with
+- name: NeuroML
+  description: is Python package for
+- name: libNeuroML
+  description: uses
+- name: Neuron
+  description: simulates with
+- name: NetPyNE
+  description: simulates with
+- name: EDEN
+  description: simulates with
+- name: Brian
+  description: simulates with

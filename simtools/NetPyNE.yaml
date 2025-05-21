@@ -3,11 +3,17 @@ features: frontend
 operating_system: Linux, MacOS, Windows
 interface_language: Python, GUI
 model_description_language: NeuroML/LEMS
-summary: |
-  NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.
+summary: 'NetPyNE is an open-source Python package to facilitate the development,
+  parallel simulation, analysis, and optimization of biological neuronal networks
+  using the NEURON simulator.
+
+  '
 release:
   source: pypi
   package_name: netpyne
+  version: 1.0.7
+  published: '2024-09-04'
+  etag: '"ZQI1EV3LkcJBEjWyd99NxQ"'
 urls:
   homepage: http://www.netpyne.org/
   installation: https://www.netpyne.org/documentation/installation
@@ -16,7 +22,7 @@ urls:
   issue tracker: https://github.com/suny-downstate-medical-center/netpyne/issues
   documentation: http://doc.netpyne.org/user_documentation.html
 relations:
-  - name: Neuron
-    description: simulates with
-  - name: NeuroML
-    description: imports from
+- name: Neuron
+  description: simulates with
+- name: NeuroML
+  description: imports from

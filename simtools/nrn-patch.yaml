@@ -2,13 +2,16 @@ name: nrn-patch
 features: frontend
 operating_system: Windows, MacOS, Linux
 interface_language: Python
-summary:
-  A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.
+summary: A Pythonic object-oriented drop-in replacement for the Python interface to
+  NEURON.
 release:
   source: pypi
   package_name: nrn-patch
+  version: 4.0.0
+  published: '2024-03-29'
+  etag: '"CvHFGm2E4eaM4q8B+NhKHQ"'
 relations:
-  - name: Neuron
-    description: is Python API for
+- name: Neuron
+  description: is Python API for
 urls:
-    homepage: https://github.com/dbbs-lab/patch
+  homepage: https://github.com/dbbs-lab/patch
