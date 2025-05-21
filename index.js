@@ -7,6 +7,12 @@ var SIMULATORS = [];
 var TOOL_DESCRIPTIONS = {};
 const selected = [];
 
+// process url parameters
+const providedURL = new URL(window.location.href);
+const params = new URLSearchParams(providedURL.search);
+const url_selected_simulator = params.get('selected');
+
+
 // If params  are null, show a default message
 function showDetails(data, connected) {
     // Show details about the simulator
@@ -210,6 +216,7 @@ function resetSearch() {
     updateHighlights();
 }
 
+// INIT
 // Load style and data from JSON files
 Promise.all([
     fetch('assets/cy-style.json')
@@ -242,12 +249,13 @@ Promise.all([
         description["description"] = description["summary"];
         TOOL_DESCRIPTIONS[name] = description;
     }
-
     // Select all simulators initially
     for (const simulator of SIMULATORS)
         selected.push(simulator);
     create_cy_elements(data, style);
     create_filters();
-    showDetails(null, null);
+    // only if no simulator was provided in the url
+    if (url_selected_simulator === null)
+        showDetails(null, null);
     }
 );
