@@ -6,6 +6,12 @@
     "name": "ANNarchy",
     "operating_system": "Linux, MacOS",
     "processing_support": "Single Machine, GPU",
+    "release": {
+      "etag": "\"evu8AMWeCd3JWEqbb3eUIA\"",
+      "published": "2024-12-06",
+      "source": "pypi",
+      "version": "4.8.2.3"
+    },
     "summary": "<p>ANNarchy (Artificial Neural Networks architect) is a neural simulator designed for distributed rate-coded or spiking neural networks. The core of the library is written in C++ and distributed using openMP or CUDA. It provides an interface in Python for the definition of the networks.</p>",
     "urls": {
       "documentation": "https://annarchy.readthedocs.io",
@@ -24,6 +30,13 @@
     "name": "Arbor",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster, Supercomputer, GPU",
+    "release": {
+      "etag": "\"Gy8i5xuXY61JUdTBWpJcNg\"",
+      "package_name": "arbor",
+      "published": "2024-08-09",
+      "source": "pypi",
+      "version": "0.10.0"
+    },
     "summary": "<p>Arbor is a high-performance library for computational neuroscience simulations with multi-compartment, morphologically-detailed cells, from single cell models to very large networks.\nArbor is written from the ground up with many-cpu and gpu architectures in mind, to help neuroscientists effectively use contemporary and future HPC systems to meet their simulation needs.</p>\n<p>Arbor supports NVIDIA and AMD GPUs as well as explicit vectorization on CPUs from Intel (AVX, AVX2 and AVX512) and ARM (Neon and SVE).\nWhen coupled with low memory overheads, this makes Arbor an order of magnitude faster than the most widely-used comparable simulation software.</p>\n<p>Arbor is open source and openly developed, and we use development practices such as unit testing, continuous integration, and validation.</p>",
     "urls": {
       "chat": "https://gitter.im/arbor-sim/community",
@@ -90,6 +103,10 @@
         "name": "SONATA"
       }
     ],
+    "release": {
+      "package_name": "bmtk",
+      "source": "pypi"
+    },
     "summary": "<p>The Brain Modeling Toolkit (BMTK) is a python-based software package for building, simulating and analyzing large-scale neural network models.\nIt supports the building and simulation of models of varying levels-of-resolution; from multi-compartment biophysically detailed networks, to point-neuron models, to filter-based models, and even population-level firing rate models.</p>\n<p>The BMTK is not itself a simulator and will utilize existing simulators, like NEURON and NEST, to run different types of models.\nWhat BMTK does provide:</p>\n<ul>\n<li>A unified interface across different simulators, so that modelers can work with and study their own network models across different simulators without having to learn how to use each tool.</li>\n<li>An easy way to setup and initialize network simulations with little-to-no programming necessary</li>\n<li>Automatic integration of parallelization when running on HPC.</li>\n<li>Extra built-in features which the native simulators may not support out-of-the-box.</li>\n</ul>\n<p>The BMTK was developed and is supported at the Allen Institute for Brain Science and released under a BSD 3-clause license.\nWe encourage others to use the BMTK for their own research, and suggestions and contributions to the BMTK are welcome.</p>",
     "urls": {
       "homepage": "https://alleninstitute.github.io/bmtk/"
@@ -106,6 +123,10 @@
         "name": "NeuroML"
       }
     ],
+    "release": {
+      "package_name": "bluepyopt",
+      "source": "pypi"
+    },
     "summary": "<p>The Blue Brain Python Optimisation Library (BluePyOpt) is an extensible framework for data-driven model parameter optimisation that wraps and standardises several existing open-source tools.</p>\n<p>It simplifies the task of creating and sharing these optimisations, and the associated techniques and knowledge.\nThis is achieved by abstracting the optimisation and evaluation tasks into various reusable and flexible discrete elements according to established best-practices.</p>\n<p>Further, BluePyOpt provides methods for setting up both small- and large-scale optimisations on a variety of platforms, ranging from laptops to Linux clusters and cloud-based compute infrastructures.</p>",
     "urls": {
       "homepage": "https://bluepyopt.readthedocs.io"
@@ -130,6 +151,10 @@
         "name": "Arbor"
       }
     ],
+    "release": {
+      "package_name": "bsb",
+      "source": "pypi"
+    },
     "summary": "<p>The Brain Scaffold Builder (BSB) is a black box component framework for multiparadigm neural modelling: we provide structure, architecture and organization, and you provide the use-case specific parts of your model.\nIn our framework, your model is described in a code-free configuration of components with parameters.</p>\n<p>For the framework to reliably use components, and make them work together in a complex workflow, it asks a fixed set of questions per component type: e.g. a connection component will be asked how to connect cells.\nThese contracts of cooperation between you and the framework are called interfaces. The framework executes a transparently parallelized workflow, and calls your components to fulfill their role.</p>\n<p>This way, by implementing our component interfaces and declaring them in a configuration file, most models end up being code-free, well-parametrized, self-contained, human-readable, multi-scale models!</p>",
     "urls": {
       "homepage": "https://bsb.readthedocs.io"
@@ -154,7 +179,14 @@
     "name": "Brian",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster",
-    "summary": "<p>Brian is a free, open source simulator for spiking neural networks. It is written in the Python programming language\nand is available on almost all platforms. We believe that a simulator should not only save the time of processors,\nbut also the time of scientists. Brian is therefore designed to be easy to learn and use, highly flexible and easily\nextensible.</p>",
+    "release": {
+      "etag": "\"wRZwN1gOUcFXuJj1iC3mww\"",
+      "package_name": "Brian2",
+      "published": "2025-01-24",
+      "source": "pypi",
+      "version": "2.8.0.4"
+    },
+    "summary": "<p>Brian is a free, open source simulator for spiking neural networks. It is written in the Python programming language and is available on almost all platforms. We believe that a simulator should not only save the time of processors, but also the time of scientists. Brian is therefore designed to be easy to learn and use, highly flexible and easily extensible. </p>",
     "urls": {
       "chat": "https://gitter.im/brian-team/brian2",
       "documentation": "https://brian2.readthedocs.io/",
@@ -180,6 +212,10 @@
         "name": "Brian"
       }
     ],
+    "release": {
+      "package_name": "Brian2Cuda",
+      "source": "pypi"
+    },
     "summary": "<p>Brian2CUDA is a Python package for simulating spiking neural networks on graphics processing units (GPUs).\nIt is an extension of the spiking neural network simulator Brian2, which allows flexible model definitions in\nPython. Brian2CUDA uses the code generation system from Brian2 to generate simulation code in C++/CUDA, which is\nthen executed on NVIDIA GPUs.</p>",
     "urls": {
       "documentation": "https://brian2cuda.readthedocs.io",
@@ -204,6 +240,12 @@
         "name": "GeNN"
       }
     ],
+    "release": {
+      "etag": "\"w+LfWwRFgsg3qxWBiZtL0g\"",
+      "published": "2023-07-28",
+      "source": "pypi",
+      "version": "1.7.0"
+    },
     "summary": "<p>Brian2GeNN connects Brian 2 to the GeNN simulator, so that users can make use of GeNN GPU acceleration when\ndeveloping their models in Brian, without requiring any technical knowledge about GPUs, C++ or GeNN.</p>",
     "urls": {
       "documentation": "https://brian2genn.readthedocs.io",
@@ -232,6 +274,13 @@
     "name": "EDEN",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster",
+    "release": {
+      "etag": "\"tduph2t6s3J13/y154WNYg\"",
+      "package_name": "eden-simulator",
+      "published": "2023-11-28",
+      "source": "pypi",
+      "version": "0.2.3"
+    },
     "summary": "<p>Extensible Dynamics Engine for Networks (EDEN) is a high-performance NeuroML-based neural simulator.</p>",
     "urls": {
       "download": "https://pypi.org/project/eden-simulator/",
@@ -291,6 +340,12 @@
         "name": "Neuron"
       }
     ],
+    "release": {
+      "etag": "\"9AKr15ykUmxN1JenPbsPEg\"",
+      "published": "2025-01-22",
+      "source": "pypi",
+      "version": "2.3.5"
+    },
     "summary": "<p>LFPy is a Python module for calculation of extracellular potentials from multicompartment neuron models.\nIt relies on the NEURON simulator and uses the Python interface it provides.</p>",
     "urls": {
       "documentation": "https://lfpy.readthedocs.io/en/latest/",
@@ -312,6 +367,10 @@
         "name": "NeuroML"
       }
     ],
+    "release": {
+      "package_name": "pymoose",
+      "source": "pypi"
+    },
     "summary": "<p>MOOSE is the Multiscale Object-Oriented Simulation Environment.\nIt is designed to simulate neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, circuits, and large networks.\nMOOSE can operate at many levels of detail, from stochastic chemical computations, to multicompartment single-neuron models, to spiking neuron network models.</p>\n<p>MOOSE is a simulation environment, not just a numerical engine.\nIt provides the essentials by way of object-oriented representations of model concepts and fast numerical solvers, but its scope is much broader.\nIt has a scripting interface with Python, graphical displays with Matplotlib, PyQt, and OpenGL, and support for many model formats.</p>",
     "urls": {
       "documentation": "https://moose.ncbs.res.in/readthedocs/index.html",
@@ -372,6 +431,10 @@
         "name": "NEST"
       }
     ],
+    "release": {
+      "package_name": "nest-desktop",
+      "source": "pypi"
+    },
     "summary": "<p>NEST Desktop is a web-based GUI application for NEST Simulator, an advanced simulation tool for computational neuroscience.\nNEST Desktop enables to construct a neuronal network model graphically and to perform a simulation experiment.\nThus, no programming skills are required.</p>",
     "urls": {
       "documentation": "https://nest-desktop.readthedocs.io",
@@ -413,6 +476,10 @@
         "name": "NEST"
       }
     ],
+    "release": {
+      "package_name": "nestml",
+      "source": "pypi"
+    },
     "summary": "<p>NESTML is a domain-specific language for neuron and synapse models. These dynamical models can be used in simulations of brain activity on several platforms, in particular the NEST Simulator. NESTML combines an easy to understand, yet powerful syntax; a flexible processing toolchain, written in Python; and good simulation performance by means of code generation (C++ for NEST Simulator).</p>",
     "urls": {
       "documentation": "https://nestml.readthedocs.io/",
@@ -441,6 +508,10 @@
         "name": "NeuroML"
       }
     ],
+    "release": {
+      "package_name": "netpyne",
+      "source": "pypi"
+    },
     "summary": "<p>NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.</p>",
     "urls": {
       "documentation": "http://doc.netpyne.org/user_documentation.html",
@@ -530,6 +601,10 @@
         "name": "LFPy"
       }
     ],
+    "release": {
+      "package_name": "neuron",
+      "source": "pypi"
+    },
     "summary": "<p>NEURON is a simulator for neurons and networks of neurons that runs efficiently on your local machine, in the cloud, or on an HPC.\nBuild and simulate models using Python, HOC, and/or NEURON's graphical interface.</p>",
     "urls": {
       "documentation": "http://nrn.readthedocs.io/",
@@ -577,6 +652,10 @@
         "name": "NeuroML"
       }
     ],
+    "release": {
+      "package_name": "PyNN",
+      "source": "pypi"
+    },
     "summary": "<p>PyNN (pronounced 'pine') is a simulator-independent language for building neuronal network models.</p>\n<p>In other words, you can write the code for a model once, using the PyNN API and the Python programming language, and then run it without modification on any simulator that PyNN supports (currently NEURON, NEST and Brian 2) and on a number of neuromorphic hardware systems.</p>\n<p>The PyNN API aims to support modelling at a high-level of abstraction (populations of neurons, layers, columns and the connections between them) while still allowing access to the details of individual neurons and synapses when required.\nPyNN provides a library of standard neuron, synapse and synaptic plasticity models, which have been verified to work the same on the different supported simulators.\nPyNN also provides a set of commonly-used connectivity algorithms (e.g. all-to-all, random, distance-dependent, small-world) but makes it easy to provide your own connectivity in a simulator-independent way.</p>\n<p>Even if you don't wish to run simulations on multiple simulators, you may benefit from writing your simulation code using PyNN's powerful, high-level interface.\nIn this case, you can use any neuron or synapse model supported by your simulator, and are not restricted to the standard models.</p>",
     "urls": {
       "documentation": "http://neuralensemble.org/docs/PyNN/",
@@ -620,6 +699,10 @@
         "name": "Brian"
       }
     ],
+    "release": {
+      "package_name": "pyneuroml",
+      "source": "pypi"
+    },
     "summary": "<p>A single package in Python unifying scripts and modules for reading, writing, simulating and analysing NeuroML2/LEMS models.</p>",
     "urls": {
       "documentation": "https://docs.neuroml.org",
@@ -694,6 +777,10 @@
     "name": "TheVirtualBrain (TVB)",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster, Supercomputer",
+    "release": {
+      "package_name": "tvb-library",
+      "source": "pypi"
+    },
     "summary": "<p>Simulating the human brain is the holy grail of neuroscience - offering a pioneering tool for understanding how our brain works and how to deal with its disorders like stroke, epilepsy or neurodegenerative diseases like Alzheimer's or Parkinson's.</p>\n<p>While large-scale research initiatives simulate neurons and small brain regions at the cellular level on massively parallel hardware, they are still years away from clinical applications.</p>\n<p>The Virtual Brain (TVB) takes a different approach and reduces complexity on the micro level to attain the macro organization. A TVB model of a patient's brain generates sufficiently accurate EEG, MEG, BOLD and SEEG signals by reducing the complexity millionfold through methods from statistical physics.\nThe key is TVB\u2019s hybrid approach of merging individual anatomy from brain imaging data with state-of-the-art mathematical modeling.</p>",
     "urls": {
       "documentation": "http://docs.thevirtualbrain.org/",
@@ -758,6 +845,10 @@
         "name": "Neuron"
       }
     ],
+    "release": {
+      "package_name": "nrn-patch",
+      "source": "pypi"
+    },
     "summary": "<p>A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.</p>",
     "urls": {
       "homepage": "https://github.com/dbbs-lab/patch"

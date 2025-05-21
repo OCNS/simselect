@@ -4,6 +4,9 @@ operating_system: Windows, MacOS, Linux
 interface_language: Python
 summary:
   A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.
+release:
+  source: pypi
+  package_name: nrn-patch
 relations:
   - name: Neuron
     description: is Python API for

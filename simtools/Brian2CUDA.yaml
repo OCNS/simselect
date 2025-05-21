@@ -8,6 +8,9 @@ summary: |
   It is an extension of the spiking neural network simulator Brian2, which allows flexible model definitions in
   Python. Brian2CUDA uses the code generation system from Brian2 to generate simulation code in C++/CUDA, which is
   then executed on NVIDIA GPUs.
+release:
+  source: pypi
+  package_name: Brian2Cuda
 relations:
   - name: Brian
     description: simulates

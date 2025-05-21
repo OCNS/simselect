@@ -8,6 +8,9 @@ model_description_language: NMODL, HOC
 summary: |
   NEURON is a simulator for neurons and networks of neurons that runs efficiently on your local machine, in the cloud, or on an HPC.
   Build and simulate models using Python, HOC, and/or NEURON's graphical interface.
+release:
+  source: pypi
+  package_name: neuron
 urls:
   homepage: https://neuron.yale.edu/neuron/
   installation: https://nrn.readthedocs.io/en/latest/install/install.html
