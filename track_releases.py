@@ -33,9 +33,9 @@ for yaml_file in yaml_files:
             if entry_version > current_version:
                 print(f"  New version found: {entry_version}")
                 release_info["version"] = str(entry_version)
-                release_info[
-                    "published"
-                ] = f"{entry.published_parsed.tm_year}-{entry.published_parsed.tm_mon:02d}-{entry.published_parsed.tm_mday:02d}"
+                release_info["published"] = (
+                    f"{entry.published_parsed.tm_year}-{entry.published_parsed.tm_mon:02d}-{entry.published_parsed.tm_mday:02d}"
+                )
                 release_info["etag"] = pypi_feed.etag
                 with open(yaml_file, "w") as file:
                     yaml.safe_dump(data, file, sort_keys=False)
