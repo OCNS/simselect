@@ -15,9 +15,9 @@ summary: 'NEURON is a simulator for neurons and networks of neurons that runs ef
 release:
   source: pypi
   package_name: neuron
-  version: 8.2.6
-  published: '2024-07-25'
-  etag: '"4XvoXFUs7wweEq8yzrb98A"'
+  version: 8.2.7
+  published: '2025-05-22'
+  etag: '"W2099VeBwspmaGu4lr7cGQ"'
 urls:
   homepage: https://neuron.yale.edu/neuron/
   installation: https://nrn.readthedocs.io/en/latest/install/install.html
