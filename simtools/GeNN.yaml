@@ -1,14 +1,20 @@
 name: GeNN
 features: frontend, simulator
 operating_system: Linux, MacOS, Windows
-biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model
+biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment
+  (Complex) Model
 processing_support: Single Machine, GPU
 interface_language: Python, C++
-summary: |
-  GeNN is a GPU enhanced Neuronal Network simulation environment based on NVIDIA CUDA technology.
+summary: 'GeNN is a GPU enhanced Neuronal Network simulation environment based on
+  NVIDIA CUDA technology.
+
+  '
 release:
   source: github
   repository: genn-team/genn
+  version: 5.2.0
+  published: '2025-04-25'
+  etag: W/"c737148de6f24135e1f345a538ee3a93314bb3722ccbdb76366c8627dfc4c530"
 urls:
   homepage: https://genn-team.github.io
   documentation: https://genn-team.github.io/genn/documentation/4/html/index.html
