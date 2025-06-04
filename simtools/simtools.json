@@ -63,6 +63,10 @@
         "name": "Arbor"
       }
     ],
+    "release": {
+      "repository": "arbor-sim/gui",
+      "source": "github"
+    },
     "summary": "<p>Arbor GUI is a comprehensive tool for building single cell models using Arbor.\nIt strives to be self-contained, fast, and easy to use.</p>\n<ul>\n<li>Design morphologically detailled cells for simulation in Arbor.</li>\n<li>Load morphologies from SWC .swc, NeuroML .nml, NeuroLucida .asc.</li>\n<li>Define and highlight Arbor regions and locsets.</li>\n<li>Paint ion dynamics and bio-physical properties onto morphologies.</li>\n<li>Place spike detectors and probes.</li>\n<li>Export cable cells to Arbor\u2019s internal format (ACC) for direct simulation.</li>\n<li>Import cable cells in ACC format</li>\n</ul>",
     "urls": {
       "chat": "https://gitter.im/arbor-sim/gui",
@@ -318,6 +322,10 @@
     "name": "GeNN",
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, GPU",
+    "release": {
+      "repository": "genn-team/genn",
+      "source": "github"
+    },
     "summary": "<p>GeNN is a GPU enhanced Neuronal Network simulation environment based on NVIDIA CUDA technology.</p>",
     "urls": {
       "documentation": "https://genn-team.github.io/genn/documentation/4/html/index.html",
@@ -401,6 +409,10 @@
         "name": "NEST"
       }
     ],
+    "release": {
+      "repository": "INCF/MUSIC",
+      "source": "github"
+    },
     "summary": "<p>MUSIC is an API allowing large scale neuron simulators using MPI internally to exchange data during runtime.\nMUSIC provides mechanisms to transfer massive amounts of event information and continuous values from one parallel application to another.\nSpecial care has been taken to ensure that existing simulators can be adapted to MUSIC.\nIn particular, MUSIC handles data transfer between applications that use different time steps and different data allocation strategies.</p>",
     "urls": {
       "homepage": "https://github.com/INCF/MUSIC",
@@ -420,6 +432,10 @@
         "name": "SONATA"
       }
     ],
+    "release": {
+      "repository": "nest/nest-simulator",
+      "source": "github"
+    },
     "summary": "<p>NEST is a simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.</p>",
     "urls": {
       "documentation": "https://nest-simulator.org/documentation",
