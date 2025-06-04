@@ -13,6 +13,9 @@ summary: |
    - Place spike detectors and probes.
    - Export cable cells to Arbor’s internal format (ACC) for direct simulation.
    - Import cable cells in ACC format
+release:
+  source: github
+  repository: arbor-sim/gui
 urls:
   homepage: https://github.com/arbor-sim/gui
   tutorial: https://docs.arbor-sim.org/en/latest/tutorial/single_cell_gui.html
