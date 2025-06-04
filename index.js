@@ -220,42 +220,47 @@ function resetSearch() {
 // Load style and data from JSON files
 Promise.all([
     fetch('assets/cy-style.json')
-      .then(function(res) {
-        return res.json();
-      }),
+        .then(function (res) {
+            return res.json();
+        }),
     fetch('simtools/simtools.json')
-      .then(function(res) {
-        return res.json();
-      })
-  ])
-  .then(function(dataArray) {
-    const style = dataArray[0];
-    const data = dataArray[1];
-    // Fill the list of simulators with all items that have "simulator" in their features
-    for (const [name, description] of Object.entries(data)) {
-        if (description["features"].includes("simulator")) {
-            SIMULATORS.push(name);
+        .then(function (res) {
+            return res.json();
+        }),
+])
+    .then(function (dataArray) {
+        const style = dataArray[0];
+        const data = dataArray[1];
+        // Fill the list of simulators with all items that have "simulator" in their features
+        for (const [name, description] of Object.entries(data)) {
+            if (description["features"].includes("simulator")) {
+                SIMULATORS.push(name);
+            }
+            description["computing_scale"] = description["processing_support"];
+            delete description["processing_support"];
+            for (const name of ["biological_level", "computing_scale"]) {
+                if (description[name] === undefined)
+                    description[name] = [];
+                else
+                    description[name] = description[name].split(",").map(x => x.trim());
+            }
+            description["full_name"] = description["name"];
+            description["short_name"] = name;
+            description["description"] = description["summary"];
+            TOOL_DESCRIPTIONS[name] = description;
         }
-        description["computing_scale"] = description["processing_support"];
-        delete description["processing_support"];
-        for (const name of ["biological_level", "computing_scale"]) {
-            if (description[name] === undefined)
-                description[name] = [];
-            else
-                description[name] = description[name].split(",").map(x => x.trim());
+        // Select all simulators initially
+        for (const simulator of SIMULATORS)
+            selected.push(simulator);
+        // Load buttons
+        promises = load_button_icons();
+        promises.then(() => {
+            create_cy_elements(data, style);
+            create_filters();
+            // only if no simulator was provided in the url
+            if (url_selected_simulator === null)
+                showDetails(null, null);
         }
-        description["full_name"] = description["name"];
-        description["short_name"] = name;
-        description["description"] = description["summary"];
-        TOOL_DESCRIPTIONS[name] = description;
+        );
     }
-    // Select all simulators initially
-    for (const simulator of SIMULATORS)
-        selected.push(simulator);
-    create_cy_elements(data, style);
-    create_filters();
-    // only if no simulator was provided in the url
-    if (url_selected_simulator === null)
-        showDetails(null, null);
-    }
-);
+    );

@@ -374,8 +374,9 @@ function newEdge(name, relation) {
 
 function load_button_icons() {
     // Load SVG content for inline inclusion
+    promises = []
     for (const [type, fname] of Object.entries(BUTTON_ICON_FNAMES)) {
-        fetch(`assets/${fname}`)
+        promises.push(fetch(`assets/${fname}`)
             .then(response => response.text())
             .then(svg => {
                 BUTTON_ICONS[type] = svg;
@@ -383,13 +384,12 @@ function load_button_icons() {
             .catch(err => {
                 console.error(`Failed to load icon for ${type} (${fname}):`, err);
                 BUTTON_ICONS[type] = "";
-            });
+            }));
     }
+    return Promise.all(promises);
 }
 
 function create_cy_elements(data, style) {
-    // Not quite the right place, but convenient to do htis here
-    load_button_icons();
     // Create a "meta-node" for all simulators
     elements.push(newNode("simulators", {full_name: "Simulators", features: "meta"}));
     for (const [name, description] of Object.entries(data)) {
