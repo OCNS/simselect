@@ -6,6 +6,9 @@ processing_support: Single Machine, GPU
 interface_language: Python, C++
 summary: |
   GeNN is a GPU enhanced Neuronal Network simulation environment based on NVIDIA CUDA technology.
+release:
+  source: github
+  repository: genn-team/genn
 urls:
   homepage: https://genn-team.github.io
   documentation: https://genn-team.github.io/genn/documentation/4/html/index.html
