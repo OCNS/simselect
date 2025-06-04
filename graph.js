@@ -36,18 +36,55 @@ function selectionChanged() {
 }
 
 function layoutNodes() {
-    cy_layout = cy.layout({
-        name: "fcose",
-        animate: "end",
-        padding: 50,
-        nodeDimensionsIncludeLabels: true,
-        centerGraph: false,
-        numIter: 10000,
-        fit: true,
-        stop: store_positions,
-        nodeRepulsion: node => 15000,
-        quality: "proof",
-    });
+    var cy_layout = null;
+    if (url_selected_simulator === null){
+        console.log("No simulator in URL, normal layout");
+        cy_layout = cy.layout({
+            name: "fcose",
+            animate: "end",
+            padding: 50,
+            nodeDimensionsIncludeLabels: true,
+            centerGraph: false,
+            numIter: 10000,
+            fit: true,
+            stop: store_positions,
+            nodeRepulsion: node => 15000,
+            quality: "proof",
+        });
+    }
+    else
+    {
+        console.log("Simulator in URL, modified layout.");
+        cy_layout = cy.layout({
+            name: "fcose",
+            animate: false,
+            padding: 50,
+            nodeDimensionsIncludeLabels: true,
+            centerGraph: false,
+            numIter: 10000,
+            fit: true,
+            stop: function (event) {
+                store_positions(event);
+
+                var url_highlighted_node = cy.nodes("[id='" + url_selected_simulator + "']");
+                if (url_highlighted_node.empty()) {
+                    console.log("Provided parameter not in simulator list. No op");
+                    var simulator_node = cy.nodes("[id='simulators']")
+                    showNodeDetails(simulator_node);
+                }
+                else
+                {
+                    var node = url_highlighted_node[0];
+                    showNodeDetails(node);
+                    highlightNode(node);
+
+                }
+            },
+            nodeRepulsion: node => 15000,
+            quality: "proof",
+        });
+    }
+
     cy_layout.run();
 }
 
@@ -337,8 +374,9 @@ function newEdge(name, relation) {
 
 function load_button_icons() {
     // Load SVG content for inline inclusion
+    promises = []
     for (const [type, fname] of Object.entries(BUTTON_ICON_FNAMES)) {
-        fetch(`assets/${fname}`)
+        promises.push(fetch(`assets/${fname}`)
             .then(response => response.text())
             .then(svg => {
                 BUTTON_ICONS[type] = svg;
@@ -346,13 +384,12 @@ function load_button_icons() {
             .catch(err => {
                 console.error(`Failed to load icon for ${type} (${fname}):`, err);
                 BUTTON_ICONS[type] = "";
-            });
+            }));
     }
+    return Promise.all(promises);
 }
 
 function create_cy_elements(data, style) {
-    // Not quite the right place, but convenient to do htis here
-    load_button_icons();
     // Create a "meta-node" for all simulators
     elements.push(newNode("simulators", {full_name: "Simulators", features: "meta"}));
     for (const [name, description] of Object.entries(data)) {
