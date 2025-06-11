@@ -1,6 +1,6 @@
 // vim set sw=4:
 const REPO_URL = "https://github.com/ocns/simselect";
-const GIT_BRANCH = "graph";
+const GIT_BRANCH = "main";
 const DATA_FOLDER = "simtools";
 
 var SIMULATORS = [];
