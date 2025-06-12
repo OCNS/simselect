@@ -29,9 +29,9 @@ urls:
 release:
   source: pypi
   package_name: bsb
-  version: 4.4.2
-  published: '2025-01-14'
-  etag: '"YTbsAblZVY63cySvatUx2Q"'
+  version: 6.0.0
+  published: '2025-06-11'
+  etag: '"Aijm/NHhmIVnBaTEKLz/QQ"'
 relations:
 - name: Neuron
   description: simulates with
