@@ -1,3 +1,10 @@
 .offcanvas-size-xl {
     --bs-offcanvas-width: min(95vw, 600px) !important;
 }
+
+@media (min-width: 991.98px) {
+    #details {
+        height: 90vh;
+        overflow: scroll;
+    }
+}
