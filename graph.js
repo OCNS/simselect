@@ -110,15 +110,17 @@ const BUTTON_ROWS = [
 ];
 
 function urlButton(type, url, btnClass) {
-    const button = document.createElement("button");
-    button.type = "button"
+    const button = document.createElement("a");
     button.classList.add('btn', 'm-1');
     let icon = BUTTON_ICONS[type];
     button.innerHTML = icon + " " + type;
     if (url !== undefined)  {
         button.classList.add(btnClass);
-        button.onclick = function() {
-            window.open(url, "_blank");
+        if (type == "email") {
+            button.href = "mailto:" + url;
+        } else {
+            button.href = url;
+            button.target = "_blank";
         }
     } else {
         button.classList.add('btn-outline-secondary');
