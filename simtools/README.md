@@ -59,7 +59,7 @@ The `release` section describes the last release. There are currently three poss
 
 For pypi and GitHub releases, versions and publication date will be updated automatically every night
 (or by manually triggering the "Update Releases" action).
-   
+
 Relations are a relationships between tools. The mentioned `name` needs to
 match the `name` of another simulator in the directory. The `description` of
 the relationship is currently a free-form string.
