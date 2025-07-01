@@ -12,9 +12,9 @@ summary: 'NESTML is a domain-specific language for neuron and synapse models. Th
 release:
   source: pypi
   package_name: nestml
-  version: 8.0.1
-  published: '2025-04-27'
-  etag: '"+ZwuERbjSA8K9PwRg9fNJA"'
+  version: 8.0.2
+  published: '2025-06-30'
+  etag: '"aCdH6mr34i9QWp39n5ZtSw"'
 urls:
   homepage: https://nestml.readthedocs.org/
   source: https://github.com/nest/nestml/
