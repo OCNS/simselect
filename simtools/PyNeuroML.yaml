@@ -16,9 +16,9 @@ urls:
 release:
   source: pypi
   package_name: pyneuroml
-  version: 1.3.18
-  published: '2025-06-11'
-  etag: '"pe9v3Vl81eYSgWpcyH5l8A"'
+  version: 1.3.19
+  published: '2025-07-02'
+  etag: '"njOfZm8DsnsNNtPNRUqaXQ"'
 relations:
 - name: NeuroML
   description: is Python package for
