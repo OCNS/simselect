@@ -755,11 +755,11 @@
       }
     ],
     "release": {
-      "etag": "\"pe9v3Vl81eYSgWpcyH5l8A\"",
+      "etag": "\"njOfZm8DsnsNNtPNRUqaXQ\"",
       "package_name": "pyneuroml",
-      "published": "2025-06-11",
+      "published": "2025-07-02",
       "source": "pypi",
-      "version": "1.3.18"
+      "version": "1.3.19"
     },
     "summary": "<p>A single package in Python unifying scripts and modules for reading, writing, simulating and analysing NeuroML2/LEMS models.</p>",
     "urls": {
