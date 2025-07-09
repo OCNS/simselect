@@ -1,0 +1,24 @@
+name: Jaxley
+features: frontend, simulator
+operating_system: Linux, MacOS, Windows
+processing_support: Single Machine, GPU, TPU
+biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment
+  (Complex) Model, Multi-Compartment Model
+interface_language: Python
+summary: |
+  Jaxley is a differentiable simulator for biophysical neuron models, written in the Python library JAX. Its key features are:
+
+  - automatic differentiation, allowing gradient-based optimization of thousands of parameters
+  - support for CPU, GPU, or TPU without any changes to the code
+  - jit-compilation, making it as fast as other packages while being fully written in Python
+  - support for multicompartment neurons
+  - elegant mechanisms for parameter sharing
+release:
+  source: pypi
+  package_name: jaxley
+urls:
+  source: https://github.com/jaxleyverse/jaxley
+  documentation: https://jaxley.readthedocs.io
+  tutorial: https://jaxley.readthedocs.io/en/latest/tutorials.html
+  installation: https://jaxley.readthedocs.io/en/latest/installation.html
+  issue tracker: https://github.com/jaxleyverse/jaxley/issues
