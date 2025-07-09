@@ -1,0 +1,12 @@
+name: NengoMPI
+features: library
+operating_system: Linux
+processing_support: Single Machine, Cluster
+interface_language: Python
+summary: 'nengo_mpi is a C++/MPI backend for nengo, a python library for building and simulating biologically realistic neural networks. nengo_mpi makes it possible to run nengo simulations in parallel on thousands of processors, and existing nengo scripts can be adapted to make use of nengo_mpi with minimal effort.'
+urls:
+  source: https://github.com/nengo/nengo-gui
+  documentation: https://nengo-mpi.readthedocs.org/
+relations:
+  - name: Nengo
+    description: simulates

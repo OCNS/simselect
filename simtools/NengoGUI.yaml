@@ -1,0 +1,13 @@
+name: NengoGUI
+features: frontend
+operating_system: Linux, MacOS, Windows
+interface_language: GUI
+summary: 'Nengo GUI is an HTML5-based interactive visualizer for large-scale neural models created with Nengo. The GUI lets you see the structure of a Nengo model, plots spiking activity and decoded representations, and enables you to alter inputs in real time while the model is running.'
+release:
+  source: pypi
+  package_name: nengo-gui
+urls:
+  source: https://github.com/nengo/nengo-gui
+relations:
+  - name: Nengo
+    description: is GUI for

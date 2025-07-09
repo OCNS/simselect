@@ -1,0 +1,18 @@
+name: BrainPy
+features: frontend, simulator
+operating_system: Linux, MacOS, Windows
+biological_level: Population Model, Single-Compartment (Simple) Model, Single-Compartment
+  (Complex) Model
+processing_support: Single Machine, GPU
+interface_language: Python
+summary: 'BrainPy is a flexible, efficient, and extensible framework for computational neuroscience and brain-inspired computation based on the Just-In-Time (JIT) compilation (built on top of JAX, Taichi, Numba, and others). It provides an integrative ecosystem for brain dynamics programming, including brain dynamics building, simulation, training, analysis, etc.'
+release:
+  source: pypi
+  package_name: brainpy
+urls:
+  source: https://github.com/brainpy/BrainPy
+  installation: https://brainpy.readthedocs.io/en/latest/quickstart/installation.html
+  documentation: https://brainpy.readthedocs.io
+  tutorial: https://brainpy.readthedocs.io/en/latest/core_concepts.html
+  examples: https://github.com/brainpy/examples
+  issue tracker: https://github.com/brainpy/BrainPy/issues
