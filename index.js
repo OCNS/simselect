@@ -69,7 +69,7 @@ function showDetails(data, connected) {
     description.innerHTML += "<p>" + data["description"] + "</p>";
     // Relations
     if (connected !== null) {
-        if (connected.length > 0) {
+        if (connected.length > 1 || (connected.length == 1 && connected[0]["source"] != "simulators")) {
             description.innerHTML += "<h3>Relations</h3>";
             const list = document.createElement("ul");
             for (let edge of connected) {
