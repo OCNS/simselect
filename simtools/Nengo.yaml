@@ -4,10 +4,18 @@ operating_system: Linux, MacOS, Windows
 biological_level: Population Model, Single-Compartment (Simple) Model
 processing_support: Single Machine
 interface_language: Python
-summary: 'Nengo is a Python library for building and simulating large-scale neural models. Nengo can create sophisticated spiking and non-spiking neural simulations with sensible defaults in a few lines of code. Yet, Nengo is highly extensible and flexible. You can define your own neuron types and learning rules, get input directly from hardware, build and run deep neural networks, drive robots, and even simulate your model on a completely different neural simulator or neuromorphic hardware.'
+summary: Nengo is a Python library for building and simulating large-scale neural
+  models. Nengo can create sophisticated spiking and non-spiking neural simulations
+  with sensible defaults in a few lines of code. Yet, Nengo is highly extensible and
+  flexible. You can define your own neuron types and learning rules, get input directly
+  from hardware, build and run deep neural networks, drive robots, and even simulate
+  your model on a completely different neural simulator or neuromorphic hardware.
 release:
   source: pypi
   package_name: nengo
+  version: 4.1.0
+  published: '2025-05-29'
+  etag: '"cO7x9A8FiyW6hi6kclseAg"'
 urls:
   homepage: https://www.nengo.ai
   source: https://github.com/nengo/nengo

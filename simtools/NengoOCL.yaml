@@ -3,13 +3,18 @@ features: library
 operating_system: Linux, MacOS, Windows
 processing_support: GPU
 interface_language: Python
-summary: 'NengoOCL is an OpenCL-based simulator for brain models built using Nengo. It can be orders of magnitude faster than the reference simulator in nengo for large models.'
+summary: NengoOCL is an OpenCL-based simulator for brain models built using Nengo.
+  It can be orders of magnitude faster than the reference simulator in nengo for large
+  models.
 release:
   source: pypi
   package_name: nengo-ocl
+  version: 3.0.0
+  published: '2023-11-16'
+  etag: '"vu6cJruHJPXg3WsHvnHv4g"'
 urls:
   source: https://github.com/nengo/nengo-ocl
   documentation: https://www.nengo.ai/nengo-ocl
 relations:
-  - name: Nengo
-    description: simulates
+- name: Nengo
+  description: simulates
