@@ -185,7 +185,7 @@ function showDetails(data, connected) {
         // View footer
         view_link = document.createElement("a");
         view_link.href = `${REPO_URL}/blob/${GIT_BRANCH}/${DATA_FOLDER}/${data["short_name"].replaceAll(" ", "-")}.yaml`;
-        view_link.innerHTML = "view history";
+        view_link.innerHTML = "view file";
         view_link.target = "_blank";
         edit_p.appendChild(view_link);
 
