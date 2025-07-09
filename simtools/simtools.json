@@ -196,8 +196,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, GPU",
     "release": {
+      "etag": "\"z1FiQsByaNdK8F11O+0VqQ\"",
       "package_name": "brainpy",
-      "source": "pypi"
+      "published": "2025-05-31",
+      "source": "pypi",
+      "version": "2.6.1"
     },
     "summary": "<p>BrainPy is a flexible, efficient, and extensible framework for computational neuroscience and brain-inspired computation based on the Just-In-Time (JIT) compilation (built on top of JAX, Taichi, Numba, and others). It provides an integrative ecosystem for brain dynamics programming, including brain dynamics building, simulation, training, analysis, etc.</p>",
     "urls": {
@@ -300,8 +303,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, GPU",
     "release": {
+      "etag": "W/\"c8901ad3a07b4f6380a3b9e820c83c324213fba846f4dbc277fe5c655b7858e5\"",
+      "published": "2023-07-13",
       "repository": "UCI-CARL/CARLsim6",
-      "source": "github"
+      "source": "github",
+      "version": "6.1"
     },
     "summary": "<p>CARLsim is an efficient, easy-to-use, GPU-accelerated library for simulating large-scale spiking neural network (SNN) models with a high degree of biological detail. CARLsim allows execution of networks of Izhikevich spiking neurons with realistic synaptic dynamics on both generic x86 CPUs and standard off-the-shelf GPUs. The simulator provides a PyNN-like programming interface (C/C++), which allows for details and parameters to be specified at the synapse, neuron, and network level.</p>",
     "urls": {
@@ -588,8 +594,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine",
     "release": {
+      "etag": "\"cO7x9A8FiyW6hi6kclseAg\"",
       "package_name": "nengo",
-      "source": "pypi"
+      "published": "2025-05-29",
+      "source": "pypi",
+      "version": "4.1.0"
     },
     "summary": "<p>Nengo is a Python library for building and simulating large-scale neural models. Nengo can create sophisticated spiking and non-spiking neural simulations with sensible defaults in a few lines of code. Yet, Nengo is highly extensible and flexible. You can define your own neuron types and learning rules, get input directly from hardware, build and run deep neural networks, drive robots, and even simulate your model on a completely different neural simulator or neuromorphic hardware.</p>",
     "urls": {
@@ -615,8 +624,11 @@
       }
     ],
     "release": {
+      "etag": "\"FpuvXv4pM5mDhHoAqQ+lqA\"",
       "package_name": "nengo-gui",
-      "source": "pypi"
+      "published": "2025-05-29",
+      "source": "pypi",
+      "version": "0.6.0"
     },
     "summary": "<p>Nengo GUI is an HTML5-based interactive visualizer for large-scale neural models created with Nengo. The GUI lets you see the structure of a Nengo model, plots spiking activity and decoded representations, and enables you to alter inputs in real time while the model is running.</p>",
     "urls": {
@@ -654,8 +666,11 @@
       }
     ],
     "release": {
+      "etag": "\"vu6cJruHJPXg3WsHvnHv4g\"",
       "package_name": "nengo-ocl",
-      "source": "pypi"
+      "published": "2023-11-16",
+      "source": "pypi",
+      "version": "3.0.0"
     },
     "summary": "<p>NengoOCL is an OpenCL-based simulator for brain models built using Nengo. It can be orders of magnitude faster than the reference simulator in nengo for large models.</p>",
     "urls": {
@@ -680,11 +695,11 @@
       }
     ],
     "release": {
-      "etag": "\"ZQI1EV3LkcJBEjWyd99NxQ\"",
+      "etag": "\"oRuzop5Du7ormyma9PsdVA\"",
       "package_name": "netpyne",
-      "published": "2024-09-04",
+      "published": "2025-07-09",
       "source": "pypi",
-      "version": "1.0.7"
+      "version": "1.1.0"
     },
     "summary": "<p>NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.</p>",
     "urls": {
