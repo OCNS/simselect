@@ -188,6 +188,27 @@
       "homepage": "http://bdtoolbox.org/"
     }
   },
+  "BrainPy": {
+    "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model",
+    "features": "frontend, simulator",
+    "interface_language": "Python",
+    "name": "BrainPy",
+    "operating_system": "Linux, MacOS, Windows",
+    "processing_support": "Single Machine, GPU",
+    "release": {
+      "package_name": "brainpy",
+      "source": "pypi"
+    },
+    "summary": "<p>BrainPy is a flexible, efficient, and extensible framework for computational neuroscience and brain-inspired computation based on the Just-In-Time (JIT) compilation (built on top of JAX, Taichi, Numba, and others). It provides an integrative ecosystem for brain dynamics programming, including brain dynamics building, simulation, training, analysis, etc.</p>",
+    "urls": {
+      "documentation": "https://brainpy.readthedocs.io",
+      "examples": "https://github.com/brainpy/examples",
+      "installation": "https://brainpy.readthedocs.io/en/latest/quickstart/installation.html",
+      "issue tracker": "https://github.com/brainpy/BrainPy/issues",
+      "source": "https://github.com/brainpy/BrainPy",
+      "tutorial": "https://brainpy.readthedocs.io/en/latest/core_concepts.html"
+    }
+  },
   "Brian": {
     "biological_level": "Population Model, Single-Compartment (Simple) Model, Single-Compartment (Complex) Model, Multi-Compartment Model",
     "features": "frontend, simulator",
@@ -269,6 +290,27 @@
       "installation": "https://brian2genn.readthedocs.io/en/stable/introduction/index.html#installing-the-brian2genn-interface",
       "issue tracker": "https://github.com/brian-team/brian2genn/issues",
       "source": "https://github.com/brian-team/brian2genn"
+    }
+  },
+  "CARLsim": {
+    "biological_level": "Single-Compartment (Simple) Model",
+    "features": "frontend, simulator",
+    "interface_language": "C++",
+    "name": "CARLsim",
+    "operating_system": "Linux, MacOS, Windows",
+    "processing_support": "Single Machine, GPU",
+    "release": {
+      "repository": "UCI-CARL/CARLsim6",
+      "source": "github"
+    },
+    "summary": "<p>CARLsim is an efficient, easy-to-use, GPU-accelerated library for simulating large-scale spiking neural network (SNN) models with a high degree of biological detail. CARLsim allows execution of networks of Izhikevich spiking neurons with realistic synaptic dynamics on both generic x86 CPUs and standard off-the-shelf GPUs. The simulator provides a PyNN-like programming interface (C/C++), which allows for details and parameters to be specified at the synapse, neuron, and network level.</p>",
+    "urls": {
+      "documentation": "https://uci-carl.github.io/CARLsim6/index.html",
+      "homepage": "http://www.socsci.uci.edu/~jkrichma/CARLsim/index.html",
+      "installation": "https://uci-carl.github.io/CARLsim6/ch1_getting_started.html",
+      "issue tracker": "https://github.com/UCI-CARL/CARLsim6/issues",
+      "source": "https://github.com/UCI-CARL/CARLsim6",
+      "tutorial": "https://uci-carl.github.io/CARLsim6/usergroup1.html"
     }
   },
   "DiPDE": {
@@ -536,6 +578,89 @@
       "issue tracker": "https://github.com/nest/nestml/issues",
       "source": "https://github.com/nest/nestml/",
       "tutorial": "https://nestml.readthedocs.io/en/latest/tutorials/index.html"
+    }
+  },
+  "Nengo": {
+    "biological_level": "Population Model, Single-Compartment (Simple) Model",
+    "features": "frontend, simulator",
+    "interface_language": "Python",
+    "name": "Nengo",
+    "operating_system": "Linux, MacOS, Windows",
+    "processing_support": "Single Machine",
+    "release": {
+      "package_name": "nengo",
+      "source": "pypi"
+    },
+    "summary": "<p>Nengo is a Python library for building and simulating large-scale neural models. Nengo can create sophisticated spiking and non-spiking neural simulations with sensible defaults in a few lines of code. Yet, Nengo is highly extensible and flexible. You can define your own neuron types and learning rules, get input directly from hardware, build and run deep neural networks, drive robots, and even simulate your model on a completely different neural simulator or neuromorphic hardware.</p>",
+    "urls": {
+      "documentation": "https://www.nengo.ai/documentation/",
+      "examples": "https://www.nengo.ai/examples/",
+      "forum": "https://forum.nengo.ai/",
+      "homepage": "https://www.nengo.ai",
+      "installation": "https://www.nengo.ai/nengo/getting-started.html#installation",
+      "issue tracker": "https://github.com/nengo/nengo/issues",
+      "source": "https://github.com/nengo/nengo",
+      "tutorial": "https://www.nengo.ai/nengo/examples.html#introductory-tutorials"
+    }
+  },
+  "NengoGUI": {
+    "features": "frontend",
+    "interface_language": "GUI",
+    "name": "NengoGUI",
+    "operating_system": "Linux, MacOS, Windows",
+    "relations": [
+      {
+        "description": "is GUI for",
+        "name": "Nengo"
+      }
+    ],
+    "release": {
+      "package_name": "nengo-gui",
+      "source": "pypi"
+    },
+    "summary": "<p>Nengo GUI is an HTML5-based interactive visualizer for large-scale neural models created with Nengo. The GUI lets you see the structure of a Nengo model, plots spiking activity and decoded representations, and enables you to alter inputs in real time while the model is running.</p>",
+    "urls": {
+      "source": "https://github.com/nengo/nengo-gui"
+    }
+  },
+  "NengoMPI": {
+    "features": "library",
+    "interface_language": "Python",
+    "name": "NengoMPI",
+    "operating_system": "Linux",
+    "processing_support": "Single Machine, Cluster",
+    "relations": [
+      {
+        "description": "simulates",
+        "name": "Nengo"
+      }
+    ],
+    "summary": "<p>nengo_mpi is a C++/MPI backend for nengo, a python library for building and simulating biologically realistic neural networks. nengo_mpi makes it possible to run nengo simulations in parallel on thousands of processors, and existing nengo scripts can be adapted to make use of nengo_mpi with minimal effort.</p>",
+    "urls": {
+      "documentation": "https://nengo-mpi.readthedocs.org/",
+      "source": "https://github.com/nengo/nengo-gui"
+    }
+  },
+  "NengoOCL": {
+    "features": "library",
+    "interface_language": "Python",
+    "name": "NengoOCL",
+    "operating_system": "Linux, MacOS, Windows",
+    "processing_support": "GPU",
+    "relations": [
+      {
+        "description": "simulates",
+        "name": "Nengo"
+      }
+    ],
+    "release": {
+      "package_name": "nengo-ocl",
+      "source": "pypi"
+    },
+    "summary": "<p>NengoOCL is an OpenCL-based simulator for brain models built using Nengo. It can be orders of magnitude faster than the reference simulator in nengo for large models.</p>",
+    "urls": {
+      "documentation": "https://www.nengo.ai/nengo-ocl",
+      "source": "https://github.com/nengo/nengo-ocl"
     }
   },
   "NetPyNE": {
