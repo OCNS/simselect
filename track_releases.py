@@ -1,10 +1,13 @@
 import json
+import os
 import urllib
 import yaml
 import pathlib
 
 import feedparser
 from packaging.version import Version
+
+GH_TOKEN = os.environ.get("GH_TOKEN", None)
 
 # Go through the yaml files
 simtools_dir = pathlib.Path("simtools")
@@ -49,9 +52,12 @@ for yaml_file in yaml_files:
         repo_name = release_info.get("repository", name)
         etag = release_info.get("etag", None)
         print(f"Checking updates for '{name}', latest known version: {current_version}")
+        headers = {"Accept": "application/vnd.github+json"}
+        if GH_TOKEN:
+            headers["authorization"] = f"Bearer {GH_TOKEN}"
         request = urllib.request.Request(
             f"https://api.github.com/repos/{repo_name}/releases/latest",
-            headers={"Accept": "application/vnd.github+json"},
+            headers=headers,
         )
         response = urllib.request.urlopen(request)
         if response.status == 304:
