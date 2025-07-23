@@ -20,9 +20,9 @@ summary: "Simulating the human brain is the holy grail of neuroscience - offerin
 release:
   source: pypi
   package_name: tvb-library
-  version: 2.9.2
-  published: '2025-02-21'
-  etag: '"/lKuVV7zFbP1C6MztBm5EQ"'
+  version: 2.10.0
+  published: '2025-07-22'
+  etag: '"7N+9APadCJWer5Z7LAVFbw"'
 urls:
   homepage: https://www.thevirtualbrain.org/
   source: https://github.com/the-virtual-brain/
