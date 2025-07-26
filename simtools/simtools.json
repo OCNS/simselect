@@ -165,11 +165,11 @@
       }
     ],
     "release": {
-      "etag": "\"MO8TN3Cgf3Z0U/ArSDtP8g\"",
+      "etag": "\"xlZSLXTkBpZGKn1/7fglfg\"",
       "package_name": "bsb",
-      "published": "2025-07-18",
+      "published": "2025-07-25",
       "source": "pypi",
-      "version": "6.0.2"
+      "version": "6.0.3"
     },
     "summary": "<p>The Brain Scaffold Builder (BSB) is a black box component framework for multiparadigm neural modelling: we provide structure, architecture and organization, and you provide the use-case specific parts of your model.\nIn our framework, your model is described in a code-free configuration of components with parameters.</p>\n<p>For the framework to reliably use components, and make them work together in a complex workflow, it asks a fixed set of questions per component type: e.g. a connection component will be asked how to connect cells.\nThese contracts of cooperation between you and the framework are called interfaces. The framework executes a transparently parallelized workflow, and calls your components to fulfill their role.</p>\n<p>This way, by implementing our component interfaces and declaring them in a configuration file, most models end up being code-free, well-parametrized, self-contained, human-readable, multi-scale models!</p>",
     "urls": {
@@ -1072,11 +1072,11 @@
       }
     ],
     "release": {
-      "etag": "\"4MBkrKPkn4brXQr0LRSDbQ\"",
+      "etag": "\"Vn5RdJqBWYEblUWVW/PTxQ\"",
       "package_name": "nrn-patch",
-      "published": "2025-07-18",
+      "published": "2025-07-25",
       "source": "pypi",
-      "version": "6.0.2"
+      "version": "6.0.3"
     },
     "summary": "<p>A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.</p>",
     "urls": {
