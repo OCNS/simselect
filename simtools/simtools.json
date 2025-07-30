@@ -591,11 +591,11 @@
       }
     ],
     "release": {
-      "etag": "\"aCdH6mr34i9QWp39n5ZtSw\"",
+      "etag": "\"7aFs717OD7SpHPeSC9QGBw\"",
       "package_name": "nestml",
-      "published": "2025-06-30",
+      "published": "2025-07-29",
       "source": "pypi",
-      "version": "8.0.2"
+      "version": "8.1.0"
     },
     "summary": "<p>NESTML is a domain-specific language for neuron and synapse models. These dynamical models can be used in simulations of brain activity on several platforms, in particular the NEST Simulator. NESTML combines an easy to understand, yet powerful syntax; a flexible processing toolchain, written in Python; and good simulation performance by means of code generation (C++ for NEST Simulator).</p>",
     "urls": {
