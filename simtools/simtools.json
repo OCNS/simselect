@@ -462,11 +462,11 @@
       }
     ],
     "release": {
-      "etag": "\"w8U0E92U6NIS3K+z1yU/kw\"",
+      "etag": "\"5AikOy5flplb5DPD1jnuEg\"",
       "package_name": "pymoose",
-      "published": "2025-07-03",
+      "published": "2025-08-18",
       "source": "pypi",
-      "version": "4.1.2"
+      "version": "4.1.3"
     },
     "summary": "<p>MOOSE is the Multiscale Object-Oriented Simulation Environment.\nIt is designed to simulate neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, circuits, and large networks.\nMOOSE can operate at many levels of detail, from stochastic chemical computations, to multicompartment single-neuron models, to spiking neuron network models.</p>\n<p>MOOSE is a simulation environment, not just a numerical engine.\nIt provides the essentials by way of object-oriented representations of model concepts and fast numerical solvers, but its scope is much broader.\nIt has a scripting interface with Python, graphical displays with Matplotlib, PyQt, and OpenGL, and support for many model formats.</p>",
     "urls": {
