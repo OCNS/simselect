@@ -25,9 +25,9 @@ summary: 'Jaxley is a differentiable simulator for biophysical neuron models, wr
 release:
   source: pypi
   package_name: jaxley
-  version: 0.11.2
-  published: '2025-07-14'
-  etag: '"1kgrHmy7re0mJj1oYqruwA"'
+  version: 0.11.3
+  published: '2025-08-23'
+  etag: '"3xQe60Hx61p39VPv04dltw"'
 urls:
   source: https://github.com/jaxleyverse/jaxley
   documentation: https://jaxley.readthedocs.io
