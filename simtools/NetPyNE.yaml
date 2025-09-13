@@ -11,9 +11,9 @@ summary: 'NetPyNE is an open-source Python package to facilitate the development
 release:
   source: pypi
   package_name: netpyne
-  version: 1.1.0
-  published: '2025-07-09'
-  etag: '"oRuzop5Du7ormyma9PsdVA"'
+  version: 1.1.1
+  published: '2025-09-12'
+  etag: '"G3t9vdHY0B0lYq/89J+pLA"'
 urls:
   homepage: http://www.netpyne.org/
   installation: https://www.netpyne.org/documentation/installation
