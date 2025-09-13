@@ -718,11 +718,11 @@
       }
     ],
     "release": {
-      "etag": "\"oRuzop5Du7ormyma9PsdVA\"",
+      "etag": "\"G3t9vdHY0B0lYq/89J+pLA\"",
       "package_name": "netpyne",
-      "published": "2025-07-09",
+      "published": "2025-09-12",
       "source": "pypi",
-      "version": "1.1.0"
+      "version": "1.1.1"
     },
     "summary": "<p>NetPyNE is an open-source Python package to facilitate the development, parallel simulation, analysis, and optimization of biological neuronal networks using the NEURON simulator.</p>",
     "urls": {
