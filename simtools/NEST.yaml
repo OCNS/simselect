@@ -12,9 +12,9 @@ summary: 'NEST is a simulator for spiking neural network models that focuses on 
 release:
   source: github
   repository: nest/nest-simulator
-  version: '3.8'
-  published: '2024-08-02'
-  etag: W/"ca18070e05ee943fa2bc984ddc86de3bbe5cc7cdf0670deb2e75ba94c426bbe7"
+  version: '3.9'
+  published: '2025-09-24'
+  etag: '"136a9c78c7afa0db0a43e41c3b647a4adcb4a4f7825ebd6d5d5bdf03ead2bf19"'
 urls:
   homepage: https://nest-simulator.org
   source: https://github.com/nest/nest-simulator
