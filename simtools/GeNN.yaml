@@ -12,9 +12,9 @@ summary: 'GeNN is a GPU enhanced Neuronal Network simulation environment based o
 release:
   source: github
   repository: genn-team/genn
-  version: 5.2.0
-  published: '2025-04-25'
-  etag: W/"c737148de6f24135e1f345a538ee3a93314bb3722ccbdb76366c8627dfc4c530"
+  version: 5.3.0
+  published: '2025-09-29'
+  etag: '"be0b9527682061cf19b74de4cfcf95a41fb89f989ea7cff1a75f96686418af6f"'
 urls:
   homepage: https://genn-team.github.io
   documentation: https://genn-team.github.io/genn/documentation/4/html/index.html
