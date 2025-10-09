@@ -13,9 +13,9 @@ summary: BrainPy is a flexible, efficient, and extensible framework for computat
 release:
   source: pypi
   package_name: brainpy
-  version: 2.6.1
-  published: '2025-05-31'
-  etag: '"z1FiQsByaNdK8F11O+0VqQ"'
+  version: 3.0.0
+  published: '2025-10-08'
+  etag: '"5rl8L3RePIZHrpFVHmL+bA"'
 urls:
   source: https://github.com/brainpy/BrainPy
   installation: https://brainpy.readthedocs.io/en/latest/quickstart/installation.html
