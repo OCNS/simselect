@@ -18,9 +18,9 @@ urls:
 release:
   source: pypi
   package_name: nest-desktop
-  version: 4.1.0
-  published: '2025-05-09'
-  etag: '"sHgEEBT5wtEIjIG0pqts7A"'
+  version: 4.2.0
+  published: '2025-10-16'
+  etag: '"uwQUrvjLJ6APKWZlXWv6kg"'
 relations:
 - name: NEST
   description: is GUI for
