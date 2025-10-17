@@ -543,11 +543,11 @@
       }
     ],
     "release": {
-      "etag": "\"sHgEEBT5wtEIjIG0pqts7A\"",
+      "etag": "\"uwQUrvjLJ6APKWZlXWv6kg\"",
       "package_name": "nest-desktop",
-      "published": "2025-05-09",
+      "published": "2025-10-16",
       "source": "pypi",
-      "version": "4.1.0"
+      "version": "4.2.0"
     },
     "summary": "<p>NEST Desktop is a web-based GUI application for NEST Simulator, an advanced simulation tool for computational neuroscience.\nNEST Desktop enables to construct a neuronal network model graphically and to perform a simulation experiment.\nThus, no programming skills are required.</p>",
     "urls": {
