@@ -220,11 +220,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, Cluster",
     "release": {
-      "etag": "\"ArC5PmppiMTJkSZ+c9ZPgw\"",
+      "etag": "\"+wUu+wRB/MmcCYOYEx9p1w\"",
       "package_name": "Brian2",
-      "published": "2025-05-14",
+      "published": "2025-12-04",
       "source": "pypi",
-      "version": "2.9.0"
+      "version": "2.10.0"
     },
     "summary": "<p>Brian is a free, open source simulator for spiking neural networks. It is written in the Python programming language and is available on almost all platforms. We believe that a simulator should not only save the time of processors, but also the time of scientists. Brian is therefore designed to be easy to learn and use, highly flexible and easily extensible. </p>",
     "urls": {
