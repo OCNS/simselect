@@ -7,10 +7,10 @@
     "operating_system": "Linux, MacOS",
     "processing_support": "Single Machine, GPU",
     "release": {
-      "etag": "\"xPBklP2vb5t8X7bwk+wOmg\"",
-      "published": "2025-11-18",
+      "etag": "\"veuPL1hYh+bIrh0B7KJwjQ\"",
+      "published": "2026-01-08",
       "source": "pypi",
-      "version": "4.8.2.6"
+      "version": "5.0.0"
     },
     "summary": "<p>ANNarchy (Artificial Neural Networks architect) is a neural simulator designed for distributed rate-coded or spiking neural networks. The core of the library is written in C++ and distributed using openMP or CUDA. It provides an interface in Python for the definition of the networks.</p>",
     "urls": {
