@@ -165,11 +165,11 @@
       }
     ],
     "release": {
-      "etag": "\"hBTW5dJX+p2xpSYMs/kfeA\"",
+      "etag": "\"vGF80exzj+GsJXR0I0wUbA\"",
       "package_name": "bsb",
-      "published": "2026-01-09",
+      "published": "2026-01-13",
       "source": "pypi",
-      "version": "7.1.0"
+      "version": "7.2.0"
     },
     "summary": "<p>The Brain Scaffold Builder (BSB) is a black box component framework for multiparadigm neural modelling: we provide structure, architecture and organization, and you provide the use-case specific parts of your model.\nIn our framework, your model is described in a code-free configuration of components with parameters.</p>\n<p>For the framework to reliably use components, and make them work together in a complex workflow, it asks a fixed set of questions per component type: e.g. a connection component will be asked how to connect cells.\nThese contracts of cooperation between you and the framework are called interfaces. The framework executes a transparently parallelized workflow, and calls your components to fulfill their role.</p>\n<p>This way, by implementing our component interfaces and declaring them in a configuration file, most models end up being code-free, well-parametrized, self-contained, human-readable, multi-scale models!</p>",
     "urls": {
@@ -462,11 +462,11 @@
       }
     ],
     "release": {
-      "etag": "\"5AikOy5flplb5DPD1jnuEg\"",
+      "etag": "\"epBfHu5tbF1OrR0ReIoncA\"",
       "package_name": "pymoose",
-      "published": "2025-08-18",
+      "published": "2026-01-13",
       "source": "pypi",
-      "version": "4.1.3"
+      "version": "4.1.4"
     },
     "summary": "<p>MOOSE is the Multiscale Object-Oriented Simulation Environment.\nIt is designed to simulate neural systems ranging from subcellular components and biochemical reactions to complex models of single neurons, circuits, and large networks.\nMOOSE can operate at many levels of detail, from stochastic chemical computations, to multicompartment single-neuron models, to spiking neuron network models.</p>\n<p>MOOSE is a simulation environment, not just a numerical engine.\nIt provides the essentials by way of object-oriented representations of model concepts and fast numerical solvers, but its scope is much broader.\nIt has a scripting interface with Python, graphical displays with Matplotlib, PyQt, and OpenGL, and support for many model formats.</p>",
     "urls": {
@@ -1072,11 +1072,11 @@
       }
     ],
     "release": {
-      "etag": "\"1lAYCBKD6nxlmN1dYf4Wxw\"",
+      "etag": "\"2HTTchRuDj6UCoO3ACWcjA\"",
       "package_name": "nrn-patch",
-      "published": "2026-01-09",
+      "published": "2026-01-13",
       "source": "pypi",
-      "version": "7.1.0"
+      "version": "7.2.0"
     },
     "summary": "<p>A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.</p>",
     "urls": {
