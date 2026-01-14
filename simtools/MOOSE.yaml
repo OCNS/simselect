@@ -31,9 +31,9 @@ urls:
 release:
   source: pypi
   package_name: pymoose
-  version: 4.1.3
-  published: '2025-08-18'
-  etag: '"5AikOy5flplb5DPD1jnuEg"'
+  version: 4.1.4
+  published: '2026-01-13'
+  etag: '"epBfHu5tbF1OrR0ReIoncA"'
 relations:
 - name: NeuroML
   description: can import, can export to
