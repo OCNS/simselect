@@ -374,11 +374,11 @@
     "operating_system": "Linux, MacOS, Windows",
     "processing_support": "Single Machine, GPU",
     "release": {
-      "etag": "\"be0b9527682061cf19b74de4cfcf95a41fb89f989ea7cff1a75f96686418af6f\"",
-      "published": "2025-09-29",
+      "etag": "\"15e1da870c1a58f37106ab782f64f92a6b8075e55376b582786aaa962ab47515\"",
+      "published": "2026-01-20",
       "repository": "genn-team/genn",
       "source": "github",
-      "version": "5.3.0"
+      "version": "5.4.0"
     },
     "summary": "<p>GeNN is a GPU enhanced Neuronal Network simulation environment based on NVIDIA CUDA technology.</p>",
     "urls": {
