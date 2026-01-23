@@ -1072,11 +1072,11 @@
       }
     ],
     "release": {
-      "etag": "\"2HTTchRuDj6UCoO3ACWcjA\"",
+      "etag": "\"6o79YozAP9ntFL43/c04jw\"",
       "package_name": "nrn-patch",
-      "published": "2026-01-13",
+      "published": "2026-01-22",
       "source": "pypi",
-      "version": "7.2.0"
+      "version": "7.2.1"
     },
     "summary": "<p>A Pythonic object-oriented drop-in replacement for the Python interface to NEURON.</p>",
     "urls": {
