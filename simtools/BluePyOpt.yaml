@@ -22,9 +22,9 @@ summary: 'The Blue Brain Python Optimisation Library (BluePyOpt) is an extensibl
 release:
   source: pypi
   package_name: bluepyopt
-  version: 1.14.18
-  published: '2025-01-28'
-  etag: '"sBhMXq1khgfzO3Ydmh+Mxw"'
+  version: 1.14.19
+  published: '2026-04-17'
+  etag: '"+Cn7KGVrFcRPKn7wfVd/QQ"'
 urls:
   homepage: https://bluepyopt.readthedocs.io
 relations:
