@@ -134,11 +134,11 @@
       }
     ],
     "release": {
-      "etag": "\"+Cn7KGVrFcRPKn7wfVd/QQ\"",
+      "etag": "\"Ttz5V3wd9uFZjhutuMeF2g\"",
       "package_name": "bluepyopt",
-      "published": "2026-04-17",
+      "published": "2026-04-20",
       "source": "pypi",
-      "version": "1.14.19"
+      "version": "1.14.20"
     },
     "summary": "<p>The Blue Brain Python Optimisation Library (BluePyOpt) is an extensible framework for data-driven model parameter optimisation that wraps and standardises several existing open-source tools.</p>\n<p>It simplifies the task of creating and sharing these optimisations, and the associated techniques and knowledge.\nThis is achieved by abstracting the optimisation and evaluation tasks into various reusable and flexible discrete elements according to established best-practices.</p>\n<p>Further, BluePyOpt provides methods for setting up both small- and large-scale optimisations on a variety of platforms, ranging from laptops to Linux clusters and cloud-based compute infrastructures.</p>",
     "urls": {
