@@ -435,10 +435,10 @@
       }
     ],
     "release": {
-      "etag": "\"LUZZbbdu3odc7HCBjQVY+A\"",
-      "published": "2025-11-12",
+      "etag": "\"HzgiJ3rdOOMAU1CuXgcY0w\"",
+      "published": "2026-05-07",
       "source": "pypi",
-      "version": "2.3.6"
+      "version": "2.3.7"
     },
     "summary": "<p>LFPy is a Python module for calculation of extracellular potentials from multicompartment neuron models.\nIt relies on the NEURON simulator and uses the Python interface it provides.</p>",
     "urls": {
