@@ -10,9 +10,9 @@ summary: 'LFPy is a Python module for calculation of extracellular potentials fr
   '
 release:
   source: pypi
-  version: 2.3.6
-  published: '2025-11-12'
-  etag: '"LUZZbbdu3odc7HCBjQVY+A"'
+  version: 2.3.7
+  published: '2026-05-07'
+  etag: '"HzgiJ3rdOOMAU1CuXgcY0w"'
 urls:
   homepage: https://lfpy.readthedocs.io/en/latest/
   documentation: https://lfpy.readthedocs.io/en/latest/
