@@ -13,9 +13,9 @@ summary: 'ANNarchy (Artificial Neural Networks architect) is a neural simulator 
   '
 release:
   source: pypi
-  version: 5.0.1
-  published: '2026-02-17'
-  etag: '"v0BFpA5EGOyT+rFWQkoFLw"'
+  version: 5.0.2
+  published: '2026-05-11'
+  etag: '"aTptU8OqzELqAhAo8aGJgQ"'
 urls:
   documentation: https://annarchy.readthedocs.io
   installation: https://annarchy.readthedocs.io/Installation.html
