@@ -513,11 +513,11 @@
       }
     ],
     "release": {
-      "etag": "\"136a9c78c7afa0db0a43e41c3b647a4adcb4a4f7825ebd6d5d5bdf03ead2bf19\"",
-      "published": "2025-09-24",
+      "etag": "\"518163331e1065a8c2b81d8b33cd80894320294be4f311838346e0b1b8fc02f9\"",
+      "published": "2026-06-09",
       "repository": "nest/nest-simulator",
       "source": "github",
-      "version": "3.9"
+      "version": "3.10"
     },
     "summary": "<p>NEST is a simulator for spiking neural network models that focuses on the dynamics, size and structure of neural systems rather than on the exact morphology of individual neurons.</p>",
     "urls": {
