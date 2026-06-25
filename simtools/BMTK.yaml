@@ -21,9 +21,9 @@ summary: "The Brain Modeling Toolkit (BMTK) is a python-based software package f
 release:
   source: pypi
   package_name: bmtk
-  version: 1.1.4
-  published: '2026-01-27'
-  etag: '"qhCHGVn8fjvwMU0GYg5pAQ"'
+  version: 1.2.0
+  published: '2026-06-24'
+  etag: '"szGjiGfVOlz8GtkMsn0Psw"'
 urls:
   homepage: https://alleninstitute.github.io/bmtk/
 relations:
