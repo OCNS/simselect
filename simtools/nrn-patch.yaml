@@ -7,9 +7,9 @@ summary: A Pythonic object-oriented drop-in replacement for the Python interface
 release:
   source: pypi
   package_name: nrn-patch
-  version: 7.4.0
-  published: '2026-05-29'
-  etag: '"8uk8nMlj8K8Qv93Mqws2Aw"'
+  version: 7.6.0
+  published: '2026-06-30'
+  etag: '"isx9sbo4auYJ7AfOFSBDVg"'
 relations:
 - name: Neuron
   description: is Python API for
