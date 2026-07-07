@@ -868,11 +868,11 @@
       }
     ],
     "release": {
-      "etag": "\"wKAOjKmABBakbLy1H0JCQw\"",
+      "etag": "\"23AEN5jRyrXCobnhbNqKPg\"",
       "package_name": "PyNN",
-      "published": "2025-04-02",
+      "published": "2026-07-06",
       "source": "pypi",
-      "version": "0.12.4"
+      "version": "0.13.0"
     },
     "summary": "<p>PyNN (pronounced 'pine') is a simulator-independent language for building neuronal network models.</p>\n<p>In other words, you can write the code for a model once, using the PyNN API and the Python programming language, and then run it without modification on any simulator that PyNN supports (currently NEURON, NEST and Brian 2) and on a number of neuromorphic hardware systems.</p>\n<p>The PyNN API aims to support modelling at a high-level of abstraction (populations of neurons, layers, columns and the connections between them) while still allowing access to the details of individual neurons and synapses when required.\nPyNN provides a library of standard neuron, synapse and synaptic plasticity models, which have been verified to work the same on the different supported simulators.\nPyNN also provides a set of commonly-used connectivity algorithms (e.g. all-to-all, random, distance-dependent, small-world) but makes it easy to provide your own connectivity in a simulator-independent way.</p>\n<p>Even if you don't wish to run simulations on multiple simulators, you may benefit from writing your simulation code using PyNN's powerful, high-level interface.\nIn this case, you can use any neuron or synapse model supported by your simulator, and are not restricted to the standard models.</p>",
     "urls": {
