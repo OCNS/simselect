@@ -35,9 +35,9 @@ summary: 'PyNN (pronounced ''pine'') is a simulator-independent language for bui
 release:
   source: pypi
   package_name: PyNN
-  version: 0.12.4
-  published: '2025-04-02'
-  etag: '"wKAOjKmABBakbLy1H0JCQw"'
+  version: 0.13.0
+  published: '2026-07-06'
+  etag: '"23AEN5jRyrXCobnhbNqKPg"'
 urls:
   homepage: http://neuralensemble.org/PyNN/
   source: https://github.com/NeuralEnsemble/PyNN/
