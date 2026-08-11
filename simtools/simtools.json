@@ -814,11 +814,11 @@
       }
     ],
     "release": {
-      "etag": "\"sXnQJluQdOAROZ3LgWRYLg\"",
+      "etag": "\"/Do7vMk2S/4adIwtDn2hBg\"",
       "package_name": "neuron",
-      "published": "2025-11-17",
+      "published": "2026-08-10",
       "source": "pypi",
-      "version": "9.0.1"
+      "version": "9.0.2"
     },
     "summary": "<p>NEURON is a simulator for neurons and networks of neurons that runs efficiently on your local machine, in the cloud, or on an HPC.\nBuild and simulate models using Python, HOC, and/or NEURON's graphical interface.</p>",
     "urls": {
