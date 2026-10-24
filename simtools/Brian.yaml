@@ -13,9 +13,9 @@ summary: 'Brian is a free, open source simulator for spiking neural networks. It
 release:
   source: pypi
   package_name: Brian2
-  version: 2.10.1
-  published: '2025-12-05'
-  etag: '"HlNezD2OShODBOXIVKMrGg"'
+  version: 2.11.0
+  published: '2026-10-23'
+  etag: '"j5aULpx/EvFLQXRXkuE8hw"'
 urls:
   homepage: https://briansimulator.org/
   documentation: https://brian2.readthedocs.io/
